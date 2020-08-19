@@ -10,7 +10,7 @@ GrowingIO GraphQL Java SDK
 - maven
 ```
 <dependency>
-    <groupId>io.growing.graphql</groupId>
+    <groupId>io.growing</groupId>
     <artifactId>growing-graphql-javasdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
@@ -18,12 +18,12 @@ GrowingIO GraphQL Java SDK
 
 - gradle
 ```
-compile group: 'io.growing.graphql', name: 'growing-graphql-javasdk', version: '0.0.1-SNAPSHOT'
+compile group: 'io.growing', name: 'growing-graphql-javasdk', version: '0.0.1-SNAPSHOT'
 ```
 
 - sbt
 ```
-libraryDependencies += "io.growing.graphql" % "growing-graphql-javasdk" % "0.0.1-SNAPSHOT"
+libraryDependencies += "io.growing" % "growing-graphql-javasdk" % "0.0.1-SNAPSHOT"
 ```
 2. 调用接口，调用有三种方式：
 
