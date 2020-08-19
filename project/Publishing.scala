@@ -1,44 +1,37 @@
-import sbt.Keys._
 import sbt._
+import sbt.Keys._
+import xerial.sbt.Sonatype.autoImport.sonatypeProfileName
 
-object Publishing extends AutoPlugin {
+object Publishing {
 
-  override def trigger: PluginTrigger = allRequirements
-
-  override def projectSettings: Seq[_root_.sbt.Def.Setting[_]] = Seq(
-    credentials += Credentials(Path.userHome / ".ivy2" / ".credentials"),
-    publishMavenStyle := true,
+  //publish by sbt publishSigned
+  lazy val publishSettings = Seq(
+    credentials += Credentials(Path.userHome / ".ivy2" / ".sonatype_credentials"),
     publishTo := {
-      val nexus = "https://nexus.growingio.com"
-      if (isSnapshot.value) {
-        Some("snapshots" at nexus + "/repository/maven-snapshots/")
-      } else {
-        Some("releases" at nexus + "/repository/maven-releases/")
-      }
+      val nexus = "https://oss.sonatype.org/"
+      if (isSnapshot.value)
+        Some("snapshots" at nexus + "content/repositories/snapshots")
+      else
+        Some("releases" at nexus + "service/local/staging/deploy/maven2")
     },
-    pomExtra :=
-      <url>https://codes.growingio.com/diffusion/211/</url>
-      <scm>
-        <url>ssh://vcs-user@codes.growingio.com/diffusion/211/growing-events.git</url>
-        <connection>scm:git:ssh://vcs-user@codes.growingio.com/diffusion/211/growing-events.git</connection>
-      </scm>
-      <developers>
-        <developer>
-          <id>yanbo.ai</id>
-          <name>Andy Ai</name>
-          <url>http://aiyanbo.github.io/</url>
-        </developer>
-      </developers>)
-
-}
-
-object DontPublish extends AutoPlugin {
-
-  override def requires: Plugins = plugins.IvyPlugin
-
-  override def projectSettings: Seq[_root_.sbt.Def.Setting[_]] = Seq(
-    publishArtifact := false,
-    publish := Unit,
-    publishLocal := Unit)
-
+    licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
+    publishMavenStyle := true,
+    publishArtifact in Test := false,
+    pomIncludeRepository := { _ => false },
+    developers := List(
+      Developer(
+        id = "dreamylost",
+        name = "梦境迷离",
+        email = "dreamylost@outlook.com",
+        url = url("https://dreamylost.cn")
+      )),
+    sonatypeProfileName := organization.value,
+    isSnapshot := version.value endsWith "SNAPSHOT",
+    homepage := Some(url("https://www.growingio.com")),
+    scmInfo := Some(
+      ScmInfo(
+        url("https://github.com/growingio/growing-graphql-javasdk"),
+        "scm:git@github.com:growingio/growing-graphql-javasdk.git"
+      ))
+  )
 }

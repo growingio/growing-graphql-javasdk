@@ -1,6 +1,7 @@
 name := "growing-graphql-javasdk"
 scalaVersion := "2.12.12"
-organization := "io.growing.graphql"
+organization := "io.growing"
+
 Dependencies.javaClient
 
 //插件配置
@@ -68,7 +69,7 @@ lazy val `growing-cdp` = ProjectRef(uri("ssh://vcs-user@codes.growingio.com/diff
 (unmanagedResources in Compile) := (unmanagedResources in Compile).value.filter(file => !file.getName.endsWith(".graphql") && !file.getName.endsWith(".graphqls"))
 
 lazy val `growing-graphql-javasdk` = subProject("growing-graphql-javasdk", Some(".")).settings(GraphQLCodegenPluginDependencies).
-  enablePlugins(GraphQLCodegenPlugin, Publishing).settings(generatePluginSettings).dependsOn(`growing-cdp`)
+  enablePlugins(GraphQLCodegenPlugin).settings(generatePluginSettings).dependsOn(`growing-cdp`).settings(Publishing.publishSettings)
 
 
 def subProject(id: String, path: Option[String] = None): Project = {
