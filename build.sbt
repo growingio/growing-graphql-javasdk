@@ -1,4 +1,4 @@
-name := "growing-graphql-javasdk"
+name := "growingio-graphql-javasdk"
 scalaVersion := "2.12.12"
 organization := "io.growing"
 

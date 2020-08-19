@@ -6,7 +6,7 @@ object Publishing {
 
   //publish by sbt publishSigned
   lazy val publishSettings = Seq(
-    credentials += Credentials(Path.userHome / ".ivy2" / ".sonatype_credentials"),
+    credentials += Credentials(Path.userHome / ".ivy2" / ".sonatype_credentials_gio"),
     publishTo := {
       val nexus = "https://oss.sonatype.org/"
       if (isSnapshot.value)
@@ -20,10 +20,10 @@ object Publishing {
     pomIncludeRepository := { _ => false },
     developers := List(
       Developer(
-        id = "dreamylost",
-        name = "梦境迷离",
-        email = "dreamylost@outlook.com",
-        url = url("https://dreamylost.cn")
+        id = "LiGuoBin",
+        name = "LiGuoBin",
+        email = "liguobin@growingio.com",
+        url = url("https://www.growingio.com")
       )),
     sonatypeProfileName := organization.value,
     isSnapshot := version.value endsWith "SNAPSHOT",
