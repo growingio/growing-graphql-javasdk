@@ -29,7 +29,7 @@ compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0
 
 - sbt
 ```
-libraryDependencies += "io.growing" % "growingio-graphql-javasdk" % "0.0.1-SNAPSHOT" excludeAll ExclusionRule("io.growing.cdp")
+libraryDependencies += "io.growing" % "growingio-graphql-javasdk_2.12" % "0.0.1-SNAPSHOT" excludeAll ExclusionRule("io.growing.cdp")
 ```
 
 2. 调用接口，调用有三种方式：
