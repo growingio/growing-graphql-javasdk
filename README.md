@@ -34,7 +34,7 @@ libraryDependencies += "io.growing" % "growingio-graphql-javasdk" % "0.0.1-SNAPS
 
 2. 调用接口，调用有三种方式：
 
-具体可以参考 [javasdk-examples](https://github.com/growingio/growingio-graphql-javasdk/javasdk-examples)，这是使用Gradle+Java构建的示例项目。
+具体可以参考 [javasdk-examples](https://github.com/growingio/growingio-graphql-javasdk/blob/master/javasdk-examples/src/main/java/io/growing/graphql/InsightServiceExample.java)，这是使用Gradle+Java构建的示例项目。
 
 - 1.使用`src/main/scala/io/growing/graphql/api`包中已经封装好的API，如：
 ```scala
