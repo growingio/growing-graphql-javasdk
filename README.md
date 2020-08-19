@@ -59,22 +59,20 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
 > 注：若返回的是基本类型，则setProjection的参数值为null
 
 - 3.手动实现`src/main/java/io/growing/graphql/resolver`包中的接口，并手动使用`*Request`、`*Response`、`*ResponseProjection`和`*Resolver`发起请求
-    如：https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala
+    如：[示例](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala)
     
-> 前面两种使用代理，默认返回所有字段，如果需要仅返回部分字段，请使用第三种方式。如非必要，使用第一种最好。
-
-> 本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
+前面两种使用代理，默认返回所有字段，如果需要仅返回部分字段，请使用第三种方式。如非必要，使用第一种最好。本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
 
 > 代理调用 需要在 Java 1.8 上编译！
 
-## SDK 开发者新接口
+## SDK 开发者新增接口
 
 > 使用者忽略
 
 1. 使用`ProjectRef`依赖`growing-cdp`，增加接口前保证最新schema已经推到`growing-cdp`
 2. 更新schema后，重新执行`GraphqlSchemaMergeApp.scala`，该程序会合并schema，生成`all.graphqls`文件（因为`growing-cdp`的schema非标准写法）
 3. 执行`sbt graphqlCodegen compile`生成Java客户端和API
-    - 根据需要新增配置项，参考：https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md
+    - 根据需要新增配置项，参考：[options](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md)
 4. 生成的接口在`src/mian/scala/io/growing/graphql/api`包中，实现接口中新增的方法（方便用户使用，也方便自己测试验证。默认情况：本SDK仅提供一个封装示例`JobService.scala`）
     - 建议为最有可能出错的接口写一些使用示例，比如：多实例的子类序列化，指定的类型格式，多层嵌套结构，异步接口，订阅等等
     
