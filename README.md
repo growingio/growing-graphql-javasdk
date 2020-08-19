@@ -41,7 +41,7 @@ java.util.List<LogEntryDto> jobLogs(String id) throws Exception;//在JobLogsQuer
 //setProjection的参数是返回内容投影，LogEntryDto对应的就是LogEntryResponseProjection
 //setRequest的参数是请求方法，jobLogs对应的就是JobLogsQueryRequest
 //JobLogsQueryResolver和JobLogsQueryRequest是对应的，build表示jobLogs方法在哪里被定义，是在JobLogsQueryResolver中定义的
-//QueryResolver和MutationResolver是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法
+//GrowingIOQueryResolver和GrowingIOMutationResolver是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法
 //注：若返回的是基本类型，则setProjection参数值为null
 
 ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogEntryResponseProjection).
@@ -66,3 +66,4 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
 
 1. 根据功能将代码划分出多个`package`
 2. 支持Long类型的默认值
+3. 支持订阅
