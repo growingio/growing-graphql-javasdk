@@ -21,4 +21,5 @@ project/plugins/project/
 
 .DS_Store
 *.graphqls
-javasdk-examples/.gradle/
+/javasdk-examples/.gradle/
+/javasdk-examples/build/
