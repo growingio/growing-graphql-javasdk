@@ -67,7 +67,7 @@ lazy val `growing-cdp` = ProjectRef(uri("ssh://vcs-user@codes.growingio.com/diff
 //不发布原始文件！！！
 (unmanagedResources in Compile) := (unmanagedResources in Compile).value.filter(file => !file.getName.endsWith(".graphql") && !file.getName.endsWith(".graphqls"))
 
-lazy val `growing-graphql-javasdk` = subProject("growing-graphql-javasdk", Some(".")).settings(GraphQLCodegenPluginDependencies).
+lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", Some(".")).settings(GraphQLCodegenPluginDependencies).
   enablePlugins(GraphQLCodegenPlugin).settings(generatePluginSettings).dependsOn(`growing-cdp`).settings(Publishing.publishSettings)
 
 

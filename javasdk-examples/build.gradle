@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'io.growing'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.1-SNAPSHOT' exclude group: 'io.growing.cdp'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

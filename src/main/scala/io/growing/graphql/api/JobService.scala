@@ -10,7 +10,7 @@ import io.growing.graphql.resolver._
  *
  * job的查询服务
  *
- * 等同于实现QueryResolver，但是实现QueryResolver需要实现所有接口
+ * 等同于实现GrowingIOQueryResolver，但是实现GrowingIOQueryResolver需要实现所有接口
  *
  * @author liguobin@growingio.com
  * @version 1.0,2020/8/10

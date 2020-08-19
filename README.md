@@ -11,21 +11,30 @@ GrowingIO GraphQL Java SDK
 ```
 <dependency>
     <groupId>io.growing</groupId>
-    <artifactId>growingio-graphql-javasdk</artifactId>
+    <artifactId>growingio-graphql-javasdk_2.12</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <exclusions>
+        <exclusion>
+            <groupId>io.growing.cdp</groupId>
+            <artifactId>*</artifactId>
+        </exclusion>
+     </exclusions>
 </dependency>
 ```
 
 - gradle
 ```
-compile group: 'io.growing', name: 'growingio-graphql-javasdk', version: '0.0.1-SNAPSHOT'
+compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.1-SNAPSHOT' exclude group: 'io.growing.cdp'
 ```
 
 - sbt
 ```
-libraryDependencies += "io.growing" % "growingio-graphql-javasdk" % "0.0.1-SNAPSHOT"
+libraryDependencies += "io.growing" % "growingio-graphql-javasdk" % "0.0.1-SNAPSHOT" excludeAll ExclusionRule("io.growing.cdp")
 ```
+
 2. 调用接口，调用有三种方式：
+
+具体可以参考 [javasdk-examples](https://github.com/growingio/growingio-graphql-javasdk/javasdk-examples)，这是使用Gradle+Java构建的示例项目。
 
 - 1.使用`src/main/scala/io/growing/graphql/api`包中已经封装好的API，如：
 ```scala
@@ -48,11 +57,15 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
 * `build`：表示`jobLogs`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`JobLogsQueryResolver`中定义的
 * `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
 > 注：若返回的是基本类型，则setProjection的参数值为null
+
 - 3.手动实现`src/main/java/io/growing/graphql/resolver`包中的接口，并手动使用`*Request`、`*Response`、`*ResponseProjection`和`*Resolver`发起请求
     如：https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala
     
 > 前面两种使用代理，默认返回所有字段，如果需要仅返回部分字段，请使用第三种方式。如非必要，使用第一种最好。
-> 本SDK不会像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
+
+> 本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
+
+> 代理调用 需要在 Java 1.8 上编译！
 
 ## 如何开发新接口
 
@@ -68,3 +81,4 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
 1. 根据功能将代码划分出多个`package`
 2. 支持Long类型的默认值
 3. 支持订阅
+4. 完善schema依赖方式，去除依赖引入时的`exclude`

@@ -4,8 +4,6 @@ import sbt.Keys._
 object Dependencies {
 
   object Versions {
-    val log4j = "2.8.2"
-    val log4jApiScala = "11.0"
     val okhttp = "4.7.2"
     val jackson = "2.11.1"
     val commonsLang = "3.10"
@@ -16,13 +14,6 @@ object Dependencies {
   }
 
   object Compiles {
-
-    val log4j = Seq(
-      "org.apache.logging.log4j" %% "log4j-api-scala" % Versions.log4jApiScala,
-      "org.apache.logging.log4j" % "log4j-api" % Versions.log4j,
-      "org.apache.logging.log4j" % "log4j-core" % Versions.log4j,
-      "org.apache.logging.log4j" % "log4j-slf4j-impl" % Versions.log4j
-    )
 
     val jackson = Seq(
       "com.fasterxml.jackson.module" %% "jackson-module-scala" % Versions.jackson,
@@ -45,6 +36,6 @@ object Dependencies {
 
   lazy val l = libraryDependencies
 
-  lazy val javaClient = l ++= Seq(okhttp, commonLang, guava, json, config, scalaTest) ++ log4j ++ jackson
+  lazy val javaClient = l ++= Seq(okhttp, commonLang, guava, json, config, scalaTest) ++ jackson
 
 }
