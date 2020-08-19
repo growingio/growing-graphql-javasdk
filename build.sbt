@@ -12,7 +12,7 @@ val generatePluginSettings = Seq(
   generateClient := true,
   generateApis := true,
   generateModelsForRootTypes := true,
-  apiRootInterfaceStrategy:= com.kobylynskyi.graphql.codegen.model.ApiRootInterfaceStrategy.DO_NOT_GENERATE,
+  apiRootInterfaceStrategy := com.kobylynskyi.graphql.codegen.model.ApiRootInterfaceStrategy.DO_NOT_GENERATE,
   typeResolverPrefix := Some("GrowingIO"),
   javacOptions += "-parameters",
   //  generateCodegenTargetPath in GraphQLCodegenConfig := crossTarget.value / "src_graphql_java",
@@ -22,8 +22,7 @@ val generatePluginSettings = Seq(
     //如果只是用来返回查询结果，不定义标量映射直接只用字符串也没什么毛病
     //如果输入也需要，那么必须要定义映射关系才能正确构造请求
     types.put("DateTime", "java.time.ZonedDateTime")
-    types.put("Long", "java.lang.Long") //TODO 有默认值的字段会出现类型不匹配错误，先手动修改生成的Java文件
-    //TODO 同时Subscription重命名为DashboardSubscription
+    types.put("Long", "java.lang.Long")
     types.put("Object", "java.lang.Object")
     types
   }, modelNameSuffix := Some("Dto"),
