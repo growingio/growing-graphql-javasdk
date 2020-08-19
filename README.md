@@ -44,7 +44,7 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
 ```
 * `setProjection`：参数是返回结构，描述哪些结构的哪些字段被返回，`LogEntryDto`对应的就是`LogEntryResponseProjection`
 * `setRequest`：参数是该方法对应的请求的实例，`jobLogs`对应的就是`JobLogsQueryRequest`的实例
-* `JobLogsQueryResolver`和`JobLogsQueryRequest`是对应的，`LogEntryResponseProjection`存在共用，如：`List<LogEntryResponseProjection>`
+* `JobLogsQueryResolver`和`JobLogsQueryRequest`是对应的，`LogEntryResponseProjection`可能被多个方法用作返回类型，如：`List<LogEntryResponseProjection>`和`LogEntryResponseProjection`
 * `build`：表示`jobLogs`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`JobLogsQueryResolver`中定义的
 * `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
 > 注：若返回的是基本类型，则setProjection的参数值为null
