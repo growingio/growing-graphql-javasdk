@@ -36,17 +36,18 @@ println(logs)
 - 2.依靠代理工具类手动构造调用，以一个查询任务日志的接口为例：
 ```java
 java.util.List<LogEntryDto> jobLogs(String id) throws Exception;//在JobLogsQueryResolver中，以此类推
-```    
+```
+发起调用：
 ```scala
-//setProjection的参数是返回内容投影，LogEntryDto对应的就是LogEntryResponseProjection
-//setRequest的参数是请求方法，jobLogs对应的就是JobLogsQueryRequest
-//JobLogsQueryResolver和JobLogsQueryRequest是对应的，build表示jobLogs方法在哪里被定义，是在JobLogsQueryResolver中定义的
-//GrowingIOQueryResolver和GrowingIOMutationResolver是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法
-//注：若返回的是基本类型，则setProjection参数值为null
-
 ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogEntryResponseProjection).
     setRequest(new JobLogsQueryRequest).build(classOf[JobLogsQueryResolver]).jobLogs(id)
 ```
+* `setProjection`：参数是返回结构，描述哪些结构的哪些字段被返回，`LogEntryDto`对应的就是`LogEntryResponseProjection`
+* `setRequest`：参数是该方法对应的请求的实例，`jobLogs`对应的就是`JobLogsQueryRequest`的实例
+* `JobLogsQueryResolver`和`JobLogsQueryRequest`是对应的，`LogEntryResponseProjection`存在共用，如：`List<LogEntryResponseProjection>`
+* `build`：表示`jobLogs`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`JobLogsQueryResolver`中定义的
+* `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
+> 注：若返回的是基本类型，则setProjection的参数值为null
 - 3.手动实现`src/main/java/io/growing/graphql/resolver`包中的接口，并手动使用`*Request`、`*Response`、`*ResponseProjection`和`*Resolver`发起请求
     如：https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala
     
