@@ -10,22 +10,21 @@ import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * @author liguobin@growingio.com
  * @version 1.0, 2020/7/29
  */
-public interface ExecutionGraphql extends OkHttp {
+public interface ExecutionGraphql {
 
     default Object execute(String entityClazzName, GraphQLOperationRequest request, GraphQLResponseProjection projection) {
         GraphQLRequest graphQLRequest = new GraphQLRequest(request, projection);
         Future<Object> retFuture;
         Object ret = null;
         try {
-            retFuture = createExecuteRequest(graphQLRequest, entityClazzName);
+            retFuture = OkHttp.createExecuteRequest(graphQLRequest, entityClazzName);
             ret = Await.result(retFuture, Duration.create(Configs.timeOut(), TimeUnit.SECONDS));
-        } catch (InterruptedException | TimeoutException e) {
+        } catch (Exception e) {
             System.err.println(e.getLocalizedMessage());
         }
         return ret;

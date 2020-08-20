@@ -63,19 +63,21 @@ val generatePluginSettings = Seq(
 
 )
 
-//引用growing-cdp的gdp分支
-lazy val `growing-cdp` = ProjectRef(uri("ssh://vcs-user@codes.growingio.com/diffusion/301/growing-cdp.git#gdp"), "growing-cdp")
-
-//不发布原始文件！！！
-(unmanagedResources in Compile) := (unmanagedResources in Compile).value.filter(file => !file.getName.endsWith(".graphql") && !file.getName.endsWith(".graphqls"))
+//引用growing-cdp的gdp分支，这种方式太重了，编译时也会编译growing-cdp
+//并且由于有些我们自己的包没有支持交叉编译，无法处理依赖。本SDK将支持Scala2.11，2.12.2.13
+//lazy val `growing-cdp` = ProjectRef(uri("ssh://vcs-user@codes.growingio.com/diffusion/301/growing-cdp.git#gdp"), "growing-cdp")
 
 lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", Some(".")).
   enablePlugins(GraphQLCodegenPlugin).settings(
   GraphQLCodegenPluginDependencies,
   generatePluginSettings,
-  crossScalaVersions := Seq(scalaVersion212, scalaVersion211),
-  Publishing.publishSettings).dependsOn(`growing-cdp`) //只是使用了schema，没有使用growing-cdp其他任何类！！！！
-
+  crossScalaVersions := Seq(scalaVersion212, scalaVersion211, scalaVersion213),
+  // 只依赖growing-cdp的资源文件
+  // 记得使用GraphqlSchemaMergeApp.scala，重新合并为标准的schema文件
+  unmanagedSourceDirectories in Test += Path.userHome / "project" / "growing-cdp" / "src/main/resources",
+  //不发布原始文件！！！
+  (unmanagedResources in Compile) := (unmanagedResources in Compile).value.filter(file => !file.getName.endsWith(".graphql") && !file.getName.endsWith(".graphqls")),
+  Publishing.publishSettings)
 
 def subProject(id: String, path: Option[String] = None): Project = {
   Project(id, file(path.getOrElse(id)))

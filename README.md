@@ -5,34 +5,34 @@ GrowingIO GraphQL Java SDK
 
 ## 如何使用
 
-1. 添加依赖
+### 环境
+* Scala 2.11、2.12、2.13
+* Java 8
+
+### 1.添加依赖
 
 - maven
 ```
+//这里使用的是2.12
 <dependency>
     <groupId>io.growing</groupId>
     <artifactId>growingio-graphql-javasdk_2.12</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <exclusions>
-        <exclusion>
-            <groupId>io.growing.cdp</groupId>
-            <artifactId>*</artifactId>
-        </exclusion>
-     </exclusions>
 </dependency>
 ```
 
 - gradle
 ```
-compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.2-SNAPSHOT' exclude group: 'io.growing.cdp'
+//这里使用的是2.12
+compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.2-SNAPSHOT'
 ```
 
 - sbt
 ```
-libraryDependencies += "io.growing" % "growingio-graphql-javasdk_2.12" % "0.0.2-SNAPSHOT" excludeAll ExclusionRule("io.growing.cdp")
+libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.2-SNAPSHOT"
 ```
 
-2. 调用接口，调用有三种方式：
+### 2.调用接口，调用有三种方式：
 
 具体可以参考 [javasdk-examples](https://github.com/growingio/growingio-graphql-javasdk/blob/master/javasdk-examples/src/main/java/io/growing/graphql/InsightServiceExample.java)，这是使用Gradle+Java构建的示例项目。
 
@@ -100,7 +100,8 @@ graphql {
 
 > 使用者忽略
 
-1. 使用`ProjectRef`依赖`growing-cdp`，增加接口前保证最新schema已经推到`growing-cdp`
+1. 依赖`growing-cdp`项目的原始schema文件（`resources`目录），增加接口前保证最新schema已经land
+    - `resources`目录是：`Path.userHome / "project" / "growing-cdp" / "src/main/resources"`
 2. 更新schema后，重新执行`GraphqlSchemaMergeApp.scala`，该程序会合并schema，生成`all.graphqls`文件（因为`growing-cdp`的schema非标准写法）
 3. 执行`sbt graphqlCodegen compile`生成Java客户端和API
     - 根据需要新增配置项，参考：[options](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md)
@@ -113,4 +114,3 @@ graphql {
 1. 根据功能将代码划分出多个`package`
 2. 支持Long类型的默认值
 3. 支持订阅
-4. 完善schema依赖方式，去除依赖引入时的`exclude`

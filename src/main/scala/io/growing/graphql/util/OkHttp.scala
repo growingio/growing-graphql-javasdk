@@ -11,7 +11,7 @@ import org.json.JSONObject
 
 import scala.concurrent.{ Future, Promise }
 
-trait OkHttp extends ResponseDeserializer {
+object OkHttp extends ResponseDeserializer {
 
   private[this] lazy val defaultTimeout: Long = TimeUnit.MINUTES.toMillis(Configs.timeOut)
   private[this] lazy val client: OkHttpClient = buildClient(defaultTimeout, defaultTimeout, defaultTimeout)
