@@ -4,6 +4,8 @@ import sbt.Keys._
 object Dependencies {
 
   object Versions {
+    val scalaVersion212 = "2.12.12"
+    val scalaVersion211 = "2.11.11"
     val okhttp = "4.7.2"
     val jackson = "2.11.1"
     val commonsLang = "3.10"

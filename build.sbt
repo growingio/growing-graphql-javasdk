@@ -1,5 +1,7 @@
+import Dependencies.Versions._
+
 name := "growingio-graphql-javasdk"
-scalaVersion := "2.12.12"
+scalaVersion := scalaVersion212
 organization := "io.growing"
 
 Dependencies.javaClient
@@ -67,8 +69,12 @@ lazy val `growing-cdp` = ProjectRef(uri("ssh://vcs-user@codes.growingio.com/diff
 //不发布原始文件！！！
 (unmanagedResources in Compile) := (unmanagedResources in Compile).value.filter(file => !file.getName.endsWith(".graphql") && !file.getName.endsWith(".graphqls"))
 
-lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", Some(".")).settings(GraphQLCodegenPluginDependencies).
-  enablePlugins(GraphQLCodegenPlugin).settings(generatePluginSettings).dependsOn(`growing-cdp`).settings(Publishing.publishSettings)
+lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", Some(".")).
+  enablePlugins(GraphQLCodegenPlugin).settings(
+  GraphQLCodegenPluginDependencies,
+  generatePluginSettings,
+  crossScalaVersions := Seq(scalaVersion212, scalaVersion211),
+  Publishing.publishSettings).dependsOn(`growing-cdp`) //只是使用了schema，没有使用growing-cdp其他任何类！！！！
 
 
 def subProject(id: String, path: Option[String] = None): Project = {
