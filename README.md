@@ -102,6 +102,7 @@ graphql {
 
 1. 依赖`growing-cdp`项目的原始schema文件（`resources`目录），增加接口前保证最新schema已经land
     - `resources`目录是：`Path.userHome / "project" / "growing-cdp" / "src/main/resources"`
+    - 保证`growing-cdp`处于正确的git分支，因为依赖的原始schema文件是当前`growing-cdp`正在使用的git分支中的
 2. 更新schema后，重新执行`GraphqlSchemaMergeApp.scala`，该程序会合并schema，生成`all.graphqls`文件（因为`growing-cdp`的schema非标准写法）
 3. 执行`sbt graphqlCodegen compile`生成Java客户端和API
     - 根据需要新增配置项，参考：[options](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md)
@@ -112,5 +113,5 @@ graphql {
 ## TODO
 
 1. 根据功能将代码划分出多个`package`
-2. 支持Long类型的默认值
+2. 支持Long类型的默认值，目前在生成带有`Long`类型的默认值的类型后，需要手动修改生成的代码，为数值追加`L`后缀
 3. 支持订阅
