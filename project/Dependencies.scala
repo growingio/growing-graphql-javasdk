@@ -24,14 +24,14 @@ object Dependencies {
       "com.fasterxml.jackson.datatype" % "jackson-datatype-jdk8" % Versions.jackson,
       "com.fasterxml.jackson.module" % "jackson-module-parameter-names" % Versions.jackson
     )
-
-    val commonLang = "org.apache.commons" % "commons-lang3" % Versions.commonsLang
-    val guava = "com.google.guava" % "guava" % Versions.guava
     val json = "org.json" % "json" % Versions.json
     val config = "com.typesafe" % "config" % Versions.config
     val okhttp = "com.squareup.okhttp3" % "okhttp" % Versions.okhttp
-    val scalaTest = "org.scalatest" %% "scalatest" % Versions.scalaTest % "test"
 
+    //schema处理和测试不进行打包，减少依赖
+    val scalaTest = "org.scalatest" %% "scalatest" % Versions.scalaTest % "test"
+    val commonLang = "org.apache.commons" % "commons-lang3" % Versions.commonsLang % "test"
+    val guava = "com.google.guava" % "guava" % Versions.guava % "test"
   }
 
   import Compiles._

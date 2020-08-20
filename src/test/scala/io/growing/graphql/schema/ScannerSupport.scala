@@ -1,6 +1,7 @@
 package io.growing.graphql.schema
 
 import java.io.{ BufferedWriter, File, FileWriter }
+import java.time.{ LocalDateTime, ZoneId }
 
 import com.google.common.reflect.ClassPath
 
@@ -11,7 +12,6 @@ trait ScannerSupport {
   scanner: GraphqlSchemaScanner =>
 
   def mergeGraphql(classPath: ClassPath = ClassPath.from(this.getClass.getClassLoader), root: String = "graphql"): Unit = {
-    import java.time.{ LocalDateTime, ZoneId }
     val file = new File("src/main/resources/all.graphqls")
     if (file.exists()) {
       file.delete()
