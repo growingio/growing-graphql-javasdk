@@ -8,9 +8,10 @@ import io.growing.graphql.resolver._
 
 /**
  *
- * job的查询服务
+ * 仅封装job的相关的服务。此实现是一个示例（仅实现了job相关的resolver接口），后续想要封装可以参考这个类。
  *
- * 等同于实现GrowingIOQueryResolver，但是实现GrowingIOQueryResolver需要实现所有接口
+ * 与实现GrowingIOQueryResolver和GrowingIOMutationResolver具有相同功能，
+ * 但是实现GrowingIOQueryResolver和GrowingIOMutationResolver需要实现所有接口。
  *
  * @author liguobin@growingio.com
  * @version 1.0,2020/8/10
