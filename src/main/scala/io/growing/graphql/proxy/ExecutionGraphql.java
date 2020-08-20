@@ -3,12 +3,13 @@ package io.growing.graphql.proxy;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
-import io.growing.graphql.util.Configs;
+import io.growing.graphql.Configs;
 import io.growing.graphql.util.OkHttp;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -22,9 +23,8 @@ public interface ExecutionGraphql extends OkHttp {
         Future<Object> retFuture;
         Object ret = null;
         try {
-
             retFuture = createExecuteRequest(graphQLRequest, entityClazzName);
-            ret = Await.result(retFuture, Duration.Inf());
+            ret = Await.result(retFuture, Duration.create(Configs.timeOut(), TimeUnit.SECONDS));
         } catch (InterruptedException | TimeoutException e) {
             System.err.println(e.getLocalizedMessage());
         }

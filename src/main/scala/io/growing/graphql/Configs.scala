@@ -1,4 +1,4 @@
-package io.growing.graphql.util
+package io.growing.graphql
 
 import com.typesafe.config.ConfigFactory
 
@@ -12,7 +12,7 @@ import scala.util.Try
  */
 object Configs {
 
-  lazy val customConfig = ConfigFactory.load()
+  private lazy val customConfig = ConfigFactory.load()
 
   val serverHost = Try(customConfig.getString("graphql.server.host")).getOrElse("http://localhost:8080/graphql")
 
@@ -20,10 +20,19 @@ object Configs {
 
   val globalExcludeFields = Try(customConfig.getStringList("graphql.global-exclude-fields").asScala).getOrElse(Nil)
 
-  private val excludeFieldsConfig = Try(customConfig.getConfigList("graphql.exclude-fields").asScala).getOrElse(Nil)
+  private lazy val excludeFieldsConfig = Try(customConfig.getConfigList("graphql.exclude-fields").asScala).getOrElse(Nil)
 
   val excludeFields = excludeFieldsConfig.flatMap {
     c => Map(c.getString("method") -> c.getStringList("fields").asScala)
   }.toMap
 
+  private lazy val authenticateConfig = customConfig.getConfig("graphql.authenticate")
+
+  val auth = if (customConfig.hasPath("graphql.authenticate")) {
+    Some(Authenticate(authenticateConfig.getString("key"), authenticateConfig.getString("value")))
+  } else {
+    None
+  }
+
+  val timeOut = Try(customConfig.getInt("graphql.timeout")).getOrElse(1)
 }

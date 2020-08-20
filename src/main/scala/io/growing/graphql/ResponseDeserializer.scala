@@ -1,4 +1,4 @@
-package io.growing.graphql.proxy
+package io.growing.graphql
 
 import io.growing.graphql.util.Jackson
 import org.json.{ JSONArray, JSONObject }
@@ -21,6 +21,7 @@ trait ResponseDeserializer {
   def deserialize(data: Any, entityClazzName: String): Any = {
     val targetReturnClazz = Class.forName(entityClazzName)
     data match {
+      case array: JSONArray if array.isEmpty => java.util.Collections.emptyList()
       case array: JSONArray =>
         val result = new java.util.ArrayList[Any]()
         for (i <- 0 until array.length()) {
@@ -28,6 +29,7 @@ trait ResponseDeserializer {
           result.add(e)
         }
         result
+      case JSONObject.NULL => null
       case jsonObject: JSONObject => Jackson.mapper.readValue(jsonObject.toString, targetReturnClazz)
       case any: Any => any
     }

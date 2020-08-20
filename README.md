@@ -12,7 +12,7 @@ GrowingIO GraphQL Java SDK
 <dependency>
     <groupId>io.growing</groupId>
     <artifactId>growingio-graphql-javasdk_2.12</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <exclusions>
         <exclusion>
             <groupId>io.growing.cdp</groupId>
@@ -24,12 +24,12 @@ GrowingIO GraphQL Java SDK
 
 - gradle
 ```
-compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.1-SNAPSHOT' exclude group: 'io.growing.cdp'
+compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.2-SNAPSHOT' exclude group: 'io.growing.cdp'
 ```
 
 - sbt
 ```
-libraryDependencies += "io.growing" % "growingio-graphql-javasdk_2.12" % "0.0.1-SNAPSHOT" excludeAll ExclusionRule("io.growing.cdp")
+libraryDependencies += "io.growing" % "growingio-graphql-javasdk_2.12" % "0.0.2-SNAPSHOT" excludeAll ExclusionRule("io.growing.cdp")
 ```
 
 2. 调用接口，调用有三种方式：
@@ -62,6 +62,37 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
     如：[示例](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala)
     
 前面两种使用代理，默认返回所有字段，如果需要仅返回部分字段，请使用第三种方式。如非必要，使用第一种最好。本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
+
+## 配置
+
+```
+# src/main/java下定义配置文件：application.conf，可以覆盖默认配置
+graphql {
+    # 服务端的地址
+    server.host = "http://localhost:8086/projects/WlGk4Daj/graphql"
+    # graphql最大嵌套查询深度
+    maxDepth = 3
+
+    # 授权使用的header，最终以header(X-User-Id, 1)的形式，携带到服务端。
+    authenticate = {
+        key = "X-User-Id"  # 或者key="Cookie"，等任意字符
+        value = "1"
+    }
+
+    # 如果出现非空错误，可以尝试增加下面配置
+    # 所有接口方法调用时排除指定的返回字段，因为schema中定义的时候是非空但是服务端返回是空，所以不能请求查询这种字段
+    global-exclude-fields = ["projectId", "operator"]
+
+    # 单个方法调用时排除指定的返回字段
+    exclude-fields = [
+        {     #调用的方法名称，如方法：TagDto tag(String id) throws Exception; 方法名称是tag
+              method = "tag"
+              fields = ["projectId"]
+         }
+    ]
+
+}
+```
 
 > 代理调用 需要在 Java 1.8 上编译！
 
