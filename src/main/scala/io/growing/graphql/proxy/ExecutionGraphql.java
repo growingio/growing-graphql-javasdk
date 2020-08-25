@@ -23,7 +23,7 @@ public interface ExecutionGraphql {
         Object ret = null;
         try {
             retFuture = OkHttp.createExecuteRequest(graphQLRequest, entityClazzName);
-            ret = Await.result(retFuture, Duration.create(Configs.timeOut(), TimeUnit.SECONDS));
+            ret = Await.result(retFuture, Duration.create(Configs.timeOut(), TimeUnit.MINUTES));
         } catch (Exception e) {
             System.err.println(e.getLocalizedMessage());
         }
