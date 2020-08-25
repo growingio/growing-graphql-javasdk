@@ -58,6 +58,8 @@ ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogE
 * `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
 > 注：若返回的是基本类型，则setProjection的参数值为null
 
+> 需要返回指定字段怎么办？如可以这样：`new LogEntryResponseProjection().id().name()`，但`new LogEntryResponseProjection()`会返回所有字段。
+
 - 3.手动实现`src/main/java/io/growing/graphql/resolver`包中的接口，并手动使用`*Request`、`*Response`、`*ResponseProjection`和`*Resolver`发起请求
     如：[示例](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala)
     
@@ -78,18 +80,6 @@ graphql {
         key = "X-User-Id"  # 或者key="Cookie"，等任意字符
         value = "1"
     }
-
-    # 如果出现非空错误，可以尝试增加下面配置
-    # 所有接口方法调用时排除指定的返回字段，因为schema中定义的时候是非空但是服务端返回是空，所以不能请求查询这种字段
-    global-exclude-fields = ["projectId", "operator"]
-
-    # 单个方法调用时排除指定的返回字段
-    exclude-fields = [
-        {     #调用的方法名称，如方法：TagDto tag(String id) throws Exception; 方法名称是tag
-              method = "tag"
-              fields = ["projectId"]
-         }
-    ]
 
 }
 ```
@@ -115,3 +105,4 @@ graphql {
 1. 根据功能将代码划分出多个`package`
 2. 支持Long类型的默认值，目前在生成带有`Long`类型的默认值的类型后，需要手动修改生成的代码，为数值追加`L`后缀
 3. 支持订阅
+4. 不依赖编译参数

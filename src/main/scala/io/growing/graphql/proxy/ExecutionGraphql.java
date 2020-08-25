@@ -29,11 +29,4 @@ public interface ExecutionGraphql {
         }
         return ret;
     }
-
-    default Boolean excluded(String resolverMethodName, String projectionMethodName) {
-        if (Configs.globalExcludeFields().contains(projectionMethodName)) {
-            return true;
-        }
-        return Configs.excludeFields().get(resolverMethodName).isDefined() && Configs.excludeFields().get(resolverMethodName).get().contains(projectionMethodName);
-    }
 }

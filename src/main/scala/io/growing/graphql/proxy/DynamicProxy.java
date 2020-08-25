@@ -1,6 +1,7 @@
 package io.growing.graphql.proxy;
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
+import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseField;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
 
 import java.lang.reflect.*;
@@ -64,10 +65,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
      */
     private void invokeOnProjection(String resolverMethodName, GraphQLResponseProjection parentProjection, Method parentProjectionMethod, int currentDepth) {
         try {
-            //if this method have no parameter, eg: name()
-            //invoke method directly
             if (parentProjectionMethod.getParameterCount() == 0) {
-//                System.out.println("method <" + parentMethod.getName() + ">");
                 parentProjectionMethod.invoke(parentProjection, null);
                 return;
             }
@@ -90,10 +88,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
                                 for (int i = 0; i < currentDepth; i++) {
                                     t = t.concat("->");
                                 }
-//                                System.out.println(t + " method <" + subProjectionMethod.getName() + ">");
-                                if (!excluded(resolverMethodName, parentProjectionMethod.getName())) {
-                                    subProjectionMethod.invoke(subProjection, null);
-                                }
+                                subProjectionMethod.invoke(subProjection, null);
                             } else if (subProjectionMethod.getParameterCount() == 1 && GraphQLResponseProjection.class.isAssignableFrom(subProjectionMethod.getParameterTypes()[0])) {
                                 //if this method have one parameter and type is GraphQLResponseProjection sub class
                                 //recursive continuation call
@@ -146,16 +141,28 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
                 Object argsCopy = args[i++];
                 request.getInput().put(parameter.getName(), argsCopy);
                 params.put(parameter.getName(), argsCopy);
-//                    System.out.println("request parameter <" + parameter.getName() + "> and parameter type <" + parameter.getType().getName() + ">");
             }
         }
 
         //newInstance GraphQLResponseProjection and GraphQLOperationRequest
-        if (projection != null) {
+        Field field = null;
+        List<GraphQLResponseField> fields = null;
+        try {
+            field = projection.getClass().getSuperclass().getDeclaredField("fields");
+            field.setAccessible(true);
+            fields = (List<GraphQLResponseField>) field.get(projection);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        } finally {
+            if (field != null) {
+                field.setAccessible(false);
+            }
+        }
+
+        //if fields not null, use it directly, because user want to select fields
+        if (projection != null && (fields == null || fields.isEmpty())) {
             for (Method m : projection.getClass().getDeclaredMethods()) {
-                if (!excluded(method.getName(), m.getName())) {
-                    invokeOnProjection(method.getName(), projection, m, 1);
-                }
+                invokeOnProjection(method.getName(), projection, m, 1);
             }
         }
         return execute(entityClazzName, request, projection);
