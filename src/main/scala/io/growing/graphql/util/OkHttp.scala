@@ -10,10 +10,11 @@ import okhttp3._
 import org.json.JSONObject
 
 import scala.concurrent.{ Future, Promise }
+import scala.concurrent.duration.Duration
 
 object OkHttp extends ResponseDeserializer {
 
-  private[this] lazy val defaultTimeout: Long = TimeUnit.MINUTES.toMillis(Configs.timeOut)
+  private[this] lazy val defaultTimeout: Long = Duration.create(Configs.timeOut, TimeUnit.MINUTES).toMillis
   private[this] lazy val client: OkHttpClient = buildClient(defaultTimeout, defaultTimeout, defaultTimeout)
 
   private[this] def buildClient(readTimeout: Long, writeTimeout: Long, connectTimeout: Long): OkHttpClient = {
