@@ -63,7 +63,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
      * @param parentProjectionMethod
      * @param currentDepth
      */
-    private void invokeOnProjection(String resolverMethodName, GraphQLResponseProjection parentProjection, Method parentProjectionMethod, int currentDepth) {
+    private void invokeOnProjection(GraphQLResponseProjection parentProjection, Method parentProjectionMethod, int currentDepth) {
         try {
             if (parentProjectionMethod.getParameterCount() == 0) {
                 parentProjectionMethod.invoke(parentProjection, null);
@@ -93,7 +93,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
                                 //if this method have one parameter and type is GraphQLResponseProjection sub class
                                 //recursive continuation call
                                 if (currentDepth <= maxDepth) {
-                                    invokeOnProjection(resolverMethodName, subProjection, subProjectionMethod, currentDepth);
+                                    invokeOnProjection(subProjection, subProjectionMethod, currentDepth);
                                 }
                             } else {
                                 //TODO getParameterCount == 2, (GraphQLResponseProjection sub and String alias)
@@ -162,7 +162,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
         //if fields not null, use it directly, because user want to select fields
         if (projection != null && (fields == null || fields.isEmpty())) {
             for (Method m : projection.getClass().getDeclaredMethods()) {
-                invokeOnProjection(method.getName(), projection, m, 1);
+                invokeOnProjection(projection, m, 1);
             }
         }
         return execute(entityClazzName, request, projection);
