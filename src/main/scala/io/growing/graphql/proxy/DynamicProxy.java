@@ -5,7 +5,9 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseField;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
 
 import java.lang.reflect.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -121,8 +123,10 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
      * @return
      */
     private Object proxyInvoke(Method method, Object[] args) {
-        int i = 0;
+        Field field = null;
         String entityClazzName;
+        List<GraphQLResponseField> fields = null;
+        int i = 0;
         //handle List
         Type type = method.getGenericReturnType();
         if (type instanceof ParameterizedType) {
@@ -136,17 +140,13 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
         //if this method have no parameter, then do not need invoke on request instance
         //other wise, we need append parameters to request field which use hashmap store params
         if (!parameters.isEmpty()) {
-            Map<String, Object> params = new LinkedHashMap<>();
             for (Parameter parameter : parameters) {
                 Object argsCopy = args[i++];
                 request.getInput().put(parameter.getName(), argsCopy);
-                params.put(parameter.getName(), argsCopy);
             }
         }
 
         //newInstance GraphQLResponseProjection and GraphQLOperationRequest
-        Field field = null;
-        List<GraphQLResponseField> fields = null;
         try {
             field = projection.getClass().getSuperclass().getDeclaredField("fields");
             field.setAccessible(true);
