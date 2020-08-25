@@ -128,47 +128,36 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
     private Object proxyInvoke(Method method, Object[] args) {
         int i = 0;
         String entityClazzName;
-        try {
-            //handle List
-            Type type = method.getGenericReturnType();
-            if (type instanceof ParameterizedType) {
-                Type[] parameterizedType = ((ParameterizedType) type).getActualTypeArguments();
-                entityClazzName = parameterizedType[0].getTypeName();
-            } else {
-                entityClazzName = type.getTypeName();
-            }
-            List<Parameter> parameters = Arrays.stream(method.getParameters()).collect(Collectors.toList());
+        //handle List
+        Type type = method.getGenericReturnType();
+        if (type instanceof ParameterizedType) {
+            Type[] parameterizedType = ((ParameterizedType) type).getActualTypeArguments();
+            entityClazzName = parameterizedType[0].getTypeName();
+        } else {
+            entityClazzName = type.getTypeName();
+        }
+        List<Parameter> parameters = Arrays.stream(method.getParameters()).collect(Collectors.toList());
 
-            //if this method have no parameter, then do not need invoke on request instance
-            //other wise, we need append parameters to request field which use hashmap store params
-            if (!parameters.isEmpty()) {
-                Field input = request.getClass().getDeclaredField("input");
-                input.setAccessible(true);
-                Map<String, Object> params = new LinkedHashMap<>();
-                for (Parameter parameter : parameters) {
-                    Object argsCopy = args[i++];
-                    params.put(parameter.getName(), argsCopy);
+        //if this method have no parameter, then do not need invoke on request instance
+        //other wise, we need append parameters to request field which use hashmap store params
+        if (!parameters.isEmpty()) {
+            Map<String, Object> params = new LinkedHashMap<>();
+            for (Parameter parameter : parameters) {
+                Object argsCopy = args[i++];
+                request.getInput().put(parameter.getName(), argsCopy);
+                params.put(parameter.getName(), argsCopy);
 //                    System.out.println("request parameter <" + parameter.getName() + "> and parameter type <" + parameter.getType().getName() + ">");
-                }
-
-                input.set(request, params);
-                input.setAccessible(false);
             }
-
-            //newInstance GraphQLResponseProjection and GraphQLOperationRequest
-            if (projection != null) {
-                for (Method m : projection.getClass().getDeclaredMethods()) {
-                    if (!excluded(method.getName(), m.getName())) {
-                        invokeOnProjection(method.getName(), projection, m, 1);
-                    }
-                }
-            }
-            return execute(entityClazzName, request, projection);
-
-        } catch (IllegalAccessException | NoSuchFieldException e) {
-            e.printStackTrace();
         }
 
-        return null;
+        //newInstance GraphQLResponseProjection and GraphQLOperationRequest
+        if (projection != null) {
+            for (Method m : projection.getClass().getDeclaredMethods()) {
+                if (!excluded(method.getName(), m.getName())) {
+                    invokeOnProjection(method.getName(), projection, m, 1);
+                }
+            }
+        }
+        return execute(entityClazzName, request, projection);
     }
 }
