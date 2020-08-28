@@ -8,11 +8,47 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class CustomEventResponseProjection extends GraphQLResponseProjection {
 
     public CustomEventResponseProjection() {
+    }
+
+    @Override
+    public CustomEventResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public CustomEventResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.key();
+        this.description();
+        this.isSystem();
+        this.valueType();
+        if (projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.EventVariableResponseProjection.variables", 0) <= maxDepth) {
+            projectionDepthOnFields.put("CustomEventResponseProjection.EventVariableResponseProjection.variables", projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.EventVariableResponseProjection.variables", 0) + 1);
+            this.variables(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.EventVariableResponseProjection.variables", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.CustomEventChildResponseProjection.attributes", 0) <= maxDepth) {
+            projectionDepthOnFields.put("CustomEventResponseProjection.CustomEventChildResponseProjection.attributes", projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.CustomEventChildResponseProjection.attributes", 0) + 1);
+            this.attributes(new CustomEventChildResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.CustomEventChildResponseProjection.attributes", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.CustomEventChildResponseProjection.itemModels", 0) <= maxDepth) {
+            projectionDepthOnFields.put("CustomEventResponseProjection.CustomEventChildResponseProjection.itemModels", projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.CustomEventChildResponseProjection.itemModels", 0) + 1);
+            this.itemModels(new CustomEventChildResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("CustomEventResponseProjection.CustomEventChildResponseProjection.itemModels", 0)));
+        }
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public CustomEventResponseProjection id() {

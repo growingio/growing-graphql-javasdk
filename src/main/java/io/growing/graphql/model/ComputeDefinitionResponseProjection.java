@@ -8,11 +8,29 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class ComputeDefinitionResponseProjection extends GraphQLResponseProjection {
 
     public ComputeDefinitionResponseProjection() {
+    }
+
+    @Override
+    public ComputeDefinitionResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public ComputeDefinitionResponseProjection all$(int maxDepth) {
+        this.name();
+        this.expression();
+        if (projectionDepthOnFields.getOrDefault("ComputeDefinitionResponseProjection.ComputeDirectiveResponseProjection.directives", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ComputeDefinitionResponseProjection.ComputeDirectiveResponseProjection.directives", projectionDepthOnFields.getOrDefault("ComputeDefinitionResponseProjection.ComputeDirectiveResponseProjection.directives", 0) + 1);
+            this.directives(new ComputeDirectiveResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ComputeDefinitionResponseProjection.ComputeDirectiveResponseProjection.directives", 0)));
+        }
+        this.drillDownAttrs();
+        this.typename();
+        return this;
     }
 
     public ComputeDefinitionResponseProjection name() {

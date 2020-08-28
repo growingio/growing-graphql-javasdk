@@ -8,11 +8,34 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class DepartmentResponseProjection extends GraphQLResponseProjection {
 
     public DepartmentResponseProjection() {
+    }
+
+    @Override
+    public DepartmentResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public DepartmentResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.parentId();
+        if (projectionDepthOnFields.getOrDefault("DepartmentResponseProjection.DepartmentResponseProjection.departments", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DepartmentResponseProjection.DepartmentResponseProjection.departments", projectionDepthOnFields.getOrDefault("DepartmentResponseProjection.DepartmentResponseProjection.departments", 0) + 1);
+            this.departments(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DepartmentResponseProjection.DepartmentResponseProjection.departments", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("DepartmentResponseProjection.MemberResponseProjection.members", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DepartmentResponseProjection.MemberResponseProjection.members", projectionDepthOnFields.getOrDefault("DepartmentResponseProjection.MemberResponseProjection.members", 0) + 1);
+            this.members(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DepartmentResponseProjection.MemberResponseProjection.members", 0)));
+        }
+        this.memberCount();
+        this.typename();
+        return this;
     }
 
     public DepartmentResponseProjection id() {

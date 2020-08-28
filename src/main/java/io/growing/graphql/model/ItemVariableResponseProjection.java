@@ -8,11 +8,35 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class ItemVariableResponseProjection extends GraphQLResponseProjection {
 
     public ItemVariableResponseProjection() {
+    }
+
+    @Override
+    public ItemVariableResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public ItemVariableResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.key();
+        this.description();
+        this.valueType();
+        this.isPrimaryKey();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public ItemVariableResponseProjection id() {

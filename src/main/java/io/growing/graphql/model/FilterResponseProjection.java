@@ -8,11 +8,31 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class FilterResponseProjection extends GraphQLResponseProjection {
 
     public FilterResponseProjection() {
+    }
+
+    @Override
+    public FilterResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public FilterResponseProjection all$(int maxDepth) {
+        this.key();
+        this.op();
+        this.name();
+        this.values();
+        if (projectionDepthOnFields.getOrDefault("FilterResponseProjection.FilterResponseProjection.exprs", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FilterResponseProjection.FilterResponseProjection.exprs", projectionDepthOnFields.getOrDefault("FilterResponseProjection.FilterResponseProjection.exprs", 0) + 1);
+            this.exprs(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FilterResponseProjection.FilterResponseProjection.exprs", 0)));
+        }
+        this.valueType();
+        this.typename();
+        return this;
     }
 
     public FilterResponseProjection key() {

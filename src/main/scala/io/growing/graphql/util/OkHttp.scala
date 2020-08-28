@@ -5,7 +5,7 @@ import java.util
 import java.util.concurrent.TimeUnit
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest
-import io.growing.graphql.{ Configs, ResponseDeserializer, ResponseException }
+import io.growing.graphql.{ GrowingIOGraphQLConfig, ResponseDeserializer, ResponseException }
 import okhttp3._
 import org.json.JSONObject
 
@@ -14,28 +14,6 @@ import scala.concurrent.duration.Duration
 
 object OkHttp extends ResponseDeserializer {
 
-  private[this] lazy val defaultTimeout: Long = Duration.create(Configs.timeOut, TimeUnit.MINUTES).toMillis
-  private[this] lazy val client: OkHttpClient = buildClient(defaultTimeout, defaultTimeout, defaultTimeout)
-
-  private[this] def buildClient(readTimeout: Long, writeTimeout: Long, connectTimeout: Long): OkHttpClient = {
-    new OkHttpClient.Builder()
-      .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
-      .writeTimeout(writeTimeout, TimeUnit.MILLISECONDS)
-      .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
-      .protocols(util.Arrays.asList(Protocol.HTTP_1_1, Protocol.HTTP_2))
-      .build()
-  }
-
-  private[this] def buildRequest[T](request: GraphQLRequest) = {
-    val httpRequestBody = request.toHttpJsonBody
-    println(s"graphQL query:\n$httpRequestBody")
-    val rb = new Request.Builder().url(Configs.serverHost).addHeader("Accept", "application/json; charset=utf-8")
-    Configs.auth.fold(())(auth => rb.addHeader(auth.headerKey, auth.headerValue))
-    rb.post(RequestBody.create(httpRequestBody, MediaType.parse("application/json; charset=utf-8")))
-    val promise = Promise[T]
-    rb -> promise
-  }
-
   /**
    * for java api
    *
@@ -43,7 +21,31 @@ object OkHttp extends ResponseDeserializer {
    * @param entityClazzName
    * @return
    */
-  def createExecuteRequest(request: GraphQLRequest, entityClazzName: String): Future[Any] = {
+  def createExecuteRequest(request: GraphQLRequest, entityClazzName: String, growingIOGraphQLConfig: GrowingIOGraphQLConfig): Future[Any] = {
+    lazy val defaultTimeout = Duration.create(growingIOGraphQLConfig.getTimeOut.intValue(), TimeUnit.MINUTES).toMillis
+    lazy val client: OkHttpClient = buildClient(defaultTimeout, defaultTimeout, defaultTimeout)
+
+    def buildClient(readTimeout: Long, writeTimeout: Long, connectTimeout: Long): OkHttpClient = {
+      new OkHttpClient.Builder()
+        .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
+        .writeTimeout(writeTimeout, TimeUnit.MILLISECONDS)
+        .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
+        .protocols(util.Arrays.asList(Protocol.HTTP_1_1, Protocol.HTTP_2))
+        .build()
+    }
+
+    def buildRequest[T](request: GraphQLRequest) = {
+      val httpRequestBody = request.toHttpJsonBody
+      println(s"graphQL query:\n$httpRequestBody")
+      val rb = new Request.Builder().url(growingIOGraphQLConfig.getServerHost).addHeader("Accept", "application/json; charset=utf-8")
+      if (growingIOGraphQLConfig.getAuthenticateKey != null && growingIOGraphQLConfig.getAuthenticateValue != null) {
+        rb.addHeader(growingIOGraphQLConfig.getAuthenticateKey, growingIOGraphQLConfig.getAuthenticateValue)
+      }
+      rb.post(RequestBody.create(httpRequestBody, MediaType.parse("application/json; charset=utf-8")))
+      val promise = Promise[T]
+      rb -> promise
+    }
+
     val (rb, promise) = buildRequest[Any](request)
     client.newCall(rb.build()).enqueue(new Callback {
 

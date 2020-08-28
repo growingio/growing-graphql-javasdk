@@ -8,11 +8,36 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class RoleResponseProjection extends GraphQLResponseProjection {
 
     public RoleResponseProjection() {
+    }
+
+    @Override
+    public RoleResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public RoleResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("RoleResponseProjection.MemberResponseProjection.members", 0) <= maxDepth) {
+            projectionDepthOnFields.put("RoleResponseProjection.MemberResponseProjection.members", projectionDepthOnFields.getOrDefault("RoleResponseProjection.MemberResponseProjection.members", 0) + 1);
+            this.members(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("RoleResponseProjection.MemberResponseProjection.members", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("RoleResponseProjection.PermissionResponseProjection.permissions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("RoleResponseProjection.PermissionResponseProjection.permissions", projectionDepthOnFields.getOrDefault("RoleResponseProjection.PermissionResponseProjection.permissions", 0) + 1);
+            this.permissions(new PermissionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("RoleResponseProjection.PermissionResponseProjection.permissions", 0)));
+        }
+        this.isSystem();
+        this.isRoot();
+        this.isTechSupport();
+        this.typename();
+        return this;
     }
 
     public RoleResponseProjection id() {

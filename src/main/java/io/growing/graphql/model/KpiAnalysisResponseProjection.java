@@ -8,11 +8,54 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class KpiAnalysisResponseProjection extends GraphQLResponseProjection {
 
     public KpiAnalysisResponseProjection() {
+    }
+
+    @Override
+    public KpiAnalysisResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public KpiAnalysisResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("KpiAnalysisResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        this.limit();
+        this.timeRange();
+        this.interval();
+        if (projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.FilterResponseProjection.filter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("KpiAnalysisResponseProjection.FilterResponseProjection.filter", projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.FilterResponseProjection.filter", 0) + 1);
+            this.filter(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.FilterResponseProjection.filter", 0)));
+        }
+        this.goal();
+        if (projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) <= maxDepth) {
+            projectionDepthOnFields.put("KpiAnalysisResponseProjection.TargetUserResponseProjection.targetUser", projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) + 1);
+            this.targetUser(new TargetUserResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("KpiAnalysisResponseProjection.SplitterResponseProjection.splitter", projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) + 1);
+            this.splitter(new SplitterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("KpiAnalysisResponseProjection.SplitterResponseProjection.splitter", 0)));
+        }
+        this.isSystem();
+        this.businessType();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public KpiAnalysisResponseProjection id() {

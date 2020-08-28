@@ -8,11 +8,48 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class DashboardResponseProjection extends GraphQLResponseProjection {
 
     public DashboardResponseProjection() {
+    }
+
+    @Override
+    public DashboardResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public DashboardResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("DashboardResponseProjection.ComponentResponseProjection.components", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DashboardResponseProjection.ComponentResponseProjection.components", projectionDepthOnFields.getOrDefault("DashboardResponseProjection.ComponentResponseProjection.components", 0) + 1);
+            this.components(new ComponentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DashboardResponseProjection.ComponentResponseProjection.components", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("DashboardResponseProjection.FilterResponseProjection.filter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DashboardResponseProjection.FilterResponseProjection.filter", projectionDepthOnFields.getOrDefault("DashboardResponseProjection.FilterResponseProjection.filter", 0) + 1);
+            this.filter(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DashboardResponseProjection.FilterResponseProjection.filter", 0)));
+        }
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        if (projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.readers", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DashboardResponseProjection.MemberResponseProjection.readers", projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.readers", 0) + 1);
+            this.readers(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.readers", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.editors", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DashboardResponseProjection.MemberResponseProjection.editors", projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.editors", 0) + 1);
+            this.editors(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.editors", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public DashboardResponseProjection id() {

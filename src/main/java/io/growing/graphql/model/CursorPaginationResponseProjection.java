@@ -8,11 +8,31 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class CursorPaginationResponseProjection extends GraphQLResponseProjection {
 
     public CursorPaginationResponseProjection() {
+    }
+
+    @Override
+    public CursorPaginationResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public CursorPaginationResponseProjection all$(int maxDepth) {
+        this.totalCount();
+        this.startCursor();
+        this.endCursor();
+        this.hasNextPage();
+        this.hasPreviousPage();
+        if (projectionDepthOnFields.getOrDefault("CursorPaginationResponseProjection.EntityResponseProjection.values", 0) <= maxDepth) {
+            projectionDepthOnFields.put("CursorPaginationResponseProjection.EntityResponseProjection.values", projectionDepthOnFields.getOrDefault("CursorPaginationResponseProjection.EntityResponseProjection.values", 0) + 1);
+            this.values(new EntityResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("CursorPaginationResponseProjection.EntityResponseProjection.values", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public CursorPaginationResponseProjection totalCount() {

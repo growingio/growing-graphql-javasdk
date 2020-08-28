@@ -8,11 +8,52 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class FunnelAnalysisResponseProjection extends GraphQLResponseProjection {
 
     public FunnelAnalysisResponseProjection() {
+    }
+
+    @Override
+    public FunnelAnalysisResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public FunnelAnalysisResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FunnelAnalysisResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        this.conversionWindow();
+        this.timeRange();
+        if (projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FunnelAnalysisResponseProjection.TargetUserResponseProjection.targetUser", projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) + 1);
+            this.targetUser(new TargetUserResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.FilterResponseProjection.filter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FunnelAnalysisResponseProjection.FilterResponseProjection.filter", projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.FilterResponseProjection.filter", 0) + 1);
+            this.filter(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.FilterResponseProjection.filter", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FunnelAnalysisResponseProjection.SplitterResponseProjection.splitter", projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) + 1);
+            this.splitter(new SplitterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FunnelAnalysisResponseProjection.SplitterResponseProjection.splitter", 0)));
+        }
+        this.isSystem();
+        this.businessType();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public FunnelAnalysisResponseProjection id() {

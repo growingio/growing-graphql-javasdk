@@ -76,7 +76,6 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   // 记得使用GraphqlSchemaMergeApp.scala，重新合并为标准的schema文件
   unmanagedSourceDirectories in Test += Path.userHome / "project" / "growing-cdp" / "src/main/resources",
   //不发布原始文件！！！
-  (unmanagedResources in Compile) := (unmanagedResources in Compile).value.filter(file => !file.getName.endsWith(".graphql") && !file.getName.endsWith(".graphqls")),
   Publishing.publishSettings)
 
 def subProject(id: String, path: Option[String] = None): Project = {

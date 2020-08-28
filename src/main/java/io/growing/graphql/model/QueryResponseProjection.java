@@ -8,11 +8,316 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection() {
+    }
+
+    @Override
+    public QueryResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public QueryResponseProjection all$(int maxDepth) {
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurementResponseProjection.personaMeasurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.MeasurementResponseProjection.personaMeasurements", projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurementResponseProjection.personaMeasurements", 0) + 1);
+            this.personaMeasurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurementResponseProjection.personaMeasurements", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurementResponseProjection.segmentMeasurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.MeasurementResponseProjection.segmentMeasurements", projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurementResponseProjection.segmentMeasurements", 0) + 1);
+            this.segmentMeasurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurementResponseProjection.segmentMeasurements", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UtmArgumentResponseProjection.utmArguments", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UtmArgumentResponseProjection.utmArguments", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UtmArgumentResponseProjection.utmArguments", 0) + 1);
+            this.utmArguments(new UtmArgumentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UtmArgumentResponseProjection.utmArguments", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectInfoResponseProjection.projectInfo", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ProjectInfoResponseProjection.projectInfo", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectInfoResponseProjection.projectInfo", 0) + 1);
+            this.projectInfo(new ProjectInfoResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectInfoResponseProjection.projectInfo", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.OriginDataSettingResponseProjection.originDataSettings", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.OriginDataSettingResponseProjection.originDataSettings", projectionDepthOnFields.getOrDefault("QueryResponseProjection.OriginDataSettingResponseProjection.originDataSettings", 0) + 1);
+            this.originDataSettings(new OriginDataSettingResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.OriginDataSettingResponseProjection.originDataSettings", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tags", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TagResponseProjection.tags", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tags", 0) + 1);
+            this.tags(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tags", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tag", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TagResponseProjection.tag", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tag", 0) + 1);
+            this.tag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tag", 0)));
+        }
+        this.countTags();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segments", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SegmentResponseProjection.segments", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segments", 0) + 1);
+            this.segments(new SegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segments", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SegmentResponseProjection.segment", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segment", 0) + 1);
+            this.segment(new SegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segment", 0)));
+        }
+        this.countSegments();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.BasicProfileResponseProjection.basicProfile", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.BasicProfileResponseProjection.basicProfile", projectionDepthOnFields.getOrDefault("QueryResponseProjection.BasicProfileResponseProjection.basicProfile", 0) + 1);
+            this.basicProfile(new BasicProfileResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.BasicProfileResponseProjection.basicProfile", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PersonaProfileResponseProjection.personaProfile", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.PersonaProfileResponseProjection.personaProfile", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PersonaProfileResponseProjection.personaProfile", 0) + 1);
+            this.personaProfile(new PersonaProfileResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PersonaProfileResponseProjection.personaProfile", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.userProfile", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserProfileResponseProjection.userProfile", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.userProfile", 0) + 1);
+            this.userProfile(new UserProfileResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.userProfile", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventTrendResponseProjection.userEventsTrend", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.EventTrendResponseProjection.userEventsTrend", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventTrendResponseProjection.userEventsTrend", 0) + 1);
+            this.userEventsTrend(new EventTrendResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventTrendResponseProjection.userEventsTrend", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserSearchResponseProjection.searchUsers", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserSearchResponseProjection.searchUsers", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserSearchResponseProjection.searchUsers", 0) + 1);
+            this.searchUsers(new UserSearchResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserSearchResponseProjection.searchUsers", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.users", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SlicePaginationResponseProjection.users", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.users", 0) + 1);
+            this.users(new SlicePaginationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.users", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.activeUsers", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SlicePaginationResponseProjection.activeUsers", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.activeUsers", 0) + 1);
+            this.activeUsers(new SlicePaginationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.activeUsers", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CursorPaginationResponseProjection.userEvents", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.CursorPaginationResponseProjection.userEvents", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CursorPaginationResponseProjection.userEvents", 0) + 1);
+            this.userEvents(new CursorPaginationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CursorPaginationResponseProjection.userEvents", 0)));
+        }
+        this.searchUserEvents();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedSegmentResponseProjection.preparedSegment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.PreparedSegmentResponseProjection.preparedSegment", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedSegmentResponseProjection.preparedSegment", 0) + 1);
+            this.preparedSegment(new PreparedSegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedSegmentResponseProjection.preparedSegment", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", 0) + 1);
+            this.segmentDocument(new SegmentDocumentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnels", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TunnelResponseProjection.tunnels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnels", 0) + 1);
+            this.tunnels(new TunnelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnels", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TunnelResponseProjection.tunnel", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnel", 0) + 1);
+            this.tunnel(new TunnelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnel", 0)));
+        }
+        this.countTunnels();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.ubaCustomEvents", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.CustomEventResponseProjection.ubaCustomEvents", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.ubaCustomEvents", 0) + 1);
+            this.ubaCustomEvents(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.ubaCustomEvents", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.ubaUserVariables", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.ubaUserVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.ubaUserVariables", 0) + 1);
+            this.ubaUserVariables(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.ubaUserVariables", 0)));
+        }
+        this.tunnelActivated();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelEventsTrendResponseProjection.getTunnelEventsTrend", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TunnelEventsTrendResponseProjection.getTunnelEventsTrend", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelEventsTrendResponseProjection.getTunnelEventsTrend", 0) + 1);
+            this.getTunnelEventsTrend(new TunnelEventsTrendResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelEventsTrendResponseProjection.getTunnelEventsTrend", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.JobResultResponseProjection.jobResult", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.JobResultResponseProjection.jobResult", projectionDepthOnFields.getOrDefault("QueryResponseProjection.JobResultResponseProjection.jobResult", 0) + 1);
+            this.jobResult(new JobResultResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.JobResultResponseProjection.jobResult", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventImportJobResponseProjection.eventImportJobs", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.EventImportJobResponseProjection.eventImportJobs", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventImportJobResponseProjection.eventImportJobs", 0) + 1);
+            this.eventImportJobs(new EventImportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventImportJobResponseProjection.eventImportJobs", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.LogEntryResponseProjection.jobLogs", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.LogEntryResponseProjection.jobLogs", projectionDepthOnFields.getOrDefault("QueryResponseProjection.LogEntryResponseProjection.jobLogs", 0) + 1);
+            this.jobLogs(new LogEntryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.LogEntryResponseProjection.jobLogs", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", 0) + 1);
+            this.jobFiles(new FileDescriptorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", 0) + 1);
+            this.subscriptions(new SubscriptionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.FeatureResponseProjection.features", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.FeatureResponseProjection.features", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FeatureResponseProjection.features", 0) + 1);
+            this.features(new FeatureResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FeatureResponseProjection.features", 0)));
+        }
+        this.version();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.userPermissionModules", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ModuleResponseProjection.userPermissionModules", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.userPermissionModules", 0) + 1);
+            this.userPermissionModules(new ModuleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.userPermissionModules", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.permissionModules", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ModuleResponseProjection.permissionModules", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.permissionModules", 0) + 1);
+            this.permissionModules(new ModuleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.permissionModules", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.RoleResponseProjection.role", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.RoleResponseProjection.role", projectionDepthOnFields.getOrDefault("QueryResponseProjection.RoleResponseProjection.role", 0) + 1);
+            this.role(new RoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.RoleResponseProjection.role", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.RoleResponseProjection.roles", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.RoleResponseProjection.roles", projectionDepthOnFields.getOrDefault("QueryResponseProjection.RoleResponseProjection.roles", 0) + 1);
+            this.roles(new RoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.RoleResponseProjection.roles", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserAccessCtrlResponseProjection.acls", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserAccessCtrlResponseProjection.acls", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserAccessCtrlResponseProjection.acls", 0) + 1);
+            this.acls(new UserAccessCtrlResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserAccessCtrlResponseProjection.acls", 0)));
+        }
+        this.resourceActions();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccessEntryResponseProjection.userGrants", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AccessEntryResponseProjection.userGrants", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccessEntryResponseProjection.userGrants", 0) + 1);
+            this.userGrants(new AccessEntryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccessEntryResponseProjection.userGrants", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DepartmentResponseProjection.departments", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DepartmentResponseProjection.departments", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DepartmentResponseProjection.departments", 0) + 1);
+            this.departments(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DepartmentResponseProjection.departments", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DepartmentResponseProjection.allDepartments", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DepartmentResponseProjection.allDepartments", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DepartmentResponseProjection.allDepartments", 0) + 1);
+            this.allDepartments(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DepartmentResponseProjection.allDepartments", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvents", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.CustomEventResponseProjection.customEvents", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvents", 0) + 1);
+            this.customEvents(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvents", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvent", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.CustomEventResponseProjection.customEvent", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvent", 0) + 1);
+            this.customEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvent", 0)));
+        }
+        this.countCustomEvents();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetrics", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ComplexMetricResponseProjection.complexMetrics", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetrics", 0) + 1);
+            this.complexMetrics(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetrics", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", 0) + 1);
+            this.complexMetric(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", 0) + 1);
+            this.preparedMetrics(new PreparedMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", 0)));
+        }
+        this.countComplexMetrics();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariables", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.EventVariableResponseProjection.eventVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariables", 0) + 1);
+            this.eventVariables(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariables", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.EventVariableResponseProjection.eventVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariable", 0) + 1);
+            this.eventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariable", 0)));
+        }
+        this.countEventVariables();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModels", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ItemModelResponseProjection.itemModels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModels", 0) + 1);
+            this.itemModels(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModels", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ItemModelResponseProjection.itemModel", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModel", 0) + 1);
+            this.itemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModel", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", 0) + 1);
+            this.itemVariables(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", 0) + 1);
+            this.itemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", 0)));
+        }
+        this.countItemVariables();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariables", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.userVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariables", 0) + 1);
+            this.userVariables(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariables", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.userVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariable", 0) + 1);
+            this.userVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariable", 0)));
+        }
+        this.countUserVariables();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserPropertyResponseProjection.userProperties", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserPropertyResponseProjection.userProperties", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserPropertyResponseProjection.userProperties", 0) + 1);
+            this.userProperties(new UserPropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserPropertyResponseProjection.userProperties", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", 0) + 1);
+            this.preparedDimensions(new PreparedDimensionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurableResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.MeasurableResponseProjection.measurements", projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurableResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.MeasurableResponseProjection.measurements", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DimensionResponseProjection.insightDimensions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DimensionResponseProjection.insightDimensions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DimensionResponseProjection.insightDimensions", 0) + 1);
+            this.insightDimensions(new DimensionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DimensionResponseProjection.insightDimensions", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", 0) + 1);
+            this.kpiAnalysis(new KpiAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalyses", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalyses", projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalyses", 0) + 1);
+            this.kpiAnalyses(new KpiAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalyses", 0)));
+        }
+        this.countKpiAnalyses();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalysis", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalysis", 0) + 1);
+            this.funnelAnalysis(new FunnelAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalyses", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalyses", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalyses", 0) + 1);
+            this.funnelAnalyses(new FunnelAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FunnelAnalysisResponseProjection.funnelAnalyses", 0)));
+        }
+        this.countFunnelAnalyses();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalysis", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalysis", 0) + 1);
+            this.frequencyAnalysis(new FrequencyAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalyses", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalyses", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalyses", 0) + 1);
+            this.frequencyAnalyses(new FrequencyAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FrequencyAnalysisResponseProjection.frequencyAnalyses", 0)));
+        }
+        this.countFrequencyAnalyses();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalysis", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalysis", 0) + 1);
+            this.eventAnalysis(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalyses", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalyses", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalyses", 0) + 1);
+            this.eventAnalyses(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventAnalysisResponseProjection.eventAnalyses", 0)));
+        }
+        this.countEventAnalyses();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalysis", projectionDepthOnFields.getOrDefault("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalysis", 0) + 1);
+            this.retentionAnalysis(new RetentionAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalyses", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalyses", projectionDepthOnFields.getOrDefault("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalyses", 0) + 1);
+            this.retentionAnalyses(new RetentionAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.RetentionAnalysisResponseProjection.retentionAnalyses", 0)));
+        }
+        this.countRetentionAnalyses();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardResponseProjection.dashboard", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DashboardResponseProjection.dashboard", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardResponseProjection.dashboard", 0) + 1);
+            this.dashboard(new DashboardResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardResponseProjection.dashboard", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardResponseProjection.dashboards", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DashboardResponseProjection.dashboards", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardResponseProjection.dashboards", 0) + 1);
+            this.dashboards(new DashboardResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardResponseProjection.dashboards", 0)));
+        }
+        this.countDashboards();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardReferenceResponseProjection.analysisDashboardReferers", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DashboardReferenceResponseProjection.analysisDashboardReferers", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardReferenceResponseProjection.analysisDashboardReferers", 0) + 1);
+            this.analysisDashboardReferers(new DashboardReferenceResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardReferenceResponseProjection.analysisDashboardReferers", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardCommentResponseProjection.dashboardComment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DashboardCommentResponseProjection.dashboardComment", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardCommentResponseProjection.dashboardComment", 0) + 1);
+            this.dashboardComment(new DashboardCommentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DashboardCommentResponseProjection.dashboardComment", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public QueryResponseProjection personaMeasurements(MeasurementResponseProjection subProjection) {

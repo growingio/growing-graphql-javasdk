@@ -8,11 +8,287 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class MutationResponseProjection extends GraphQLResponseProjection {
 
     public MutationResponseProjection() {
+    }
+
+    @Override
+    public MutationResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public MutationResponseProjection all$(int maxDepth) {
+        this.settingUtmArguments();
+        this.deleteUtmArgument();
+        this.settingPersonaMeasurements();
+        this.settingSegmentMeasurements();
+        this.updateProjectInfo();
+        this.updateOriginDataSetting();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createTag", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.createTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createTag", 0) + 1);
+            this.createTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createTag", 0)));
+        }
+        this.deleteTag();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateTag", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.updateTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateTag", 0) + 1);
+            this.updateTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateTag", 0)));
+        }
+        this.batchDeleteTags();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.createSegment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.SegmentResponseProjection.createSegment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.createSegment", 0) + 1);
+            this.createSegment(new SegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.createSegment", 0)));
+        }
+        this.deleteSegment();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.updateSegment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.SegmentResponseProjection.updateSegment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.updateSegment", 0) + 1);
+            this.updateSegment(new SegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.updateSegment", 0)));
+        }
+        this.batchDeleteSegments();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", 0) + 1);
+            this.createSegmentSnapshot(new SegmentSnapshotResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", 0)));
+        }
+        this.deleteTunnel();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.createTunnel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TunnelResponseProjection.createTunnel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.createTunnel", 0) + 1);
+            this.createTunnel(new TunnelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.createTunnel", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.updateTunnel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TunnelResponseProjection.updateTunnel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.updateTunnel", 0) + 1);
+            this.updateTunnel(new TunnelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.updateTunnel", 0)));
+        }
+        this.batchDeleteTunnels();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.syncUbaCustomEvent", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.syncUbaCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.syncUbaCustomEvent", 0) + 1);
+            this.syncUbaCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.syncUbaCustomEvent", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.syncUbaUserVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.syncUbaUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.syncUbaUserVariable", 0) + 1);
+            this.syncUbaUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.syncUbaUserVariable", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.JobResultResponseProjection.executeJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.JobResultResponseProjection.executeJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.JobResultResponseProjection.executeJob", 0) + 1);
+            this.executeJob(new JobResultResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.JobResultResponseProjection.executeJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventImportJobResponseProjection.createEventImportJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventImportJobResponseProjection.createEventImportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventImportJobResponseProjection.createEventImportJob", 0) + 1);
+            this.createEventImportJob(new EventImportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventImportJobResponseProjection.createEventImportJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", 0) + 1);
+            this.submitTagUserExportJob(new TagUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", 0) + 1);
+            this.submitSegmentUserExportJob(new SegmentUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", 0) + 1);
+            this.submitSegmentSnapshotUserExportJob(new SegmentUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", 0) + 1);
+            this.submitAnalysisExportJob(new AnalysisExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", 0)));
+        }
+        this.createSubscription();
+        this.deleteSubscription();
+        this.batchUpdateSubscriptions();
+        this.roleAppendUser();
+        this.updateUserPermissions();
+        this.updateResourceAcls();
+        this.batchUpdateResourceAcl();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.RoleResponseProjection.createRole", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.RoleResponseProjection.createRole", projectionDepthOnFields.getOrDefault("MutationResponseProjection.RoleResponseProjection.createRole", 0) + 1);
+            this.createRole(new RoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.RoleResponseProjection.createRole", 0)));
+        }
+        this.deleteRole();
+        this.updateRole();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.createDepartment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DepartmentResponseProjection.createDepartment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.createDepartment", 0) + 1);
+            this.createDepartment(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.createDepartment", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.updateDepartment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DepartmentResponseProjection.updateDepartment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.updateDepartment", 0) + 1);
+            this.updateDepartment(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.updateDepartment", 0)));
+        }
+        this.deleteDepartment();
+        this.addMembersToDepartment();
+        this.updateMemberRole();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0) + 1);
+            this.createAccount(new CreateAccountReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0)));
+        }
+        this.disableAccount();
+        this.resetAccountPassword();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.MemberResponseProjection.createMember", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.MemberResponseProjection.createMember", projectionDepthOnFields.getOrDefault("MutationResponseProjection.MemberResponseProjection.createMember", 0) + 1);
+            this.createMember(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.MemberResponseProjection.createMember", 0)));
+        }
+        this.resetPassword();
+        this.updateMember();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0) + 1);
+            this.createCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", 0) + 1);
+            this.updateCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", 0)));
+        }
+        this.deleteCustomEvent();
+        this.batchDeleteCustomEvents();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", 0) + 1);
+            this.createComplexMetric(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.updateComplexMetric", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ComplexMetricResponseProjection.updateComplexMetric", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.updateComplexMetric", 0) + 1);
+            this.updateComplexMetric(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.updateComplexMetric", 0)));
+        }
+        this.deleteComplexMetric();
+        this.batchDeleteComplexMetrics();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", 0) + 1);
+            this.createEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", 0) + 1);
+            this.updateEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", 0)));
+        }
+        this.deleteEventVariable();
+        this.batchDeleteEventVariables();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", 0) + 1);
+            this.createItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", 0) + 1);
+            this.updateItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", 0)));
+        }
+        this.deleteItemVariable();
+        this.batchDeleteItemVariables();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createItemModel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemModelResponseProjection.createItemModel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createItemModel", 0) + 1);
+            this.createItemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createItemModel", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", 0) + 1);
+            this.updateItemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", 0)));
+        }
+        this.deleteItemModel();
+        this.batchDeleteItemModels();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", 0) + 1);
+            this.addItemModelAttribute(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", 0) + 1);
+            this.createUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", 0) + 1);
+            this.updateUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", 0)));
+        }
+        this.deleteUserVariable();
+        this.batchDeleteUserVariables();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0) + 1);
+            this.createKpiAnalysis(new KpiAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.updateKpiAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.KpiAnalysisResponseProjection.updateKpiAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.updateKpiAnalysis", 0) + 1);
+            this.updateKpiAnalysis(new KpiAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.updateKpiAnalysis", 0)));
+        }
+        this.deleteKpiAnalysis();
+        this.batchDeleteKpiAnalyses();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.FunnelAnalysisResponseProjection.createFunnelAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.FunnelAnalysisResponseProjection.createFunnelAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.FunnelAnalysisResponseProjection.createFunnelAnalysis", 0) + 1);
+            this.createFunnelAnalysis(new FunnelAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.FunnelAnalysisResponseProjection.createFunnelAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.FunnelAnalysisResponseProjection.updateFunnelAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.FunnelAnalysisResponseProjection.updateFunnelAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.FunnelAnalysisResponseProjection.updateFunnelAnalysis", 0) + 1);
+            this.updateFunnelAnalysis(new FunnelAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.FunnelAnalysisResponseProjection.updateFunnelAnalysis", 0)));
+        }
+        this.deleteFunnelAnalysis();
+        this.batchDeleteFunnelAnalyses();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.FrequencyAnalysisResponseProjection.createFrequencyAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.FrequencyAnalysisResponseProjection.createFrequencyAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.FrequencyAnalysisResponseProjection.createFrequencyAnalysis", 0) + 1);
+            this.createFrequencyAnalysis(new FrequencyAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.FrequencyAnalysisResponseProjection.createFrequencyAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.FrequencyAnalysisResponseProjection.updateFrequencyAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.FrequencyAnalysisResponseProjection.updateFrequencyAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.FrequencyAnalysisResponseProjection.updateFrequencyAnalysis", 0) + 1);
+            this.updateFrequencyAnalysis(new FrequencyAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.FrequencyAnalysisResponseProjection.updateFrequencyAnalysis", 0)));
+        }
+        this.deleteFrequencyAnalysis();
+        this.batchDeleteFrequencyAnalyses();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", 0) + 1);
+            this.createEventAnalysis(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.updateEventAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventAnalysisResponseProjection.updateEventAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.updateEventAnalysis", 0) + 1);
+            this.updateEventAnalysis(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.updateEventAnalysis", 0)));
+        }
+        this.deleteEventAnalysis();
+        this.batchDeleteEventAnalyses();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.RetentionAnalysisResponseProjection.createRetentionAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.RetentionAnalysisResponseProjection.createRetentionAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.RetentionAnalysisResponseProjection.createRetentionAnalysis", 0) + 1);
+            this.createRetentionAnalysis(new RetentionAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.RetentionAnalysisResponseProjection.createRetentionAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.RetentionAnalysisResponseProjection.updateRetentionAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.RetentionAnalysisResponseProjection.updateRetentionAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.RetentionAnalysisResponseProjection.updateRetentionAnalysis", 0) + 1);
+            this.updateRetentionAnalysis(new RetentionAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.RetentionAnalysisResponseProjection.updateRetentionAnalysis", 0)));
+        }
+        this.deleteRetentionAnalysis();
+        this.batchDeleteRetentionAnalyses();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardResponseProjection.createDashboard", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DashboardResponseProjection.createDashboard", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardResponseProjection.createDashboard", 0) + 1);
+            this.createDashboard(new DashboardResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardResponseProjection.createDashboard", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardResponseProjection.updateDashboard", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DashboardResponseProjection.updateDashboard", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardResponseProjection.updateDashboard", 0) + 1);
+            this.updateDashboard(new DashboardResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardResponseProjection.updateDashboard", 0)));
+        }
+        this.deleteDashboard();
+        this.batchDeleteDashboards();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardCommentResponseProjection.updateDashboardComment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DashboardCommentResponseProjection.updateDashboardComment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardCommentResponseProjection.updateDashboardComment", 0) + 1);
+            this.updateDashboardComment(new DashboardCommentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardCommentResponseProjection.updateDashboardComment", 0)));
+        }
+        this.deleteDashboardComment();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardCommentResponseProjection.createDashboardComment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DashboardCommentResponseProjection.createDashboardComment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardCommentResponseProjection.createDashboardComment", 0) + 1);
+            this.createDashboardComment(new DashboardCommentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DashboardCommentResponseProjection.createDashboardComment", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFunnelDrillDownSegment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFunnelDrillDownSegment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFunnelDrillDownSegment", 0) + 1);
+            this.createFunnelDrillDownSegment(new DrillDownSegmentReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFunnelDrillDownSegment", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createRetentionDrillDownSegment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createRetentionDrillDownSegment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createRetentionDrillDownSegment", 0) + 1);
+            this.createRetentionDrillDownSegment(new DrillDownSegmentReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createRetentionDrillDownSegment", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFrequencyDrillDownSegment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFrequencyDrillDownSegment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFrequencyDrillDownSegment", 0) + 1);
+            this.createFrequencyDrillDownSegment(new DrillDownSegmentReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentReplyResponseProjection.createFrequencyDrillDownSegment", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFunnelDrillDownSegmentSnapshot", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFunnelDrillDownSegmentSnapshot", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFunnelDrillDownSegmentSnapshot", 0) + 1);
+            this.createFunnelDrillDownSegmentSnapshot(new DrillDownSegmentSnapshotReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFunnelDrillDownSegmentSnapshot", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createRetentionDrillDownSegmentSnapshot", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createRetentionDrillDownSegmentSnapshot", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createRetentionDrillDownSegmentSnapshot", 0) + 1);
+            this.createRetentionDrillDownSegmentSnapshot(new DrillDownSegmentSnapshotReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createRetentionDrillDownSegmentSnapshot", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFrequencyDrillDownSegmentSnapshot", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFrequencyDrillDownSegmentSnapshot", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFrequencyDrillDownSegmentSnapshot", 0) + 1);
+            this.createFrequencyDrillDownSegmentSnapshot(new DrillDownSegmentSnapshotReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DrillDownSegmentSnapshotReplyResponseProjection.createFrequencyDrillDownSegmentSnapshot", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public MutationResponseProjection settingUtmArguments() {

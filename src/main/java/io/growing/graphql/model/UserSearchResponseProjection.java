@@ -8,11 +8,28 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class UserSearchResponseProjection extends GraphQLResponseProjection {
 
     public UserSearchResponseProjection() {
+    }
+
+    @Override
+    public UserSearchResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public UserSearchResponseProjection all$(int maxDepth) {
+        this.id();
+        this.userId();
+        if (projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.property", 0) <= maxDepth) {
+            projectionDepthOnFields.put("UserSearchResponseProjection.PropertyResponseProjection.property", projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.property", 0) + 1);
+            this.property(new PropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.property", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public UserSearchResponseProjection id() {

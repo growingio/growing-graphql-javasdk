@@ -8,11 +8,57 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class FrequencyAnalysisResponseProjection extends GraphQLResponseProjection {
 
     public FrequencyAnalysisResponseProjection() {
+    }
+
+    @Override
+    public FrequencyAnalysisResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public FrequencyAnalysisResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FrequencyAnalysisResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        this.dimensions();
+        if (projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.GranularityResponseProjection.granularities", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FrequencyAnalysisResponseProjection.GranularityResponseProjection.granularities", projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.GranularityResponseProjection.granularities", 0) + 1);
+            this.granularities(new GranularityResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.GranularityResponseProjection.granularities", 0)));
+        }
+        this.timeRange();
+        if (projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.FilterResponseProjection.filter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FrequencyAnalysisResponseProjection.FilterResponseProjection.filter", projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.FilterResponseProjection.filter", 0) + 1);
+            this.filter(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.FilterResponseProjection.filter", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FrequencyAnalysisResponseProjection.SplitterResponseProjection.splitter", projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) + 1);
+            this.splitter(new SplitterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.SplitterResponseProjection.splitter", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) <= maxDepth) {
+            projectionDepthOnFields.put("FrequencyAnalysisResponseProjection.TargetUserResponseProjection.targetUser", projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) + 1);
+            this.targetUser(new TargetUserResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("FrequencyAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0)));
+        }
+        this.chartType();
+        this.isSystem();
+        this.businessType();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public FrequencyAnalysisResponseProjection id() {

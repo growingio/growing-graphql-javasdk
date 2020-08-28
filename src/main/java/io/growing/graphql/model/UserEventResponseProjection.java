@@ -8,11 +8,30 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class UserEventResponseProjection extends GraphQLResponseProjection {
 
     public UserEventResponseProjection() {
+    }
+
+    @Override
+    public UserEventResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public UserEventResponseProjection all$(int maxDepth) {
+        this.name();
+        this.type();
+        this.key();
+        this.timestamp();
+        if (projectionDepthOnFields.getOrDefault("UserEventResponseProjection.PropertyResponseProjection.properties", 0) <= maxDepth) {
+            projectionDepthOnFields.put("UserEventResponseProjection.PropertyResponseProjection.properties", projectionDepthOnFields.getOrDefault("UserEventResponseProjection.PropertyResponseProjection.properties", 0) + 1);
+            this.properties(new PropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("UserEventResponseProjection.PropertyResponseProjection.properties", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public UserEventResponseProjection name() {

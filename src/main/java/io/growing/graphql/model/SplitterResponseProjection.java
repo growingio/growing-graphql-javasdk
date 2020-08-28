@@ -8,11 +8,40 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class SplitterResponseProjection extends GraphQLResponseProjection {
 
     public SplitterResponseProjection() {
+    }
+
+    @Override
+    public SplitterResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public SplitterResponseProjection all$(int maxDepth) {
+        this.key();
+        this.values();
+        if (projectionDepthOnFields.getOrDefault("SplitterResponseProjection.TargetUserResponseProjection.users", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SplitterResponseProjection.TargetUserResponseProjection.users", projectionDepthOnFields.getOrDefault("SplitterResponseProjection.TargetUserResponseProjection.users", 0) + 1);
+            this.users(new TargetUserResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SplitterResponseProjection.TargetUserResponseProjection.users", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("SplitterResponseProjection.ActionResponseProjection.actions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SplitterResponseProjection.ActionResponseProjection.actions", projectionDepthOnFields.getOrDefault("SplitterResponseProjection.ActionResponseProjection.actions", 0) + 1);
+            this.actions(new ActionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SplitterResponseProjection.ActionResponseProjection.actions", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("SplitterResponseProjection.SplitterResponseProjection.splitters", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SplitterResponseProjection.SplitterResponseProjection.splitters", projectionDepthOnFields.getOrDefault("SplitterResponseProjection.SplitterResponseProjection.splitters", 0) + 1);
+            this.splitters(new SplitterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SplitterResponseProjection.SplitterResponseProjection.splitters", 0)));
+        }
+        this.selectedValues();
+        this.selectedIndices();
+        this.valueType();
+        this.name();
+        this.typename();
+        return this;
     }
 
     public SplitterResponseProjection key() {

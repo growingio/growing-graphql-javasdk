@@ -8,11 +8,34 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class BasicProfileResponseProjection extends GraphQLResponseProjection {
 
     public BasicProfileResponseProjection() {
+    }
+
+    @Override
+    public BasicProfileResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public BasicProfileResponseProjection all$(int maxDepth) {
+        this.id();
+        this.userId();
+        this.name();
+        this.email();
+        this.avatar();
+        this.mobile();
+        this.createdAt();
+        this.wechatOpenId();
+        if (projectionDepthOnFields.getOrDefault("BasicProfileResponseProjection.PropertyResponseProjection.properties", 0) <= maxDepth) {
+            projectionDepthOnFields.put("BasicProfileResponseProjection.PropertyResponseProjection.properties", projectionDepthOnFields.getOrDefault("BasicProfileResponseProjection.PropertyResponseProjection.properties", 0) + 1);
+            this.properties(new PropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("BasicProfileResponseProjection.PropertyResponseProjection.properties", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public BasicProfileResponseProjection id() {

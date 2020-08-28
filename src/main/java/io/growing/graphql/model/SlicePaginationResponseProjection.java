@@ -8,11 +8,31 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class SlicePaginationResponseProjection extends GraphQLResponseProjection {
 
     public SlicePaginationResponseProjection() {
+    }
+
+    @Override
+    public SlicePaginationResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public SlicePaginationResponseProjection all$(int maxDepth) {
+        this.offset();
+        this.limit();
+        this.totalCount();
+        this.hasNextPage();
+        this.hasPreviousPage();
+        if (projectionDepthOnFields.getOrDefault("SlicePaginationResponseProjection.EntityResponseProjection.values", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SlicePaginationResponseProjection.EntityResponseProjection.values", projectionDepthOnFields.getOrDefault("SlicePaginationResponseProjection.EntityResponseProjection.values", 0) + 1);
+            this.values(new EntityResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SlicePaginationResponseProjection.EntityResponseProjection.values", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public SlicePaginationResponseProjection offset() {

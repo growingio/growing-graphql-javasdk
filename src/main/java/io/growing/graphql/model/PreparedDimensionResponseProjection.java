@@ -8,11 +8,27 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class PreparedDimensionResponseProjection extends GraphQLResponseProjection {
 
     public PreparedDimensionResponseProjection() {
+    }
+
+    @Override
+    public PreparedDimensionResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public PreparedDimensionResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.platforms();
+        this.description();
+        this.example();
+        this.typename();
+        return this;
     }
 
     public PreparedDimensionResponseProjection id() {

@@ -8,11 +8,29 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class AccessEntryResponseProjection extends GraphQLResponseProjection {
 
     public AccessEntryResponseProjection() {
+    }
+
+    @Override
+    public AccessEntryResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public AccessEntryResponseProjection all$(int maxDepth) {
+        this.isPublic();
+        this.members();
+        if (projectionDepthOnFields.getOrDefault("AccessEntryResponseProjection.GroupResponseProjection.groups", 0) <= maxDepth) {
+            projectionDepthOnFields.put("AccessEntryResponseProjection.GroupResponseProjection.groups", projectionDepthOnFields.getOrDefault("AccessEntryResponseProjection.GroupResponseProjection.groups", 0) + 1);
+            this.groups(new GroupResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("AccessEntryResponseProjection.GroupResponseProjection.groups", 0)));
+        }
+        this.actions();
+        this.typename();
+        return this;
     }
 
     public AccessEntryResponseProjection isPublic() {

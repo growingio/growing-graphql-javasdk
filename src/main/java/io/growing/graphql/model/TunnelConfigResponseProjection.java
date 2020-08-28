@@ -8,11 +8,22 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class TunnelConfigResponseProjection extends GraphQLResponseProjection {
 
     public TunnelConfigResponseProjection() {
+    }
+
+    @Override
+    public TunnelConfigResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public TunnelConfigResponseProjection all$(int maxDepth) {
+        this.typename();
+        return this;
     }
 
     public TunnelConfigResponseProjection onGIOApiTunnelConfig(GIOApiTunnelConfigResponseProjection subProjection) {

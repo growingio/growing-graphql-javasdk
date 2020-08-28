@@ -8,11 +8,28 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class ActionResponseProjection extends GraphQLResponseProjection {
 
     public ActionResponseProjection() {
+    }
+
+    @Override
+    public ActionResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public ActionResponseProjection all$(int maxDepth) {
+        if (projectionDepthOnFields.getOrDefault("ActionResponseProjection.MeasurementResponseProjection.measurement", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ActionResponseProjection.MeasurementResponseProjection.measurement", projectionDepthOnFields.getOrDefault("ActionResponseProjection.MeasurementResponseProjection.measurement", 0) + 1);
+            this.measurement(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ActionResponseProjection.MeasurementResponseProjection.measurement", 0)));
+        }
+        this.excluded();
+        this.eventType();
+        this.typename();
+        return this;
     }
 
     public ActionResponseProjection measurement(MeasurementResponseProjection subProjection) {

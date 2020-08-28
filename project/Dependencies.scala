@@ -12,7 +12,6 @@ object Dependencies {
     val commonsLang = "3.10"
     val guava = "29.0-jre"
     val json = "20190722"
-    val config = "1.4.0"
     val scalaTest = "3.2.0"
   }
 
@@ -26,7 +25,6 @@ object Dependencies {
       "com.fasterxml.jackson.module" % "jackson-module-parameter-names" % Versions.jackson
     )
     val json = "org.json" % "json" % Versions.json
-    val config = "com.typesafe" % "config" % Versions.config
     val okhttp = "com.squareup.okhttp3" % "okhttp" % Versions.okhttp
 
     //schema处理和测试不进行打包，减少依赖
@@ -39,6 +37,6 @@ object Dependencies {
 
   lazy val l = libraryDependencies
 
-  lazy val javaClient = l ++= Seq(okhttp, commonLang, guava, json, config, scalaTest) ++ jackson
+  lazy val javaClient = l ++= Seq(okhttp, commonLang, guava, json, scalaTest) ++ jackson
 
 }

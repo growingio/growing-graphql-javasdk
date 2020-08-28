@@ -8,11 +8,63 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class EventAnalysisResponseProjection extends GraphQLResponseProjection {
 
     public EventAnalysisResponseProjection() {
+    }
+
+    @Override
+    public EventAnalysisResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public EventAnalysisResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        this.dimensions();
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.GranularityResponseProjection.granularities", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.GranularityResponseProjection.granularities", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.GranularityResponseProjection.granularities", 0) + 1);
+            this.granularities(new GranularityResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.GranularityResponseProjection.granularities", 0)));
+        }
+        this.timeRange();
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.FilterResponseProjection.filter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.FilterResponseProjection.filter", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.FilterResponseProjection.filter", 0) + 1);
+            this.filter(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.FilterResponseProjection.filter", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.TargetUserResponseProjection.targetUser", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) + 1);
+            this.targetUser(new TargetUserResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0)));
+        }
+        this.limit();
+        this.attrs();
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.OrderResponseProjection.orders", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.OrderResponseProjection.orders", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.OrderResponseProjection.orders", 0) + 1);
+            this.orders(new OrderResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.OrderResponseProjection.orders", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.SplitterResponseProjection.splitter", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) + 1);
+            this.splitter(new SplitterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.SplitterResponseProjection.splitter", 0)));
+        }
+        this.chartType();
+        this.isSystem();
+        this.businessType();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public EventAnalysisResponseProjection id() {

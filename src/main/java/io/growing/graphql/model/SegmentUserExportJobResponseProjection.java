@@ -8,11 +8,36 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class SegmentUserExportJobResponseProjection extends GraphQLResponseProjection {
 
     public SegmentUserExportJobResponseProjection() {
+    }
+
+    @Override
+    public SegmentUserExportJobResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public SegmentUserExportJobResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.description();
+        this.stage();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        if (projectionDepthOnFields.getOrDefault("SegmentUserExportJobResponseProjection.ErrorResponseProjection.error", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SegmentUserExportJobResponseProjection.ErrorResponseProjection.error", projectionDepthOnFields.getOrDefault("SegmentUserExportJobResponseProjection.ErrorResponseProjection.error", 0) + 1);
+            this.error(new ErrorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SegmentUserExportJobResponseProjection.ErrorResponseProjection.error", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public SegmentUserExportJobResponseProjection id() {

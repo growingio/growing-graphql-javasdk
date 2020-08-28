@@ -8,11 +8,28 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class UserPropertyResponseProjection extends GraphQLResponseProjection {
 
     public UserPropertyResponseProjection() {
+    }
+
+    @Override
+    public UserPropertyResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public UserPropertyResponseProjection all$(int maxDepth) {
+        this.id();
+        this.key();
+        this.name();
+        this.platform();
+        this.description();
+        this.example();
+        this.typename();
+        return this;
     }
 
     public UserPropertyResponseProjection id() {

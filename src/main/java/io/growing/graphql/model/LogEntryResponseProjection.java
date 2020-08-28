@@ -8,11 +8,27 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class LogEntryResponseProjection extends GraphQLResponseProjection {
 
     public LogEntryResponseProjection() {
+    }
+
+    @Override
+    public LogEntryResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public LogEntryResponseProjection all$(int maxDepth) {
+        this.operation();
+        this.message();
+        this.operatorId();
+        this.timestamp();
+        this.operator();
+        this.typename();
+        return this;
     }
 
     public LogEntryResponseProjection operation() {

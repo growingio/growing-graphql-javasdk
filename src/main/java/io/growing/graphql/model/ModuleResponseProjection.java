@@ -8,11 +8,28 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class ModuleResponseProjection extends GraphQLResponseProjection {
 
     public ModuleResponseProjection() {
+    }
+
+    @Override
+    public ModuleResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public ModuleResponseProjection all$(int maxDepth) {
+        this.key();
+        this.name();
+        if (projectionDepthOnFields.getOrDefault("ModuleResponseProjection.PermissionResponseProjection.permissions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ModuleResponseProjection.PermissionResponseProjection.permissions", projectionDepthOnFields.getOrDefault("ModuleResponseProjection.PermissionResponseProjection.permissions", 0) + 1);
+            this.permissions(new PermissionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ModuleResponseProjection.PermissionResponseProjection.permissions", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public ModuleResponseProjection key() {

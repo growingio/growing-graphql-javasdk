@@ -37,10 +37,16 @@ libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.2-SNAP
 具体可以参考 [javasdk-examples](https://github.com/growingio/growingio-graphql-javasdk/blob/master/javasdk-examples/src/main/java/io/growing/graphql/InsightServiceExample.java)，这是使用Gradle+Java构建的示例项目。
 
 - 1.使用`src/main/scala/io/growing/graphql/api`包中已经封装好的API，如：
-```scala
-val jobService = new JobService()
-val logs = jobService.jobLogs(id)
-println(logs)
+```java
+public class JobServiceJavaExample {
+
+    public static void main(String[] args) {
+        //JobService是SDK提供的一个封装，使用者可以参考这个service，使得接口更加易用
+        JobService jobService = new JobService();
+        List<EventImportJobDto> eventImportJobs = jobService.eventImportJobs();
+        System.out.println(eventImportJobs);
+    }
+}
 ```
 - 2.依靠代理工具类手动构造调用，以一个查询任务日志的接口为例：
 ```java
@@ -48,41 +54,24 @@ java.util.List<LogEntryDto> jobLogs(String id) throws Exception;//在JobLogsQuer
 ```
 发起调用：
 ```scala
-ResolverImplClient.ResolverImplClientBuilder.newBuilder().setProjection(new LogEntryResponseProjection).
+GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder().setProjection(new LogEntryResponseProjection().all$()).
     setRequest(new JobLogsQueryRequest).build(classOf[JobLogsQueryResolver]).jobLogs(id)
 ```
 * `setProjection`：参数是返回结构，描述哪些结构的哪些字段被返回，`LogEntryDto`对应的就是`LogEntryResponseProjection`
+    - 在projection上调用`all$()`表示返回所有字段，若有自递归类型，务必指定最大深度。`all$(1)`表示仅返回递归类型的第一层孩子。
+    - 需要返回指定字段怎么办？请依次在projection对象上调用无参方法，如：`new LogEntryResponseProjection().id().name()`表示只返回`id`和`name`
 * `setRequest`：参数是该方法对应的请求的实例，`jobLogs`对应的就是`JobLogsQueryRequest`的实例
 * `JobLogsQueryResolver`和`JobLogsQueryRequest`是对应的，`LogEntryResponseProjection`可能被多个方法用作返回类型，如：`List<LogEntryResponseProjection>`和`LogEntryResponseProjection`
 * `build`：表示`jobLogs`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`JobLogsQueryResolver`中定义的
-* `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
-> 注：若返回的是基本类型，则setProjection的参数值为null
 
-> 需要返回指定字段怎么办？如可以这样：`new LogEntryResponseProjection().id().name()`，但`new LogEntryResponseProjection()`会返回所有字段。
+> `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
+
+> 注：若返回的是基本类型，则setProjection的参数值为null或者不调用setProjection方法
 
 - 3.手动实现`src/main/java/io/growing/graphql/resolver`包中的接口，并手动使用`*Request`、`*Response`、`*ResponseProjection`和`*Resolver`发起请求
     如：[示例](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala)
     
 前面两种使用代理，默认返回所有字段，如果需要仅返回部分字段，请使用第三种方式。如非必要，使用第一种最好。本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
-
-## 配置
-
-```
-# src/main/java下定义配置文件：application.conf，可以覆盖默认配置
-graphql {
-    # 服务端的地址
-    server.host = "http://localhost:8086/projects/WlGk4Daj/graphql"
-    # graphql最大嵌套查询深度
-    maxDepth = 3
-
-    # 授权使用的header，最终以header(X-User-Id, 1)的形式，携带到服务端。
-    authenticate = {
-        key = "X-User-Id"  # 或者key="Cookie"，等任意字符
-        value = "1"
-    }
-
-}
-```
 
 > 代理调用 需要在 Java 1.8 上编译！
 

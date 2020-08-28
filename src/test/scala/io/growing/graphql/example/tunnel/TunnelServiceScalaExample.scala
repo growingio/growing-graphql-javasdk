@@ -1,7 +1,8 @@
 package io.growing.graphql.example.tunnel
 
 import io.growing.graphql.model.{ TunnelResponseProjection, TunnelsQueryRequest }
-import io.growing.graphql.proxy.ResolverImplClient
+import io.growing.graphql.proxy.GrowingIOGraphQLClient
+import io.growing.graphql.proxy.GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder
 import io.growing.graphql.resolver.TunnelsQueryResolver
 
 /**
@@ -11,10 +12,10 @@ import io.growing.graphql.resolver.TunnelsQueryResolver
  */
 object TunnelServiceScalaExample extends App {
 
-  protected val tunnelHelper: ResolverImplClient.ResolverImplClientBuilder = ResolverImplClient.ResolverImplClientBuilder.newBuilder()
+  protected val tunnelHelper: GrowingIOGraphQLClientBuilder = GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder()
 
   println("=====tunnels=====")
-  val tunnels = tunnelHelper.setProjection(new TunnelResponseProjection).
+  val tunnels = tunnelHelper.setProjection(new TunnelResponseProjection().all$()).
     setRequest(new TunnelsQueryRequest).build(classOf[TunnelsQueryResolver]).tunnels()
   println(tunnels)
 

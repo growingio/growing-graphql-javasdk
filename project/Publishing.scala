@@ -32,6 +32,7 @@ object Publishing {
       ScmInfo(
         url("https://github.com/growingio/growing-graphql-javasdk"),
         "scm:git@github.com:growingio/growing-graphql-javasdk.git"
-      ))
+      )),
+    excludeFilter := new SimpleFileFilter(_.getName.endsWith(".graphqls"))
   )
 }

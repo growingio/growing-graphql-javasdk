@@ -8,11 +8,29 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class SubscriptionResponseProjection extends GraphQLResponseProjection {
 
     public SubscriptionResponseProjection() {
+    }
+
+    @Override
+    public SubscriptionResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public SubscriptionResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.status();
+        if (projectionDepthOnFields.getOrDefault("SubscriptionResponseProjection.SubscriptionResponseProjection.children", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SubscriptionResponseProjection.SubscriptionResponseProjection.children", projectionDepthOnFields.getOrDefault("SubscriptionResponseProjection.SubscriptionResponseProjection.children", 0) + 1);
+            this.children(new SubscriptionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SubscriptionResponseProjection.SubscriptionResponseProjection.children", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public SubscriptionResponseProjection id() {

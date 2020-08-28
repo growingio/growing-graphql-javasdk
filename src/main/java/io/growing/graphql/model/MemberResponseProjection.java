@@ -8,11 +8,34 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class MemberResponseProjection extends GraphQLResponseProjection {
 
     public MemberResponseProjection() {
+    }
+
+    @Override
+    public MemberResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public MemberResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.source();
+        this.avatar();
+        this.email();
+        this.createdAt();
+        this.phoneNumber();
+        if (projectionDepthOnFields.getOrDefault("MemberResponseProjection.DepartmentResponseProjection.directDepartment", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MemberResponseProjection.DepartmentResponseProjection.directDepartment", projectionDepthOnFields.getOrDefault("MemberResponseProjection.DepartmentResponseProjection.directDepartment", 0) + 1);
+            this.directDepartment(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MemberResponseProjection.DepartmentResponseProjection.directDepartment", 0)));
+        }
+        this.identity();
+        this.typename();
+        return this;
     }
 
     public MemberResponseProjection id() {

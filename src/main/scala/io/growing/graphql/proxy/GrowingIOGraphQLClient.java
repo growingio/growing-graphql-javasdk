@@ -2,7 +2,7 @@ package io.growing.graphql.proxy;
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
-import io.growing.graphql.Configs;
+import io.growing.graphql.GrowingIOGraphQLConfig;
 
 import java.lang.reflect.Proxy;
 
@@ -12,12 +12,12 @@ import java.lang.reflect.Proxy;
  * @author liguobin@growingio.com
  * @version 1.0, 2020/7/28
  */
-final public class ResolverImplClient {
+final public class GrowingIOGraphQLClient {
 
     private Class<?> resolver;
     private GraphQLResponseProjection projection;
     private GraphQLOperationRequest request;
-    private int maxDepth;
+    private GrowingIOGraphQLConfig growingIOGraphQLConfig;
 
     /**
      * create proxy object, so we do not need write resolver interface' impl
@@ -26,8 +26,12 @@ final public class ResolverImplClient {
      * @return
      */
     private Object getResolver() {
-        DynamicProxy invocationHandler = new DynamicProxy(projection, request, maxDepth);
+        DynamicProxy invocationHandler = new DynamicProxy(projection, request, growingIOGraphQLConfig);
         return Proxy.newProxyInstance(resolver.getClassLoader(), new Class[]{resolver}, invocationHandler);
+    }
+
+    public void setGrowingIOGraphQLConfig(GrowingIOGraphQLConfig growingIOGraphQLConfig) {
+        this.growingIOGraphQLConfig = growingIOGraphQLConfig;
     }
 
     private void setResolver(Class<?> resolver) {
@@ -38,23 +42,28 @@ final public class ResolverImplClient {
         this.request = request;
     }
 
-    private void setMaxDepth(int maxDepth) {
-        this.maxDepth = maxDepth;
-    }
-
     private void setProjection(GraphQLResponseProjection projection) {
         this.projection = projection;
     }
 
 
-    public static class ResolverImplClientBuilder {
+    public static class GrowingIOGraphQLClientBuilder {
         //if response is primitive type like: int boolean string float.
         private GraphQLResponseProjection projection = null;
         private GraphQLOperationRequest request;
-        private int maxDepth = Configs.maxDepth();
+        private GrowingIOGraphQLConfig growingIOGraphQLConfig;
 
-        private ResolverImplClientBuilder() {
+        private GrowingIOGraphQLClientBuilder() {
+        }
 
+        /**
+         * custom config
+         *
+         * @param growingIOGraphQLConfig
+         */
+        public void setGrowingIOGraphQLConfig(GrowingIOGraphQLConfig growingIOGraphQLConfig) {
+            assert growingIOGraphQLConfig != null;
+            this.growingIOGraphQLConfig = growingIOGraphQLConfig;
         }
 
         /**
@@ -63,19 +72,8 @@ final public class ResolverImplClient {
          * @param request
          * @return
          */
-        public ResolverImplClientBuilder setRequest(GraphQLOperationRequest request) {
+        public GrowingIOGraphQLClientBuilder setRequest(GraphQLOperationRequest request) {
             this.request = request;
-            return this;
-        }
-
-        /**
-         * default query max depth is 3, so children fields will query until depth is 3
-         *
-         * @param maxDepth
-         * @return
-         */
-        public ResolverImplClientBuilder setMaxDepth(int maxDepth) {
-            this.maxDepth = maxDepth;
             return this;
         }
 
@@ -85,7 +83,7 @@ final public class ResolverImplClient {
          * @param projection
          * @return
          */
-        public ResolverImplClientBuilder setProjection(GraphQLResponseProjection projection) {
+        public GrowingIOGraphQLClientBuilder setProjection(GraphQLResponseProjection projection) {
             this.projection = projection;
             return this;
         }
@@ -95,8 +93,8 @@ final public class ResolverImplClient {
          *
          * @return
          */
-        public static ResolverImplClientBuilder newBuilder() {
-            return new ResolverImplClientBuilder();
+        public static GrowingIOGraphQLClientBuilder newBuilder() {
+            return new GrowingIOGraphQLClientBuilder();
         }
 
         /**
@@ -107,13 +105,27 @@ final public class ResolverImplClient {
          */
         @SuppressWarnings(value = "unchecked")
         public <R> R build(Class<R> resolver) {
-            ResolverImplClient invoke = new ResolverImplClient();
+            GrowingIOGraphQLClient invoke = new GrowingIOGraphQLClient();
             assert (projection != null);
             assert (resolver != null);
             assert (request != null);
             invoke.setProjection(projection);
             invoke.setResolver(resolver);
-            invoke.setMaxDepth(maxDepth);
+            if (growingIOGraphQLConfig == null) {
+                invoke.setGrowingIOGraphQLConfig(new GrowingIOGraphQLConfig() {
+                    @Override
+                    public String getAuthenticateKey() {
+                        return null;
+                    }
+
+                    @Override
+                    public String getAuthenticateValue() {
+                        return null;
+                    }
+                });
+            } else {
+                invoke.setGrowingIOGraphQLConfig(growingIOGraphQLConfig);
+            }
             invoke.setRequest(request);
             return (R) invoke.getResolver();
         }

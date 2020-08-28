@@ -8,11 +8,49 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class RetentionAnalysisResponseProjection extends GraphQLResponseProjection {
 
     public RetentionAnalysisResponseProjection() {
+    }
+
+    @Override
+    public RetentionAnalysisResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public RetentionAnalysisResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("RetentionAnalysisResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        this.range();
+        this.eventType();
+        this.timeRange();
+        if (projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) <= maxDepth) {
+            projectionDepthOnFields.put("RetentionAnalysisResponseProjection.TargetUserResponseProjection.targetUser", projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0) + 1);
+            this.targetUser(new TargetUserResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.TargetUserResponseProjection.targetUser", 0)));
+        }
+        this.currentTurn();
+        if (projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("RetentionAnalysisResponseProjection.SplitterResponseProjection.splitter", projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.SplitterResponseProjection.splitter", 0) + 1);
+            this.splitter(new SplitterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("RetentionAnalysisResponseProjection.SplitterResponseProjection.splitter", 0)));
+        }
+        this.chartType();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.typename();
+        return this;
     }
 
     public RetentionAnalysisResponseProjection id() {

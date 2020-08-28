@@ -1,6 +1,7 @@
 package io.growing.graphql.test
 
-import io.growing.graphql.proxy.ResolverImplClient
+import io.growing.graphql.proxy.GrowingIOGraphQLClient
+import io.growing.graphql.proxy.GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder
 import io.growing.graphql.resolver.JobFilesQueryResolver
 import org.scalatest.flatspec.AnyFlatSpec
 
@@ -12,7 +13,7 @@ import org.scalatest.flatspec.AnyFlatSpec
  */
 class ProxySpec extends AnyFlatSpec {
 
-  protected val jobQueryHelper: ResolverImplClient.ResolverImplClientBuilder = ResolverImplClient.ResolverImplClientBuilder.newBuilder()
+  protected val jobQueryHelper: GrowingIOGraphQLClientBuilder = GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder()
 
   "ResolverImplClient instance" should "true" in {
     val jobFilesQueryResolver = jobQueryHelper.build(classOf[JobFilesQueryResolver])

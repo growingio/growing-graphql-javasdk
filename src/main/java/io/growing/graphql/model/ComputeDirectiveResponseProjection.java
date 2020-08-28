@@ -8,11 +8,36 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class ComputeDirectiveResponseProjection extends GraphQLResponseProjection {
 
     public ComputeDirectiveResponseProjection() {
+    }
+
+    @Override
+    public ComputeDirectiveResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public ComputeDirectiveResponseProjection all$(int maxDepth) {
+        this.alias();
+        if (projectionDepthOnFields.getOrDefault("ComputeDirectiveResponseProjection.MeasurementResponseProjection.measurement", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ComputeDirectiveResponseProjection.MeasurementResponseProjection.measurement", projectionDepthOnFields.getOrDefault("ComputeDirectiveResponseProjection.MeasurementResponseProjection.measurement", 0) + 1);
+            this.measurement(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ComputeDirectiveResponseProjection.MeasurementResponseProjection.measurement", 0)));
+        }
+        this.timeRange();
+        if (projectionDepthOnFields.getOrDefault("ComputeDirectiveResponseProjection.FilterResponseProjection.filter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ComputeDirectiveResponseProjection.FilterResponseProjection.filter", projectionDepthOnFields.getOrDefault("ComputeDirectiveResponseProjection.FilterResponseProjection.filter", 0) + 1);
+            this.filter(new FilterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ComputeDirectiveResponseProjection.FilterResponseProjection.filter", 0)));
+        }
+        this.op();
+        this.attribute();
+        this.aggregator();
+        this.values();
+        this.typename();
+        return this;
     }
 
     public ComputeDirectiveResponseProjection alias() {

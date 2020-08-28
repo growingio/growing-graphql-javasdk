@@ -8,11 +8,31 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class ExpressionResponseProjection extends GraphQLResponseProjection {
 
     public ExpressionResponseProjection() {
+    }
+
+    @Override
+    public ExpressionResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public ExpressionResponseProjection all$(int maxDepth) {
+        this.op();
+        if (projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.ExpressionResponseProjection.exprs", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ExpressionResponseProjection.ExpressionResponseProjection.exprs", projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.ExpressionResponseProjection.exprs", 0) + 1);
+            this.exprs(new ExpressionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.ExpressionResponseProjection.exprs", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ExpressionResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
+            this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public ExpressionResponseProjection op() {

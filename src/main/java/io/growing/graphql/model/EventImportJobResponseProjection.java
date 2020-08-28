@@ -8,11 +8,45 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class EventImportJobResponseProjection extends GraphQLResponseProjection {
 
     public EventImportJobResponseProjection() {
+    }
+
+    @Override
+    public EventImportJobResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public EventImportJobResponseProjection all$(int maxDepth) {
+        this.id();
+        this.name();
+        this.type();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.EventImportParameterResponseProjection.parameter", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventImportJobResponseProjection.EventImportParameterResponseProjection.parameter", projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.EventImportParameterResponseProjection.parameter", 0) + 1);
+            this.parameter(new EventImportParameterResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.EventImportParameterResponseProjection.parameter", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.EventImportArgumentResponseProjection.argument", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventImportJobResponseProjection.EventImportArgumentResponseProjection.argument", projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.EventImportArgumentResponseProjection.argument", 0) + 1);
+            this.argument(new EventImportArgumentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.EventImportArgumentResponseProjection.argument", 0)));
+        }
+        this.stage();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        if (projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.ErrorResponseProjection.error", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventImportJobResponseProjection.ErrorResponseProjection.error", projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.ErrorResponseProjection.error", 0) + 1);
+            this.error(new ErrorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.ErrorResponseProjection.error", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public EventImportJobResponseProjection id() {

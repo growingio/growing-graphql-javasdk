@@ -8,11 +8,25 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class SegmentDocumentResponseProjection extends GraphQLResponseProjection {
 
     public SegmentDocumentResponseProjection() {
+    }
+
+    @Override
+    public SegmentDocumentResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public SegmentDocumentResponseProjection all$(int maxDepth) {
+        this.id();
+        this.fileName();
+        this.sourceType();
+        this.typename();
+        return this;
     }
 
     public SegmentDocumentResponseProjection id() {

@@ -8,11 +8,28 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:30+0800"
 )
 public class TunnelEventsTrendResponseProjection extends GraphQLResponseProjection {
 
     public TunnelEventsTrendResponseProjection() {
+    }
+
+    @Override
+    public TunnelEventsTrendResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public TunnelEventsTrendResponseProjection all$(int maxDepth) {
+        this.totalCount();
+        this.interval();
+        if (projectionDepthOnFields.getOrDefault("TunnelEventsTrendResponseProjection.TrendPointResponseProjection.points", 0) <= maxDepth) {
+            projectionDepthOnFields.put("TunnelEventsTrendResponseProjection.TrendPointResponseProjection.points", projectionDepthOnFields.getOrDefault("TunnelEventsTrendResponseProjection.TrendPointResponseProjection.points", 0) + 1);
+            this.points(new TrendPointResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("TunnelEventsTrendResponseProjection.TrendPointResponseProjection.points", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public TunnelEventsTrendResponseProjection totalCount() {

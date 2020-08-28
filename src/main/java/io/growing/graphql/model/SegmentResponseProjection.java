@@ -8,11 +8,42 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-20T17:55:58+0800"
+    date = "2020-08-28T14:10:31+0800"
 )
 public class SegmentResponseProjection extends GraphQLResponseProjection {
 
     public SegmentResponseProjection() {
+    }
+
+    @Override
+    public SegmentResponseProjection all$() {
+        return all$(3);
+    }
+
+    @Override
+    public SegmentResponseProjection all$(int maxDepth) {
+        this.id();
+        this.projectId();
+        this.name();
+        this.description();
+        if (projectionDepthOnFields.getOrDefault("SegmentResponseProjection.ComputeDefinitionResponseProjection.compute", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SegmentResponseProjection.ComputeDefinitionResponseProjection.compute", projectionDepthOnFields.getOrDefault("SegmentResponseProjection.ComputeDefinitionResponseProjection.compute", 0) + 1);
+            this.compute(new ComputeDefinitionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SegmentResponseProjection.ComputeDefinitionResponseProjection.compute", 0)));
+        }
+        this.scheduler();
+        this.creatorId();
+        this.createdAt();
+        this.updaterId();
+        this.updatedAt();
+        this.creator();
+        this.updater();
+        this.createdBy();
+        if (projectionDepthOnFields.getOrDefault("SegmentResponseProjection.DetectorResponseProjection.detector", 0) <= maxDepth) {
+            projectionDepthOnFields.put("SegmentResponseProjection.DetectorResponseProjection.detector", projectionDepthOnFields.getOrDefault("SegmentResponseProjection.DetectorResponseProjection.detector", 0) + 1);
+            this.detector(new DetectorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("SegmentResponseProjection.DetectorResponseProjection.detector", 0)));
+        }
+        this.typename();
+        return this;
     }
 
     public SegmentResponseProjection id() {
