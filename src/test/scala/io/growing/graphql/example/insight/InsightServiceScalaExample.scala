@@ -4,7 +4,6 @@ import java.util.Collections
 
 import io.growing.graphql.model._
 import io.growing.graphql.proxy.GrowingIOGraphQLClient
-import io.growing.graphql.proxy.GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder
 import io.growing.graphql.resolver._
 
 /**
@@ -14,34 +13,34 @@ import io.growing.graphql.resolver._
  */
 object InsightServiceScalaExample extends App {
 
-  protected val insightHelper: GrowingIOGraphQLClientBuilder = GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder()
+  protected val graphQLClient = GrowingIOGraphQLClient.graphQLClient()
 
   val tagId = "V0G5BZDA"
   val segId = "WlGk6bpa"
 
   //需要注意的是，查询一个和查询多个，它们的projection是相同的，但前者返回单个projection实体，后者返回一个集合（元素是projection）
   println("=====tag=====")
-  val tag = insightHelper.setProjection(new TagResponseProjection().all$(1)).setRequest(new TagQueryRequest).build(classOf[TagQueryResolver]).tag(tagId)
+  val tag = graphQLClient.setProjection(new TagResponseProjection().all$(1)).setRequest(new TagQueryRequest).build(classOf[TagQueryResolver]).tag(tagId)
   println(tag)
 
   println("=====tags=====")
-  val tags = insightHelper.setProjection(new TagResponseProjection().all$(1)).setRequest(new TagsQueryRequest).build(classOf[TagsQueryResolver]).tags
+  val tags = graphQLClient.setProjection(new TagResponseProjection().all$(1)).setRequest(new TagsQueryRequest).build(classOf[TagsQueryResolver]).tags
   println(tags)
 
   println("=====countTags=====")
-  val countTags = insightHelper.setRequest(new CountTagsQueryRequest).build(classOf[CountTagsQueryResolver]).countTags()
+  val countTags = graphQLClient.setRequest(new CountTagsQueryRequest).build(classOf[CountTagsQueryResolver]).countTags()
   println(countTags)
 
   println("=====deleteTag=====")
-  val deleteTag = insightHelper.setRequest(new DeleteTagMutationRequest).build(classOf[DeleteTagMutationResolver]).deleteTag(tagId)
+  val deleteTag = graphQLClient.setRequest(new DeleteTagMutationRequest).build(classOf[DeleteTagMutationResolver]).deleteTag(tagId)
   println(deleteTag)
 
   println("=====segments=====")
-  val segments = insightHelper.setProjection(new SegmentResponseProjection().all$(1)).setRequest(new SegmentsQueryRequest).build(classOf[SegmentsQueryResolver]).segments()
+  val segments = graphQLClient.setProjection(new SegmentResponseProjection().all$(1)).setRequest(new SegmentsQueryRequest).build(classOf[SegmentsQueryResolver]).segments()
   println(segments)
 
   println("=====users=====")
-  val users = insightHelper.setProjection(new SlicePaginationResponseProjection().all$(1)).
+  val users = graphQLClient.setProjection(new SlicePaginationResponseProjection().all$(1)).
     setRequest(new UsersQueryRequest).build(classOf[UsersQueryResolver]).users(UserQueryTypeDto.SEGMENT, segId, 0, 3)
   println(users)
 
@@ -53,7 +52,7 @@ object InsightServiceScalaExample extends App {
     setAggregator("sum").setAlias("A").setAttribute("").
     setMeasurement(MeasurementInputDto.builder().setId("usr_test_0420_user_date").setType("attribute").setAttribute("").build()).setOp("=").
     setValues(Collections.singletonList("1587484800000")).setTimeRange("day:31,1").build())).build())).build()
-  val createTag = insightHelper.setProjection(new TagResponseProjection().all$(1)).
+  val createTag = graphQLClient.setProjection(new TagResponseProjection().all$(1)).
     setRequest(new CreateTagMutationRequest).build(classOf[CreateTagMutationResolver]).createTag(tagDto)
   println(createTag)
 

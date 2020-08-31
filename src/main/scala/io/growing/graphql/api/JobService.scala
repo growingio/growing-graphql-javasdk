@@ -4,7 +4,6 @@ import java.util
 
 import io.growing.graphql.model._
 import io.growing.graphql.proxy.GrowingIOGraphQLClient
-import io.growing.graphql.proxy.GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder
 import io.growing.graphql.resolver._
 
 /**
@@ -21,57 +20,55 @@ class JobService extends JobResultQueryResolver with JobFilesQueryResolver with 
   with ExecuteJobMutationResolver with SubmitAnalysisExportJobMutationResolver with CreateEventImportJobMutationResolver
   with SubmitSegmentUserExportJobMutationResolver with SubmitTagUserExportJobMutationResolver {
 
-  protected val jobHelper: GrowingIOGraphQLClientBuilder = GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder()
-
   //query
   override def jobFiles(id: String): util.List[FileDescriptorDto] = {
-    jobHelper.setProjection(new FileDescriptorResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new FileDescriptorResponseProjection().all$()).
       setRequest(new JobFilesQueryRequest).build(classOf[JobFilesQueryResolver]).jobFiles(id)
   }
 
   override def jobLogs(id: String): util.List[LogEntryDto] = {
-    jobHelper.setProjection(new LogEntryResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new LogEntryResponseProjection().all$()).
       setRequest(new JobLogsQueryRequest).build(classOf[JobLogsQueryResolver]).jobLogs(id)
   }
 
   override def jobResult(id: String): JobResultDto = {
-    jobHelper.setProjection(new JobResultResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new JobResultResponseProjection().all$()).
       setRequest(new JobResultQueryRequest).build(classOf[JobResultQueryResolver]).jobResult(id)
   }
 
   override def eventImportJobs(): util.List[EventImportJobDto] = {
-    jobHelper.setProjection(new EventImportJobResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new EventImportJobResponseProjection().all$()).
       setRequest(new EventImportJobsQueryRequest).build(classOf[EventImportJobsQueryResolver]).eventImportJobs()
   }
 
 
   //mutation
   override def createEventImportJob(tunnelId: String, timeRange: String): EventImportJobDto = {
-    jobHelper.setProjection(new EventImportJobResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new EventImportJobResponseProjection().all$()).
       setRequest(new CreateEventImportJobMutationRequest).
       build(classOf[CreateEventImportJobMutationResolver]).createEventImportJob(tunnelId, timeRange)
   }
 
   override def executeJob(id: String): JobResultDto = {
-    jobHelper.setProjection(new JobResultResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new JobResultResponseProjection().all$()).
       setRequest(new ExecuteJobMutationRequest).
       build(classOf[ExecuteJobMutationResolver]).executeJob(id)
   }
 
   override def submitAnalysisExportJob(id: String, param: AnalysisExportJobParamDto, charset: String): AnalysisExportJobDto = {
-    jobHelper.setProjection(new AnalysisExportJobResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new AnalysisExportJobResponseProjection().all$()).
       setRequest(new SubmitAnalysisExportJobMutationRequest).
       build(classOf[SubmitAnalysisExportJobMutationResolver]).submitAnalysisExportJob(id, param, charset)
   }
 
   override def submitSegmentUserExportJob(segmentId: String, tags: util.List[String], properties: util.List[String], charset: String): SegmentUserExportJobDto = {
-    jobHelper.setProjection(new SegmentUserExportJobResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new SegmentUserExportJobResponseProjection().all$()).
       setRequest(new SubmitSegmentUserExportJobMutationRequest).
       build(classOf[SubmitSegmentUserExportJobMutationResolver]).submitSegmentUserExportJob(segmentId, tags, properties, charset)
   }
 
   override def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String): TagUserExportJobDto = {
-    jobHelper.setProjection(new TagUserExportJobResponseProjection().all$()).
+    GrowingIOGraphQLClient.graphQLClient().setProjection(new TagUserExportJobResponseProjection().all$()).
       setRequest(new SubmitTagUserExportJobMutationRequest).
       build(classOf[SubmitTagUserExportJobMutationResolver]).submitTagUserExportJob(tagId, properties, charset)
   }

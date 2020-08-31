@@ -1,13 +1,13 @@
 GrowingIO GraphQL Java SDK
 ---
 
-目前只支持 Growing CDP 平台（测试阶段）
+目前只支持 Growing CDP 平台（开发中，暂不可用）
 
 ## 如何使用
 
 ### 环境
-* Scala 2.11、2.12、2.13
-* Java 8
+* Scala 2.11.x、2.12.x、2.13.x
+* Java 1.8
 
 ### 1.添加依赖
 
@@ -32,11 +32,11 @@ compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0
 libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.2-SNAPSHOT"
 ```
 
-### 2.调用接口，调用有三种方式：
+### 2.使用：
 
 具体可以参考 [javasdk-examples](https://github.com/growingio/growingio-graphql-javasdk/blob/master/javasdk-examples/src/main/java/io/growing/graphql/InsightServiceExample.java)，这是使用Gradle+Java构建的示例项目。
 
-- 1.使用`src/main/scala/io/growing/graphql/api`包中已经封装好的API，如：
+- 1.使用`api`包中已经封装好的API，如：
 ```java
 public class JobServiceJavaExample {
 
@@ -48,32 +48,113 @@ public class JobServiceJavaExample {
     }
 }
 ```
-- 2.依靠代理工具类手动构造调用，以一个查询任务日志的接口为例：
+- 2.使用`resolver`包，以一个查询标签的接口为例：
 ```java
-java.util.List<LogEntryDto> jobLogs(String id) throws Exception;//在JobLogsQueryResolver中，以此类推
+public interface TagQueryResolver {
+    TagDto tag(String id) throws Exception;
+}
 ```
-发起调用：
-```scala
-GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder().setProjection(new LogEntryResponseProjection().all$()).
-    setRequest(new JobLogsQueryRequest).build(classOf[JobLogsQueryResolver]).jobLogs(id)
+**发起调用：**
+```java
+GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder growingioApi = GrowingIOGraphQLClient.graphQLClient();
+TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagQueryRequest()).build(TagQueryResolver.class).tag(tagId);
 ```
-* `setProjection`：参数是返回结构，描述哪些结构的哪些字段被返回，`LogEntryDto`对应的就是`LogEntryResponseProjection`
-    - 在projection上调用`all$()`表示返回所有字段，若有自递归类型，务必指定最大深度。`all$(1)`表示仅返回递归类型的第一层孩子。
-    - 需要返回指定字段怎么办？请依次在projection对象上调用无参方法，如：`new LogEntryResponseProjection().id().name()`表示只返回`id`和`name`
-* `setRequest`：参数是该方法对应的请求的实例，`jobLogs`对应的就是`JobLogsQueryRequest`的实例
-* `JobLogsQueryResolver`和`JobLogsQueryRequest`是对应的，`LogEntryResponseProjection`可能被多个方法用作返回类型，如：`List<LogEntryResponseProjection>`和`LogEntryResponseProjection`
-* `build`：表示`jobLogs`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`JobLogsQueryResolver`中定义的
+**方法描述**
+* `setProjection`：参数是返回结构的投影实例，描述哪些结构的哪些字段被返回，`TagDto`对应的就是`TagResponseProjection`。
+    - 在projection上调用`all$()`表示返回所有字段且自递归类型的默认深度由`GrowingIOGraphQLConfig`指定为3，若有自递归类型，务必指定最大深度。`all$(1)`表示仅返回递归类型的第一层孩子。
+    - 需要返回指定字段怎么办？请依次在projection对象上调用无参方法，如：`new TagResponseProjection().id().name()`表示只返回`id`和`name`（此时不要重复使用`all$`！）
+* `setRequest`：参数是该方法对应的请求的实例，`tag`对应的就是`TagQueryRequest`的实例。
+* `build`：表示`tag`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`TagQueryResolver`中定义的。
+* 想要配置？调用`growingioApi.setGrowingIOGraphQLConfig`即可
 
-> `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口
+> `TagQueryResolver`和`TagQueryRequest`是对应的，`TagResponseProjection`可能被多个方法用作返回类型的投影，因为返回的Entity可能是集合，如：`List<TagDto>`和`TagDto`。
 
-> 注：若返回的是基本类型，则setProjection的参数值为null或者不调用setProjection方法
+> `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口。
 
-- 3.手动实现`src/main/java/io/growing/graphql/resolver`包中的接口，并手动使用`*Request`、`*Response`、`*ResponseProjection`和`*Resolver`发起请求
-    如：[示例](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/plugins/sbt/graphql-java-codegen-sbt-plugin/src/sbt-test/graphql-codegen-sbt-plugin/example-client/src/main/scala/io/github/dreamylost/service/QueryResolverImpl.scala)
-    
-前面两种使用代理，默认返回所有字段，如果需要仅返回部分字段，请使用第三种方式。如非必要，使用第一种最好。本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
+> 注：若返回的是基本类型，则setProjection的参数值为null或者不调用setProjection方法。
 
-> 代理调用 需要在 Java 1.8 上编译！
+> 暂时依赖 Java 1.8 上编译！
+
+**完整实例**
+```java
+package io.growing.graphql;
+
+import io.growing.graphql.model.*;
+import io.growing.graphql.proxy.GrowingIOGraphQLClient;
+import io.growing.graphql.resolver.CreateTagMutationResolver;
+import io.growing.graphql.resolver.TagQueryResolver;
+import io.growing.graphql.resolver.TagsQueryResolver;
+
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * @author liguobin@growingio.com
+ * @version 1.0, 2020/8/19
+ */
+public class InsightServiceExample {
+
+    public static void main(String[] args) throws Exception {
+
+        //这是第二种方法，使用代理直接调用，没有封装。如有需要，使用者可以自己封装，可以选择全部（使用`GrowingIOQueryResolver`和`GrowingIOMutationResolver`）或部分封装
+        GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder growingioApi = GrowingIOGraphQLClient.graphQLClient();
+        //配置文件
+        growingioApi.setGrowingIOGraphQLConfig(new GrowingIOGraphQLConfig() {
+            @Override
+            public String getAuthenticateKey() {
+                //getAuthenticateKey作为请求header的key，getAuthenticateValue作为请求header的value
+                return "Cookie";
+            }
+
+            @Override
+            public String getAuthenticateValue() {
+                return "hello world!";
+            }
+
+            @Override
+            public Integer getResponseProjectionMaxDepth() {
+                return 1;
+            }
+
+            @Override
+            public Integer getTimeOut() {
+                return 1;
+            }
+
+            @Override
+            public String getServerHost() {
+                return "https://www.growingio.com/graphql";
+            }
+        });
+
+        String tagId = "V0G5BZDA";
+
+        //需要注意的是，查询一个和查询多个，它们的projection是相同的，但前者返回单个projection实体，后者返回一个集合（元素是projection）
+        System.out.println("=====tag=====");
+        TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagQueryRequest()).build(TagQueryResolver.class).tag(tagId);
+        System.out.println(tag);
+
+
+        System.out.println("=====tags=====");
+        List<TagDto> tags = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagsQueryRequest()).build(TagsQueryResolver.class).tags();
+        System.out.println(tags);
+
+
+        System.out.println("=====createTag=====");
+        TagInputDto tagDto = TagInputDto.builder().setName("come from java sdk").setDescription("hello world").
+                setType(TagTypeDto.HORIZONTAL).setComputes(Collections.singletonList(ComputeDefinitionInputDto.builder().
+                setName("comefromjavasdk").setExpression("A").setDirectives(Collections.singletonList(ComputeDirectiveInputDto.builder().
+                setAggregator("sum").setAlias("A").setAttribute("").
+                setMeasurement(MeasurementInputDto.builder().setId("usr_test_0420_user_date").setType("attribute").setAttribute("").build()).setOp("=").
+                setValues(Collections.singletonList("1587484800000")).setTimeRange("day:31,1").build())).build())).build();
+        TagDto createTag = growingioApi.setProjection(new TagResponseProjection().all$()).
+                setRequest(new CreateTagMutationRequest()).build(CreateTagMutationResolver.class).createTag(tagDto);
+        System.out.println(createTag);
+    }
+}
+```
+
+本SDK没有像示例1一样封装每个API，但为了方便，使用者可以参考第一种方法自己封装一下。
 
 ## SDK 开发者新增接口
 

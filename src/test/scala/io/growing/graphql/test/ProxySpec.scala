@@ -1,7 +1,6 @@
 package io.growing.graphql.test
 
 import io.growing.graphql.proxy.GrowingIOGraphQLClient
-import io.growing.graphql.proxy.GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder
 import io.growing.graphql.resolver.JobFilesQueryResolver
 import org.scalatest.flatspec.AnyFlatSpec
 
@@ -13,15 +12,13 @@ import org.scalatest.flatspec.AnyFlatSpec
  */
 class ProxySpec extends AnyFlatSpec {
 
-  protected val jobQueryHelper: GrowingIOGraphQLClientBuilder = GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder()
-
   "ResolverImplClient instance" should "true" in {
-    val jobFilesQueryResolver = jobQueryHelper.build(classOf[JobFilesQueryResolver])
+    val jobFilesQueryResolver = GrowingIOGraphQLClient.graphQLClient().build(classOf[JobFilesQueryResolver])
     jobFilesQueryResolver.isInstanceOf[JobFilesQueryResolver]
   }
 
   "ResolverImplClient class and method" should "true" in {
-    val jobFilesQueryResolver = jobQueryHelper.build(classOf[JobFilesQueryResolver])
+    val jobFilesQueryResolver = GrowingIOGraphQLClient.graphQLClient().build(classOf[JobFilesQueryResolver])
     jobFilesQueryResolver.getClass.getInterfaces.foreach(x => println(x))
 
     jobFilesQueryResolver.toString.startsWith("io.growing.graphql.proxy.DynamicProxy") &&

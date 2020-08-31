@@ -131,4 +131,13 @@ final public class GrowingIOGraphQLClient {
         }
     }
 
+    /**
+     * a helper method, support return a graphql client instance to use proxy.
+     *
+     * @return GrowingIOGraphQLClient GrowingIOGraphQLClientBuilder
+     */
+    public static GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder graphQLClient() {
+        return GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder.newBuilder();
+    }
+
 }
