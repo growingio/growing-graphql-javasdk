@@ -112,11 +112,6 @@ public class InsightServiceExample {
             }
 
             @Override
-            public Integer getResponseProjectionMaxDepth() {
-                return 1;
-            }
-
-            @Override
             public Integer getTimeOut() {
                 return 1;
             }
