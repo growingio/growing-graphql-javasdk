@@ -161,8 +161,8 @@ public class InsightServiceExample {
 2. 更新schema后，重新执行`GraphqlSchemaMergeApp.scala`，该程序会合并schema，生成`all.graphqls`文件（因为`growing-cdp`的schema非标准写法）
 3. 执行`sbt graphqlCodegen compile`生成Java客户端和API
     - 根据需要新增配置项，参考：[options](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md)
-4. 生成的接口后，在`src/mian/scala/io/growing/graphql/api`包中实现接口中新增的方法（方便用户使用，也方便自己测试验证。默认情况：本SDK仅提供一个封装示例`JobService.scala`）
-    - 建议为最有可能出错的接口写一些使用示例，比如：多实例的子类序列化，指定的类型格式，多层嵌套结构，异步接口，订阅等等
+4. 生成接口后，在`api`包中实现接口中新增的方法（本SDK仅提供了一个封装示例`JobService.scala`）
+    - 建议为复杂接口写一些使用示例和单测。
     
     
 ## TODO
