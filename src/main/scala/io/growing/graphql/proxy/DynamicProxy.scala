@@ -13,7 +13,10 @@ import io.growing.graphql.GrowingIOGraphQLConfig
 class DynamicProxy(
   projection: GraphQLResponseProjection,
   request: GraphQLOperationRequest,
-  growingIOGraphQLConfig: GrowingIOGraphQLConfig) extends InvocationHandler with ExecutionGraphQL {
+  growingIOGraphQLConfig: GrowingIOGraphQLConfig) extends InvocationHandler with ExecutionGraphQL
+  with OperationRequestSupport {
+
+  override val graphQLOperationRequest: GraphQLOperationRequest = request
 
   @throws[Throwable]
   override def invoke(proxy: Any, method: Method, args: Array[AnyRef]): AnyRef = {
@@ -33,15 +36,13 @@ class DynamicProxy(
    * you should clean class, and build again after set -parameters
    * in sbt like this: javacOptions += "-parameters"
    * <p>
-   * TODO for compatiblity with java8 or below, need use annotation or asm to replace javac compile option `-parameters`.
    *
    * @param method
    * @param args
    * @return
    */
   private def proxyInvoke(method: Method, args: Array[AnyRef]): Any = {
-    var i = 0
-    //handle List
+    //get generic type from List
     val `type` = method.getGenericReturnType
     val entityClazzName = `type` match {
       case parameterizedType1: ParameterizedType =>
@@ -50,15 +51,8 @@ class DynamicProxy(
       case _ =>
         `type`.getTypeName
     }
-    val parameters = method.getParameters.toSeq
-    if (parameters.nonEmpty) {
-      for (parameter <- parameters) {
-        val argsCopy = args(i)
-        i += 1
-        request.getInput.put(parameter.getName, argsCopy)
-      }
-    }
-    execute(entityClazzName, request, projection, growingIOGraphQLConfig)
+    val requestWithParams = withParamsByReflect(method, args)
+    execute(entityClazzName, requestWithParams, projection, growingIOGraphQLConfig)
   }
 
 }

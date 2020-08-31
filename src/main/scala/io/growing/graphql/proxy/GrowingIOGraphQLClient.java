@@ -23,7 +23,7 @@ final public class GrowingIOGraphQLClient {
      * create proxy object, so we do not need write resolver interface' impl
      * but we need use all response entity'fields on projection
      *
-     * @return
+     * @return R resolver which be need for invoking graphql
      */
     private Object getResolver() {
         DynamicProxy invocationHandler = new DynamicProxy(projection, request, growingIOGraphQLConfig);
@@ -62,15 +62,18 @@ final public class GrowingIOGraphQLClient {
          * @param growingIOGraphQLConfig
          */
         public void setGrowingIOGraphQLConfig(GrowingIOGraphQLConfig growingIOGraphQLConfig) {
-            assert growingIOGraphQLConfig != null;
-            this.growingIOGraphQLConfig = growingIOGraphQLConfig;
+            if (growingIOGraphQLConfig == null) {
+                System.err.println("Custom Config is null, will use default config(usually, it only be used in debug/test).");
+            } else {
+                this.growingIOGraphQLConfig = growingIOGraphQLConfig;
+            }
         }
 
         /**
          * must set request which maybe contains come input parameters
          *
          * @param request
-         * @return
+         * @return GrowingIOGraphQLClientBuilder
          */
         public GrowingIOGraphQLClientBuilder setRequest(GraphQLOperationRequest request) {
             this.request = request;
@@ -81,7 +84,7 @@ final public class GrowingIOGraphQLClient {
          * must set response projection, then the server can know which fields can be return
          *
          * @param projection
-         * @return
+         * @return GrowingIOGraphQLClientBuilder
          */
         public GrowingIOGraphQLClientBuilder setProjection(GraphQLResponseProjection projection) {
             this.projection = projection;
@@ -91,7 +94,7 @@ final public class GrowingIOGraphQLClient {
         /**
          * should be invoked at the first to create a builder
          *
-         * @return
+         * @return GrowingIOGraphQLClientBuilder
          */
         public static GrowingIOGraphQLClientBuilder newBuilder() {
             return new GrowingIOGraphQLClientBuilder();
@@ -101,14 +104,11 @@ final public class GrowingIOGraphQLClient {
          * Resolver is generic type, if we do not want to cast to real resolver on the user side, we need set resolver when invoker builder method,
          * although this is not in line with the conventional builder model
          *
-         * @return R resolver which need for invoke graphql
+         * @return R resolver which be need for invoking graphql
          */
         @SuppressWarnings(value = "unchecked")
         public <R> R build(Class<R> resolver) {
             GrowingIOGraphQLClient invoke = new GrowingIOGraphQLClient();
-            assert (projection != null);
-            assert (resolver != null);
-            assert (request != null);
             invoke.setProjection(projection);
             invoke.setResolver(resolver);
             if (growingIOGraphQLConfig == null) {
