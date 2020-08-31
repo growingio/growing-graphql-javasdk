@@ -61,7 +61,7 @@ TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setR
 ```
 **方法描述**
 * `setProjection`：参数是返回结构的投影实例，描述哪些结构的哪些字段被返回，`TagDto`对应的就是`TagResponseProjection`。
-    - 在projection上调用`all$()`表示返回所有字段且自递归类型的默认深度由`GrowingIOGraphQLConfig`指定为3，若有自递归类型，务必指定最大深度。`all$(1)`表示仅返回自递归类型的第一层孩子。
+    - 在projection上调用`all$()`表示返回所有字段且自递归类型的默认深度为3，若有自递归类型，务必指定最大深度。`all$(1)`表示仅返回自递归类型的第一层孩子。
     - 需要返回指定字段怎么办？请依次在projection对象上调用无参方法，如：`new TagResponseProjection().id().name()`表示只返回`id`和`name`（此时不要重复使用`all$`！）
 * `setRequest`：参数是该方法对应的请求的实例，`tag`对应的就是`TagQueryRequest`的实例。
 * `build`：表示`tag`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`TagQueryResolver`中定义的。

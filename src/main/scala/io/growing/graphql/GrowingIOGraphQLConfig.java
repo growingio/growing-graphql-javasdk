@@ -12,10 +12,6 @@ public interface GrowingIOGraphQLConfig {
         return "http://localhost:8086/projects/WlGk4Daj/graphql";
     }
 
-    default Integer getResponseProjectionMaxDepth() {
-        return 3;
-    }
-
     default Integer getTimeOut() {
         return 1;
     }
