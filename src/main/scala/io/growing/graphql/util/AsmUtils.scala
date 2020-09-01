@@ -24,7 +24,7 @@ object AsmUtils {
     val cr = new ClassReader(clazz.getName)
     val innerClass = ListBuffer[String]()
     val innerClassFields = ListBuffer[String]()
-    cr.accept(new ClassVisitor(Opcodes.ASM5) {
+    cr.accept(new ClassVisitor(Opcodes.ASM8) {
       override def visitInnerClass(name: String, outerName: String, innerName: String, access: Int): Unit = {
         val outName = outerName.replace(File.separator, ".")
         if (clazz.getName == outName) {
@@ -35,7 +35,7 @@ object AsmUtils {
 
     if (innerClass.nonEmpty) {
       val cr = new ClassReader(innerClass.head)
-      cr.accept(new ClassVisitor(Opcodes.ASM5) {
+      cr.accept(new ClassVisitor(Opcodes.ASM8) {
         override def visitField(access: Int, name: String, descriptor: String, signature: String, value: Any): FieldVisitor = {
           innerClassFields.append(name)
           super.visitField(access, name, descriptor, signature, value)

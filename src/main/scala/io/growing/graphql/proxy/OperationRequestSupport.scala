@@ -42,7 +42,12 @@ trait OperationRequestSupport {
   }
 
   /**
-   * do not need `-parameters`, but must use reflection
+   * do not need `-parameters`, but must use reflection.
+   *
+   * Methods that depend on the order of fields maybe be dangerous.
+   *
+   * if request can add field like `private List<String> fieldsInOrder = Arrays.asList("timeRange", "offset", "limit")`
+   * then, can get fields name directly, and remove cache and asm/reflection
    *
    * @param args resolver method parameter values
    * @return GraphQLOperationRequest
@@ -60,7 +65,12 @@ trait OperationRequestSupport {
   }
 
   /**
-   * do not need `-parameters`, but must use while plugin option `generateBuilder = true`(default is true)
+   * do not need `-parameters`, but must use while plugin option `generateBuilder = true`(default is true).
+   *
+   * Methods that depend on the order of fields maybe be dangerous.
+   *
+   * if request can add field like `private List<String> fieldsInOrder = Arrays.asList("timeRange", "offset", "limit")`
+   * then, can get fields name directly, and remove cache and asm/reflection
    *
    * @param args resolver method parameter values
    * @return GraphQLOperationRequest
