@@ -1,4 +1,4 @@
-package io.growing.graphql.example.insight
+package io.growing.graphql.test.example.insight
 
 import java.util.Collections
 

@@ -1,4 +1,4 @@
-package io.growing.graphql.example.tunnel
+package io.growing.graphql.test.example.tunnel
 
 import io.growing.graphql.model.{ TunnelResponseProjection, TunnelsQueryRequest }
 import io.growing.graphql.proxy.GrowingIOGraphQLClient

@@ -1,4 +1,4 @@
-package io.growing.graphql.example.job
+package io.growing.graphql.test.example.job
 
 import java.util.Collections
 
