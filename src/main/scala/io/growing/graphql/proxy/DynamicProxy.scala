@@ -3,7 +3,9 @@ package io.growing.graphql.proxy
 import java.lang.reflect.{ InvocationHandler, Method, ParameterizedType }
 
 import com.kobylynskyi.graphql.codegen.model.graphql.{ GraphQLOperationRequest, GraphQLResponseProjection }
-import io.growing.graphql.GrowingIOGraphQLConfig
+import io.growing.graphql.{ GrowingIOGraphQLConfig, ProxyException }
+
+import scala.util.Try
 
 /**
  *
@@ -15,6 +17,8 @@ class DynamicProxy(
   request: GraphQLOperationRequest,
   growingIOGraphQLConfig: GrowingIOGraphQLConfig) extends InvocationHandler with ExecutionGraphQL
   with OperationRequestSupport {
+
+  override val cacheSize: Int = growingIOGraphQLConfig.getCacheSize()
 
   override val graphQLOperationRequest: GraphQLOperationRequest = request
 
@@ -31,16 +35,6 @@ class DynamicProxy(
     } else proxyInvoke(method, args).asInstanceOf[AnyRef]
   }
 
-  /**
-   * execute graphql request that need jvm compile parameter `-parameters` and Java8 or above
-   * you should clean class, and build again after set -parameters
-   * in sbt like this: javacOptions += "-parameters"
-   * <p>
-   *
-   * @param method
-   * @param args
-   * @return
-   */
   private def proxyInvoke(method: Method, args: Array[AnyRef]): Any = {
     //get generic type from List
     val `type` = method.getGenericReturnType
@@ -51,8 +45,12 @@ class DynamicProxy(
       case _ =>
         `type`.getTypeName
     }
-    val requestWithParams = withParamsByReflect(method, args)
-    execute(entityClazzName, requestWithParams, projection, growingIOGraphQLConfig)
+    //has a cache, request class name -> fields
+    val requestWithParams = Try(withParamsByAsm(args)) recover {
+      case exception: Exception =>
+        println(s"Use asm failed, try use reflect: ${exception.getLocalizedMessage}.")
+        withParamsByReflect(args)
+    }
+    execute(entityClazzName, requestWithParams.getOrElse(throw ProxyException("Invoking failed")), projection, growingIOGraphQLConfig)
   }
-
 }

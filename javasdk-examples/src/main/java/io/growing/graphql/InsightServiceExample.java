@@ -38,7 +38,7 @@ public class InsightServiceExample {
 
             @Override
             public String getServerHost() {
-                return "https://www.growingio.com/graphql";
+                return "http://localhost:8086/projects/WlGk4Daj/graphql";
             }
         });
 

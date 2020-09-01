@@ -1,6 +1,6 @@
 package io.growing.graphql.api
 
-import java.util
+import java.{ lang, util }
 
 import io.growing.graphql.model._
 import io.growing.graphql.proxy.GrowingIOGraphQLClient
@@ -20,7 +20,6 @@ class JobService extends JobResultQueryResolver with JobFilesQueryResolver with 
   with ExecuteJobMutationResolver with SubmitAnalysisExportJobMutationResolver with CreateEventImportJobMutationResolver
   with SubmitSegmentUserExportJobMutationResolver with SubmitTagUserExportJobMutationResolver {
 
-  //query
   override def jobFiles(id: String): util.List[FileDescriptorDto] = {
     GrowingIOGraphQLClient.graphQLClient().setProjection(new FileDescriptorResponseProjection().all$()).
       setRequest(new JobFilesQueryRequest).build(classOf[JobFilesQueryResolver]).jobFiles(id)
@@ -67,10 +66,10 @@ class JobService extends JobResultQueryResolver with JobFilesQueryResolver with 
       build(classOf[SubmitSegmentUserExportJobMutationResolver]).submitSegmentUserExportJob(segmentId, tags, properties, charset)
   }
 
-  override def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String): TagUserExportJobDto = {
+  override def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String, detailExport: lang.Boolean): TagUserExportJobDto = {
     GrowingIOGraphQLClient.graphQLClient().setProjection(new TagUserExportJobResponseProjection().all$()).
       setRequest(new SubmitTagUserExportJobMutationRequest).
-      build(classOf[SubmitTagUserExportJobMutationResolver]).submitTagUserExportJob(tagId, properties, charset)
+      build(classOf[SubmitTagUserExportJobMutationResolver]).submitTagUserExportJob(tagId, properties, charset, detailExport)
   }
 
 }

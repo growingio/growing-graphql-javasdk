@@ -19,4 +19,8 @@ public interface GrowingIOGraphQLConfig {
     String getAuthenticateKey();
 
     String getAuthenticateValue();
+
+    default Integer getCacheSize() {
+        return 10000;
+    }
 }

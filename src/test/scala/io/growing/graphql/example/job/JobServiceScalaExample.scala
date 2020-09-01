@@ -52,7 +52,7 @@ object JobServiceScalaExample extends App {
   printlnResult(suejdjrd)
 
   println("========================submitTagUserExportJob============================")
-  val tuejd = jobService.submitTagUserExportJob("rRGoVRpm", Collections.emptyList(), charset = "UTF-16LE")
+  val tuejd = jobService.submitTagUserExportJob("rRGoVRpm", Collections.emptyList(), charset = "UTF-16LE", false)
   printlnResult(tuejd)
   println("========================submitTagUserExportJob jobResult============================")
   val tuejdjrd = jobService.jobResult(tuejd.getId)

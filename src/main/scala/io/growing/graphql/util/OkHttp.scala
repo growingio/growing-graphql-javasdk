@@ -5,7 +5,7 @@ import java.util
 import java.util.concurrent.TimeUnit
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest
-import io.growing.graphql.{ GrowingIOGraphQLConfig, ResponseDeserializer, ResponseException }
+import io.growing.graphql.{ GrowingIOGraphQLConfig, ResponseDeserializer, ProxyException }
 import okhttp3._
 import org.json.JSONObject
 
@@ -58,15 +58,15 @@ object OkHttp extends ResponseDeserializer {
           val jsonObject = new JSONObject(response.body().string())
 
           if (jsonObject.isEmpty) {
-            throw ResponseException("not found any response data")
+            throw ProxyException("not found any response data")
           }
 
           if (!jsonObject.isEmpty && !jsonObject.isNull("errors")) {
-            throw ResponseException(jsonObject.getJSONArray("errors").toString)
+            throw ProxyException(jsonObject.getJSONArray("errors").toString)
           }
 
           if (!jsonObject.isNull("data") && !jsonObject.getJSONObject("data").has(request.getRequest.getOperationName)) {
-            throw ResponseException(s"not found response data for OperationName: ${request.getRequest.getOperationName}")
+            throw ProxyException(s"not found response data for OperationName: ${request.getRequest.getOperationName}")
           }
 
           val data = jsonObject.getJSONObject("data").get(request.getRequest.getOperationName)
@@ -75,7 +75,7 @@ object OkHttp extends ResponseDeserializer {
 
         } else {
           import scala.collection.JavaConverters._
-          throw ResponseException(new JSONObject(Map("code" -> response.code(), "message" -> response.message()).asJava).toString)
+          throw ProxyException(new JSONObject(Map("code" -> response.code(), "message" -> response.message()).asJava).toString)
 
         }
 

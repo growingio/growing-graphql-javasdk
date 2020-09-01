@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-28T14:10:31+0800"
+    date = "2020-09-01T14:41:36+0800"
 )
 public class GIOApiTunnelConfigDto implements java.io.Serializable, TunnelConfigDto {
 

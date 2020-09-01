@@ -9,7 +9,7 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-28T14:10:31+0800"
+    date = "2020-09-01T14:41:36+0800"
 )
 public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLParametrizedInput {
 
@@ -18,14 +18,16 @@ public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLP
     @javax.validation.constraints.NotNull
     private java.util.List<String> properties;
     private String charset;
+    private Boolean detailExport;
 
     public MutationSubmitTagUserExportJobParametrizedInput() {
     }
 
-    public MutationSubmitTagUserExportJobParametrizedInput(String tagId, java.util.List<String> properties, String charset) {
+    public MutationSubmitTagUserExportJobParametrizedInput(String tagId, java.util.List<String> properties, String charset, Boolean detailExport) {
         this.tagId = tagId;
         this.properties = properties;
         this.charset = charset;
+        this.detailExport = detailExport;
     }
 
     public MutationSubmitTagUserExportJobParametrizedInput tagId(String tagId) {
@@ -43,6 +45,11 @@ public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLP
         return this;
     }
 
+    public MutationSubmitTagUserExportJobParametrizedInput detailExport(Boolean detailExport) {
+        this.detailExport = detailExport;
+        return this;
+    }
+
 
     @Override
     public String toString() {
@@ -55,6 +62,9 @@ public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLP
         }
         if (charset != null) {
             joiner.add("charset: " + GraphQLRequestSerializer.getEntry(charset));
+        }
+        if (detailExport != null) {
+            joiner.add("detailExport: " + GraphQLRequestSerializer.getEntry(detailExport));
         }
         return joiner.toString();
     }

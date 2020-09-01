@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-28T14:10:31+0800"
+    date = "2020-09-01T14:41:36+0800"
 )
 public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRequest {
 
@@ -30,6 +30,10 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
 
     public void setCharset(String charset) {
         this.input.put("charset", charset);
+    }
+
+    public void setDetailExport(Boolean detailExport) {
+        this.input.put("detailExport", detailExport);
     }
 
     @Override
@@ -57,6 +61,7 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
         private String tagId;
         private java.util.List<String> properties;
         private String charset;
+        private Boolean detailExport;
 
         public Builder() {
         }
@@ -76,12 +81,18 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
             return this;
         }
 
+        public Builder setDetailExport(Boolean detailExport) {
+            this.detailExport = detailExport;
+            return this;
+        }
+
 
         public SubmitTagUserExportJobMutationRequest build() {
             SubmitTagUserExportJobMutationRequest obj = new SubmitTagUserExportJobMutationRequest();
             obj.setTagId(tagId);
             obj.setProperties(properties);
             obj.setCharset(charset);
+            obj.setDetailExport(detailExport);
             return obj;
         }
 

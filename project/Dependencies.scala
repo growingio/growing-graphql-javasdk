@@ -13,6 +13,7 @@ object Dependencies {
     val guava = "29.0-jre"
     val json = "20190722"
     val scalaTest = "3.2.0"
+    val asm = "8.0"
   }
 
   object Compiles {
@@ -26,6 +27,7 @@ object Dependencies {
     )
     val json = "org.json" % "json" % Versions.json
     val okhttp = "com.squareup.okhttp3" % "okhttp" % Versions.okhttp
+    val asm = "org.ow2.asm" % "asm" % Versions.asm
 
     //schema处理和测试不进行打包，减少依赖
     val scalaTest = "org.scalatest" %% "scalatest" % Versions.scalaTest % "test"
@@ -37,6 +39,6 @@ object Dependencies {
 
   lazy val l = libraryDependencies
 
-  lazy val javaClient = l ++= Seq(okhttp, commonLang, guava, json, scalaTest) ++ jackson
+  lazy val javaClient = l ++= Seq(okhttp, commonLang, guava, json, asm, scalaTest) ++ jackson
 
 }

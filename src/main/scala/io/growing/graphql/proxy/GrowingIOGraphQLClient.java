@@ -108,11 +108,11 @@ final public class GrowingIOGraphQLClient {
          */
         @SuppressWarnings(value = "unchecked")
         public <R> R build(Class<R> resolver) {
-            GrowingIOGraphQLClient invoke = new GrowingIOGraphQLClient();
-            invoke.setProjection(projection);
-            invoke.setResolver(resolver);
+            GrowingIOGraphQLClient client = new GrowingIOGraphQLClient();
+            client.setProjection(projection);
+            client.setResolver(resolver);
             if (growingIOGraphQLConfig == null) {
-                invoke.setGrowingIOGraphQLConfig(new GrowingIOGraphQLConfig() {
+                client.setGrowingIOGraphQLConfig(new GrowingIOGraphQLConfig() {
                     @Override
                     public String getAuthenticateKey() {
                         return null;
@@ -124,10 +124,10 @@ final public class GrowingIOGraphQLClient {
                     }
                 });
             } else {
-                invoke.setGrowingIOGraphQLConfig(growingIOGraphQLConfig);
+                client.setGrowingIOGraphQLConfig(growingIOGraphQLConfig);
             }
-            invoke.setRequest(request);
-            return (R) invoke.getResolver();
+            client.setRequest(request);
+            return (R) client.getResolver();
         }
     }
 

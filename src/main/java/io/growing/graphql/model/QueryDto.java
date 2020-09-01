@@ -4,11 +4,11 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
 /**
- * Created automatically at 2020-08-20T17:52:52.696. Don't modify it
+ * Created automatically at 2020-08-28T15:46:06.490. Don't modify it
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-08-28T14:10:30+0800"
+    date = "2020-09-01T14:41:35+0800"
 )
 public class QueryDto implements java.io.Serializable {
 

@@ -73,8 +73,6 @@ TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setR
 
 > 注：若返回的是基本类型，则setProjection的参数值为null或者不调用setProjection方法。
 
-> 暂时依赖 Java 1.8 上编译！
-
 **完整实例**
 ```java
 package io.growing.graphql;
@@ -163,11 +161,11 @@ public class InsightServiceExample {
     - 根据需要新增配置项，参考：[options](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md)
 4. 生成接口后，在`api`包中实现接口中新增的方法（本SDK仅提供了一个封装示例`JobService.scala`）
     - 建议为复杂接口写一些使用示例和单测。
-    
+5. 发布`sbt publishSigned` 排除**graphqls**
+    - 发布到本地maven仓库，`sbt publishM2` 未排除**graphqls**   
     
 ## TODO
 
 1. 根据功能将代码划分出多个`package`
 2. 支持Long类型的默认值，目前在生成带有`Long`类型的默认值的类型后，需要手动修改生成的代码，为数值追加`L`后缀
 3. 支持订阅
-4. 不依赖编译参数
