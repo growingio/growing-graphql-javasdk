@@ -47,13 +47,13 @@ trait OperationRequestSupport {
    * @param args resolver method parameter values
    * @return GraphQLOperationRequest
    */
-  def withParamsByReflect(args: Array[AnyRef]): GraphQLOperationRequest = {
+  def withInputByReflect(args: Array[AnyRef]): GraphQLOperationRequest = {
     if (args != null && args.nonEmpty) {
       val innerClass = graphQLOperationRequest.getClass.getDeclaredClasses.filter(_.getSimpleName == "Builder")
       if (innerClass.isEmpty) {
         throw new Exception("plugin option `generateBuilder` must be true")
       }
-      val fieldAndArgs = getFields(graphQLOperationRequest.getClass.getName, args)(innerClass.head.getDeclaredFields.map(_.getName).toSeq)
+      val fieldAndArgs = getInputFieldAndArgs(graphQLOperationRequest.getClass.getName, args)(innerClass.head.getDeclaredFields.map(_.getName).toSeq)
       graphQLOperationRequest.getInput.putAll(fieldAndArgs.toMap.asJava)
     }
     graphQLOperationRequest
@@ -65,15 +65,15 @@ trait OperationRequestSupport {
    * @param args resolver method parameter values
    * @return GraphQLOperationRequest
    */
-  def withParamsByAsm(args: Array[AnyRef]): GraphQLOperationRequest = {
+  def withInputByAsm(args: Array[AnyRef]): GraphQLOperationRequest = {
     if (args != null && args.nonEmpty) {
-      val fieldAndArgs = getFields(graphQLOperationRequest.getClass.getName, args)(AsmUtils.getRequestBuilderFields(graphQLOperationRequest.getClass))
+      val fieldAndArgs = getInputFieldAndArgs(graphQLOperationRequest.getClass.getName, args)(AsmUtils.getRequestBuilderFields(graphQLOperationRequest.getClass))
       graphQLOperationRequest.getInput.putAll(fieldAndArgs.toMap.asJava)
     }
     graphQLOperationRequest
   }
 
-  private def getFields(clazzName: String, args: Array[AnyRef])(fun: => Seq[String]): Seq[(String, AnyRef)] = {
+  private def getInputFieldAndArgs(clazzName: String, args: Array[AnyRef])(fun: => Seq[String]): Seq[(String, AnyRef)] = {
     cache.get(clazzName).fold {
       lazy val fields = fun
       // if field is java key worlds, plugin will make the first char capitalize.

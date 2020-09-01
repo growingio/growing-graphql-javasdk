@@ -46,10 +46,10 @@ class DynamicProxy(
         `type`.getTypeName
     }
     //has a cache, request class name -> fields
-    val requestWithParams = Try(withParamsByAsm(args)) recover {
+    val requestWithParams = Try(withInputByAsm(args)) recover {
       case exception: Exception =>
-        println(s"Use asm failed, try use reflect: ${exception.getLocalizedMessage}.")
-        withParamsByReflect(args)
+        System.err.println(s"Use asm failed, try use reflect: ${exception.getLocalizedMessage}.")
+        withInputByReflect(args)
     }
     execute(entityClazzName, requestWithParams.getOrElse(throw ProxyException("Invoking failed")), projection, growingIOGraphQLConfig)
   }

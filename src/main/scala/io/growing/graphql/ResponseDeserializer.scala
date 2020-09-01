@@ -15,8 +15,8 @@ trait ResponseDeserializer {
    * if data is array, entityClazzName is a parameterized type.
    * because can not deserializer from Collection directly, generic type is lost
    *
-   * @param data
-   * @param entityClazzName
+   * @param data            resolver method response
+   * @param entityClazzName resolver method response type
    */
   def deserialize(data: Any, entityClazzName: String): Any = {
     val targetReturnClazz = Class.forName(entityClazzName)
