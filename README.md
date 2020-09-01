@@ -6,6 +6,7 @@ GrowingIO GraphQL Java SDK
 ## 如何使用
 
 ### 环境
+
 * Scala 2.11.x、2.12.x、2.13.x
 * Java 1.8
 
@@ -54,15 +55,15 @@ public interface TagQueryResolver {
     TagDto tag(String id) throws Exception;
 }
 ```
-**发起调用：**
+**发起调用**
 ```java
 GrowingIOGraphQLClient.GrowingIOGraphQLClientBuilder growingioApi = GrowingIOGraphQLClient.graphQLClient();
-TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagQueryRequest()).build(TagQueryResolver.class).tag(tagId);
+TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagQueryRequest()).build(TagQueryResolver.class).tag("AbQ3MbGY");
 ```
 **方法描述**
 * `setProjection`：参数是返回结构的投影实例，描述哪些结构的哪些字段被返回，`TagDto`对应的就是`TagResponseProjection`。
     - 在projection上调用`all$()`表示返回所有字段且自递归类型的默认深度为3，若有自递归类型，务必指定最大深度。`all$(1)`表示仅返回自递归类型的第一层孩子。
-    - 需要返回指定字段怎么办？请依次在projection对象上调用无参方法，如：`new TagResponseProjection().id().name()`表示只返回`id`和`name`（此时不要重复使用`all$`！）
+    - 需要返回指定字段怎么办？请依次在projection对象上调用无参方法，如：`new TagResponseProjection().id().name()`表示只返回`id`和`name`（此时不要重复使用`all$()`！）
 * `setRequest`：参数是该方法对应的请求的实例，`tag`对应的就是`TagQueryRequest`的实例。
 * `build`：表示`tag`方法在哪里被定义，需要生成哪个接口的代理对象，此处是在`TagQueryResolver`中定义的。
 * 想要配置？调用`growingioApi.setGrowingIOGraphQLConfig`即可
@@ -72,6 +73,19 @@ TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setR
 > `GrowingIOQueryResolver`和`GrowingIOMutationResolver`是查询和突变的两个聚合接口，包含了所有的查询方法和突变方法，通过代理这两个Resolver，可以实现调用任意接口。
 
 > 注：若返回的是基本类型，则setProjection的参数值为null或者不调用setProjection方法。
+
+**原始curl请求**
+```
+curl --location --request POST 'http://localhost:8086/projects/WlGk4Daj/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "operationName": "tag",
+    "variables": {
+        "id": "AbQ3MbGY"
+    },
+    "query": "query tag($id: HashId!) {\n  tag(id: $id) {\n    id\n    name\n    type\n    description\n    creatorId\n    createdAt\n    updaterId\n    updatedAt\n    creator\n    updater\n    computes {\n      name\n      expression\n      directives {\n        alias\n        measurement {\n          id\n          type\n          attribute\n          __typename\n        }\n        timeRange\n        op\n        values\n        attribute\n        aggregator\n        filter {\n          op\n          exprs {\n            key\n            op\n            name\n            values\n            __typename\n          }\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    valueType {\n      type\n      unit\n      __typename\n    }\n    detector {\n      stage\n      description\n      detectedAt\n      __typename\n    }\n    __typename\n  }\n}\n"
+}'
+```
 
 **完整实例**
 ```java
@@ -122,12 +136,12 @@ public class InsightServiceExample {
 
         String tagId = "V0G5BZDA";
 
-        //需要注意的是，查询一个和查询多个，它们的projection是相同的，但前者返回单个projection实体，后者返回一个集合（元素是projection）
         System.out.println("=====tag=====");
         TagDto tag = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagQueryRequest()).build(TagQueryResolver.class).tag(tagId);
         System.out.println(tag);
-
-
+       
+        //需要注意的是，查询一个和查询多个，它们的projection是相同的，但前者返回单个projection实体，后者返回一个集合。
+        //可以看到，在获取 List<TagDto> 和 TagDto 中，projection是同一个，但是request分别是TagQueryRequest和TagsQueryRequest，resolver分别是TagQueryResolver和TagsQueryResolver
         System.out.println("=====tags=====");
         List<TagDto> tags = growingioApi.setProjection(new TagResponseProjection().all$()).setRequest(new TagsQueryRequest()).build(TagsQueryResolver.class).tags();
         System.out.println(tags);
