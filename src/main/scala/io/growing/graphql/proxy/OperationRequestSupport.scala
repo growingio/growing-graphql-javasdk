@@ -75,7 +75,7 @@ trait OperationRequestSupport {
 
   private def getFields(clazzName: String, args: Array[AnyRef])(fun: => Seq[String]): Seq[(String, AnyRef)] = {
     cache.get(clazzName).fold {
-      val fields = fun
+      lazy val fields = fun
       // if field is java key worlds, plugin will make the first char capitalize.
       // so, while mapping params -> args, should uncapitalize.
       val fixJavaKw = fields.map(uncapitalize)
