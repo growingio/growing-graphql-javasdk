@@ -5,7 +5,7 @@ import java.util
 import java.util.concurrent.TimeUnit
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest
-import io.growing.graphql.{ GrowingIOGraphQLConfig, ResponseDeserializer, ProxyException }
+import io.growing.graphql.{ GrowingIOGraphQLConfig, ProxyException, ResponseDeserializer }
 import okhttp3._
 import org.json.JSONObject
 
@@ -17,8 +17,9 @@ object OkHttp extends ResponseDeserializer {
   /**
    * for java api
    *
-   * @param request
-   * @param entityClazzName
+   * @param request                GraphQLRequest
+   * @param entityClazzName        response type
+   * @param growingIOGraphQLConfig GrowingIOGraphQLConfig
    * @return
    */
   def createExecuteRequest(request: GraphQLRequest, entityClazzName: String, growingIOGraphQLConfig: GrowingIOGraphQLConfig): Future[Any] = {

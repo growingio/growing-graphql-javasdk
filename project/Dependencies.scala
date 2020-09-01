@@ -19,7 +19,6 @@ object Dependencies {
   object Compiles {
 
     val jackson = Seq(
-      "com.fasterxml.jackson.module" %% "jackson-module-scala" % Versions.jackson,
       "com.fasterxml.jackson.core" % "jackson-databind" % Versions.jackson,
       "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % Versions.jackson,
       "com.fasterxml.jackson.datatype" % "jackson-datatype-jdk8" % Versions.jackson,
