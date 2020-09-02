@@ -12,7 +12,7 @@ public interface GrowingIOGraphQLConfig {
 
     String getAuthenticateValue();
 
-    //need javac args: -parameters
+    //java1.8+ and need javac args: -parameters, this is default option
     String REFLECT_BY_PARAMETERS = "reflectByParameters";
 
     //depend on the order of fields in bytecode, it maybe be dangerous.
