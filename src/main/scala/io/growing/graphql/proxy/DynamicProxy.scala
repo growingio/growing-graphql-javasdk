@@ -5,8 +5,6 @@ import java.lang.reflect.{ InvocationHandler, Method, ParameterizedType }
 import com.kobylynskyi.graphql.codegen.model.graphql.{ GraphQLOperationRequest, GraphQLResponseProjection }
 import io.growing.graphql.{ GrowingIOGraphQLConfig, ProxyException }
 
-import scala.util.Try
-
 /**
  *
  * @author liguobin@growingio.com
@@ -45,12 +43,13 @@ class DynamicProxy(
       case _ =>
         `type`.getTypeName
     }
-    //has a cache, request class name -> fields
-    val requestWithParams = Try(withInputByAsm(args)) recover {
-      case exception: Exception =>
-        System.err.println(s"Use asm failed, try use reflect: ${exception.getLocalizedMessage}.")
-        withInputByReflect(args)
+    //has a cache, request class name -> fields when ASM_BY_FIELDS and REFLECT_BY_FIELDS
+    val requestWithParams = growingIOGraphQLConfig.withInputParamsType() match {
+      case GrowingIOGraphQLConfig.ASM_BY_FIELDS => withInputByAsm(args)
+      case GrowingIOGraphQLConfig.REFLECT_BY_FIELDS => withInputByReflect(args)
+      case GrowingIOGraphQLConfig.REFLECT_BY_PARAMETERS => withInputByReflectAndParameters(method, args)
+      case _ => throw ProxyException("type not support")
     }
-    execute(entityClazzName, requestWithParams.getOrElse(throw ProxyException("Invoking failed")), projection, growingIOGraphQLConfig)
+    execute(entityClazzName, requestWithParams, projection, growingIOGraphQLConfig)
   }
 }

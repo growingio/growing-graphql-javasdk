@@ -25,12 +25,13 @@ trait OperationRequestSupport {
   /**
    * `-parameters` must be supported and add while javac exec, java 1.8+
    *
+   * default option
+   *
    * @param method resolver method
    * @param args   resolver method parameter values
    * @return GraphQLOperationRequest
    */
-  @Deprecated
-  def withParamsByReflectAndMethod(method: Method, args: Array[AnyRef]): GraphQLOperationRequest = {
+  def withInputByReflectAndParameters(method: Method, args: Array[AnyRef]): GraphQLOperationRequest = {
     val parameters = method.getParameters.toSeq
     if (parameters.nonEmpty) {
       parameters.zip(args).zipWithIndex.foreach {
