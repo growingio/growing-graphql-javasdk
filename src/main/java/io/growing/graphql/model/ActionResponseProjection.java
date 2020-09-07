@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-01T14:41:36+0800"
+    date = "2020-09-07T14:40:18+0800"
 )
 public class ActionResponseProjection extends GraphQLResponseProjection {
 
