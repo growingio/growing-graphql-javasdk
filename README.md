@@ -118,5 +118,5 @@ public static void main(String[] args) {
     
 ## TODO
 
-1. 不支持接口返回类型是Query的嵌套查询
-2. 不支持订阅
+1. 不支持接口返回类型是Query的嵌套查询（relay）
+2. 不支持在单个请求中支持多个查询
