@@ -71,7 +71,7 @@ def segments(): util.List[SegmentDto] = {
   resolver.segments()
 ```
 
-2.Java中调用`tags`获取所有标签列表：
+- 2.Java中调用`tags`获取所有标签列表：
 ```java
 final static GrowingioApi growingioApi = new GrowingioApi("http://gdp-dev.growingio.com/graphql", "Cookie", "xxxx");
 
@@ -113,8 +113,8 @@ public static void main(String[] args) {
     - 根据需要新增配置项，参考：[options](https://github.com/kobylynskyi/graphql-java-codegen/blob/master/docs/codegen-options.md)
 4. 生成接口后，在`api`包中实现接口中新增的方法（本SDK将目前常用的接口封装在：`GrowingioApi.scala`）
     - 建议为复杂接口写一些使用示例和单测。
-5. 发布`sbt publishSigned` 排除**graphqls**
-    - 发布到本地maven仓库，`sbt publishM2` 未排除**graphqls**   
+5. 发布`sbt publishSigned` 排除**graphql schema**
+    - 发布到本地maven仓库，`sbt publishM2` 未排除**graphql schema**   
     
 ## TODO
 
