@@ -5,23 +5,20 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class SegmentSnapshotDto implements java.io.Serializable {
 
     @javax.validation.constraints.NotNull
     private String id;
-    @javax.validation.constraints.NotNull
-    private String projectId;
     private Integer totalUsers;
     private Double usersRatio;
 
     public SegmentSnapshotDto() {
     }
 
-    public SegmentSnapshotDto(String id, String projectId, Integer totalUsers, Double usersRatio) {
+    public SegmentSnapshotDto(String id, Integer totalUsers, Double usersRatio) {
         this.id = id;
-        this.projectId = projectId;
         this.totalUsers = totalUsers;
         this.usersRatio = usersRatio;
     }
@@ -31,13 +28,6 @@ public class SegmentSnapshotDto implements java.io.Serializable {
     }
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getProjectId() {
-        return projectId;
-    }
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
     }
 
     public Integer getTotalUsers() {
@@ -61,9 +51,6 @@ public class SegmentSnapshotDto implements java.io.Serializable {
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }
-        if (projectId != null) {
-            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
-        }
         if (totalUsers != null) {
             joiner.add("totalUsers: " + GraphQLRequestSerializer.getEntry(totalUsers));
         }
@@ -80,7 +67,6 @@ public class SegmentSnapshotDto implements java.io.Serializable {
     public static class Builder {
 
         private String id;
-        private String projectId;
         private Integer totalUsers;
         private Double usersRatio;
 
@@ -89,11 +75,6 @@ public class SegmentSnapshotDto implements java.io.Serializable {
 
         public Builder setId(String id) {
             this.id = id;
-            return this;
-        }
-
-        public Builder setProjectId(String projectId) {
-            this.projectId = projectId;
             return this;
         }
 
@@ -109,7 +90,7 @@ public class SegmentSnapshotDto implements java.io.Serializable {
 
 
         public SegmentSnapshotDto build() {
-            return new SegmentSnapshotDto(id, projectId, totalUsers, usersRatio);
+            return new SegmentSnapshotDto(id, totalUsers, usersRatio);
         }
 
     }

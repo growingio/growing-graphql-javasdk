@@ -5,14 +5,12 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityDto {
 
     @javax.validation.constraints.NotNull
     private String id;
-    @javax.validation.constraints.NotNull
-    private String projectId;
     @javax.validation.constraints.NotNull
     private String name;
     private String description;
@@ -34,9 +32,8 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
     public SegmentDto() {
     }
 
-    public SegmentDto(String id, String projectId, String name, String description, ComputeDefinitionDto compute, String scheduler, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String createdBy, DetectorDto detector) {
+    public SegmentDto(String id, String name, String description, ComputeDefinitionDto compute, String scheduler, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String createdBy, DetectorDto detector) {
         this.id = id;
-        this.projectId = projectId;
         this.name = name;
         this.description = description;
         this.compute = compute;
@@ -56,13 +53,6 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
     }
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getProjectId() {
-        return projectId;
-    }
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
     }
 
     public String getName() {
@@ -156,9 +146,6 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }
-        if (projectId != null) {
-            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
-        }
         if (name != null) {
             joiner.add("name: " + GraphQLRequestSerializer.getEntry(name));
         }
@@ -205,7 +192,6 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
     public static class Builder {
 
         private String id;
-        private String projectId;
         private String name;
         private String description;
         private ComputeDefinitionDto compute;
@@ -224,11 +210,6 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
 
         public Builder setId(String id) {
             this.id = id;
-            return this;
-        }
-
-        public Builder setProjectId(String projectId) {
-            this.projectId = projectId;
             return this;
         }
 
@@ -294,7 +275,7 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
 
 
         public SegmentDto build() {
-            return new SegmentDto(id, projectId, name, description, compute, scheduler, creatorId, createdAt, updaterId, updatedAt, creator, updater, createdBy, detector);
+            return new SegmentDto(id, name, description, compute, scheduler, creatorId, createdAt, updaterId, updatedAt, creator, updater, createdBy, detector);
         }
 
     }

@@ -5,14 +5,12 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
 
     @javax.validation.constraints.NotNull
     private String id;
-    @javax.validation.constraints.NotNull
-    private String projectId;
     @javax.validation.constraints.NotNull
     private String name;
     @javax.validation.constraints.NotNull
@@ -36,9 +34,8 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
     public UserVariableDto() {
     }
 
-    public UserVariableDto(String id, String projectId, String name, String key, String type, String description, Boolean isSystem, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String valueType) {
+    public UserVariableDto(String id, String name, String key, String type, String description, Boolean isSystem, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String valueType) {
         this.id = id;
-        this.projectId = projectId;
         this.name = name;
         this.key = key;
         this.type = type;
@@ -58,13 +55,6 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
     }
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getProjectId() {
-        return projectId;
-    }
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
     }
 
     public String getName() {
@@ -158,9 +148,6 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }
-        if (projectId != null) {
-            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
-        }
         if (name != null) {
             joiner.add("name: " + GraphQLRequestSerializer.getEntry(name));
         }
@@ -207,7 +194,6 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
     public static class Builder {
 
         private String id;
-        private String projectId;
         private String name;
         private String key;
         private String type;
@@ -226,11 +212,6 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
 
         public Builder setId(String id) {
             this.id = id;
-            return this;
-        }
-
-        public Builder setProjectId(String projectId) {
-            this.projectId = projectId;
             return this;
         }
 
@@ -296,7 +277,7 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
 
 
         public UserVariableDto build() {
-            return new UserVariableDto(id, projectId, name, key, type, description, isSystem, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType);
+            return new UserVariableDto(id, name, key, type, description, isSystem, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType);
         }
 
     }

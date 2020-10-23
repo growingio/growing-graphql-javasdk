@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class TunnelResponseProjection extends GraphQLResponseProjection {
 
@@ -23,7 +23,6 @@ public class TunnelResponseProjection extends GraphQLResponseProjection {
     @Override
     public TunnelResponseProjection all$(int maxDepth) {
         this.id();
-        this.projectId();
         this.name();
         this.type();
         if (projectionDepthOnFields.getOrDefault("TunnelResponseProjection.TunnelConfigResponseProjection.config", 0) <= maxDepth) {
@@ -49,15 +48,6 @@ public class TunnelResponseProjection extends GraphQLResponseProjection {
 
     public TunnelResponseProjection id(String alias) {
         fields.add(new GraphQLResponseField("id").alias(alias));
-        return this;
-    }
-
-    public TunnelResponseProjection projectId() {
-        return projectId(null);
-    }
-
-    public TunnelResponseProjection projectId(String alias) {
-        fields.add(new GraphQLResponseField("projectId").alias(alias));
         return this;
     }
 

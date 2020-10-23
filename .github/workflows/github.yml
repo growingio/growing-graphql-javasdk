@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jdk-version: [1.8]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Java ${{ matrix.jdk-version }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.jdk-version }}
+
+      - name: Loading ivy cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.ivy2/cache
+          key: ${{ runner.os }}-ivy-${{ hashFiles('**/*.sbt') }}
+          restore-keys: |
+            ${{ runner.os }}-ivy-
+
+      - name: Build growing-graphql-javasdk
+        run: sbt compile publishM2 --debug
+
+      - name: Build gradle javasdk-examples --warning-mode all
+        run: ./gradlew -p javasdk-examples build --warning-mode all

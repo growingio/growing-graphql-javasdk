@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:19+0800"
+    date = "2020-10-23T13:11:58+0800"
 )
 public class NamedEntityResponseProjection extends GraphQLResponseProjection {
 
@@ -115,12 +115,30 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public NamedEntityResponseProjection onSimpleEvent(SimpleEventResponseProjection subProjection) {
+        return onSimpleEvent(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onSimpleEvent(String alias, SimpleEventResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on SimpleEvent").alias(alias).projection(subProjection));
+        return this;
+    }
+
     public NamedEntityResponseProjection onItemModel(ItemModelResponseProjection subProjection) {
         return onItemModel(null, subProjection);
     }
 
     public NamedEntityResponseProjection onItemModel(String alias, ItemModelResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on ItemModel").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public NamedEntityResponseProjection onElement(ElementResponseProjection subProjection) {
+        return onElement(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onElement(String alias, ElementResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on Element").alias(alias).projection(subProjection));
         return this;
     }
 
