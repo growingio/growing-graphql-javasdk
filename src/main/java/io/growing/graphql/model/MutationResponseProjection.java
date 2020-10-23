@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class MutationResponseProjection extends GraphQLResponseProjection {
 
@@ -130,6 +130,16 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.resetPassword();
         this.updateMember();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.createElement", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ElementResponseProjection.createElement", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.createElement", 0) + 1);
+            this.createElement(new ElementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.createElement", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.updateElement", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ElementResponseProjection.updateElement", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.updateElement", 0) + 1);
+            this.updateElement(new ElementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.updateElement", 0)));
+        }
+        this.deleteElement();
+        this.batchDeleteElements();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0) + 1);
             this.createCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0)));
@@ -1152,6 +1162,78 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
 
     public MutationResponseProjection updateMember(String alias, MutationUpdateMemberParametrizedInput input) {
         fields.add(new GraphQLResponseField("updateMember").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createElement(ElementResponseProjection subProjection) {
+        return createElement((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createElement(String alias, ElementResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createElement").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createElement(MutationCreateElementParametrizedInput input, ElementResponseProjection subProjection) {
+        return createElement(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createElement(String alias, MutationCreateElementParametrizedInput input, ElementResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createElement").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateElement(ElementResponseProjection subProjection) {
+        return updateElement((String)null, subProjection);
+    }
+
+    public MutationResponseProjection updateElement(String alias, ElementResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateElement").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateElement(MutationUpdateElementParametrizedInput input, ElementResponseProjection subProjection) {
+        return updateElement(null, input, subProjection);
+    }
+
+    public MutationResponseProjection updateElement(String alias, MutationUpdateElementParametrizedInput input, ElementResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateElement").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteElement() {
+        return deleteElement((String)null);
+    }
+
+    public MutationResponseProjection deleteElement(String alias) {
+        fields.add(new GraphQLResponseField("deleteElement").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteElement(MutationDeleteElementParametrizedInput input) {
+        return deleteElement(null, input);
+    }
+
+    public MutationResponseProjection deleteElement(String alias, MutationDeleteElementParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteElement").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection batchDeleteElements() {
+        return batchDeleteElements((String)null);
+    }
+
+    public MutationResponseProjection batchDeleteElements(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteElements").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection batchDeleteElements(MutationBatchDeleteElementsParametrizedInput input) {
+        return batchDeleteElements(null, input);
+    }
+
+    public MutationResponseProjection batchDeleteElements(String alias, MutationBatchDeleteElementsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteElements").alias(alias).parameters(input));
         return this;
     }
 

@@ -5,16 +5,15 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
 
     @javax.validation.constraints.NotNull
     private String id;
     @javax.validation.constraints.NotNull
-    private String projectId;
-    @javax.validation.constraints.NotNull
     private String name;
+    private String key;
     @javax.validation.constraints.NotNull
     private String type;
     private String description;
@@ -34,10 +33,10 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
     public TagDto() {
     }
 
-    public TagDto(String id, String projectId, String name, String type, String description, java.util.List<ComputeDefinitionDto> computes, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, ValueTypeDto valueType, DetectorDto detector) {
+    public TagDto(String id, String name, String key, String type, String description, java.util.List<ComputeDefinitionDto> computes, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, ValueTypeDto valueType, DetectorDto detector) {
         this.id = id;
-        this.projectId = projectId;
         this.name = name;
+        this.key = key;
         this.type = type;
         this.description = description;
         this.computes = computes;
@@ -58,18 +57,18 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
         this.id = id;
     }
 
-    public String getProjectId() {
-        return projectId;
-    }
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
-    }
-
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getType() {
@@ -156,11 +155,11 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }
-        if (projectId != null) {
-            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
-        }
         if (name != null) {
             joiner.add("name: " + GraphQLRequestSerializer.getEntry(name));
+        }
+        if (key != null) {
+            joiner.add("key: " + GraphQLRequestSerializer.getEntry(key));
         }
         if (type != null) {
             joiner.add("type: " + GraphQLRequestSerializer.getEntry(type));
@@ -205,8 +204,8 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
     public static class Builder {
 
         private String id;
-        private String projectId;
         private String name;
+        private String key;
         private String type;
         private String description;
         private java.util.List<ComputeDefinitionDto> computes;
@@ -227,13 +226,13 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
             return this;
         }
 
-        public Builder setProjectId(String projectId) {
-            this.projectId = projectId;
+        public Builder setName(String name) {
+            this.name = name;
             return this;
         }
 
-        public Builder setName(String name) {
-            this.name = name;
+        public Builder setKey(String key) {
+            this.key = key;
             return this;
         }
 
@@ -294,7 +293,7 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
 
 
         public TagDto build() {
-            return new TagDto(id, projectId, name, type, description, computes, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, detector);
+            return new TagDto(id, name, key, type, description, computes, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, detector);
         }
 
     }

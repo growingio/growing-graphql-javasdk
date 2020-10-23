@@ -4,11 +4,11 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
 /**
- * Created automatically at 2020-08-28T15:46:06.490. Don't modify it
+ * Created automatically at 2020-10-23T13:11:39.847. Don't modify it
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class QueryDto implements java.io.Serializable {
 
@@ -36,6 +36,7 @@ public class QueryDto implements java.io.Serializable {
     private java.util.List<DepartmentDto> allDepartments;
     private java.util.List<CustomEventDto> customEvents;
     private Integer countCustomEvents;
+    private java.util.List<ElementDto> elements;
     private java.util.List<ComplexMetricDto> complexMetrics;
     private java.util.List<PreparedMetricDto> preparedMetrics;
     private Integer countComplexMetrics;
@@ -64,7 +65,7 @@ public class QueryDto implements java.io.Serializable {
     public QueryDto() {
     }
 
-    public QueryDto(java.util.List<MeasurementDto> personaMeasurements, java.util.List<UtmArgumentDto> utmArguments, ProjectInfoDto projectInfo, java.util.List<OriginDataSettingDto> originDataSettings, java.util.List<TagDto> tags, Integer countTags, java.util.List<SegmentDto> segments, Integer countSegments, java.util.List<TunnelDto> tunnels, Integer countTunnels, java.util.List<EventImportJobDto> eventImportJobs, java.util.List<FeatureDto> features, String version, java.util.List<ModuleDto> permissionModules, java.util.List<RoleDto> roles, java.util.List<DepartmentDto> allDepartments, java.util.List<CustomEventDto> customEvents, Integer countCustomEvents, java.util.List<ComplexMetricDto> complexMetrics, java.util.List<PreparedMetricDto> preparedMetrics, Integer countComplexMetrics, java.util.List<EventVariableDto> eventVariables, Integer countEventVariables, java.util.List<ItemModelDto> itemModels, java.util.List<ItemVariableDto> itemVariables, Integer countItemVariables, java.util.List<UserVariableDto> userVariables, Integer countUserVariables, java.util.List<UserPropertyDto> userProperties, java.util.List<PreparedDimensionDto> preparedDimensions, java.util.List<KpiAnalysisDto> kpiAnalyses, Integer countKpiAnalyses, java.util.List<FunnelAnalysisDto> funnelAnalyses, Integer countFunnelAnalyses, java.util.List<FrequencyAnalysisDto> frequencyAnalyses, Integer countFrequencyAnalyses, java.util.List<EventAnalysisDto> eventAnalyses, Integer countEventAnalyses, java.util.List<RetentionAnalysisDto> retentionAnalyses, Integer countRetentionAnalyses, java.util.List<DashboardDto> dashboards, Integer countDashboards) {
+    public QueryDto(java.util.List<MeasurementDto> personaMeasurements, java.util.List<UtmArgumentDto> utmArguments, ProjectInfoDto projectInfo, java.util.List<OriginDataSettingDto> originDataSettings, java.util.List<TagDto> tags, Integer countTags, java.util.List<SegmentDto> segments, Integer countSegments, java.util.List<TunnelDto> tunnels, Integer countTunnels, java.util.List<EventImportJobDto> eventImportJobs, java.util.List<FeatureDto> features, String version, java.util.List<ModuleDto> permissionModules, java.util.List<RoleDto> roles, java.util.List<DepartmentDto> allDepartments, java.util.List<CustomEventDto> customEvents, Integer countCustomEvents, java.util.List<ElementDto> elements, java.util.List<ComplexMetricDto> complexMetrics, java.util.List<PreparedMetricDto> preparedMetrics, Integer countComplexMetrics, java.util.List<EventVariableDto> eventVariables, Integer countEventVariables, java.util.List<ItemModelDto> itemModels, java.util.List<ItemVariableDto> itemVariables, Integer countItemVariables, java.util.List<UserVariableDto> userVariables, Integer countUserVariables, java.util.List<UserPropertyDto> userProperties, java.util.List<PreparedDimensionDto> preparedDimensions, java.util.List<KpiAnalysisDto> kpiAnalyses, Integer countKpiAnalyses, java.util.List<FunnelAnalysisDto> funnelAnalyses, Integer countFunnelAnalyses, java.util.List<FrequencyAnalysisDto> frequencyAnalyses, Integer countFrequencyAnalyses, java.util.List<EventAnalysisDto> eventAnalyses, Integer countEventAnalyses, java.util.List<RetentionAnalysisDto> retentionAnalyses, Integer countRetentionAnalyses, java.util.List<DashboardDto> dashboards, Integer countDashboards) {
         this.personaMeasurements = personaMeasurements;
         this.utmArguments = utmArguments;
         this.projectInfo = projectInfo;
@@ -83,6 +84,7 @@ public class QueryDto implements java.io.Serializable {
         this.allDepartments = allDepartments;
         this.customEvents = customEvents;
         this.countCustomEvents = countCustomEvents;
+        this.elements = elements;
         this.complexMetrics = complexMetrics;
         this.preparedMetrics = preparedMetrics;
         this.countComplexMetrics = countComplexMetrics;
@@ -233,6 +235,13 @@ public class QueryDto implements java.io.Serializable {
     }
     public void setCountCustomEvents(Integer countCustomEvents) {
         this.countCustomEvents = countCustomEvents;
+    }
+
+    public java.util.List<ElementDto> getElements() {
+        return elements;
+    }
+    public void setElements(java.util.List<ElementDto> elements) {
+        this.elements = elements;
     }
 
     public java.util.List<ComplexMetricDto> getComplexMetrics() {
@@ -461,6 +470,9 @@ public class QueryDto implements java.io.Serializable {
         if (countCustomEvents != null) {
             joiner.add("countCustomEvents: " + GraphQLRequestSerializer.getEntry(countCustomEvents));
         }
+        if (elements != null) {
+            joiner.add("elements: " + GraphQLRequestSerializer.getEntry(elements));
+        }
         if (complexMetrics != null) {
             joiner.add("complexMetrics: " + GraphQLRequestSerializer.getEntry(complexMetrics));
         }
@@ -560,6 +572,7 @@ public class QueryDto implements java.io.Serializable {
         private java.util.List<DepartmentDto> allDepartments;
         private java.util.List<CustomEventDto> customEvents;
         private Integer countCustomEvents;
+        private java.util.List<ElementDto> elements;
         private java.util.List<ComplexMetricDto> complexMetrics;
         private java.util.List<PreparedMetricDto> preparedMetrics;
         private Integer countComplexMetrics;
@@ -675,6 +688,11 @@ public class QueryDto implements java.io.Serializable {
 
         public Builder setCountCustomEvents(Integer countCustomEvents) {
             this.countCustomEvents = countCustomEvents;
+            return this;
+        }
+
+        public Builder setElements(java.util.List<ElementDto> elements) {
+            this.elements = elements;
             return this;
         }
 
@@ -800,7 +818,7 @@ public class QueryDto implements java.io.Serializable {
 
 
         public QueryDto build() {
-            return new QueryDto(personaMeasurements, utmArguments, projectInfo, originDataSettings, tags, countTags, segments, countSegments, tunnels, countTunnels, eventImportJobs, features, version, permissionModules, roles, allDepartments, customEvents, countCustomEvents, complexMetrics, preparedMetrics, countComplexMetrics, eventVariables, countEventVariables, itemModels, itemVariables, countItemVariables, userVariables, countUserVariables, userProperties, preparedDimensions, kpiAnalyses, countKpiAnalyses, funnelAnalyses, countFunnelAnalyses, frequencyAnalyses, countFrequencyAnalyses, eventAnalyses, countEventAnalyses, retentionAnalyses, countRetentionAnalyses, dashboards, countDashboards);
+            return new QueryDto(personaMeasurements, utmArguments, projectInfo, originDataSettings, tags, countTags, segments, countSegments, tunnels, countTunnels, eventImportJobs, features, version, permissionModules, roles, allDepartments, customEvents, countCustomEvents, elements, complexMetrics, preparedMetrics, countComplexMetrics, eventVariables, countEventVariables, itemModels, itemVariables, countItemVariables, userVariables, countUserVariables, userProperties, preparedDimensions, kpiAnalyses, countKpiAnalyses, funnelAnalyses, countFunnelAnalyses, frequencyAnalyses, countFrequencyAnalyses, eventAnalyses, countEventAnalyses, retentionAnalyses, countRetentionAnalyses, dashboards, countDashboards);
         }
 
     }

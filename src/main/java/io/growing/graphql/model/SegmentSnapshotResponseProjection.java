@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class SegmentSnapshotResponseProjection extends GraphQLResponseProjection {
 
@@ -23,7 +23,6 @@ public class SegmentSnapshotResponseProjection extends GraphQLResponseProjection
     @Override
     public SegmentSnapshotResponseProjection all$(int maxDepth) {
         this.id();
-        this.projectId();
         this.totalUsers();
         this.usersRatio();
         this.typename();
@@ -36,15 +35,6 @@ public class SegmentSnapshotResponseProjection extends GraphQLResponseProjection
 
     public SegmentSnapshotResponseProjection id(String alias) {
         fields.add(new GraphQLResponseField("id").alias(alias));
-        return this;
-    }
-
-    public SegmentSnapshotResponseProjection projectId() {
-        return projectId(null);
-    }
-
-    public SegmentSnapshotResponseProjection projectId(String alias) {
-        fields.add(new GraphQLResponseField("projectId").alias(alias));
         return this;
     }
 

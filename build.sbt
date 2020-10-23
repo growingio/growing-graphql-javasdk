@@ -16,8 +16,8 @@ val generatePluginSettings = Seq(
   generateModelsForRootTypes := true,
   apiRootInterfaceStrategy := com.kobylynskyi.graphql.codegen.model.ApiRootInterfaceStrategy.DO_NOT_GENERATE,
   typeResolverPrefix := Some("GrowingIO"),
-  javacOptions += "-parameters", //保留编译后的参数名，必须 java 8 编译和反射，为了支持withInputByReflectAndParameters
   generateCodegenTargetPath in GraphQLCodegenConfig := sourceDirectory.value / "main" / "java",
+  generateDefaultResolverImpl := true,
   customTypesMapping := {
     val types = new java.util.HashMap[String, String]
     //如果只是用来返回查询结果，不定义标量映射直接只用字符串也没什么毛病

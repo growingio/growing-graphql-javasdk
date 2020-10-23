@@ -7,7 +7,7 @@ import io.growing.graphql.model.*;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public interface GrowingIOMutationResolver {
 
@@ -133,6 +133,16 @@ public interface GrowingIOMutationResolver {
 
     @javax.validation.constraints.NotNull
     Boolean updateMember(String id, MemberInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    ElementDto createElement(ElementInputDto element) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    ElementDto updateElement(String id, ElementUpdateInputDto element) throws Exception;
+
+    Boolean deleteElement(String id) throws Exception;
+
+    Boolean batchDeleteElements(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
     CustomEventDto createCustomEvent(CustomEventInputDto customEvent) throws Exception;

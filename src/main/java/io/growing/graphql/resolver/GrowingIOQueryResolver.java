@@ -7,7 +7,7 @@ import io.growing.graphql.model.*;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public interface GrowingIOQueryResolver {
 
@@ -83,7 +83,17 @@ public interface GrowingIOQueryResolver {
     @javax.validation.constraints.NotNull
     java.util.List<DepartmentDto> departments(String parentId) throws Exception;
 
+    /**
+     * 检验SDK安装匹配
+     */
+    @javax.validation.constraints.NotNull
+    Boolean verifyProjectAi(String ai) throws Exception;
+
     CustomEventDto customEvent(String id) throws Exception;
+
+    ElementDto element(String id) throws Exception;
+
+    java.util.List<SimpleEventDto> simpleEvents(String elementId) throws Exception;
 
     ComplexMetricDto complexMetric(String id) throws Exception;
 

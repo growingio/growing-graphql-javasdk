@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:19+0800"
+    date = "2020-10-23T13:11:58+0800"
 )
 public class DisableAccountMutationRequest implements GraphQLOperationRequest {
 

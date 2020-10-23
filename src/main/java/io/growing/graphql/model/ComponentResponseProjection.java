@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class ComponentResponseProjection extends GraphQLResponseProjection {
 
@@ -22,7 +22,6 @@ public class ComponentResponseProjection extends GraphQLResponseProjection {
 
     @Override
     public ComponentResponseProjection all$(int maxDepth) {
-        this.projectId();
         this.dashboardId();
         this.resourceType();
         this.resourceId();
@@ -31,15 +30,6 @@ public class ComponentResponseProjection extends GraphQLResponseProjection {
             this.layout(new LayoutResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ComponentResponseProjection.LayoutResponseProjection.layout", 0)));
         }
         this.typename();
-        return this;
-    }
-
-    public ComponentResponseProjection projectId() {
-        return projectId(null);
-    }
-
-    public ComponentResponseProjection projectId(String alias) {
-        fields.add(new GraphQLResponseField("projectId").alias(alias));
         return this;
     }
 

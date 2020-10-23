@@ -5,12 +5,10 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-09-07T14:40:18+0800"
+    date = "2020-10-23T13:11:57+0800"
 )
 public class ComponentDto implements java.io.Serializable {
 
-    @javax.validation.constraints.NotNull
-    private String projectId;
     @javax.validation.constraints.NotNull
     private String dashboardId;
     @javax.validation.constraints.NotNull
@@ -22,19 +20,11 @@ public class ComponentDto implements java.io.Serializable {
     public ComponentDto() {
     }
 
-    public ComponentDto(String projectId, String dashboardId, String resourceType, String resourceId, LayoutDto layout) {
-        this.projectId = projectId;
+    public ComponentDto(String dashboardId, String resourceType, String resourceId, LayoutDto layout) {
         this.dashboardId = dashboardId;
         this.resourceType = resourceType;
         this.resourceId = resourceId;
         this.layout = layout;
-    }
-
-    public String getProjectId() {
-        return projectId;
-    }
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
     }
 
     public String getDashboardId() {
@@ -69,9 +59,6 @@ public class ComponentDto implements java.io.Serializable {
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "{ ", " }");
-        if (projectId != null) {
-            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
-        }
         if (dashboardId != null) {
             joiner.add("dashboardId: " + GraphQLRequestSerializer.getEntry(dashboardId));
         }
@@ -93,18 +80,12 @@ public class ComponentDto implements java.io.Serializable {
 
     public static class Builder {
 
-        private String projectId;
         private String dashboardId;
         private String resourceType;
         private String resourceId;
         private LayoutDto layout;
 
         public Builder() {
-        }
-
-        public Builder setProjectId(String projectId) {
-            this.projectId = projectId;
-            return this;
         }
 
         public Builder setDashboardId(String dashboardId) {
@@ -129,7 +110,7 @@ public class ComponentDto implements java.io.Serializable {
 
 
         public ComponentDto build() {
-            return new ComponentDto(projectId, dashboardId, resourceType, resourceId, layout);
+            return new ComponentDto(dashboardId, resourceType, resourceId, layout);
         }
 
     }
