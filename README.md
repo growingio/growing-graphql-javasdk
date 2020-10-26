@@ -98,8 +98,21 @@ public static void main(String[] args) {
 2. 构造它的实例，`DefaultBatchDeleteItemVariablesMutationResolver resolver = new DefaultBatchDeleteItemVariablesMutationResolver(new GrowingioApi("服务地址", "可选的鉴权key", "可选的鉴权value"))`；
 3. 然后我们就可以直接使用了，`resolver.batchDeleteItemVariables("传入你的参数")`。
 
+#### 接口还需要其他很多请求头怎么办
 
-> 本SDK没有像示例一样封装每个API，但为了方便，使用者可以参考`GrowingioApiExamples`自己封装一下。
+可以使用`GrowingioApi`的其他构造函数：
+```java
+Map<String, String> myHeaders = new HashMap<>();
+myHeaders.put("Cookie", "my cookie");
+myHeaders.put("token", "my token");
+myHeaders.put("other key", "other value");
+
+final GrowingioApi newGrowingioApi = new GrowingioApi("http://gdp-dev.growingio.com/graphql", myHeaders);
+List<TagDto> newTags = newGrowingioApi.tags();
+System.out.println(newTags);
+```
+
+> 本SDK没有像示例一样封装每个API，但为了方便，使用者可以参考`GrowingioApi`自己封装一下。
 
 ## SDK 开发者新增接口
 

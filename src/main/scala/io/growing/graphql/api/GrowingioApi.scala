@@ -1,6 +1,7 @@
 package io.growing.graphql.api
 
 import java.util
+import java.util.Collections
 
 import com.kobylynskyi.graphql.codegen.extension.GrowingIOConfig
 import io.growing.graphql.model._
@@ -10,19 +11,35 @@ import io.growing.graphql.resolver.impl._
  * @author liguobin@growingio.com
  * @version 1.0,2020/10/23
  */
-class GrowingioApi(url: String) {
+class GrowingioApi(url: String) { //构造函数1，仅url，无鉴权
 
-  var aKey: String = _
-  var aValue: String = _
+  private var headers: util.Map[String, String] = _
 
+  /**
+   * 构造函数2，只有url和token
+   * graphql-java-codegen底层也是把 authKey -> aValue 放到HTTP的请求头中，这里与下面分开仅是为了方便调用
+   *
+   * @param url
+   * @param authKey
+   * @param authValue
+   */
   def this(url: String, authKey: String, authValue: String) {
     this(url)
-    this.aKey = authKey
-    this.aValue = authValue
+    headers = Collections.singletonMap(authKey, authValue)
   }
 
+  /**
+   * 构造函数3，通用的headers，token也放在headers中
+   *
+   * @param url
+   * @param headers
+   */
+  def this(url: String, headers: util.Map[String, String]) {
+    this(url)
+    this.headers = headers
+  }
 
-  private lazy val conf = if (aKey != null && aValue != null) new GrowingIOConfig(url, aKey, aValue) else new GrowingIOConfig(url)
+  private lazy val conf: GrowingIOConfig = new GrowingIOConfig(url, headers)
 
   def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String, detailExport: Boolean): TagUserExportJobDto = {
     val resolver = new DefaultSubmitTagUserExportJobMutationResolver(conf)
