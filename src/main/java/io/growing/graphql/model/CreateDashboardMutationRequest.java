@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateDashboardMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateDashboardMutationRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateDashboardMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setDashboard(DashboardInputDto dashboard) {
@@ -46,9 +50,15 @@ public class CreateDashboardMutationRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private DashboardInputDto dashboard;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setDashboard(DashboardInputDto dashboard) {
@@ -59,6 +69,7 @@ public class CreateDashboardMutationRequest implements GraphQLOperationRequest {
 
         public CreateDashboardMutationRequest build() {
             CreateDashboardMutationRequest obj = new CreateDashboardMutationRequest();
+            obj.setProjectId(projectId);
             obj.setDashboard(dashboard);
             return obj;
         }

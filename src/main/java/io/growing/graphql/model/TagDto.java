@@ -5,9 +5,9 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
-public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
+public class TagDto implements java.io.Serializable, EntityDto, ProjectDataCtrlItemDto, NamedEntityDto {
 
     @javax.validation.constraints.NotNull
     private String id;
@@ -29,11 +29,12 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
     private String updater;
     private ValueTypeDto valueType;
     private DetectorDto detector;
+    private String ownerId;
 
     public TagDto() {
     }
 
-    public TagDto(String id, String name, String key, String type, String description, java.util.List<ComputeDefinitionDto> computes, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, ValueTypeDto valueType, DetectorDto detector) {
+    public TagDto(String id, String name, String key, String type, String description, java.util.List<ComputeDefinitionDto> computes, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, ValueTypeDto valueType, DetectorDto detector, String ownerId) {
         this.id = id;
         this.name = name;
         this.key = key;
@@ -48,6 +49,7 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
         this.updater = updater;
         this.valueType = valueType;
         this.detector = detector;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -148,6 +150,13 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
         this.detector = detector;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -194,6 +203,9 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
         if (detector != null) {
             joiner.add("detector: " + GraphQLRequestSerializer.getEntry(detector));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -217,6 +229,7 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
         private String updater;
         private ValueTypeDto valueType;
         private DetectorDto detector;
+        private String ownerId;
 
         public Builder() {
         }
@@ -291,9 +304,14 @@ public class TagDto implements java.io.Serializable, EntityDto, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public TagDto build() {
-            return new TagDto(id, name, key, type, description, computes, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, detector);
+            return new TagDto(id, name, key, type, description, computes, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, detector, ownerId);
         }
 
     }

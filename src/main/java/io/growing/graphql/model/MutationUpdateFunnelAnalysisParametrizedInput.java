@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationUpdateFunnelAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String id;
     @javax.validation.constraints.NotNull
@@ -21,9 +23,15 @@ public class MutationUpdateFunnelAnalysisParametrizedInput implements GraphQLPar
     public MutationUpdateFunnelAnalysisParametrizedInput() {
     }
 
-    public MutationUpdateFunnelAnalysisParametrizedInput(String id, FunnelAnalysisInputDto funnelAnalysis) {
+    public MutationUpdateFunnelAnalysisParametrizedInput(String projectId, String id, FunnelAnalysisInputDto funnelAnalysis) {
+        this.projectId = projectId;
         this.id = id;
         this.funnelAnalysis = funnelAnalysis;
+    }
+
+    public MutationUpdateFunnelAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationUpdateFunnelAnalysisParametrizedInput id(String id) {
@@ -40,6 +48,9 @@ public class MutationUpdateFunnelAnalysisParametrizedInput implements GraphQLPar
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }

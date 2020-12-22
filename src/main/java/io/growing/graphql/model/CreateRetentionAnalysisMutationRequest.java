@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateRetentionAnalysisMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateRetentionAnalysisMutationRequest implements GraphQLOperationR
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateRetentionAnalysisMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setRetentionAnalysis(RetentionAnalysisInputDto retentionAnalysis) {
@@ -46,9 +50,15 @@ public class CreateRetentionAnalysisMutationRequest implements GraphQLOperationR
 
     public static class Builder {
 
+        private String projectId;
         private RetentionAnalysisInputDto retentionAnalysis;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setRetentionAnalysis(RetentionAnalysisInputDto retentionAnalysis) {
@@ -59,6 +69,7 @@ public class CreateRetentionAnalysisMutationRequest implements GraphQLOperationR
 
         public CreateRetentionAnalysisMutationRequest build() {
             CreateRetentionAnalysisMutationRequest obj = new CreateRetentionAnalysisMutationRequest();
+            obj.setProjectId(projectId);
             obj.setRetentionAnalysis(retentionAnalysis);
             return obj;
         }

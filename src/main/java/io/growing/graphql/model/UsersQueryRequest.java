@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class UsersQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class UsersQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public UsersQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setType(UserQueryTypeDto type) {
@@ -34,6 +38,14 @@ public class UsersQueryRequest implements GraphQLOperationRequest {
 
     public void setLimit(Integer limit) {
         this.input.put("limit", limit);
+    }
+
+    public void setTags(java.util.List<String> tags) {
+        this.input.put("tags", tags);
+    }
+
+    public void setProperties(java.util.List<String> properties) {
+        this.input.put("properties", properties);
     }
 
     @Override
@@ -58,12 +70,20 @@ public class UsersQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private UserQueryTypeDto type;
         private String id;
         private Integer offset;
         private Integer limit;
+        private java.util.List<String> tags;
+        private java.util.List<String> properties;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setType(UserQueryTypeDto type) {
@@ -86,13 +106,26 @@ public class UsersQueryRequest implements GraphQLOperationRequest {
             return this;
         }
 
+        public Builder setTags(java.util.List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        public Builder setProperties(java.util.List<String> properties) {
+            this.properties = properties;
+            return this;
+        }
+
 
         public UsersQueryRequest build() {
             UsersQueryRequest obj = new UsersQueryRequest();
+            obj.setProjectId(projectId);
             obj.setType(type);
             obj.setId(id);
             obj.setOffset(offset);
             obj.setLimit(limit);
+            obj.setTags(tags);
+            obj.setProperties(properties);
             return obj;
         }
 

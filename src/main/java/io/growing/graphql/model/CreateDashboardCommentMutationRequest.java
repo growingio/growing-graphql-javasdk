@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateDashboardCommentMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateDashboardCommentMutationRequest implements GraphQLOperationRe
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateDashboardCommentMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setDashboardComment(DashboardCommentInputDto dashboardComment) {
@@ -46,9 +50,15 @@ public class CreateDashboardCommentMutationRequest implements GraphQLOperationRe
 
     public static class Builder {
 
+        private String projectId;
         private DashboardCommentInputDto dashboardComment;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setDashboardComment(DashboardCommentInputDto dashboardComment) {
@@ -59,6 +69,7 @@ public class CreateDashboardCommentMutationRequest implements GraphQLOperationRe
 
         public CreateDashboardCommentMutationRequest build() {
             CreateDashboardCommentMutationRequest obj = new CreateDashboardCommentMutationRequest();
+            obj.setProjectId(projectId);
             obj.setDashboardComment(dashboardComment);
             return obj;
         }

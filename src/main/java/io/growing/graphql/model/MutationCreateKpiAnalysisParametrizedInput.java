@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateKpiAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private KpiAnalysisInputDto kpiAnalysis;
 
     public MutationCreateKpiAnalysisParametrizedInput() {
     }
 
-    public MutationCreateKpiAnalysisParametrizedInput(KpiAnalysisInputDto kpiAnalysis) {
+    public MutationCreateKpiAnalysisParametrizedInput(String projectId, KpiAnalysisInputDto kpiAnalysis) {
+        this.projectId = projectId;
         this.kpiAnalysis = kpiAnalysis;
+    }
+
+    public MutationCreateKpiAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateKpiAnalysisParametrizedInput kpiAnalysis(KpiAnalysisInputDto kpiAnalysis) {
@@ -32,6 +40,9 @@ public class MutationCreateKpiAnalysisParametrizedInput implements GraphQLParame
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (kpiAnalysis != null) {
             joiner.add("kpiAnalysis: " + GraphQLRequestSerializer.getEntry(kpiAnalysis));
         }

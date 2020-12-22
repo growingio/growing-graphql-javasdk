@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityDto {
 
@@ -28,11 +28,13 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
     private String updater;
     private String createdBy;
     private DetectorDto detector;
+    @javax.validation.constraints.NotNull
+    private String ownerId;
 
     public SegmentDto() {
     }
 
-    public SegmentDto(String id, String name, String description, ComputeDefinitionDto compute, String scheduler, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String createdBy, DetectorDto detector) {
+    public SegmentDto(String id, String name, String description, ComputeDefinitionDto compute, String scheduler, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String createdBy, DetectorDto detector, String ownerId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -46,6 +48,7 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         this.updater = updater;
         this.createdBy = createdBy;
         this.detector = detector;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -139,6 +142,13 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         this.detector = detector;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -182,6 +192,9 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         if (detector != null) {
             joiner.add("detector: " + GraphQLRequestSerializer.getEntry(detector));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -204,6 +217,7 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         private String updater;
         private String createdBy;
         private DetectorDto detector;
+        private String ownerId;
 
         public Builder() {
         }
@@ -273,9 +287,14 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public SegmentDto build() {
-            return new SegmentDto(id, name, description, compute, scheduler, creatorId, createdAt, updaterId, updatedAt, creator, updater, createdBy, detector);
+            return new SegmentDto(id, name, description, compute, scheduler, creatorId, createdAt, updaterId, updatedAt, creator, updater, createdBy, detector, ownerId);
         }
 
     }

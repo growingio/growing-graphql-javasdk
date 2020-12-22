@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateFunnelDrillDownSegmentMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateFunnelDrillDownSegmentMutationRequest implements GraphQLOpera
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateFunnelDrillDownSegmentMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setFunnelDrillDownSegment(FunnelDrillDownSegmentInputDto funnelDrillDownSegment) {
@@ -46,9 +50,15 @@ public class CreateFunnelDrillDownSegmentMutationRequest implements GraphQLOpera
 
     public static class Builder {
 
+        private String projectId;
         private FunnelDrillDownSegmentInputDto funnelDrillDownSegment;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setFunnelDrillDownSegment(FunnelDrillDownSegmentInputDto funnelDrillDownSegment) {
@@ -59,6 +69,7 @@ public class CreateFunnelDrillDownSegmentMutationRequest implements GraphQLOpera
 
         public CreateFunnelDrillDownSegmentMutationRequest build() {
             CreateFunnelDrillDownSegmentMutationRequest obj = new CreateFunnelDrillDownSegmentMutationRequest();
+            obj.setProjectId(projectId);
             obj.setFunnelDrillDownSegment(funnelDrillDownSegment);
             return obj;
         }

@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class RetentionAnalysisResponseProjection extends GraphQLResponseProjection {
 
@@ -48,6 +48,7 @@ public class RetentionAnalysisResponseProjection extends GraphQLResponseProjecti
         this.updatedAt();
         this.creator();
         this.updater();
+        this.ownerId();
         this.typename();
         return this;
     }
@@ -202,6 +203,15 @@ public class RetentionAnalysisResponseProjection extends GraphQLResponseProjecti
 
     public RetentionAnalysisResponseProjection updater(String alias) {
         fields.add(new GraphQLResponseField("updater").alias(alias));
+        return this;
+    }
+
+    public RetentionAnalysisResponseProjection ownerId() {
+        return ownerId(null);
+    }
+
+    public RetentionAnalysisResponseProjection ownerId(String alias) {
+        fields.add(new GraphQLResponseField("ownerId").alias(alias));
         return this;
     }
 

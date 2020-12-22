@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class SubmitSegmentUserExportJobMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class SubmitSegmentUserExportJobMutationRequest implements GraphQLOperati
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public SubmitSegmentUserExportJobMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setSegmentId(String segmentId) {
@@ -58,12 +62,18 @@ public class SubmitSegmentUserExportJobMutationRequest implements GraphQLOperati
 
     public static class Builder {
 
+        private String projectId;
         private String segmentId;
         private java.util.List<String> tags;
         private java.util.List<String> properties;
         private String charset;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setSegmentId(String segmentId) {
@@ -89,6 +99,7 @@ public class SubmitSegmentUserExportJobMutationRequest implements GraphQLOperati
 
         public SubmitSegmentUserExportJobMutationRequest build() {
             SubmitSegmentUserExportJobMutationRequest obj = new SubmitSegmentUserExportJobMutationRequest();
+            obj.setProjectId(projectId);
             obj.setSegmentId(segmentId);
             obj.setTags(tags);
             obj.setProperties(properties);

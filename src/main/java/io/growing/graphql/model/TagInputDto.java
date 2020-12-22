@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class TagInputDto implements java.io.Serializable {
 
@@ -13,6 +13,7 @@ public class TagInputDto implements java.io.Serializable {
     private String name;
     @javax.validation.constraints.NotNull
     private TagTypeDto type;
+    private ValueTypeInputDto valueType;
     private String description;
     @javax.validation.constraints.NotNull
     private java.util.List<ComputeDefinitionInputDto> computes;
@@ -20,9 +21,10 @@ public class TagInputDto implements java.io.Serializable {
     public TagInputDto() {
     }
 
-    public TagInputDto(String name, TagTypeDto type, String description, java.util.List<ComputeDefinitionInputDto> computes) {
+    public TagInputDto(String name, TagTypeDto type, ValueTypeInputDto valueType, String description, java.util.List<ComputeDefinitionInputDto> computes) {
         this.name = name;
         this.type = type;
+        this.valueType = valueType;
         this.description = description;
         this.computes = computes;
     }
@@ -39,6 +41,13 @@ public class TagInputDto implements java.io.Serializable {
     }
     public void setType(TagTypeDto type) {
         this.type = type;
+    }
+
+    public ValueTypeInputDto getValueType() {
+        return valueType;
+    }
+    public void setValueType(ValueTypeInputDto valueType) {
+        this.valueType = valueType;
     }
 
     public String getDescription() {
@@ -65,6 +74,9 @@ public class TagInputDto implements java.io.Serializable {
         if (type != null) {
             joiner.add("type: " + GraphQLRequestSerializer.getEntry(type));
         }
+        if (valueType != null) {
+            joiner.add("valueType: " + GraphQLRequestSerializer.getEntry(valueType));
+        }
         if (description != null) {
             joiner.add("description: " + GraphQLRequestSerializer.getEntry(description));
         }
@@ -82,6 +94,7 @@ public class TagInputDto implements java.io.Serializable {
 
         private String name;
         private TagTypeDto type;
+        private ValueTypeInputDto valueType;
         private String description;
         private java.util.List<ComputeDefinitionInputDto> computes;
 
@@ -98,6 +111,11 @@ public class TagInputDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setValueType(ValueTypeInputDto valueType) {
+            this.valueType = valueType;
+            return this;
+        }
+
         public Builder setDescription(String description) {
             this.description = description;
             return this;
@@ -110,7 +128,7 @@ public class TagInputDto implements java.io.Serializable {
 
 
         public TagInputDto build() {
-            return new TagInputDto(name, type, description, computes);
+            return new TagInputDto(name, type, valueType, description, computes);
         }
 
     }

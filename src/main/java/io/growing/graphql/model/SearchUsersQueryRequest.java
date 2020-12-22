@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 查询用户，properties为返回哪些用户信息/属性，filter为需要的过滤字段，之前的q现在使用filter传
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class SearchUsersQueryRequest implements GraphQLOperationRequest {
 
@@ -20,8 +23,16 @@ public class SearchUsersQueryRequest implements GraphQLOperationRequest {
     public SearchUsersQueryRequest() {
     }
 
-    public void setQ(String q) {
-        this.input.put("q", q);
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
+    }
+
+    public void setProperties(java.util.List<String> properties) {
+        this.input.put("properties", properties);
+    }
+
+    public void setFilter(FilterInputDto filter) {
+        this.input.put("filter", filter);
     }
 
     @Override
@@ -46,20 +57,34 @@ public class SearchUsersQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
-        private String q;
+        private String projectId;
+        private java.util.List<String> properties;
+        private FilterInputDto filter;
 
         public Builder() {
         }
 
-        public Builder setQ(String q) {
-            this.q = q;
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
+        }
+
+        public Builder setProperties(java.util.List<String> properties) {
+            this.properties = properties;
+            return this;
+        }
+
+        public Builder setFilter(FilterInputDto filter) {
+            this.filter = filter;
             return this;
         }
 
 
         public SearchUsersQueryRequest build() {
             SearchUsersQueryRequest obj = new SearchUsersQueryRequest();
-            obj.setQ(q);
+            obj.setProjectId(projectId);
+            obj.setProperties(properties);
+            obj.setFilter(filter);
             return obj;
         }
 

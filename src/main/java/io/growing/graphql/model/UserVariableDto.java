@@ -5,9 +5,9 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
-public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
+public class UserVariableDto implements java.io.Serializable, EntityDto, ProjectDataCtrlItemDto, NamedEntityDto {
 
     @javax.validation.constraints.NotNull
     private String id;
@@ -30,11 +30,12 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
     private String updater;
     @javax.validation.constraints.NotNull
     private String valueType;
+    private String ownerId;
 
     public UserVariableDto() {
     }
 
-    public UserVariableDto(String id, String name, String key, String type, String description, Boolean isSystem, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String valueType) {
+    public UserVariableDto(String id, String name, String key, String type, String description, Boolean isSystem, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String valueType, String ownerId) {
         this.id = id;
         this.name = name;
         this.key = key;
@@ -48,6 +49,7 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
         this.creator = creator;
         this.updater = updater;
         this.valueType = valueType;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -141,6 +143,13 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
         this.valueType = valueType;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -184,6 +193,9 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
         if (valueType != null) {
             joiner.add("valueType: " + GraphQLRequestSerializer.getEntry(valueType));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -206,6 +218,7 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
         private String creator;
         private String updater;
         private String valueType;
+        private String ownerId;
 
         public Builder() {
         }
@@ -275,9 +288,14 @@ public class UserVariableDto implements java.io.Serializable, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public UserVariableDto build() {
-            return new UserVariableDto(id, name, key, type, description, isSystem, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType);
+            return new UserVariableDto(id, name, key, type, description, isSystem, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, ownerId);
         }
 
     }

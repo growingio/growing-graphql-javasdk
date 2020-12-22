@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class SettingSegmentMeasurementsMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class SettingSegmentMeasurementsMutationRequest implements GraphQLOperati
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public SettingSegmentMeasurementsMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setPolicy(SettingSegmentMeasurementPolicyDto policy) {
@@ -54,11 +58,17 @@ public class SettingSegmentMeasurementsMutationRequest implements GraphQLOperati
 
     public static class Builder {
 
+        private String projectId;
         private SettingSegmentMeasurementPolicyDto policy;
         private java.util.List<MeasurementInputDto> measurements;
         private String id;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setPolicy(SettingSegmentMeasurementPolicyDto policy) {
@@ -79,6 +89,7 @@ public class SettingSegmentMeasurementsMutationRequest implements GraphQLOperati
 
         public SettingSegmentMeasurementsMutationRequest build() {
             SettingSegmentMeasurementsMutationRequest obj = new SettingSegmentMeasurementsMutationRequest();
+            obj.setProjectId(projectId);
             obj.setPolicy(policy);
             obj.setMeasurements(measurements);
             obj.setId(id);

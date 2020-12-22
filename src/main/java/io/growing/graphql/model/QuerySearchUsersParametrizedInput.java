@@ -9,22 +9,38 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QuerySearchUsersParametrizedInput implements GraphQLParametrizedInput {
 
     @javax.validation.constraints.NotNull
-    private String q;
+    private String projectId;
+    @javax.validation.constraints.NotNull
+    private java.util.List<String> properties;
+    @javax.validation.constraints.NotNull
+    private FilterInputDto filter;
 
     public QuerySearchUsersParametrizedInput() {
     }
 
-    public QuerySearchUsersParametrizedInput(String q) {
-        this.q = q;
+    public QuerySearchUsersParametrizedInput(String projectId, java.util.List<String> properties, FilterInputDto filter) {
+        this.projectId = projectId;
+        this.properties = properties;
+        this.filter = filter;
     }
 
-    public QuerySearchUsersParametrizedInput q(String q) {
-        this.q = q;
+    public QuerySearchUsersParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
+    }
+
+    public QuerySearchUsersParametrizedInput properties(java.util.List<String> properties) {
+        this.properties = properties;
+        return this;
+    }
+
+    public QuerySearchUsersParametrizedInput filter(FilterInputDto filter) {
+        this.filter = filter;
         return this;
     }
 
@@ -32,8 +48,14 @@ public class QuerySearchUsersParametrizedInput implements GraphQLParametrizedInp
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
-        if (q != null) {
-            joiner.add("q: " + GraphQLRequestSerializer.getEntry(q));
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
+        if (properties != null) {
+            joiner.add("properties: " + GraphQLRequestSerializer.getEntry(properties));
+        }
+        if (filter != null) {
+            joiner.add("filter: " + GraphQLRequestSerializer.getEntry(filter));
         }
         return joiner.toString();
     }

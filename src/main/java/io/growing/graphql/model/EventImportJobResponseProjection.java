@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class EventImportJobResponseProjection extends GraphQLResponseProjection {
 
@@ -45,6 +45,7 @@ public class EventImportJobResponseProjection extends GraphQLResponseProjection 
             projectionDepthOnFields.put("EventImportJobResponseProjection.ErrorResponseProjection.error", projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.ErrorResponseProjection.error", 0) + 1);
             this.error(new ErrorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventImportJobResponseProjection.ErrorResponseProjection.error", 0)));
         }
+        this.ownerId();
         this.typename();
         return this;
     }
@@ -172,6 +173,15 @@ public class EventImportJobResponseProjection extends GraphQLResponseProjection 
 
     public EventImportJobResponseProjection error(String alias, ErrorResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("error").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public EventImportJobResponseProjection ownerId() {
+        return ownerId(null);
+    }
+
+    public EventImportJobResponseProjection ownerId(String alias) {
+        fields.add(new GraphQLResponseField("ownerId").alias(alias));
         return this;
     }
 

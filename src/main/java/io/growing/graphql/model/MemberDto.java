@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MemberDto implements java.io.Serializable {
 
@@ -21,11 +21,17 @@ public class MemberDto implements java.io.Serializable {
     private String phoneNumber;
     private DepartmentDto directDepartment;
     private String identity;
+    @javax.validation.constraints.NotNull
+    private java.util.List<ProjectDto> enterableProjects;
+    @javax.validation.constraints.NotNull
+    private DataCenterRoleDto dataCenterRole;
+    private java.time.ZonedDateTime lastVisitAt;
+    private String creator;
 
     public MemberDto() {
     }
 
-    public MemberDto(String id, String name, String source, String avatar, String email, java.time.ZonedDateTime createdAt, String phoneNumber, DepartmentDto directDepartment, String identity) {
+    public MemberDto(String id, String name, String source, String avatar, String email, java.time.ZonedDateTime createdAt, String phoneNumber, DepartmentDto directDepartment, String identity, java.util.List<ProjectDto> enterableProjects, DataCenterRoleDto dataCenterRole, java.time.ZonedDateTime lastVisitAt, String creator) {
         this.id = id;
         this.name = name;
         this.source = source;
@@ -35,6 +41,10 @@ public class MemberDto implements java.io.Serializable {
         this.phoneNumber = phoneNumber;
         this.directDepartment = directDepartment;
         this.identity = identity;
+        this.enterableProjects = enterableProjects;
+        this.dataCenterRole = dataCenterRole;
+        this.lastVisitAt = lastVisitAt;
+        this.creator = creator;
     }
 
     public String getId() {
@@ -100,6 +110,34 @@ public class MemberDto implements java.io.Serializable {
         this.identity = identity;
     }
 
+    public java.util.List<ProjectDto> getEnterableProjects() {
+        return enterableProjects;
+    }
+    public void setEnterableProjects(java.util.List<ProjectDto> enterableProjects) {
+        this.enterableProjects = enterableProjects;
+    }
+
+    public DataCenterRoleDto getDataCenterRole() {
+        return dataCenterRole;
+    }
+    public void setDataCenterRole(DataCenterRoleDto dataCenterRole) {
+        this.dataCenterRole = dataCenterRole;
+    }
+
+    public java.time.ZonedDateTime getLastVisitAt() {
+        return lastVisitAt;
+    }
+    public void setLastVisitAt(java.time.ZonedDateTime lastVisitAt) {
+        this.lastVisitAt = lastVisitAt;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
 
     @Override
     public String toString() {
@@ -131,6 +169,18 @@ public class MemberDto implements java.io.Serializable {
         if (identity != null) {
             joiner.add("identity: " + GraphQLRequestSerializer.getEntry(identity));
         }
+        if (enterableProjects != null) {
+            joiner.add("enterableProjects: " + GraphQLRequestSerializer.getEntry(enterableProjects));
+        }
+        if (dataCenterRole != null) {
+            joiner.add("dataCenterRole: " + GraphQLRequestSerializer.getEntry(dataCenterRole));
+        }
+        if (lastVisitAt != null) {
+            joiner.add("lastVisitAt: " + GraphQLRequestSerializer.getEntry(lastVisitAt));
+        }
+        if (creator != null) {
+            joiner.add("creator: " + GraphQLRequestSerializer.getEntry(creator));
+        }
         return joiner.toString();
     }
 
@@ -149,6 +199,10 @@ public class MemberDto implements java.io.Serializable {
         private String phoneNumber;
         private DepartmentDto directDepartment;
         private String identity;
+        private java.util.List<ProjectDto> enterableProjects;
+        private DataCenterRoleDto dataCenterRole;
+        private java.time.ZonedDateTime lastVisitAt;
+        private String creator;
 
         public Builder() {
         }
@@ -198,9 +252,29 @@ public class MemberDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setEnterableProjects(java.util.List<ProjectDto> enterableProjects) {
+            this.enterableProjects = enterableProjects;
+            return this;
+        }
+
+        public Builder setDataCenterRole(DataCenterRoleDto dataCenterRole) {
+            this.dataCenterRole = dataCenterRole;
+            return this;
+        }
+
+        public Builder setLastVisitAt(java.time.ZonedDateTime lastVisitAt) {
+            this.lastVisitAt = lastVisitAt;
+            return this;
+        }
+
+        public Builder setCreator(String creator) {
+            this.creator = creator;
+            return this;
+        }
+
 
         public MemberDto build() {
-            return new MemberDto(id, name, source, avatar, email, createdAt, phoneNumber, directDepartment, identity);
+            return new MemberDto(id, name, source, avatar, email, createdAt, phoneNumber, directDepartment, identity, enterableProjects, dataCenterRole, lastVisitAt, creator);
         }
 
     }

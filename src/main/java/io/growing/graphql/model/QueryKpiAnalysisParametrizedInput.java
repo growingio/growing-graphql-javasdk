@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryKpiAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String id;
     private String dashboardId;
@@ -20,9 +22,15 @@ public class QueryKpiAnalysisParametrizedInput implements GraphQLParametrizedInp
     public QueryKpiAnalysisParametrizedInput() {
     }
 
-    public QueryKpiAnalysisParametrizedInput(String id, String dashboardId) {
+    public QueryKpiAnalysisParametrizedInput(String projectId, String id, String dashboardId) {
+        this.projectId = projectId;
         this.id = id;
         this.dashboardId = dashboardId;
+    }
+
+    public QueryKpiAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryKpiAnalysisParametrizedInput id(String id) {
@@ -39,6 +47,9 @@ public class QueryKpiAnalysisParametrizedInput implements GraphQLParametrizedInp
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }

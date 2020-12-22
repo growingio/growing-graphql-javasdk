@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
 
@@ -31,11 +31,12 @@ public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
     private java.time.ZonedDateTime updatedAt;
     private String creator;
     private String updater;
+    private String ownerId;
 
     public FunnelAnalysisDto() {
     }
 
-    public FunnelAnalysisDto(String id, String name, String description, java.util.List<MeasurementDto> measurements, Integer conversionWindow, String timeRange, TargetUserDto targetUser, FilterDto filter, SplitterDto splitter, Boolean isSystem, String businessType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater) {
+    public FunnelAnalysisDto(String id, String name, String description, java.util.List<MeasurementDto> measurements, Integer conversionWindow, String timeRange, TargetUserDto targetUser, FilterDto filter, SplitterDto splitter, Boolean isSystem, String businessType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String ownerId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -53,6 +54,7 @@ public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
         this.updatedAt = updatedAt;
         this.creator = creator;
         this.updater = updater;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -174,6 +176,13 @@ public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
         this.updater = updater;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -229,6 +238,9 @@ public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
         if (updater != null) {
             joiner.add("updater: " + GraphQLRequestSerializer.getEntry(updater));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -255,6 +267,7 @@ public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
         private java.time.ZonedDateTime updatedAt;
         private String creator;
         private String updater;
+        private String ownerId;
 
         public Builder() {
         }
@@ -344,9 +357,14 @@ public class FunnelAnalysisDto implements java.io.Serializable, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public FunnelAnalysisDto build() {
-            return new FunnelAnalysisDto(id, name, description, measurements, conversionWindow, timeRange, targetUser, filter, splitter, isSystem, businessType, creatorId, createdAt, updaterId, updatedAt, creator, updater);
+            return new FunnelAnalysisDto(id, name, description, measurements, conversionWindow, timeRange, targetUser, filter, splitter, isSystem, businessType, creatorId, createdAt, updaterId, updatedAt, creator, updater, ownerId);
         }
 
     }

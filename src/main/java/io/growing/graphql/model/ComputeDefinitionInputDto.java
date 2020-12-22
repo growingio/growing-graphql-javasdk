@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class ComputeDefinitionInputDto implements java.io.Serializable {
 
@@ -14,14 +14,16 @@ public class ComputeDefinitionInputDto implements java.io.Serializable {
     private String expression;
     @javax.validation.constraints.NotNull
     private java.util.List<ComputeDirectiveInputDto> directives;
+    private String sql;
 
     public ComputeDefinitionInputDto() {
     }
 
-    public ComputeDefinitionInputDto(String name, String expression, java.util.List<ComputeDirectiveInputDto> directives) {
+    public ComputeDefinitionInputDto(String name, String expression, java.util.List<ComputeDirectiveInputDto> directives, String sql) {
         this.name = name;
         this.expression = expression;
         this.directives = directives;
+        this.sql = sql;
     }
 
     public String getName() {
@@ -45,6 +47,13 @@ public class ComputeDefinitionInputDto implements java.io.Serializable {
         this.directives = directives;
     }
 
+    public String getSql() {
+        return sql;
+    }
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
 
     @Override
     public String toString() {
@@ -58,6 +67,9 @@ public class ComputeDefinitionInputDto implements java.io.Serializable {
         if (directives != null) {
             joiner.add("directives: " + GraphQLRequestSerializer.getEntry(directives));
         }
+        if (sql != null) {
+            joiner.add("sql: " + GraphQLRequestSerializer.getEntry(sql));
+        }
         return joiner.toString();
     }
 
@@ -70,6 +82,7 @@ public class ComputeDefinitionInputDto implements java.io.Serializable {
         private String name;
         private String expression;
         private java.util.List<ComputeDirectiveInputDto> directives;
+        private String sql;
 
         public Builder() {
         }
@@ -89,9 +102,14 @@ public class ComputeDefinitionInputDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setSql(String sql) {
+            this.sql = sql;
+            return this;
+        }
+
 
         public ComputeDefinitionInputDto build() {
-            return new ComputeDefinitionInputDto(name, expression, directives);
+            return new ComputeDefinitionInputDto(name, expression, directives, sql);
         }
 
     }

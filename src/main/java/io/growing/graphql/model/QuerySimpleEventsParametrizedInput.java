@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QuerySimpleEventsParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String elementId;
 
     public QuerySimpleEventsParametrizedInput() {
     }
 
-    public QuerySimpleEventsParametrizedInput(String elementId) {
+    public QuerySimpleEventsParametrizedInput(String projectId, String elementId) {
+        this.projectId = projectId;
         this.elementId = elementId;
+    }
+
+    public QuerySimpleEventsParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QuerySimpleEventsParametrizedInput elementId(String elementId) {
@@ -32,6 +40,9 @@ public class QuerySimpleEventsParametrizedInput implements GraphQLParametrizedIn
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (elementId != null) {
             joiner.add("elementId: " + GraphQLRequestSerializer.getEntry(elementId));
         }

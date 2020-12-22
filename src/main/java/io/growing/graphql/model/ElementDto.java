@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class ElementDto implements java.io.Serializable, NamedEntityDto {
 
@@ -35,11 +35,12 @@ public class ElementDto implements java.io.Serializable, NamedEntityDto {
     private Boolean patternMatched;
     private String appVersion;
     private String sdkVersion;
+    private String ownerId;
 
     public ElementDto() {
     }
 
-    public ElementDto(String id, String name, java.util.List<String> actions, DocPropsDto attrs, DocPropsDto definition, ScreenshotDto screenshot, java.util.List<String> platforms, String docType, String description, String businessType, Boolean isSystem, java.time.ZonedDateTime createdAt, java.time.ZonedDateTime updatedAt, String creatorId, String updaterId, String creator, String updater, Boolean patternMatched, String appVersion, String sdkVersion) {
+    public ElementDto(String id, String name, java.util.List<String> actions, DocPropsDto attrs, DocPropsDto definition, ScreenshotDto screenshot, java.util.List<String> platforms, String docType, String description, String businessType, Boolean isSystem, java.time.ZonedDateTime createdAt, java.time.ZonedDateTime updatedAt, String creatorId, String updaterId, String creator, String updater, Boolean patternMatched, String appVersion, String sdkVersion, String ownerId) {
         this.id = id;
         this.name = name;
         this.actions = actions;
@@ -60,6 +61,7 @@ public class ElementDto implements java.io.Serializable, NamedEntityDto {
         this.patternMatched = patternMatched;
         this.appVersion = appVersion;
         this.sdkVersion = sdkVersion;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -202,6 +204,13 @@ public class ElementDto implements java.io.Serializable, NamedEntityDto {
         this.sdkVersion = sdkVersion;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -266,6 +275,9 @@ public class ElementDto implements java.io.Serializable, NamedEntityDto {
         if (sdkVersion != null) {
             joiner.add("sdkVersion: " + GraphQLRequestSerializer.getEntry(sdkVersion));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -295,6 +307,7 @@ public class ElementDto implements java.io.Serializable, NamedEntityDto {
         private Boolean patternMatched;
         private String appVersion;
         private String sdkVersion;
+        private String ownerId;
 
         public Builder() {
         }
@@ -399,9 +412,14 @@ public class ElementDto implements java.io.Serializable, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public ElementDto build() {
-            return new ElementDto(id, name, actions, attrs, definition, screenshot, platforms, docType, description, businessType, isSystem, createdAt, updatedAt, creatorId, updaterId, creator, updater, patternMatched, appVersion, sdkVersion);
+            return new ElementDto(id, name, actions, attrs, definition, screenshot, platforms, docType, description, businessType, isSystem, createdAt, updatedAt, creatorId, updaterId, creator, updater, patternMatched, appVersion, sdkVersion, ownerId);
         }
 
     }

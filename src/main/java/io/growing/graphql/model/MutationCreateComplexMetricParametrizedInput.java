@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateComplexMetricParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private ComplexMetricInputDto complexMetric;
 
     public MutationCreateComplexMetricParametrizedInput() {
     }
 
-    public MutationCreateComplexMetricParametrizedInput(ComplexMetricInputDto complexMetric) {
+    public MutationCreateComplexMetricParametrizedInput(String projectId, ComplexMetricInputDto complexMetric) {
+        this.projectId = projectId;
         this.complexMetric = complexMetric;
+    }
+
+    public MutationCreateComplexMetricParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateComplexMetricParametrizedInput complexMetric(ComplexMetricInputDto complexMetric) {
@@ -32,6 +40,9 @@ public class MutationCreateComplexMetricParametrizedInput implements GraphQLPara
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (complexMetric != null) {
             joiner.add("complexMetric: " + GraphQLRequestSerializer.getEntry(complexMetric));
         }

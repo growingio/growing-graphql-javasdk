@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class UserSummaryResponseProjection extends GraphQLResponseProjection {
 
@@ -27,6 +27,10 @@ public class UserSummaryResponseProjection extends GraphQLResponseProjection {
         this.monthlyVisits();
         this.visitedAt();
         this.visitedLocation();
+        if (projectionDepthOnFields.getOrDefault("UserSummaryResponseProjection.PropertyResponseProjection.properties", 0) <= maxDepth) {
+            projectionDepthOnFields.put("UserSummaryResponseProjection.PropertyResponseProjection.properties", projectionDepthOnFields.getOrDefault("UserSummaryResponseProjection.PropertyResponseProjection.properties", 0) + 1);
+            this.properties(new PropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("UserSummaryResponseProjection.PropertyResponseProjection.properties", 0)));
+        }
         this.typename();
         return this;
     }
@@ -73,6 +77,15 @@ public class UserSummaryResponseProjection extends GraphQLResponseProjection {
 
     public UserSummaryResponseProjection visitedLocation(String alias) {
         fields.add(new GraphQLResponseField("visitedLocation").alias(alias));
+        return this;
+    }
+
+    public UserSummaryResponseProjection properties(PropertyResponseProjection subProjection) {
+        return properties(null, subProjection);
+    }
+
+    public UserSummaryResponseProjection properties(String alias, PropertyResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("properties").alias(alias).projection(subProjection));
         return this;
     }
 

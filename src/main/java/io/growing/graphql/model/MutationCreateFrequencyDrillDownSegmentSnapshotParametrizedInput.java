@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment;
 
     public MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput() {
     }
 
-    public MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput(FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) {
+    public MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput(String projectId, FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) {
+        this.projectId = projectId;
         this.frequencyDrillDownSegment = frequencyDrillDownSegment;
+    }
+
+    public MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput frequencyDrillDownSegment(FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) {
@@ -32,6 +40,9 @@ public class MutationCreateFrequencyDrillDownSegmentSnapshotParametrizedInput im
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (frequencyDrillDownSegment != null) {
             joiner.add("frequencyDrillDownSegment: " + GraphQLRequestSerializer.getEntry(frequencyDrillDownSegment));
         }

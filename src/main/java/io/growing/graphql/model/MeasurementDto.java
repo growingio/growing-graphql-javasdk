@@ -3,9 +3,12 @@ package io.growing.graphql.model;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
+/**
+ * 用来表示指标
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MeasurementDto implements java.io.Serializable {
 
@@ -50,16 +53,28 @@ public class MeasurementDto implements java.io.Serializable {
         this.type = type;
     }
 
+    /**
+     * 指标的过滤条件
+     */
     public FilterDto getFilter() {
         return filter;
     }
+    /**
+     * 指标的过滤条件
+     */
     public void setFilter(FilterDto filter) {
         this.filter = filter;
     }
 
+    /**
+     * 指标名
+     */
     public String getName() {
         return name;
     }
+    /**
+     * 指标名
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -71,9 +86,15 @@ public class MeasurementDto implements java.io.Serializable {
         this.action = action;
     }
 
+    /**
+     * 表示时间，比如 7天前 day:8,1, 30天前 day:31,1, 绝对时间  abs:1603631197000,1604631197000
+     */
     public String getTimeRange() {
         return timeRange;
     }
+    /**
+     * 表示时间，比如 7天前 day:8,1, 30天前 day:31,1, 绝对时间  abs:1603631197000,1604631197000
+     */
     public void setTimeRange(String timeRange) {
         this.timeRange = timeRange;
     }
@@ -85,16 +106,28 @@ public class MeasurementDto implements java.io.Serializable {
         this.attribute = attribute;
     }
 
+    /**
+     * 聚合方式，如 sum
+     */
     public String getAggregator() {
         return aggregator;
     }
+    /**
+     * 聚合方式，如 sum
+     */
     public void setAggregator(String aggregator) {
         this.aggregator = aggregator;
     }
 
+    /**
+     * 指标权重
+     */
     public Double getWeight() {
         return weight;
     }
+    /**
+     * 指标权重
+     */
     public void setWeight(Double weight) {
         this.weight = weight;
     }
@@ -162,11 +195,17 @@ public class MeasurementDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 指标的过滤条件
+         */
         public Builder setFilter(FilterDto filter) {
             this.filter = filter;
             return this;
         }
 
+        /**
+         * 指标名
+         */
         public Builder setName(String name) {
             this.name = name;
             return this;
@@ -177,6 +216,9 @@ public class MeasurementDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 表示时间，比如 7天前 day:8,1, 30天前 day:31,1, 绝对时间  abs:1603631197000,1604631197000
+         */
         public Builder setTimeRange(String timeRange) {
             this.timeRange = timeRange;
             return this;
@@ -187,11 +229,17 @@ public class MeasurementDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 聚合方式，如 sum
+         */
         public Builder setAggregator(String aggregator) {
             this.aggregator = aggregator;
             return this;
         }
 
+        /**
+         * 指标权重
+         */
         public Builder setWeight(Double weight) {
             this.weight = weight;
             return this;

@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateFrequencyAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private FrequencyAnalysisInputDto frequencyAnalysis;
 
     public MutationCreateFrequencyAnalysisParametrizedInput() {
     }
 
-    public MutationCreateFrequencyAnalysisParametrizedInput(FrequencyAnalysisInputDto frequencyAnalysis) {
+    public MutationCreateFrequencyAnalysisParametrizedInput(String projectId, FrequencyAnalysisInputDto frequencyAnalysis) {
+        this.projectId = projectId;
         this.frequencyAnalysis = frequencyAnalysis;
+    }
+
+    public MutationCreateFrequencyAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateFrequencyAnalysisParametrizedInput frequencyAnalysis(FrequencyAnalysisInputDto frequencyAnalysis) {
@@ -32,6 +40,9 @@ public class MutationCreateFrequencyAnalysisParametrizedInput implements GraphQL
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (frequencyAnalysis != null) {
             joiner.add("frequencyAnalysis: " + GraphQLRequestSerializer.getEntry(frequencyAnalysis));
         }

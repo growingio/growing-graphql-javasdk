@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MemberInputDto implements java.io.Serializable {
 
@@ -20,11 +20,13 @@ public class MemberInputDto implements java.io.Serializable {
     private String department;
     private String phoneNumber;
     private String identity;
+    @javax.validation.constraints.NotNull
+    private java.util.List<ProjectRoleEntryInputDto> projectRoleEntries;
 
     public MemberInputDto() {
     }
 
-    public MemberInputDto(String name, String email, String password, String role, String department, String phoneNumber, String identity) {
+    public MemberInputDto(String name, String email, String password, String role, String department, String phoneNumber, String identity, java.util.List<ProjectRoleEntryInputDto> projectRoleEntries) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -32,6 +34,7 @@ public class MemberInputDto implements java.io.Serializable {
         this.department = department;
         this.phoneNumber = phoneNumber;
         this.identity = identity;
+        this.projectRoleEntries = projectRoleEntries;
     }
 
     public String getName() {
@@ -83,6 +86,13 @@ public class MemberInputDto implements java.io.Serializable {
         this.identity = identity;
     }
 
+    public java.util.List<ProjectRoleEntryInputDto> getProjectRoleEntries() {
+        return projectRoleEntries;
+    }
+    public void setProjectRoleEntries(java.util.List<ProjectRoleEntryInputDto> projectRoleEntries) {
+        this.projectRoleEntries = projectRoleEntries;
+    }
+
 
     @Override
     public String toString() {
@@ -108,6 +118,9 @@ public class MemberInputDto implements java.io.Serializable {
         if (identity != null) {
             joiner.add("identity: " + GraphQLRequestSerializer.getEntry(identity));
         }
+        if (projectRoleEntries != null) {
+            joiner.add("projectRoleEntries: " + GraphQLRequestSerializer.getEntry(projectRoleEntries));
+        }
         return joiner.toString();
     }
 
@@ -124,6 +137,7 @@ public class MemberInputDto implements java.io.Serializable {
         private String department;
         private String phoneNumber;
         private String identity;
+        private java.util.List<ProjectRoleEntryInputDto> projectRoleEntries;
 
         public Builder() {
         }
@@ -163,9 +177,14 @@ public class MemberInputDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setProjectRoleEntries(java.util.List<ProjectRoleEntryInputDto> projectRoleEntries) {
+            this.projectRoleEntries = projectRoleEntries;
+            return this;
+        }
+
 
         public MemberInputDto build() {
-            return new MemberInputDto(name, email, password, role, department, phoneNumber, identity);
+            return new MemberInputDto(name, email, password, role, department, phoneNumber, identity, projectRoleEntries);
         }
 
     }

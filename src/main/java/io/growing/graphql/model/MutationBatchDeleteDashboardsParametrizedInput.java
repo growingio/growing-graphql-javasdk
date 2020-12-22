@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationBatchDeleteDashboardsParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private java.util.List<String> ids;
 
     public MutationBatchDeleteDashboardsParametrizedInput() {
     }
 
-    public MutationBatchDeleteDashboardsParametrizedInput(java.util.List<String> ids) {
+    public MutationBatchDeleteDashboardsParametrizedInput(String projectId, java.util.List<String> ids) {
+        this.projectId = projectId;
         this.ids = ids;
+    }
+
+    public MutationBatchDeleteDashboardsParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationBatchDeleteDashboardsParametrizedInput ids(java.util.List<String> ids) {
@@ -32,6 +40,9 @@ public class MutationBatchDeleteDashboardsParametrizedInput implements GraphQLPa
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (ids != null) {
             joiner.add("ids: " + GraphQLRequestSerializer.getEntry(ids));
         }

@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationResponseProjection extends GraphQLResponseProjection {
 
@@ -26,18 +26,18 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         this.deleteUtmArgument();
         this.settingPersonaMeasurements();
         this.settingSegmentMeasurements();
-        this.updateProjectInfo();
+        this.updateDataCenterInfo();
         this.updateOriginDataSetting();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createTag", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.createTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createTag", 0) + 1);
-            this.createTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createTag", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createDataCenterTag", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.createDataCenterTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createDataCenterTag", 0) + 1);
+            this.createDataCenterTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createDataCenterTag", 0)));
         }
-        this.deleteTag();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateTag", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.updateTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateTag", 0) + 1);
-            this.updateTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateTag", 0)));
+        this.deleteDataCenterTag();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateDataCenterTag", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.updateDataCenterTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateDataCenterTag", 0) + 1);
+            this.updateDataCenterTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.updateDataCenterTag", 0)));
         }
-        this.batchDeleteTags();
+        this.batchDeleteDataCenterTags();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.createSegment", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.SegmentResponseProjection.createSegment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.createSegment", 0) + 1);
             this.createSegment(new SegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentResponseProjection.createSegment", 0)));
@@ -97,16 +97,34 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         this.createSubscription();
         this.deleteSubscription();
         this.batchUpdateSubscriptions();
-        this.roleAppendUser();
-        this.updateUserPermissions();
-        this.updateResourceAcls();
-        this.batchUpdateResourceAcl();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.RoleResponseProjection.createRole", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.RoleResponseProjection.createRole", projectionDepthOnFields.getOrDefault("MutationResponseProjection.RoleResponseProjection.createRole", 0) + 1);
-            this.createRole(new RoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.RoleResponseProjection.createRole", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResponseProjection.createCategory", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CategoryResponseProjection.createCategory", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResponseProjection.createCategory", 0) + 1);
+            this.createCategory(new CategoryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResponseProjection.createCategory", 0)));
         }
-        this.deleteRole();
-        this.updateRole();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResponseProjection.updateCategory", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CategoryResponseProjection.updateCategory", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResponseProjection.updateCategory", 0) + 1);
+            this.updateCategory(new CategoryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResponseProjection.updateCategory", 0)));
+        }
+        this.deleteCategory();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResourceResponseProjection.addCategoryResource", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CategoryResourceResponseProjection.addCategoryResource", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResourceResponseProjection.addCategoryResource", 0) + 1);
+            this.addCategoryResource(new CategoryResourceResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResourceResponseProjection.addCategoryResource", 0)));
+        }
+        this.removeCategoryResources();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResourceResponseProjection.moveCategoryResources", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CategoryResourceResponseProjection.moveCategoryResources", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResourceResponseProjection.moveCategoryResources", 0) + 1);
+            this.moveCategoryResources(new CategoryResourceResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CategoryResourceResponseProjection.moveCategoryResources", 0)));
+        }
+        this.dataCenterRoleAppendUser();
+        this.updateUserDataCenterPermissions();
+        this.updateDataCenterResourceAcls();
+        this.batchUpdateDataCenterResourceAcl();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DataCenterRoleResponseProjection.createDataCenterRole", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.DataCenterRoleResponseProjection.createDataCenterRole", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DataCenterRoleResponseProjection.createDataCenterRole", 0) + 1);
+            this.createDataCenterRole(new DataCenterRoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DataCenterRoleResponseProjection.createDataCenterRole", 0)));
+        }
+        this.deleteDataCenterRole();
+        this.updateDataCenterRole();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.createDepartment", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.DepartmentResponseProjection.createDepartment", projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.createDepartment", 0) + 1);
             this.createDepartment(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.DepartmentResponseProjection.createDepartment", 0)));
@@ -117,7 +135,36 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.deleteDepartment();
         this.addMembersToDepartment();
-        this.updateMemberRole();
+        this.updateMemberDataCenterRole();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectResponseProjection.createProject", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ProjectResponseProjection.createProject", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectResponseProjection.createProject", 0) + 1);
+            this.createProject(new ProjectResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectResponseProjection.createProject", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectResponseProjection.updateProject", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ProjectResponseProjection.updateProject", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectResponseProjection.updateProject", 0) + 1);
+            this.updateProject(new ProjectResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectResponseProjection.updateProject", 0)));
+        }
+        this.deleteProject();
+        this.addProjectMembers();
+        this.removeProjectMembers();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectRoleResponseProjection.createProjectRole", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ProjectRoleResponseProjection.createProjectRole", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectRoleResponseProjection.createProjectRole", 0) + 1);
+            this.createProjectRole(new ProjectRoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectRoleResponseProjection.createProjectRole", 0)));
+        }
+        this.deleteProjectRole();
+        this.updateProjectRole();
+        this.assignUserProjectRole();
+        this.transferProjectOwner();
+        this.toggleProject();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectDataCtrlResponseProjection.updateProjectDataCtrl", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ProjectDataCtrlResponseProjection.updateProjectDataCtrl", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectDataCtrlResponseProjection.updateProjectDataCtrl", 0) + 1);
+            this.updateProjectDataCtrl(new ProjectDataCtrlResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ProjectDataCtrlResponseProjection.updateProjectDataCtrl", 0)));
+        }
+        this.transferProjectResources();
+        this.addMembersToProjectRole();
+        this.transferDataCenterOwner();
+        this.addMembersToDataCenterRole();
+        this.addMemberToProjects();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0) + 1);
             this.createAccount(new CreateAccountReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0)));
@@ -140,16 +187,16 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.deleteElement();
         this.batchDeleteElements();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0) + 1);
-            this.createCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createCustomEvent", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createDataCenterCustomEvent", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.createDataCenterCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createDataCenterCustomEvent", 0) + 1);
+            this.createDataCenterCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.createDataCenterCustomEvent", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", 0) + 1);
-            this.updateCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateCustomEvent", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateDataCenterCustomEvent", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CustomEventResponseProjection.updateDataCenterCustomEvent", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateDataCenterCustomEvent", 0) + 1);
+            this.updateDataCenterCustomEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CustomEventResponseProjection.updateDataCenterCustomEvent", 0)));
         }
-        this.deleteCustomEvent();
-        this.batchDeleteCustomEvents();
+        this.deleteDataCenterCustomEvent();
+        this.batchDeleteDataCenterCustomEvents();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", 0) + 1);
             this.createComplexMetric(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ComplexMetricResponseProjection.createComplexMetric", 0)));
@@ -160,50 +207,50 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.deleteComplexMetric();
         this.batchDeleteComplexMetrics();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", 0) + 1);
-            this.createEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createEventVariable", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createDataCenterEventVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventVariableResponseProjection.createDataCenterEventVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createDataCenterEventVariable", 0) + 1);
+            this.createDataCenterEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.createDataCenterEventVariable", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", 0) + 1);
-            this.updateEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateEventVariable", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateDataCenterEventVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventVariableResponseProjection.updateDataCenterEventVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateDataCenterEventVariable", 0) + 1);
+            this.updateDataCenterEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventVariableResponseProjection.updateDataCenterEventVariable", 0)));
         }
-        this.deleteEventVariable();
-        this.batchDeleteEventVariables();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", 0) + 1);
-            this.createItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createItemVariable", 0)));
+        this.deleteDataCenterEventVariable();
+        this.batchDeleteDataCenterEventVariables();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", 0) + 1);
+            this.createDataCenterItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", 0) + 1);
-            this.updateItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateItemVariable", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", 0) + 1);
+            this.updateDataCenterItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", 0)));
         }
-        this.deleteItemVariable();
-        this.batchDeleteItemVariables();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createItemModel", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.ItemModelResponseProjection.createItemModel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createItemModel", 0) + 1);
-            this.createItemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createItemModel", 0)));
+        this.deleteDataCenterItemVariable();
+        this.batchDeleteDataCenterItemVariables();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createDataCenterItemModel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemModelResponseProjection.createDataCenterItemModel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createDataCenterItemModel", 0) + 1);
+            this.createDataCenterItemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.createDataCenterItemModel", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", 0) + 1);
-            this.updateItemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateItemModel", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateDataCenterItemModel", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemModelResponseProjection.updateDataCenterItemModel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateDataCenterItemModel", 0) + 1);
+            this.updateDataCenterItemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemModelResponseProjection.updateDataCenterItemModel", 0)));
         }
-        this.deleteItemModel();
-        this.batchDeleteItemModels();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", 0) + 1);
-            this.addItemModelAttribute(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.addItemModelAttribute", 0)));
+        this.deleteDataCenterItemModel();
+        this.batchDeleteDataCenterItemModels();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.dataCenterAddItemModelAttribute", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.dataCenterAddItemModelAttribute", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.dataCenterAddItemModelAttribute", 0) + 1);
+            this.dataCenterAddItemModelAttribute(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.dataCenterAddItemModelAttribute", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", 0) + 1);
-            this.createUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createUserVariable", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createDataCenterUserVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.createDataCenterUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createDataCenterUserVariable", 0) + 1);
+            this.createDataCenterUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.createDataCenterUserVariable", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", 0) + 1);
-            this.updateUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateUserVariable", 0)));
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateDataCenterUserVariable", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.UserVariableResponseProjection.updateDataCenterUserVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateDataCenterUserVariable", 0) + 1);
+            this.updateDataCenterUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.UserVariableResponseProjection.updateDataCenterUserVariable", 0)));
         }
-        this.deleteUserVariable();
-        this.batchDeleteUserVariables();
+        this.deleteDataCenterUserVariable();
+        this.batchDeleteDataCenterUserVariables();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0) + 1);
             this.createKpiAnalysis(new KpiAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0)));
@@ -373,21 +420,21 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection updateProjectInfo() {
-        return updateProjectInfo((String)null);
+    public MutationResponseProjection updateDataCenterInfo() {
+        return updateDataCenterInfo((String)null);
     }
 
-    public MutationResponseProjection updateProjectInfo(String alias) {
-        fields.add(new GraphQLResponseField("updateProjectInfo").alias(alias));
+    public MutationResponseProjection updateDataCenterInfo(String alias) {
+        fields.add(new GraphQLResponseField("updateDataCenterInfo").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection updateProjectInfo(MutationUpdateProjectInfoParametrizedInput input) {
-        return updateProjectInfo(null, input);
+    public MutationResponseProjection updateDataCenterInfo(MutationUpdateDataCenterInfoParametrizedInput input) {
+        return updateDataCenterInfo(null, input);
     }
 
-    public MutationResponseProjection updateProjectInfo(String alias, MutationUpdateProjectInfoParametrizedInput input) {
-        fields.add(new GraphQLResponseField("updateProjectInfo").alias(alias).parameters(input));
+    public MutationResponseProjection updateDataCenterInfo(String alias, MutationUpdateDataCenterInfoParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateDataCenterInfo").alias(alias).parameters(input));
         return this;
     }
 
@@ -409,75 +456,75 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection createTag(TagResponseProjection subProjection) {
-        return createTag((String)null, subProjection);
+    public MutationResponseProjection createDataCenterTag(TagResponseProjection subProjection) {
+        return createDataCenterTag((String)null, subProjection);
     }
 
-    public MutationResponseProjection createTag(String alias, TagResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createTag").alias(alias).projection(subProjection));
+    public MutationResponseProjection createDataCenterTag(String alias, TagResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterTag").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createTag(MutationCreateTagParametrizedInput input, TagResponseProjection subProjection) {
-        return createTag(null, input, subProjection);
+    public MutationResponseProjection createDataCenterTag(MutationCreateDataCenterTagParametrizedInput input, TagResponseProjection subProjection) {
+        return createDataCenterTag(null, input, subProjection);
     }
 
-    public MutationResponseProjection createTag(String alias, MutationCreateTagParametrizedInput input, TagResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createTag").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection createDataCenterTag(String alias, MutationCreateDataCenterTagParametrizedInput input, TagResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterTag").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteTag() {
-        return deleteTag((String)null);
+    public MutationResponseProjection deleteDataCenterTag() {
+        return deleteDataCenterTag((String)null);
     }
 
-    public MutationResponseProjection deleteTag(String alias) {
-        fields.add(new GraphQLResponseField("deleteTag").alias(alias));
+    public MutationResponseProjection deleteDataCenterTag(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterTag").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection deleteTag(MutationDeleteTagParametrizedInput input) {
-        return deleteTag(null, input);
+    public MutationResponseProjection deleteDataCenterTag(MutationDeleteDataCenterTagParametrizedInput input) {
+        return deleteDataCenterTag(null, input);
     }
 
-    public MutationResponseProjection deleteTag(String alias, MutationDeleteTagParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteTag").alias(alias).parameters(input));
+    public MutationResponseProjection deleteDataCenterTag(String alias, MutationDeleteDataCenterTagParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterTag").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection updateTag(TagResponseProjection subProjection) {
-        return updateTag((String)null, subProjection);
+    public MutationResponseProjection updateDataCenterTag(TagResponseProjection subProjection) {
+        return updateDataCenterTag((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateTag(String alias, TagResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateTag").alias(alias).projection(subProjection));
+    public MutationResponseProjection updateDataCenterTag(String alias, TagResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterTag").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateTag(MutationUpdateTagParametrizedInput input, TagResponseProjection subProjection) {
-        return updateTag(null, input, subProjection);
+    public MutationResponseProjection updateDataCenterTag(MutationUpdateDataCenterTagParametrizedInput input, TagResponseProjection subProjection) {
+        return updateDataCenterTag(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateTag(String alias, MutationUpdateTagParametrizedInput input, TagResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateTag").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection updateDataCenterTag(String alias, MutationUpdateDataCenterTagParametrizedInput input, TagResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterTag").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteTags() {
-        return batchDeleteTags((String)null);
+    public MutationResponseProjection batchDeleteDataCenterTags() {
+        return batchDeleteDataCenterTags((String)null);
     }
 
-    public MutationResponseProjection batchDeleteTags(String alias) {
-        fields.add(new GraphQLResponseField("batchDeleteTags").alias(alias));
+    public MutationResponseProjection batchDeleteDataCenterTags(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterTags").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteTags(MutationBatchDeleteTagsParametrizedInput input) {
-        return batchDeleteTags(null, input);
+    public MutationResponseProjection batchDeleteDataCenterTags(MutationBatchDeleteDataCenterTagsParametrizedInput input) {
+        return batchDeleteDataCenterTags(null, input);
     }
 
-    public MutationResponseProjection batchDeleteTags(String alias, MutationBatchDeleteTagsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchDeleteTags").alias(alias).parameters(input));
+    public MutationResponseProjection batchDeleteDataCenterTags(String alias, MutationBatchDeleteDataCenterTagsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterTags").alias(alias).parameters(input));
         return this;
     }
 
@@ -841,129 +888,237 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection roleAppendUser() {
-        return roleAppendUser((String)null);
+    public MutationResponseProjection createCategory(CategoryResponseProjection subProjection) {
+        return createCategory((String)null, subProjection);
     }
 
-    public MutationResponseProjection roleAppendUser(String alias) {
-        fields.add(new GraphQLResponseField("roleAppendUser").alias(alias));
+    public MutationResponseProjection createCategory(String alias, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createCategory").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection roleAppendUser(MutationRoleAppendUserParametrizedInput input) {
-        return roleAppendUser(null, input);
+    public MutationResponseProjection createCategory(MutationCreateCategoryParametrizedInput input, CategoryResponseProjection subProjection) {
+        return createCategory(null, input, subProjection);
     }
 
-    public MutationResponseProjection roleAppendUser(String alias, MutationRoleAppendUserParametrizedInput input) {
-        fields.add(new GraphQLResponseField("roleAppendUser").alias(alias).parameters(input));
+    public MutationResponseProjection createCategory(String alias, MutationCreateCategoryParametrizedInput input, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createCategory").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateUserPermissions() {
-        return updateUserPermissions((String)null);
+    public MutationResponseProjection updateCategory(CategoryResponseProjection subProjection) {
+        return updateCategory((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateUserPermissions(String alias) {
-        fields.add(new GraphQLResponseField("updateUserPermissions").alias(alias));
+    public MutationResponseProjection updateCategory(String alias, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateCategory").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateUserPermissions(MutationUpdateUserPermissionsParametrizedInput input) {
-        return updateUserPermissions(null, input);
+    public MutationResponseProjection updateCategory(MutationUpdateCategoryParametrizedInput input, CategoryResponseProjection subProjection) {
+        return updateCategory(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateUserPermissions(String alias, MutationUpdateUserPermissionsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("updateUserPermissions").alias(alias).parameters(input));
+    public MutationResponseProjection updateCategory(String alias, MutationUpdateCategoryParametrizedInput input, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateCategory").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateResourceAcls() {
-        return updateResourceAcls((String)null);
+    public MutationResponseProjection deleteCategory() {
+        return deleteCategory((String)null);
     }
 
-    public MutationResponseProjection updateResourceAcls(String alias) {
-        fields.add(new GraphQLResponseField("updateResourceAcls").alias(alias));
+    public MutationResponseProjection deleteCategory(String alias) {
+        fields.add(new GraphQLResponseField("deleteCategory").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection updateResourceAcls(MutationUpdateResourceAclsParametrizedInput input) {
-        return updateResourceAcls(null, input);
+    public MutationResponseProjection deleteCategory(MutationDeleteCategoryParametrizedInput input) {
+        return deleteCategory(null, input);
     }
 
-    public MutationResponseProjection updateResourceAcls(String alias, MutationUpdateResourceAclsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("updateResourceAcls").alias(alias).parameters(input));
+    public MutationResponseProjection deleteCategory(String alias, MutationDeleteCategoryParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteCategory").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection batchUpdateResourceAcl() {
-        return batchUpdateResourceAcl((String)null);
+    public MutationResponseProjection addCategoryResource(CategoryResourceResponseProjection subProjection) {
+        return addCategoryResource((String)null, subProjection);
     }
 
-    public MutationResponseProjection batchUpdateResourceAcl(String alias) {
-        fields.add(new GraphQLResponseField("batchUpdateResourceAcl").alias(alias));
+    public MutationResponseProjection addCategoryResource(String alias, CategoryResourceResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("addCategoryResource").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection batchUpdateResourceAcl(MutationBatchUpdateResourceAclParametrizedInput input) {
-        return batchUpdateResourceAcl(null, input);
+    public MutationResponseProjection addCategoryResource(MutationAddCategoryResourceParametrizedInput input, CategoryResourceResponseProjection subProjection) {
+        return addCategoryResource(null, input, subProjection);
     }
 
-    public MutationResponseProjection batchUpdateResourceAcl(String alias, MutationBatchUpdateResourceAclParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchUpdateResourceAcl").alias(alias).parameters(input));
+    public MutationResponseProjection addCategoryResource(String alias, MutationAddCategoryResourceParametrizedInput input, CategoryResourceResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("addCategoryResource").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createRole(RoleResponseProjection subProjection) {
-        return createRole((String)null, subProjection);
+    public MutationResponseProjection removeCategoryResources() {
+        return removeCategoryResources((String)null);
     }
 
-    public MutationResponseProjection createRole(String alias, RoleResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createRole").alias(alias).projection(subProjection));
+    public MutationResponseProjection removeCategoryResources(String alias) {
+        fields.add(new GraphQLResponseField("removeCategoryResources").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection createRole(MutationCreateRoleParametrizedInput input, RoleResponseProjection subProjection) {
-        return createRole(null, input, subProjection);
+    public MutationResponseProjection removeCategoryResources(MutationRemoveCategoryResourcesParametrizedInput input) {
+        return removeCategoryResources(null, input);
     }
 
-    public MutationResponseProjection createRole(String alias, MutationCreateRoleParametrizedInput input, RoleResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createRole").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection removeCategoryResources(String alias, MutationRemoveCategoryResourcesParametrizedInput input) {
+        fields.add(new GraphQLResponseField("removeCategoryResources").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection deleteRole() {
-        return deleteRole((String)null);
+    public MutationResponseProjection moveCategoryResources(CategoryResourceResponseProjection subProjection) {
+        return moveCategoryResources((String)null, subProjection);
     }
 
-    public MutationResponseProjection deleteRole(String alias) {
-        fields.add(new GraphQLResponseField("deleteRole").alias(alias));
+    public MutationResponseProjection moveCategoryResources(String alias, CategoryResourceResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("moveCategoryResources").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteRole(MutationDeleteRoleParametrizedInput input) {
-        return deleteRole(null, input);
+    public MutationResponseProjection moveCategoryResources(MutationMoveCategoryResourcesParametrizedInput input, CategoryResourceResponseProjection subProjection) {
+        return moveCategoryResources(null, input, subProjection);
     }
 
-    public MutationResponseProjection deleteRole(String alias, MutationDeleteRoleParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteRole").alias(alias).parameters(input));
+    public MutationResponseProjection moveCategoryResources(String alias, MutationMoveCategoryResourcesParametrizedInput input, CategoryResourceResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("moveCategoryResources").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateRole() {
-        return updateRole((String)null);
+    public MutationResponseProjection dataCenterRoleAppendUser() {
+        return dataCenterRoleAppendUser((String)null);
     }
 
-    public MutationResponseProjection updateRole(String alias) {
-        fields.add(new GraphQLResponseField("updateRole").alias(alias));
+    public MutationResponseProjection dataCenterRoleAppendUser(String alias) {
+        fields.add(new GraphQLResponseField("dataCenterRoleAppendUser").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection updateRole(MutationUpdateRoleParametrizedInput input) {
-        return updateRole(null, input);
+    public MutationResponseProjection dataCenterRoleAppendUser(MutationDataCenterRoleAppendUserParametrizedInput input) {
+        return dataCenterRoleAppendUser(null, input);
     }
 
-    public MutationResponseProjection updateRole(String alias, MutationUpdateRoleParametrizedInput input) {
-        fields.add(new GraphQLResponseField("updateRole").alias(alias).parameters(input));
+    public MutationResponseProjection dataCenterRoleAppendUser(String alias, MutationDataCenterRoleAppendUserParametrizedInput input) {
+        fields.add(new GraphQLResponseField("dataCenterRoleAppendUser").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateUserDataCenterPermissions() {
+        return updateUserDataCenterPermissions((String)null);
+    }
+
+    public MutationResponseProjection updateUserDataCenterPermissions(String alias) {
+        fields.add(new GraphQLResponseField("updateUserDataCenterPermissions").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateUserDataCenterPermissions(MutationUpdateUserDataCenterPermissionsParametrizedInput input) {
+        return updateUserDataCenterPermissions(null, input);
+    }
+
+    public MutationResponseProjection updateUserDataCenterPermissions(String alias, MutationUpdateUserDataCenterPermissionsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateUserDataCenterPermissions").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateDataCenterResourceAcls() {
+        return updateDataCenterResourceAcls((String)null);
+    }
+
+    public MutationResponseProjection updateDataCenterResourceAcls(String alias) {
+        fields.add(new GraphQLResponseField("updateDataCenterResourceAcls").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateDataCenterResourceAcls(MutationUpdateDataCenterResourceAclsParametrizedInput input) {
+        return updateDataCenterResourceAcls(null, input);
+    }
+
+    public MutationResponseProjection updateDataCenterResourceAcls(String alias, MutationUpdateDataCenterResourceAclsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateDataCenterResourceAcls").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection batchUpdateDataCenterResourceAcl() {
+        return batchUpdateDataCenterResourceAcl((String)null);
+    }
+
+    public MutationResponseProjection batchUpdateDataCenterResourceAcl(String alias) {
+        fields.add(new GraphQLResponseField("batchUpdateDataCenterResourceAcl").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection batchUpdateDataCenterResourceAcl(MutationBatchUpdateDataCenterResourceAclParametrizedInput input) {
+        return batchUpdateDataCenterResourceAcl(null, input);
+    }
+
+    public MutationResponseProjection batchUpdateDataCenterResourceAcl(String alias, MutationBatchUpdateDataCenterResourceAclParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchUpdateDataCenterResourceAcl").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createDataCenterRole(DataCenterRoleResponseProjection subProjection) {
+        return createDataCenterRole((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createDataCenterRole(String alias, DataCenterRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterRole").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createDataCenterRole(MutationCreateDataCenterRoleParametrizedInput input, DataCenterRoleResponseProjection subProjection) {
+        return createDataCenterRole(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createDataCenterRole(String alias, MutationCreateDataCenterRoleParametrizedInput input, DataCenterRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterRole").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteDataCenterRole() {
+        return deleteDataCenterRole((String)null);
+    }
+
+    public MutationResponseProjection deleteDataCenterRole(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteDataCenterRole(MutationDeleteDataCenterRoleParametrizedInput input) {
+        return deleteDataCenterRole(null, input);
+    }
+
+    public MutationResponseProjection deleteDataCenterRole(String alias, MutationDeleteDataCenterRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateDataCenterRole() {
+        return updateDataCenterRole((String)null);
+    }
+
+    public MutationResponseProjection updateDataCenterRole(String alias) {
+        fields.add(new GraphQLResponseField("updateDataCenterRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateDataCenterRole(MutationUpdateDataCenterRoleParametrizedInput input) {
+        return updateDataCenterRole(null, input);
+    }
+
+    public MutationResponseProjection updateDataCenterRole(String alias, MutationUpdateDataCenterRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateDataCenterRole").alias(alias).parameters(input));
         return this;
     }
 
@@ -1039,21 +1194,327 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection updateMemberRole() {
-        return updateMemberRole((String)null);
+    public MutationResponseProjection updateMemberDataCenterRole() {
+        return updateMemberDataCenterRole((String)null);
     }
 
-    public MutationResponseProjection updateMemberRole(String alias) {
-        fields.add(new GraphQLResponseField("updateMemberRole").alias(alias));
+    public MutationResponseProjection updateMemberDataCenterRole(String alias) {
+        fields.add(new GraphQLResponseField("updateMemberDataCenterRole").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection updateMemberRole(MutationUpdateMemberRoleParametrizedInput input) {
-        return updateMemberRole(null, input);
+    public MutationResponseProjection updateMemberDataCenterRole(MutationUpdateMemberDataCenterRoleParametrizedInput input) {
+        return updateMemberDataCenterRole(null, input);
     }
 
-    public MutationResponseProjection updateMemberRole(String alias, MutationUpdateMemberRoleParametrizedInput input) {
-        fields.add(new GraphQLResponseField("updateMemberRole").alias(alias).parameters(input));
+    public MutationResponseProjection updateMemberDataCenterRole(String alias, MutationUpdateMemberDataCenterRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateMemberDataCenterRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createProject(ProjectResponseProjection subProjection) {
+        return createProject((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createProject(String alias, ProjectResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createProject").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createProject(MutationCreateProjectParametrizedInput input, ProjectResponseProjection subProjection) {
+        return createProject(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createProject(String alias, MutationCreateProjectParametrizedInput input, ProjectResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createProject").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateProject(ProjectResponseProjection subProjection) {
+        return updateProject((String)null, subProjection);
+    }
+
+    public MutationResponseProjection updateProject(String alias, ProjectResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateProject").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateProject(MutationUpdateProjectParametrizedInput input, ProjectResponseProjection subProjection) {
+        return updateProject(null, input, subProjection);
+    }
+
+    public MutationResponseProjection updateProject(String alias, MutationUpdateProjectParametrizedInput input, ProjectResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateProject").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteProject() {
+        return deleteProject((String)null);
+    }
+
+    public MutationResponseProjection deleteProject(String alias) {
+        fields.add(new GraphQLResponseField("deleteProject").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteProject(MutationDeleteProjectParametrizedInput input) {
+        return deleteProject(null, input);
+    }
+
+    public MutationResponseProjection deleteProject(String alias, MutationDeleteProjectParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteProject").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection addProjectMembers() {
+        return addProjectMembers((String)null);
+    }
+
+    public MutationResponseProjection addProjectMembers(String alias) {
+        fields.add(new GraphQLResponseField("addProjectMembers").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection addProjectMembers(MutationAddProjectMembersParametrizedInput input) {
+        return addProjectMembers(null, input);
+    }
+
+    public MutationResponseProjection addProjectMembers(String alias, MutationAddProjectMembersParametrizedInput input) {
+        fields.add(new GraphQLResponseField("addProjectMembers").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection removeProjectMembers() {
+        return removeProjectMembers((String)null);
+    }
+
+    public MutationResponseProjection removeProjectMembers(String alias) {
+        fields.add(new GraphQLResponseField("removeProjectMembers").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection removeProjectMembers(MutationRemoveProjectMembersParametrizedInput input) {
+        return removeProjectMembers(null, input);
+    }
+
+    public MutationResponseProjection removeProjectMembers(String alias, MutationRemoveProjectMembersParametrizedInput input) {
+        fields.add(new GraphQLResponseField("removeProjectMembers").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createProjectRole(ProjectRoleResponseProjection subProjection) {
+        return createProjectRole((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createProjectRole(String alias, ProjectRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createProjectRole").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createProjectRole(MutationCreateProjectRoleParametrizedInput input, ProjectRoleResponseProjection subProjection) {
+        return createProjectRole(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createProjectRole(String alias, MutationCreateProjectRoleParametrizedInput input, ProjectRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createProjectRole").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteProjectRole() {
+        return deleteProjectRole((String)null);
+    }
+
+    public MutationResponseProjection deleteProjectRole(String alias) {
+        fields.add(new GraphQLResponseField("deleteProjectRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteProjectRole(MutationDeleteProjectRoleParametrizedInput input) {
+        return deleteProjectRole(null, input);
+    }
+
+    public MutationResponseProjection deleteProjectRole(String alias, MutationDeleteProjectRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteProjectRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateProjectRole() {
+        return updateProjectRole((String)null);
+    }
+
+    public MutationResponseProjection updateProjectRole(String alias) {
+        fields.add(new GraphQLResponseField("updateProjectRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateProjectRole(MutationUpdateProjectRoleParametrizedInput input) {
+        return updateProjectRole(null, input);
+    }
+
+    public MutationResponseProjection updateProjectRole(String alias, MutationUpdateProjectRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateProjectRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection assignUserProjectRole() {
+        return assignUserProjectRole((String)null);
+    }
+
+    public MutationResponseProjection assignUserProjectRole(String alias) {
+        fields.add(new GraphQLResponseField("assignUserProjectRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection assignUserProjectRole(MutationAssignUserProjectRoleParametrizedInput input) {
+        return assignUserProjectRole(null, input);
+    }
+
+    public MutationResponseProjection assignUserProjectRole(String alias, MutationAssignUserProjectRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("assignUserProjectRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection transferProjectOwner() {
+        return transferProjectOwner((String)null);
+    }
+
+    public MutationResponseProjection transferProjectOwner(String alias) {
+        fields.add(new GraphQLResponseField("transferProjectOwner").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection transferProjectOwner(MutationTransferProjectOwnerParametrizedInput input) {
+        return transferProjectOwner(null, input);
+    }
+
+    public MutationResponseProjection transferProjectOwner(String alias, MutationTransferProjectOwnerParametrizedInput input) {
+        fields.add(new GraphQLResponseField("transferProjectOwner").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection toggleProject() {
+        return toggleProject((String)null);
+    }
+
+    public MutationResponseProjection toggleProject(String alias) {
+        fields.add(new GraphQLResponseField("toggleProject").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection toggleProject(MutationToggleProjectParametrizedInput input) {
+        return toggleProject(null, input);
+    }
+
+    public MutationResponseProjection toggleProject(String alias, MutationToggleProjectParametrizedInput input) {
+        fields.add(new GraphQLResponseField("toggleProject").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateProjectDataCtrl(ProjectDataCtrlResponseProjection subProjection) {
+        return updateProjectDataCtrl((String)null, subProjection);
+    }
+
+    public MutationResponseProjection updateProjectDataCtrl(String alias, ProjectDataCtrlResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateProjectDataCtrl").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateProjectDataCtrl(MutationUpdateProjectDataCtrlParametrizedInput input, ProjectDataCtrlResponseProjection subProjection) {
+        return updateProjectDataCtrl(null, input, subProjection);
+    }
+
+    public MutationResponseProjection updateProjectDataCtrl(String alias, MutationUpdateProjectDataCtrlParametrizedInput input, ProjectDataCtrlResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateProjectDataCtrl").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection transferProjectResources() {
+        return transferProjectResources((String)null);
+    }
+
+    public MutationResponseProjection transferProjectResources(String alias) {
+        fields.add(new GraphQLResponseField("transferProjectResources").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection transferProjectResources(MutationTransferProjectResourcesParametrizedInput input) {
+        return transferProjectResources(null, input);
+    }
+
+    public MutationResponseProjection transferProjectResources(String alias, MutationTransferProjectResourcesParametrizedInput input) {
+        fields.add(new GraphQLResponseField("transferProjectResources").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection addMembersToProjectRole() {
+        return addMembersToProjectRole((String)null);
+    }
+
+    public MutationResponseProjection addMembersToProjectRole(String alias) {
+        fields.add(new GraphQLResponseField("addMembersToProjectRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection addMembersToProjectRole(MutationAddMembersToProjectRoleParametrizedInput input) {
+        return addMembersToProjectRole(null, input);
+    }
+
+    public MutationResponseProjection addMembersToProjectRole(String alias, MutationAddMembersToProjectRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("addMembersToProjectRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection transferDataCenterOwner() {
+        return transferDataCenterOwner((String)null);
+    }
+
+    public MutationResponseProjection transferDataCenterOwner(String alias) {
+        fields.add(new GraphQLResponseField("transferDataCenterOwner").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection transferDataCenterOwner(MutationTransferDataCenterOwnerParametrizedInput input) {
+        return transferDataCenterOwner(null, input);
+    }
+
+    public MutationResponseProjection transferDataCenterOwner(String alias, MutationTransferDataCenterOwnerParametrizedInput input) {
+        fields.add(new GraphQLResponseField("transferDataCenterOwner").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection addMembersToDataCenterRole() {
+        return addMembersToDataCenterRole((String)null);
+    }
+
+    public MutationResponseProjection addMembersToDataCenterRole(String alias) {
+        fields.add(new GraphQLResponseField("addMembersToDataCenterRole").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection addMembersToDataCenterRole(MutationAddMembersToDataCenterRoleParametrizedInput input) {
+        return addMembersToDataCenterRole(null, input);
+    }
+
+    public MutationResponseProjection addMembersToDataCenterRole(String alias, MutationAddMembersToDataCenterRoleParametrizedInput input) {
+        fields.add(new GraphQLResponseField("addMembersToDataCenterRole").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection addMemberToProjects() {
+        return addMemberToProjects((String)null);
+    }
+
+    public MutationResponseProjection addMemberToProjects(String alias) {
+        fields.add(new GraphQLResponseField("addMemberToProjects").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection addMemberToProjects(MutationAddMemberToProjectsParametrizedInput input) {
+        return addMemberToProjects(null, input);
+    }
+
+    public MutationResponseProjection addMemberToProjects(String alias, MutationAddMemberToProjectsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("addMemberToProjects").alias(alias).parameters(input));
         return this;
     }
 
@@ -1237,75 +1698,75 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection createCustomEvent(CustomEventResponseProjection subProjection) {
-        return createCustomEvent((String)null, subProjection);
+    public MutationResponseProjection createDataCenterCustomEvent(CustomEventResponseProjection subProjection) {
+        return createDataCenterCustomEvent((String)null, subProjection);
     }
 
-    public MutationResponseProjection createCustomEvent(String alias, CustomEventResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createCustomEvent").alias(alias).projection(subProjection));
+    public MutationResponseProjection createDataCenterCustomEvent(String alias, CustomEventResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterCustomEvent").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createCustomEvent(MutationCreateCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
-        return createCustomEvent(null, input, subProjection);
+    public MutationResponseProjection createDataCenterCustomEvent(MutationCreateDataCenterCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
+        return createDataCenterCustomEvent(null, input, subProjection);
     }
 
-    public MutationResponseProjection createCustomEvent(String alias, MutationCreateCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createCustomEvent").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection createDataCenterCustomEvent(String alias, MutationCreateDataCenterCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterCustomEvent").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateCustomEvent(CustomEventResponseProjection subProjection) {
-        return updateCustomEvent((String)null, subProjection);
+    public MutationResponseProjection updateDataCenterCustomEvent(CustomEventResponseProjection subProjection) {
+        return updateDataCenterCustomEvent((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateCustomEvent(String alias, CustomEventResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateCustomEvent").alias(alias).projection(subProjection));
+    public MutationResponseProjection updateDataCenterCustomEvent(String alias, CustomEventResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterCustomEvent").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateCustomEvent(MutationUpdateCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
-        return updateCustomEvent(null, input, subProjection);
+    public MutationResponseProjection updateDataCenterCustomEvent(MutationUpdateDataCenterCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
+        return updateDataCenterCustomEvent(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateCustomEvent(String alias, MutationUpdateCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateCustomEvent").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection updateDataCenterCustomEvent(String alias, MutationUpdateDataCenterCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterCustomEvent").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteCustomEvent() {
-        return deleteCustomEvent((String)null);
+    public MutationResponseProjection deleteDataCenterCustomEvent() {
+        return deleteDataCenterCustomEvent((String)null);
     }
 
-    public MutationResponseProjection deleteCustomEvent(String alias) {
-        fields.add(new GraphQLResponseField("deleteCustomEvent").alias(alias));
+    public MutationResponseProjection deleteDataCenterCustomEvent(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterCustomEvent").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection deleteCustomEvent(MutationDeleteCustomEventParametrizedInput input) {
-        return deleteCustomEvent(null, input);
+    public MutationResponseProjection deleteDataCenterCustomEvent(MutationDeleteDataCenterCustomEventParametrizedInput input) {
+        return deleteDataCenterCustomEvent(null, input);
     }
 
-    public MutationResponseProjection deleteCustomEvent(String alias, MutationDeleteCustomEventParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteCustomEvent").alias(alias).parameters(input));
+    public MutationResponseProjection deleteDataCenterCustomEvent(String alias, MutationDeleteDataCenterCustomEventParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterCustomEvent").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteCustomEvents() {
-        return batchDeleteCustomEvents((String)null);
+    public MutationResponseProjection batchDeleteDataCenterCustomEvents() {
+        return batchDeleteDataCenterCustomEvents((String)null);
     }
 
-    public MutationResponseProjection batchDeleteCustomEvents(String alias) {
-        fields.add(new GraphQLResponseField("batchDeleteCustomEvents").alias(alias));
+    public MutationResponseProjection batchDeleteDataCenterCustomEvents(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterCustomEvents").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteCustomEvents(MutationBatchDeleteCustomEventsParametrizedInput input) {
-        return batchDeleteCustomEvents(null, input);
+    public MutationResponseProjection batchDeleteDataCenterCustomEvents(MutationBatchDeleteDataCenterCustomEventsParametrizedInput input) {
+        return batchDeleteDataCenterCustomEvents(null, input);
     }
 
-    public MutationResponseProjection batchDeleteCustomEvents(String alias, MutationBatchDeleteCustomEventsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchDeleteCustomEvents").alias(alias).parameters(input));
+    public MutationResponseProjection batchDeleteDataCenterCustomEvents(String alias, MutationBatchDeleteDataCenterCustomEventsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterCustomEvents").alias(alias).parameters(input));
         return this;
     }
 
@@ -1381,309 +1842,309 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection createEventVariable(EventVariableResponseProjection subProjection) {
-        return createEventVariable((String)null, subProjection);
+    public MutationResponseProjection createDataCenterEventVariable(EventVariableResponseProjection subProjection) {
+        return createDataCenterEventVariable((String)null, subProjection);
     }
 
-    public MutationResponseProjection createEventVariable(String alias, EventVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createEventVariable").alias(alias).projection(subProjection));
+    public MutationResponseProjection createDataCenterEventVariable(String alias, EventVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterEventVariable").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createEventVariable(MutationCreateEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
-        return createEventVariable(null, input, subProjection);
+    public MutationResponseProjection createDataCenterEventVariable(MutationCreateDataCenterEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
+        return createDataCenterEventVariable(null, input, subProjection);
     }
 
-    public MutationResponseProjection createEventVariable(String alias, MutationCreateEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createEventVariable").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection createDataCenterEventVariable(String alias, MutationCreateDataCenterEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterEventVariable").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateEventVariable(EventVariableResponseProjection subProjection) {
-        return updateEventVariable((String)null, subProjection);
+    public MutationResponseProjection updateDataCenterEventVariable(EventVariableResponseProjection subProjection) {
+        return updateDataCenterEventVariable((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateEventVariable(String alias, EventVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateEventVariable").alias(alias).projection(subProjection));
+    public MutationResponseProjection updateDataCenterEventVariable(String alias, EventVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterEventVariable").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateEventVariable(MutationUpdateEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
-        return updateEventVariable(null, input, subProjection);
+    public MutationResponseProjection updateDataCenterEventVariable(MutationUpdateDataCenterEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
+        return updateDataCenterEventVariable(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateEventVariable(String alias, MutationUpdateEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateEventVariable").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection updateDataCenterEventVariable(String alias, MutationUpdateDataCenterEventVariableParametrizedInput input, EventVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterEventVariable").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteEventVariable() {
-        return deleteEventVariable((String)null);
+    public MutationResponseProjection deleteDataCenterEventVariable() {
+        return deleteDataCenterEventVariable((String)null);
     }
 
-    public MutationResponseProjection deleteEventVariable(String alias) {
-        fields.add(new GraphQLResponseField("deleteEventVariable").alias(alias));
+    public MutationResponseProjection deleteDataCenterEventVariable(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterEventVariable").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection deleteEventVariable(MutationDeleteEventVariableParametrizedInput input) {
-        return deleteEventVariable(null, input);
+    public MutationResponseProjection deleteDataCenterEventVariable(MutationDeleteDataCenterEventVariableParametrizedInput input) {
+        return deleteDataCenterEventVariable(null, input);
     }
 
-    public MutationResponseProjection deleteEventVariable(String alias, MutationDeleteEventVariableParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteEventVariable").alias(alias).parameters(input));
+    public MutationResponseProjection deleteDataCenterEventVariable(String alias, MutationDeleteDataCenterEventVariableParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterEventVariable").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteEventVariables() {
-        return batchDeleteEventVariables((String)null);
+    public MutationResponseProjection batchDeleteDataCenterEventVariables() {
+        return batchDeleteDataCenterEventVariables((String)null);
     }
 
-    public MutationResponseProjection batchDeleteEventVariables(String alias) {
-        fields.add(new GraphQLResponseField("batchDeleteEventVariables").alias(alias));
+    public MutationResponseProjection batchDeleteDataCenterEventVariables(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterEventVariables").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteEventVariables(MutationBatchDeleteEventVariablesParametrizedInput input) {
-        return batchDeleteEventVariables(null, input);
+    public MutationResponseProjection batchDeleteDataCenterEventVariables(MutationBatchDeleteDataCenterEventVariablesParametrizedInput input) {
+        return batchDeleteDataCenterEventVariables(null, input);
     }
 
-    public MutationResponseProjection batchDeleteEventVariables(String alias, MutationBatchDeleteEventVariablesParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchDeleteEventVariables").alias(alias).parameters(input));
+    public MutationResponseProjection batchDeleteDataCenterEventVariables(String alias, MutationBatchDeleteDataCenterEventVariablesParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterEventVariables").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection createItemVariable(ItemVariableResponseProjection subProjection) {
-        return createItemVariable((String)null, subProjection);
+    public MutationResponseProjection createDataCenterItemVariable(ItemVariableResponseProjection subProjection) {
+        return createDataCenterItemVariable((String)null, subProjection);
     }
 
-    public MutationResponseProjection createItemVariable(String alias, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createItemVariable").alias(alias).projection(subProjection));
+    public MutationResponseProjection createDataCenterItemVariable(String alias, ItemVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterItemVariable").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createItemVariable(MutationCreateItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        return createItemVariable(null, input, subProjection);
+    public MutationResponseProjection createDataCenterItemVariable(MutationCreateDataCenterItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
+        return createDataCenterItemVariable(null, input, subProjection);
     }
 
-    public MutationResponseProjection createItemVariable(String alias, MutationCreateItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createItemVariable").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection createDataCenterItemVariable(String alias, MutationCreateDataCenterItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterItemVariable").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateItemVariable(ItemVariableResponseProjection subProjection) {
-        return updateItemVariable((String)null, subProjection);
+    public MutationResponseProjection updateDataCenterItemVariable(ItemVariableResponseProjection subProjection) {
+        return updateDataCenterItemVariable((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateItemVariable(String alias, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateItemVariable").alias(alias).projection(subProjection));
+    public MutationResponseProjection updateDataCenterItemVariable(String alias, ItemVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterItemVariable").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateItemVariable(MutationUpdateItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        return updateItemVariable(null, input, subProjection);
+    public MutationResponseProjection updateDataCenterItemVariable(MutationUpdateDataCenterItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
+        return updateDataCenterItemVariable(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateItemVariable(String alias, MutationUpdateItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateItemVariable").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection updateDataCenterItemVariable(String alias, MutationUpdateDataCenterItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterItemVariable").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteItemVariable() {
-        return deleteItemVariable((String)null);
+    public MutationResponseProjection deleteDataCenterItemVariable() {
+        return deleteDataCenterItemVariable((String)null);
     }
 
-    public MutationResponseProjection deleteItemVariable(String alias) {
-        fields.add(new GraphQLResponseField("deleteItemVariable").alias(alias));
+    public MutationResponseProjection deleteDataCenterItemVariable(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterItemVariable").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection deleteItemVariable(MutationDeleteItemVariableParametrizedInput input) {
-        return deleteItemVariable(null, input);
+    public MutationResponseProjection deleteDataCenterItemVariable(MutationDeleteDataCenterItemVariableParametrizedInput input) {
+        return deleteDataCenterItemVariable(null, input);
     }
 
-    public MutationResponseProjection deleteItemVariable(String alias, MutationDeleteItemVariableParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteItemVariable").alias(alias).parameters(input));
+    public MutationResponseProjection deleteDataCenterItemVariable(String alias, MutationDeleteDataCenterItemVariableParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterItemVariable").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteItemVariables() {
-        return batchDeleteItemVariables((String)null);
+    public MutationResponseProjection batchDeleteDataCenterItemVariables() {
+        return batchDeleteDataCenterItemVariables((String)null);
     }
 
-    public MutationResponseProjection batchDeleteItemVariables(String alias) {
-        fields.add(new GraphQLResponseField("batchDeleteItemVariables").alias(alias));
+    public MutationResponseProjection batchDeleteDataCenterItemVariables(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterItemVariables").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteItemVariables(MutationBatchDeleteItemVariablesParametrizedInput input) {
-        return batchDeleteItemVariables(null, input);
+    public MutationResponseProjection batchDeleteDataCenterItemVariables(MutationBatchDeleteDataCenterItemVariablesParametrizedInput input) {
+        return batchDeleteDataCenterItemVariables(null, input);
     }
 
-    public MutationResponseProjection batchDeleteItemVariables(String alias, MutationBatchDeleteItemVariablesParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchDeleteItemVariables").alias(alias).parameters(input));
+    public MutationResponseProjection batchDeleteDataCenterItemVariables(String alias, MutationBatchDeleteDataCenterItemVariablesParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterItemVariables").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection createItemModel(ItemModelResponseProjection subProjection) {
-        return createItemModel((String)null, subProjection);
+    public MutationResponseProjection createDataCenterItemModel(ItemModelResponseProjection subProjection) {
+        return createDataCenterItemModel((String)null, subProjection);
     }
 
-    public MutationResponseProjection createItemModel(String alias, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createItemModel").alias(alias).projection(subProjection));
+    public MutationResponseProjection createDataCenterItemModel(String alias, ItemModelResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterItemModel").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createItemModel(MutationCreateItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
-        return createItemModel(null, input, subProjection);
+    public MutationResponseProjection createDataCenterItemModel(MutationCreateDataCenterItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
+        return createDataCenterItemModel(null, input, subProjection);
     }
 
-    public MutationResponseProjection createItemModel(String alias, MutationCreateItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createItemModel").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection createDataCenterItemModel(String alias, MutationCreateDataCenterItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterItemModel").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateItemModel(ItemModelResponseProjection subProjection) {
-        return updateItemModel((String)null, subProjection);
+    public MutationResponseProjection updateDataCenterItemModel(ItemModelResponseProjection subProjection) {
+        return updateDataCenterItemModel((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateItemModel(String alias, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateItemModel").alias(alias).projection(subProjection));
+    public MutationResponseProjection updateDataCenterItemModel(String alias, ItemModelResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterItemModel").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateItemModel(MutationUpdateItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
-        return updateItemModel(null, input, subProjection);
+    public MutationResponseProjection updateDataCenterItemModel(MutationUpdateDataCenterItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
+        return updateDataCenterItemModel(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateItemModel(String alias, MutationUpdateItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateItemModel").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection updateDataCenterItemModel(String alias, MutationUpdateDataCenterItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterItemModel").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteItemModel() {
-        return deleteItemModel((String)null);
+    public MutationResponseProjection deleteDataCenterItemModel() {
+        return deleteDataCenterItemModel((String)null);
     }
 
-    public MutationResponseProjection deleteItemModel(String alias) {
-        fields.add(new GraphQLResponseField("deleteItemModel").alias(alias));
+    public MutationResponseProjection deleteDataCenterItemModel(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterItemModel").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection deleteItemModel(MutationDeleteItemModelParametrizedInput input) {
-        return deleteItemModel(null, input);
+    public MutationResponseProjection deleteDataCenterItemModel(MutationDeleteDataCenterItemModelParametrizedInput input) {
+        return deleteDataCenterItemModel(null, input);
     }
 
-    public MutationResponseProjection deleteItemModel(String alias, MutationDeleteItemModelParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteItemModel").alias(alias).parameters(input));
+    public MutationResponseProjection deleteDataCenterItemModel(String alias, MutationDeleteDataCenterItemModelParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterItemModel").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteItemModels() {
-        return batchDeleteItemModels((String)null);
+    public MutationResponseProjection batchDeleteDataCenterItemModels() {
+        return batchDeleteDataCenterItemModels((String)null);
     }
 
-    public MutationResponseProjection batchDeleteItemModels(String alias) {
-        fields.add(new GraphQLResponseField("batchDeleteItemModels").alias(alias));
+    public MutationResponseProjection batchDeleteDataCenterItemModels(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterItemModels").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteItemModels(MutationBatchDeleteItemModelsParametrizedInput input) {
-        return batchDeleteItemModels(null, input);
+    public MutationResponseProjection batchDeleteDataCenterItemModels(MutationBatchDeleteDataCenterItemModelsParametrizedInput input) {
+        return batchDeleteDataCenterItemModels(null, input);
     }
 
-    public MutationResponseProjection batchDeleteItemModels(String alias, MutationBatchDeleteItemModelsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchDeleteItemModels").alias(alias).parameters(input));
+    public MutationResponseProjection batchDeleteDataCenterItemModels(String alias, MutationBatchDeleteDataCenterItemModelsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterItemModels").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection addItemModelAttribute(ItemVariableResponseProjection subProjection) {
-        return addItemModelAttribute((String)null, subProjection);
+    public MutationResponseProjection dataCenterAddItemModelAttribute(ItemVariableResponseProjection subProjection) {
+        return dataCenterAddItemModelAttribute((String)null, subProjection);
     }
 
-    public MutationResponseProjection addItemModelAttribute(String alias, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("addItemModelAttribute").alias(alias).projection(subProjection));
+    public MutationResponseProjection dataCenterAddItemModelAttribute(String alias, ItemVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterAddItemModelAttribute").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection addItemModelAttribute(MutationAddItemModelAttributeParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        return addItemModelAttribute(null, input, subProjection);
+    public MutationResponseProjection dataCenterAddItemModelAttribute(MutationDataCenterAddItemModelAttributeParametrizedInput input, ItemVariableResponseProjection subProjection) {
+        return dataCenterAddItemModelAttribute(null, input, subProjection);
     }
 
-    public MutationResponseProjection addItemModelAttribute(String alias, MutationAddItemModelAttributeParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("addItemModelAttribute").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection dataCenterAddItemModelAttribute(String alias, MutationDataCenterAddItemModelAttributeParametrizedInput input, ItemVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterAddItemModelAttribute").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createUserVariable(UserVariableResponseProjection subProjection) {
-        return createUserVariable((String)null, subProjection);
+    public MutationResponseProjection createDataCenterUserVariable(UserVariableResponseProjection subProjection) {
+        return createDataCenterUserVariable((String)null, subProjection);
     }
 
-    public MutationResponseProjection createUserVariable(String alias, UserVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createUserVariable").alias(alias).projection(subProjection));
+    public MutationResponseProjection createDataCenterUserVariable(String alias, UserVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterUserVariable").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection createUserVariable(MutationCreateUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
-        return createUserVariable(null, input, subProjection);
+    public MutationResponseProjection createDataCenterUserVariable(MutationCreateDataCenterUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
+        return createDataCenterUserVariable(null, input, subProjection);
     }
 
-    public MutationResponseProjection createUserVariable(String alias, MutationCreateUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createUserVariable").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection createDataCenterUserVariable(String alias, MutationCreateDataCenterUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createDataCenterUserVariable").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateUserVariable(UserVariableResponseProjection subProjection) {
-        return updateUserVariable((String)null, subProjection);
+    public MutationResponseProjection updateDataCenterUserVariable(UserVariableResponseProjection subProjection) {
+        return updateDataCenterUserVariable((String)null, subProjection);
     }
 
-    public MutationResponseProjection updateUserVariable(String alias, UserVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateUserVariable").alias(alias).projection(subProjection));
+    public MutationResponseProjection updateDataCenterUserVariable(String alias, UserVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterUserVariable").alias(alias).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection updateUserVariable(MutationUpdateUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
-        return updateUserVariable(null, input, subProjection);
+    public MutationResponseProjection updateDataCenterUserVariable(MutationUpdateDataCenterUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
+        return updateDataCenterUserVariable(null, input, subProjection);
     }
 
-    public MutationResponseProjection updateUserVariable(String alias, MutationUpdateUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("updateUserVariable").alias(alias).parameters(input).projection(subProjection));
+    public MutationResponseProjection updateDataCenterUserVariable(String alias, MutationUpdateDataCenterUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateDataCenterUserVariable").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
-    public MutationResponseProjection deleteUserVariable() {
-        return deleteUserVariable((String)null);
+    public MutationResponseProjection deleteDataCenterUserVariable() {
+        return deleteDataCenterUserVariable((String)null);
     }
 
-    public MutationResponseProjection deleteUserVariable(String alias) {
-        fields.add(new GraphQLResponseField("deleteUserVariable").alias(alias));
+    public MutationResponseProjection deleteDataCenterUserVariable(String alias) {
+        fields.add(new GraphQLResponseField("deleteDataCenterUserVariable").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection deleteUserVariable(MutationDeleteUserVariableParametrizedInput input) {
-        return deleteUserVariable(null, input);
+    public MutationResponseProjection deleteDataCenterUserVariable(MutationDeleteDataCenterUserVariableParametrizedInput input) {
+        return deleteDataCenterUserVariable(null, input);
     }
 
-    public MutationResponseProjection deleteUserVariable(String alias, MutationDeleteUserVariableParametrizedInput input) {
-        fields.add(new GraphQLResponseField("deleteUserVariable").alias(alias).parameters(input));
+    public MutationResponseProjection deleteDataCenterUserVariable(String alias, MutationDeleteDataCenterUserVariableParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteDataCenterUserVariable").alias(alias).parameters(input));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteUserVariables() {
-        return batchDeleteUserVariables((String)null);
+    public MutationResponseProjection batchDeleteDataCenterUserVariables() {
+        return batchDeleteDataCenterUserVariables((String)null);
     }
 
-    public MutationResponseProjection batchDeleteUserVariables(String alias) {
-        fields.add(new GraphQLResponseField("batchDeleteUserVariables").alias(alias));
+    public MutationResponseProjection batchDeleteDataCenterUserVariables(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterUserVariables").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection batchDeleteUserVariables(MutationBatchDeleteUserVariablesParametrizedInput input) {
-        return batchDeleteUserVariables(null, input);
+    public MutationResponseProjection batchDeleteDataCenterUserVariables(MutationBatchDeleteDataCenterUserVariablesParametrizedInput input) {
+        return batchDeleteDataCenterUserVariables(null, input);
     }
 
-    public MutationResponseProjection batchDeleteUserVariables(String alias, MutationBatchDeleteUserVariablesParametrizedInput input) {
-        fields.add(new GraphQLResponseField("batchDeleteUserVariables").alias(alias).parameters(input));
+    public MutationResponseProjection batchDeleteDataCenterUserVariables(String alias, MutationBatchDeleteDataCenterUserVariablesParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteDataCenterUserVariables").alias(alias).parameters(input));
         return this;
     }
 

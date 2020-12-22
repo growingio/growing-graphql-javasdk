@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateEventAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private EventAnalysisInputDto eventAnalysis;
 
     public MutationCreateEventAnalysisParametrizedInput() {
     }
 
-    public MutationCreateEventAnalysisParametrizedInput(EventAnalysisInputDto eventAnalysis) {
+    public MutationCreateEventAnalysisParametrizedInput(String projectId, EventAnalysisInputDto eventAnalysis) {
+        this.projectId = projectId;
         this.eventAnalysis = eventAnalysis;
+    }
+
+    public MutationCreateEventAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateEventAnalysisParametrizedInput eventAnalysis(EventAnalysisInputDto eventAnalysis) {
@@ -32,6 +40,9 @@ public class MutationCreateEventAnalysisParametrizedInput implements GraphQLPara
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (eventAnalysis != null) {
             joiner.add("eventAnalysis: " + GraphQLRequestSerializer.getEntry(eventAnalysis));
         }

@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class DocPropsInputDto implements java.io.Serializable {
 
@@ -19,11 +19,12 @@ public class DocPropsInputDto implements java.io.Serializable {
     private String content;
     private String pg;
     private String contentType;
+    private String urlScheme;
 
     public DocPropsInputDto() {
     }
 
-    public DocPropsInputDto(String domain, String path, String query, String xpath, String index, String href, String content, String pg, String contentType) {
+    public DocPropsInputDto(String domain, String path, String query, String xpath, String index, String href, String content, String pg, String contentType, String urlScheme) {
         this.domain = domain;
         this.path = path;
         this.query = query;
@@ -33,6 +34,7 @@ public class DocPropsInputDto implements java.io.Serializable {
         this.content = content;
         this.pg = pg;
         this.contentType = contentType;
+        this.urlScheme = urlScheme;
     }
 
     public String getDomain() {
@@ -98,6 +100,13 @@ public class DocPropsInputDto implements java.io.Serializable {
         this.contentType = contentType;
     }
 
+    public String getUrlScheme() {
+        return urlScheme;
+    }
+    public void setUrlScheme(String urlScheme) {
+        this.urlScheme = urlScheme;
+    }
+
 
     @Override
     public String toString() {
@@ -129,6 +138,9 @@ public class DocPropsInputDto implements java.io.Serializable {
         if (contentType != null) {
             joiner.add("contentType: " + GraphQLRequestSerializer.getEntry(contentType));
         }
+        if (urlScheme != null) {
+            joiner.add("urlScheme: " + GraphQLRequestSerializer.getEntry(urlScheme));
+        }
         return joiner.toString();
     }
 
@@ -147,6 +159,7 @@ public class DocPropsInputDto implements java.io.Serializable {
         private String content;
         private String pg;
         private String contentType;
+        private String urlScheme;
 
         public Builder() {
         }
@@ -196,9 +209,14 @@ public class DocPropsInputDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setUrlScheme(String urlScheme) {
+            this.urlScheme = urlScheme;
+            return this;
+        }
+
 
         public DocPropsInputDto build() {
-            return new DocPropsInputDto(domain, path, query, xpath, index, href, content, pg, contentType);
+            return new DocPropsInputDto(domain, path, query, xpath, index, href, content, pg, contentType, urlScheme);
         }
 
     }

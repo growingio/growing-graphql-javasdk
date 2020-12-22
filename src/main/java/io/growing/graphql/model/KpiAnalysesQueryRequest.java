@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class KpiAnalysesQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class KpiAnalysesQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public KpiAnalysesQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     @Override
@@ -42,13 +46,20 @@ public class KpiAnalysesQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
 
         public KpiAnalysesQueryRequest build() {
             KpiAnalysesQueryRequest obj = new KpiAnalysesQueryRequest();
+            obj.setProjectId(projectId);
             return obj;
         }
 

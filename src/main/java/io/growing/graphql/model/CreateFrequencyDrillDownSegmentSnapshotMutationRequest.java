@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateFrequencyDrillDownSegmentSnapshotMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateFrequencyDrillDownSegmentSnapshotMutationRequest implements G
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateFrequencyDrillDownSegmentSnapshotMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setFrequencyDrillDownSegment(FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) {
@@ -46,9 +50,15 @@ public class CreateFrequencyDrillDownSegmentSnapshotMutationRequest implements G
 
     public static class Builder {
 
+        private String projectId;
         private FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setFrequencyDrillDownSegment(FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) {
@@ -59,6 +69,7 @@ public class CreateFrequencyDrillDownSegmentSnapshotMutationRequest implements G
 
         public CreateFrequencyDrillDownSegmentSnapshotMutationRequest build() {
             CreateFrequencyDrillDownSegmentSnapshotMutationRequest obj = new CreateFrequencyDrillDownSegmentSnapshotMutationRequest();
+            obj.setProjectId(projectId);
             obj.setFrequencyDrillDownSegment(frequencyDrillDownSegment);
             return obj;
         }

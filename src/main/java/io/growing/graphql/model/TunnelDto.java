@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDto {
 
@@ -37,11 +37,12 @@ public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDt
     private java.time.ZonedDateTime updatedAt;
     private String creator;
     private String updater;
+    private String ownerId;
 
     public TunnelDto() {
     }
 
-    public TunnelDto(String id, String name, String type, TunnelConfigDto config, String description, String key, String projectKey, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater) {
+    public TunnelDto(String id, String name, String type, TunnelConfigDto config, String description, String key, String projectKey, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String ownerId) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -55,6 +56,7 @@ public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDt
         this.updatedAt = updatedAt;
         this.creator = creator;
         this.updater = updater;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -148,6 +150,13 @@ public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDt
         this.updater = updater;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -191,6 +200,9 @@ public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDt
         if (updater != null) {
             joiner.add("updater: " + GraphQLRequestSerializer.getEntry(updater));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -213,6 +225,7 @@ public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDt
         private java.time.ZonedDateTime updatedAt;
         private String creator;
         private String updater;
+        private String ownerId;
 
         public Builder() {
         }
@@ -282,9 +295,14 @@ public class TunnelDto implements java.io.Serializable, EntityDto, NamedEntityDt
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public TunnelDto build() {
-            return new TunnelDto(id, name, type, config, description, key, projectKey, creatorId, createdAt, updaterId, updatedAt, creator, updater);
+            return new TunnelDto(id, name, type, config, description, key, projectKey, creatorId, createdAt, updaterId, updatedAt, creator, updater, ownerId);
         }
 
     }

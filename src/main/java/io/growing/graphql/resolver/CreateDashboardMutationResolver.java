@@ -4,11 +4,11 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public interface CreateDashboardMutationResolver {
 
     @javax.validation.constraints.NotNull
-    DashboardDto createDashboard(DashboardInputDto dashboard) throws Exception;
+    DashboardDto createDashboard(String projectId, DashboardInputDto dashboard) throws Exception;
 
 }
