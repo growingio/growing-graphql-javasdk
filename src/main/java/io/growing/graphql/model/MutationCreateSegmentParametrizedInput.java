@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateSegmentParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private SegmentInputDto segment;
 
     public MutationCreateSegmentParametrizedInput() {
     }
 
-    public MutationCreateSegmentParametrizedInput(SegmentInputDto segment) {
+    public MutationCreateSegmentParametrizedInput(String projectId, SegmentInputDto segment) {
+        this.projectId = projectId;
         this.segment = segment;
+    }
+
+    public MutationCreateSegmentParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateSegmentParametrizedInput segment(SegmentInputDto segment) {
@@ -32,6 +40,9 @@ public class MutationCreateSegmentParametrizedInput implements GraphQLParametriz
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (segment != null) {
             joiner.add("segment: " + GraphQLRequestSerializer.getEntry(segment));
         }

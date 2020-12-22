@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class BatchDeleteRetentionAnalysesMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class BatchDeleteRetentionAnalysesMutationRequest implements GraphQLOpera
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public BatchDeleteRetentionAnalysesMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setIds(java.util.List<String> ids) {
@@ -46,9 +50,15 @@ public class BatchDeleteRetentionAnalysesMutationRequest implements GraphQLOpera
 
     public static class Builder {
 
+        private String projectId;
         private java.util.List<String> ids;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setIds(java.util.List<String> ids) {
@@ -59,6 +69,7 @@ public class BatchDeleteRetentionAnalysesMutationRequest implements GraphQLOpera
 
         public BatchDeleteRetentionAnalysesMutationRequest build() {
             BatchDeleteRetentionAnalysesMutationRequest obj = new BatchDeleteRetentionAnalysesMutationRequest();
+            obj.setProjectId(projectId);
             obj.setIds(ids);
             return obj;
         }

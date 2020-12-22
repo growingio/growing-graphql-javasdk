@@ -9,7 +9,7 @@ import io.growing.graphql.model.*;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public interface PreparedSegmentQueryResolver {
 
@@ -18,6 +18,6 @@ public interface PreparedSegmentQueryResolver {
      * activeInThreeWeeks: 近 3 周活跃用户
      * activeNotInTwoWeeks: 近 2 周不活跃用户
      */
-    PreparedSegmentDto preparedSegment(String id) throws Exception;
+    PreparedSegmentDto preparedSegment(String projectId, String id) throws Exception;
 
 }

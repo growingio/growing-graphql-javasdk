@@ -9,25 +9,39 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryUsersParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private UserQueryTypeDto type;
     @javax.validation.constraints.NotNull
     private String id;
     private Integer offset;
     private Integer limit;
+    @javax.validation.constraints.NotNull
+    private java.util.List<String> tags;
+    @javax.validation.constraints.NotNull
+    private java.util.List<String> properties;
 
     public QueryUsersParametrizedInput() {
     }
 
-    public QueryUsersParametrizedInput(UserQueryTypeDto type, String id, Integer offset, Integer limit) {
+    public QueryUsersParametrizedInput(String projectId, UserQueryTypeDto type, String id, Integer offset, Integer limit, java.util.List<String> tags, java.util.List<String> properties) {
+        this.projectId = projectId;
         this.type = type;
         this.id = id;
         this.offset = offset;
         this.limit = limit;
+        this.tags = tags;
+        this.properties = properties;
+    }
+
+    public QueryUsersParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryUsersParametrizedInput type(UserQueryTypeDto type) {
@@ -50,10 +64,23 @@ public class QueryUsersParametrizedInput implements GraphQLParametrizedInput {
         return this;
     }
 
+    public QueryUsersParametrizedInput tags(java.util.List<String> tags) {
+        this.tags = tags;
+        return this;
+    }
+
+    public QueryUsersParametrizedInput properties(java.util.List<String> properties) {
+        this.properties = properties;
+        return this;
+    }
+
 
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (type != null) {
             joiner.add("type: " + GraphQLRequestSerializer.getEntry(type));
         }
@@ -65,6 +92,12 @@ public class QueryUsersParametrizedInput implements GraphQLParametrizedInput {
         }
         if (limit != null) {
             joiner.add("limit: " + GraphQLRequestSerializer.getEntry(limit));
+        }
+        if (tags != null) {
+            joiner.add("tags: " + GraphQLRequestSerializer.getEntry(tags));
+        }
+        if (properties != null) {
+            joiner.add("properties: " + GraphQLRequestSerializer.getEntry(properties));
         }
         return joiner.toString();
     }

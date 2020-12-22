@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateRetentionDrillDownSegmentMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateRetentionDrillDownSegmentMutationRequest implements GraphQLOp
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateRetentionDrillDownSegmentMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setRetentionDrillDownSegment(RetentionDrillDownSegmentInputDto retentionDrillDownSegment) {
@@ -46,9 +50,15 @@ public class CreateRetentionDrillDownSegmentMutationRequest implements GraphQLOp
 
     public static class Builder {
 
+        private String projectId;
         private RetentionDrillDownSegmentInputDto retentionDrillDownSegment;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setRetentionDrillDownSegment(RetentionDrillDownSegmentInputDto retentionDrillDownSegment) {
@@ -59,6 +69,7 @@ public class CreateRetentionDrillDownSegmentMutationRequest implements GraphQLOp
 
         public CreateRetentionDrillDownSegmentMutationRequest build() {
             CreateRetentionDrillDownSegmentMutationRequest obj = new CreateRetentionDrillDownSegmentMutationRequest();
+            obj.setProjectId(projectId);
             obj.setRetentionDrillDownSegment(retentionDrillDownSegment);
             return obj;
         }

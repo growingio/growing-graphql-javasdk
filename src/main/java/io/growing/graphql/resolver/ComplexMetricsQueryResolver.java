@@ -4,10 +4,10 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public interface ComplexMetricsQueryResolver {
 
-    java.util.List<ComplexMetricDto> complexMetrics() throws Exception;
+    java.util.List<ComplexMetricDto> complexMetrics(String projectId) throws Exception;
 
 }

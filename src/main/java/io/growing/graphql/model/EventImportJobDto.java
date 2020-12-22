@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
 
@@ -30,11 +30,12 @@ public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
     private String creator;
     private String updater;
     private ErrorDto error;
+    private String ownerId;
 
     public EventImportJobDto() {
     }
 
-    public EventImportJobDto(String id, String name, String type, String description, EventImportParameterDto parameter, EventImportArgumentDto argument, JobStageDto stage, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, ErrorDto error) {
+    public EventImportJobDto(String id, String name, String type, String description, EventImportParameterDto parameter, EventImportArgumentDto argument, JobStageDto stage, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, ErrorDto error, String ownerId) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -49,6 +50,7 @@ public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
         this.creator = creator;
         this.updater = updater;
         this.error = error;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -149,6 +151,13 @@ public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
         this.error = error;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -195,6 +204,9 @@ public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
         if (error != null) {
             joiner.add("error: " + GraphQLRequestSerializer.getEntry(error));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -218,6 +230,7 @@ public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
         private String creator;
         private String updater;
         private ErrorDto error;
+        private String ownerId;
 
         public Builder() {
         }
@@ -292,9 +305,14 @@ public class EventImportJobDto implements java.io.Serializable, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public EventImportJobDto build() {
-            return new EventImportJobDto(id, name, type, description, parameter, argument, stage, creatorId, createdAt, updaterId, updatedAt, creator, updater, error);
+            return new EventImportJobDto(id, name, type, description, parameter, argument, stage, creatorId, createdAt, updaterId, updatedAt, creator, updater, error, ownerId);
         }
 
     }

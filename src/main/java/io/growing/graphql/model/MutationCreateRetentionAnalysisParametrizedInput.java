@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateRetentionAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private RetentionAnalysisInputDto retentionAnalysis;
 
     public MutationCreateRetentionAnalysisParametrizedInput() {
     }
 
-    public MutationCreateRetentionAnalysisParametrizedInput(RetentionAnalysisInputDto retentionAnalysis) {
+    public MutationCreateRetentionAnalysisParametrizedInput(String projectId, RetentionAnalysisInputDto retentionAnalysis) {
+        this.projectId = projectId;
         this.retentionAnalysis = retentionAnalysis;
+    }
+
+    public MutationCreateRetentionAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateRetentionAnalysisParametrizedInput retentionAnalysis(RetentionAnalysisInputDto retentionAnalysis) {
@@ -32,6 +40,9 @@ public class MutationCreateRetentionAnalysisParametrizedInput implements GraphQL
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (retentionAnalysis != null) {
             joiner.add("retentionAnalysis: " + GraphQLRequestSerializer.getEntry(retentionAnalysis));
         }

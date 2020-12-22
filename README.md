@@ -20,19 +20,19 @@ GrowingIO GraphQL Java SDK
 <dependency>
     <groupId>io.growing</groupId>
     <artifactId>growingio-graphql-javasdk_2.12</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
 </dependency>
 ```
 
 - gradle
 ```
 //这里使用的是2.12
-compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.2-SNAPSHOT'
+compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.3-SNAPSHOT'
 ```
 
 - sbt
 ```
-libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.2-SNAPSHOT"
+libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.3-SNAPSHOT"
 ```
 
 ### 使用
@@ -41,42 +41,44 @@ libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.2-SNAP
 
 - 1.使用`api`的`GrowingioApi.scala`类中已经封装好的API，如定义：
 ```scala
-def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String, detailExport: Boolean): TagUserExportJobDto = {
-  val resolver = new DefaultSubmitTagUserExportJobMutationResolver(conf)
-  resolver.submitTagUserExportJob(tagId, properties, charset, detailExport)
-}
+  def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String, detailExport: Boolean): TagUserExportJobDto = {
+    val resolver = new $SubmitTagUserExportJobMutationResolver(conf)
+    resolver.submitTagUserExportJob(tagId, properties, charset, detailExport)
+  }
 
-def submitSegmentUserExportJob(segmentId: String, tags: util.List[String], properties: util.List[String], charset: String): SegmentUserExportJobDto = {
-  val resolver = new DefaultSubmitSegmentUserExportJobMutationResolver(conf)
-  resolver.submitSegmentUserExportJob(segmentId, tags, properties, charset)
-}
+  def submitSegmentUserExportJob(projectId: String, segmentId: String, tags: util.List[String], properties: util.List[String], charset: String): SegmentUserExportJobDto = {
+    val resolver = new $SubmitSegmentUserExportJobMutationResolver(conf)
+    resolver.submitSegmentUserExportJob(projectId, segmentId, tags, properties, charset)
+  }
 
-def jobResult(id: String): JobResultDto = {
-  val resolver = new DefaultJobResultQueryResolver(conf)
-  resolver.jobResult(id)
-}
+  def jobResult(id: String): JobResultDto = {
+    val resolver = new $JobResultQueryResolver(conf)
+    resolver.jobResult(id)
+  }
 
-def userProfile(userId: String, tags: util.List[String], properties: util.List[String]): UserProfileDto = {
-  val resolver = new DefaultUserProfileQueryResolver(conf)
-  resolver.userProfile(userId, tags, properties)
-}
+  def userProfile(projectId: String, userId: String, tags: util.List[String], properties: util.List[String]): UserProfileDto = {
+    val resolver = new $UserProfileQueryResolver(conf)
+    resolver.userProfile(projectId, userId, tags, properties)
+  }
 
-def tags(): util.List[TagDto] = {
-  val resolver = new DefaultTagsQueryResolver(conf)
-  resolver.tags()
-}
+  def tags(projectId: String): util.List[TagDto] = {
+    val resolver = new $TagsQueryResolver(conf)
+    resolver.tags(projectId)
+  }
 
-def segments(): util.List[SegmentDto] = {
-  val resolver = new DefaultSegmentsQueryResolver(conf)
-  resolver.segments()
+  def segments(projectId: String): util.List[SegmentDto] = {
+    val resolver = new $SegmentsQueryResolver(conf)
+    resolver.segments(projectId)
+
+  }
 ```
 
 - 2.Java中调用`tags`获取所有标签列表：
 ```java
-final static GrowingioApi growingioApi = new GrowingioApi("http://gdp-dev.growingio.com/graphql", "Cookie", "xxxx");
+final static GrowingioApi growingioApi = GrowingioApi.apply("http://gdp-dev.growingio.com/graphql", "Cookie", "xxxx");
 
 public static void main(String[] args) {
-    List<TagDto> tags = growingioApi.tags();
+    List<TagDto> tags = growingioApi.tags("projectId");
     System.out.println(tags);
 }
 ```
@@ -84,18 +86,18 @@ public static void main(String[] args) {
 #### 什么是resolver
 - 类似gRPC的client，每个graphql接口都提供一个resolver接口以及默认实现，如Mutation操作
     - `submitTagUserExportJob`接口的resolver是`SubmitTagUserExportJobMutationResolver`
-    - `SubmitTagUserExportJobMutationResolver`的默认实现是`DefaultSubmitTagUserExportJobMutationResolver`
+    - `SubmitTagUserExportJobMutationResolver`的默认实现是`$SubmitTagUserExportJobMutationResolver`
 - Query操作
     - `tags`接口的resolver是`TagsQueryResolver`
-    - `DefaultTagsQueryResolver`的默认实现是`DefaultTagsQueryResolver`
+    - `TagsQueryResolver`的默认实现是`$TagsQueryResolver`
 
-一般情况下，直接使用DefaultXXQuery、DefaultXXMutation即可。如需要自己实现resolver，可参考内置的DefaultXX的的代码。
+一般情况下，直接使用$XXQuery、$XXMutation即可。如需要自己实现resolver，可参考内置的$XXX的的代码。
 
 #### 想用的接口没有在GrowingioApi中定义怎么办
 
 可以参考`GrowingioApi`，比如想使用`batchDeleteItemVariables`接口：
-1. 先找到它的默认resolver实现，全局搜索即可：`DefaultBatchDeleteItemVariablesMutationResolver`；
-2. 构造它的实例，`DefaultBatchDeleteItemVariablesMutationResolver resolver = new DefaultBatchDeleteItemVariablesMutationResolver(new GrowingioApi("服务地址", "可选的鉴权key", "可选的鉴权value"))`；
+1. 先找到它的默认resolver实现，全局搜索即可：`$BatchDeleteItemVariablesMutationResolver`；
+2. 构造它的实例，`$BatchDeleteItemVariablesMutationResolver resolver = new $BatchDeleteItemVariablesMutationResolver(GrowingioApi.apply("服务地址", "可选的鉴权key", "可选的鉴权value"))`；
 3. 然后我们就可以直接使用了，`resolver.batchDeleteItemVariables("传入你的参数")`。
 
 #### 接口还需要其他很多请求头怎么办
@@ -107,7 +109,7 @@ myHeaders.put("Cookie", "my cookie");
 myHeaders.put("token", "my token");
 myHeaders.put("other key", "other value");
 
-final GrowingioApi newGrowingioApi = new GrowingioApi("http://gdp-dev.growingio.com/graphql", myHeaders);
+final GrowingioApi newGrowingioApi = GrowingioApi.apply("http://gdp-dev.growingio.com/graphql", myHeaders);
 List<TagDto> newTags = newGrowingioApi.tags();
 System.out.println(newTags);
 ```

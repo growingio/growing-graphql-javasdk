@@ -7,7 +7,7 @@ import io.growing.graphql.model.*;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public interface GrowingIOMutationResolver {
 
@@ -18,37 +18,37 @@ public interface GrowingIOMutationResolver {
     Boolean deleteUtmArgument(String id) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean settingPersonaMeasurements(java.util.List<MeasurementInputDto> measurements) throws Exception;
+    Boolean settingPersonaMeasurements(String projectId, java.util.List<MeasurementInputDto> measurements) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean settingSegmentMeasurements(SettingSegmentMeasurementPolicyDto policy, java.util.List<MeasurementInputDto> measurements, String id) throws Exception;
+    Boolean settingSegmentMeasurements(String projectId, SettingSegmentMeasurementPolicyDto policy, java.util.List<MeasurementInputDto> measurements, String id) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean updateProjectInfo(ProjectInfoInputDto projectInfo) throws Exception;
+    Boolean updateDataCenterInfo(DataCenterInfoInputDto dataCenterInfo) throws Exception;
 
     @javax.validation.constraints.NotNull
     Boolean updateOriginDataSetting(java.util.List<OriginDataSettingInputDto> originDatas) throws Exception;
 
     @javax.validation.constraints.NotNull
-    TagDto createTag(TagInputDto tag) throws Exception;
+    TagDto createDataCenterTag(TagInputDto tag) throws Exception;
 
-    Boolean deleteTag(String id) throws Exception;
+    Boolean deleteDataCenterTag(String id) throws Exception;
 
-    TagDto updateTag(String id, TagInputDto tag) throws Exception;
+    TagDto updateDataCenterTag(String id, TagInputDto tag) throws Exception;
 
-    Boolean batchDeleteTags(java.util.List<String> ids) throws Exception;
-
-    @javax.validation.constraints.NotNull
-    SegmentDto createSegment(SegmentInputDto segment) throws Exception;
-
-    Boolean deleteSegment(String id) throws Exception;
-
-    SegmentDto updateSegment(String id, SegmentInputDto segment) throws Exception;
-
-    Boolean batchDeleteSegments(java.util.List<String> ids) throws Exception;
+    Boolean batchDeleteDataCenterTags(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    SegmentSnapshotDto createSegmentSnapshot(ComputeDefinitionInputDto compute) throws Exception;
+    SegmentDto createSegment(String projectId, SegmentInputDto segment) throws Exception;
+
+    Boolean deleteSegment(String projectId, String id) throws Exception;
+
+    SegmentDto updateSegment(String projectId, String id, SegmentInputDto segment) throws Exception;
+
+    Boolean batchDeleteSegments(String projectId, java.util.List<String> ids) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    SegmentSnapshotDto createSegmentSnapshot(String projectId, ComputeDefinitionInputDto compute) throws Exception;
 
     Boolean deleteTunnel(String id) throws Exception;
 
@@ -74,34 +74,49 @@ public interface GrowingIOMutationResolver {
     TagUserExportJobDto submitTagUserExportJob(String tagId, java.util.List<String> properties, String charset, Boolean detailExport) throws Exception;
 
     @javax.validation.constraints.NotNull
-    SegmentUserExportJobDto submitSegmentUserExportJob(String segmentId, java.util.List<String> tags, java.util.List<String> properties, String charset) throws Exception;
+    SegmentUserExportJobDto submitSegmentUserExportJob(String projectId, String segmentId, java.util.List<String> tags, java.util.List<String> properties, String charset) throws Exception;
 
     @javax.validation.constraints.NotNull
-    SegmentUserExportJobDto submitSegmentSnapshotUserExportJob(String id, java.util.List<String> properties, String charset) throws Exception;
+    SegmentUserExportJobDto submitSegmentSnapshotUserExportJob(String projectId, String id, java.util.List<String> tags, java.util.List<String> properties, String charset) throws Exception;
 
     @javax.validation.constraints.NotNull
-    AnalysisExportJobDto submitAnalysisExportJob(String id, AnalysisExportJobParamDto param, String charset) throws Exception;
+    AnalysisExportJobDto submitAnalysisExportJob(String projectId, String id, AnalysisExportJobParamDto param, String charset) throws Exception;
 
-    Boolean createSubscription(SubscriptionTypeDto type, String id) throws Exception;
+    Boolean createSubscription(String projectId, SubscriptionTypeDto type, String id) throws Exception;
 
-    Boolean deleteSubscription(SubscriptionTypeDto type, String id) throws Exception;
+    Boolean deleteSubscription(String projectId, SubscriptionTypeDto type, String id) throws Exception;
 
-    Boolean batchUpdateSubscriptions(SubscriptionTypeDto type, java.util.List<SubscriptionInputDto> subscriptions) throws Exception;
+    Boolean batchUpdateSubscriptions(String projectId, SubscriptionTypeDto type, java.util.List<SubscriptionInputDto> subscriptions) throws Exception;
 
-    Boolean roleAppendUser(String roleName, String userId) throws Exception;
+    CategoryDto createCategory(CategoryInputDto category) throws Exception;
 
-    Boolean updateUserPermissions(String userId, String roleId, java.util.List<String> permissions) throws Exception;
+    CategoryDto updateCategory(String id, CategoryInputDto category) throws Exception;
 
-    Boolean updateResourceAcls(String resourceType, String resourceId, AccessEntryInputDto accessEntry) throws Exception;
+    Boolean deleteCategory(String id) throws Exception;
 
-    Boolean batchUpdateResourceAcl(String resourceType, java.util.List<String> resourceIds, java.util.List<String> readers, java.util.List<String> editors) throws Exception;
+    CategoryResourceDto addCategoryResource(CategoryResourceInputDto categoryResource) throws Exception;
+
+    Boolean removeCategoryResources(java.util.List<CategoryResourceInputDto> categoryResources) throws Exception;
+
+    java.util.List<CategoryResourceDto> moveCategoryResources(String categoryId, java.util.List<CategoryResourceInputDto> categoryResources) throws Exception;
+
+    /**
+     * @deprecated
+     */
+    Boolean dataCenterRoleAppendUser(String roleName, String userId) throws Exception;
+
+    Boolean updateUserDataCenterPermissions(String userId, String roleId, java.util.List<String> permissions) throws Exception;
+
+    Boolean updateDataCenterResourceAcls(String resourceType, String resourceId, AccessEntryInputDto accessEntry) throws Exception;
+
+    Boolean batchUpdateDataCenterResourceAcl(String resourceType, java.util.List<String> resourceIds, java.util.List<String> readers, java.util.List<String> editors, String projectId) throws Exception;
 
     @javax.validation.constraints.NotNull
-    RoleDto createRole(RoleInputDto role) throws Exception;
+    DataCenterRoleDto createDataCenterRole(RoleInputDto role) throws Exception;
 
-    Boolean deleteRole(String id) throws Exception;
+    Boolean deleteDataCenterRole(String id) throws Exception;
 
-    Boolean updateRole(String id, RoleInputDto role) throws Exception;
+    Boolean updateDataCenterRole(String id, RoleInputDto role) throws Exception;
 
     @javax.validation.constraints.NotNull
     DepartmentDto createDepartment(DepartmentInputDto department) throws Exception;
@@ -116,7 +131,58 @@ public interface GrowingIOMutationResolver {
     Boolean addMembersToDepartment(java.util.List<String> memberIds, String departmentId) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean updateMemberRole(String memberId, String roleId) throws Exception;
+    Boolean updateMemberDataCenterRole(String memberId, String roleId) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    ProjectDto createProject(ProjectInputDto project) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    ProjectDto updateProject(String id, ProjectInputDto project) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean deleteProject(String id) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean addProjectMembers(AddProjectMembersInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean removeProjectMembers(RemoveProjectMembersInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    ProjectRoleDto createProjectRole(String projectId, RoleInputDto role) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean deleteProjectRole(DeleteProjectRoleInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean updateProjectRole(String projectId, String id, RoleInputDto role) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean assignUserProjectRole(AssignUserProjectRoleInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean transferProjectOwner(TransferProjectOwnerInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean toggleProject(ToggleProjectInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    ProjectDataCtrlDto updateProjectDataCtrl(UpdateProjectDataCtrlInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean transferProjectResources(TransferProjectResourcesInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean addMembersToProjectRole(AddMembersToProjectRoleInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean transferDataCenterOwner(String transfereeId) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean addMembersToDataCenterRole(java.util.List<String> memberIds, String roleId) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean addMemberToProjects(java.util.List<AddMemberToProjectInputDto> input) throws Exception;
 
     CreateAccountReplyDto createAccount(String email, String roleId, java.util.List<String> permissions, String extra) throws Exception;
 
@@ -135,172 +201,172 @@ public interface GrowingIOMutationResolver {
     Boolean updateMember(String id, MemberInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ElementDto createElement(ElementInputDto element) throws Exception;
+    ElementDto createElement(String projectId, ElementInputDto element) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ElementDto updateElement(String id, ElementUpdateInputDto element) throws Exception;
+    ElementDto updateElement(String projectId, String id, ElementUpdateInputDto element) throws Exception;
 
-    Boolean deleteElement(String id) throws Exception;
+    Boolean deleteElement(String projectId, String id) throws Exception;
 
-    Boolean batchDeleteElements(java.util.List<String> ids) throws Exception;
-
-    @javax.validation.constraints.NotNull
-    CustomEventDto createCustomEvent(CustomEventInputDto customEvent) throws Exception;
+    Boolean batchDeleteElements(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    CustomEventDto updateCustomEvent(String id, CustomEventInputDto customEvent) throws Exception;
-
-    Boolean deleteCustomEvent(String id) throws Exception;
-
-    Boolean batchDeleteCustomEvents(java.util.List<String> ids) throws Exception;
+    CustomEventDto createDataCenterCustomEvent(CustomEventInputDto customEvent) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ComplexMetricDto createComplexMetric(ComplexMetricInputDto complexMetric) throws Exception;
+    CustomEventDto updateDataCenterCustomEvent(String id, CustomEventInputDto customEvent) throws Exception;
+
+    Boolean deleteDataCenterCustomEvent(String id) throws Exception;
+
+    Boolean batchDeleteDataCenterCustomEvents(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ComplexMetricDto updateComplexMetric(String id, ComplexMetricInputDto complexMetric) throws Exception;
-
-    Boolean deleteComplexMetric(String id) throws Exception;
-
-    Boolean batchDeleteComplexMetrics(java.util.List<String> ids) throws Exception;
+    ComplexMetricDto createComplexMetric(String projectId, ComplexMetricInputDto complexMetric) throws Exception;
 
     @javax.validation.constraints.NotNull
-    EventVariableDto createEventVariable(VariableInputDto eventVariable) throws Exception;
+    ComplexMetricDto updateComplexMetric(String projectId, String id, ComplexMetricInputDto complexMetric) throws Exception;
+
+    Boolean deleteComplexMetric(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteComplexMetrics(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    EventVariableDto updateEventVariable(String id, VariableInputDto eventVariable) throws Exception;
+    EventVariableDto createDataCenterEventVariable(VariableInputDto eventVariable) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteEventVariable(String id) throws Exception;
-
-    Boolean batchDeleteEventVariables(java.util.List<String> ids) throws Exception;
+    EventVariableDto updateDataCenterEventVariable(String id, VariableInputDto eventVariable) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ItemVariableDto createItemVariable(VariableInputDto itemVariable) throws Exception;
+    Boolean deleteDataCenterEventVariable(String id) throws Exception;
+
+    Boolean batchDeleteDataCenterEventVariables(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ItemVariableDto updateItemVariable(String id, VariableInputDto itemVariable) throws Exception;
+    ItemVariableDto createDataCenterItemVariable(VariableInputDto itemVariable) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteItemVariable(String id) throws Exception;
-
-    Boolean batchDeleteItemVariables(java.util.List<String> ids) throws Exception;
+    ItemVariableDto updateDataCenterItemVariable(String id, VariableInputDto itemVariable) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ItemModelDto createItemModel(ItemModelInputDto itemModel) throws Exception;
+    Boolean deleteDataCenterItemVariable(String id) throws Exception;
+
+    Boolean batchDeleteDataCenterItemVariables(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    ItemModelDto updateItemModel(String id, ItemModelInputDto itemModel) throws Exception;
+    ItemModelDto createDataCenterItemModel(ItemModelInputDto itemModel) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteItemModel(String id) throws Exception;
-
-    Boolean batchDeleteItemModels(java.util.List<String> ids) throws Exception;
-
-    ItemVariableDto addItemModelAttribute(String id, ItemVariableInputDto attribute) throws Exception;
+    ItemModelDto updateDataCenterItemModel(String id, ItemModelInputDto itemModel) throws Exception;
 
     @javax.validation.constraints.NotNull
-    UserVariableDto createUserVariable(VariableInputDto userVariable) throws Exception;
+    Boolean deleteDataCenterItemModel(String id) throws Exception;
+
+    Boolean batchDeleteDataCenterItemModels(java.util.List<String> ids) throws Exception;
+
+    ItemVariableDto dataCenterAddItemModelAttribute(String id, ItemVariableInputDto attribute) throws Exception;
 
     @javax.validation.constraints.NotNull
-    UserVariableDto updateUserVariable(String id, VariableInputDto userVariable) throws Exception;
+    UserVariableDto createDataCenterUserVariable(VariableInputDto userVariable) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteUserVariable(String id) throws Exception;
-
-    Boolean batchDeleteUserVariables(java.util.List<String> ids) throws Exception;
+    UserVariableDto updateDataCenterUserVariable(String id, VariableInputDto userVariable) throws Exception;
 
     @javax.validation.constraints.NotNull
-    KpiAnalysisDto createKpiAnalysis(KpiAnalysisInputDto kpiAnalysis) throws Exception;
+    Boolean deleteDataCenterUserVariable(String id) throws Exception;
+
+    Boolean batchDeleteDataCenterUserVariables(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    KpiAnalysisDto updateKpiAnalysis(String id, KpiAnalysisInputDto kpiAnalysis) throws Exception;
+    KpiAnalysisDto createKpiAnalysis(String projectId, KpiAnalysisInputDto kpiAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteKpiAnalysis(String id) throws Exception;
-
-    Boolean batchDeleteKpiAnalyses(java.util.List<String> ids) throws Exception;
+    KpiAnalysisDto updateKpiAnalysis(String projectId, String id, KpiAnalysisInputDto kpiAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    FunnelAnalysisDto createFunnelAnalysis(FunnelAnalysisInputDto funnelAnalysis) throws Exception;
+    Boolean deleteKpiAnalysis(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteKpiAnalyses(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    FunnelAnalysisDto updateFunnelAnalysis(String id, FunnelAnalysisInputDto funnelAnalysis) throws Exception;
+    FunnelAnalysisDto createFunnelAnalysis(String projectId, FunnelAnalysisInputDto funnelAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteFunnelAnalysis(String id) throws Exception;
-
-    Boolean batchDeleteFunnelAnalyses(java.util.List<String> ids) throws Exception;
+    FunnelAnalysisDto updateFunnelAnalysis(String projectId, String id, FunnelAnalysisInputDto funnelAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    FrequencyAnalysisDto createFrequencyAnalysis(FrequencyAnalysisInputDto frequencyAnalysis) throws Exception;
+    Boolean deleteFunnelAnalysis(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteFunnelAnalyses(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    FrequencyAnalysisDto updateFrequencyAnalysis(String id, FrequencyAnalysisInputDto frequencyAnalysis) throws Exception;
+    FrequencyAnalysisDto createFrequencyAnalysis(String projectId, FrequencyAnalysisInputDto frequencyAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteFrequencyAnalysis(String id) throws Exception;
-
-    Boolean batchDeleteFrequencyAnalyses(java.util.List<String> ids) throws Exception;
+    FrequencyAnalysisDto updateFrequencyAnalysis(String projectId, String id, FrequencyAnalysisInputDto frequencyAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    EventAnalysisDto createEventAnalysis(EventAnalysisInputDto eventAnalysis) throws Exception;
+    Boolean deleteFrequencyAnalysis(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteFrequencyAnalyses(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    EventAnalysisDto updateEventAnalysis(String id, EventAnalysisInputDto eventAnalysis) throws Exception;
+    EventAnalysisDto createEventAnalysis(String projectId, EventAnalysisInputDto eventAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteEventAnalysis(String id) throws Exception;
-
-    Boolean batchDeleteEventAnalyses(java.util.List<String> ids) throws Exception;
+    EventAnalysisDto updateEventAnalysis(String projectId, String id, EventAnalysisInputDto eventAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    RetentionAnalysisDto createRetentionAnalysis(RetentionAnalysisInputDto retentionAnalysis) throws Exception;
+    Boolean deleteEventAnalysis(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteEventAnalyses(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    RetentionAnalysisDto updateRetentionAnalysis(String id, RetentionAnalysisInputDto retentionAnalysis) throws Exception;
+    RetentionAnalysisDto createRetentionAnalysis(String projectId, RetentionAnalysisInputDto retentionAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteRetentionAnalysis(String id) throws Exception;
-
-    Boolean batchDeleteRetentionAnalyses(java.util.List<String> ids) throws Exception;
+    RetentionAnalysisDto updateRetentionAnalysis(String projectId, String id, RetentionAnalysisInputDto retentionAnalysis) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DashboardDto createDashboard(DashboardInputDto dashboard) throws Exception;
+    Boolean deleteRetentionAnalysis(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteRetentionAnalyses(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DashboardDto updateDashboard(String id, DashboardInputDto dashboard) throws Exception;
+    DashboardDto createDashboard(String projectId, DashboardInputDto dashboard) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteDashboard(String id) throws Exception;
-
-    Boolean batchDeleteDashboards(java.util.List<String> ids) throws Exception;
+    DashboardDto updateDashboard(String projectId, String id, DashboardInputDto dashboard) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DashboardCommentDto updateDashboardComment(String id, DashboardCommentInputDto dashboardComment) throws Exception;
+    Boolean deleteDashboard(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteDashboards(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean deleteDashboardComment(String id) throws Exception;
+    DashboardCommentDto updateDashboardComment(String projectId, String id, DashboardCommentInputDto dashboardComment) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DashboardCommentDto createDashboardComment(DashboardCommentInputDto dashboardComment) throws Exception;
+    Boolean deleteDashboardComment(String projectId, String id) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DrillDownSegmentReplyDto createFunnelDrillDownSegment(FunnelDrillDownSegmentInputDto funnelDrillDownSegment) throws Exception;
+    DashboardCommentDto createDashboardComment(String projectId, DashboardCommentInputDto dashboardComment) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DrillDownSegmentReplyDto createRetentionDrillDownSegment(RetentionDrillDownSegmentInputDto retentionDrillDownSegment) throws Exception;
+    DrillDownSegmentReplyDto createFunnelDrillDownSegment(String projectId, FunnelDrillDownSegmentInputDto funnelDrillDownSegment) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DrillDownSegmentReplyDto createFrequencyDrillDownSegment(FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) throws Exception;
+    DrillDownSegmentReplyDto createRetentionDrillDownSegment(String projectId, RetentionDrillDownSegmentInputDto retentionDrillDownSegment) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DrillDownSegmentSnapshotReplyDto createFunnelDrillDownSegmentSnapshot(FunnelDrillDownSegmentInputDto funnelDrillDownSegment) throws Exception;
+    DrillDownSegmentReplyDto createFrequencyDrillDownSegment(String projectId, FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DrillDownSegmentSnapshotReplyDto createRetentionDrillDownSegmentSnapshot(RetentionDrillDownSegmentInputDto retentionDrillDownSegment) throws Exception;
+    DrillDownSegmentSnapshotReplyDto createFunnelDrillDownSegmentSnapshot(String projectId, FunnelDrillDownSegmentInputDto funnelDrillDownSegment) throws Exception;
 
     @javax.validation.constraints.NotNull
-    DrillDownSegmentSnapshotReplyDto createFrequencyDrillDownSegmentSnapshot(FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) throws Exception;
+    DrillDownSegmentSnapshotReplyDto createRetentionDrillDownSegmentSnapshot(String projectId, RetentionDrillDownSegmentInputDto retentionDrillDownSegment) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    DrillDownSegmentSnapshotReplyDto createFrequencyDrillDownSegmentSnapshot(String projectId, FrequencyDrillDownSegmentInputDto frequencyDrillDownSegment) throws Exception;
 
 }

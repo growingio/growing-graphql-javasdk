@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryActiveUsersParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String timeRange;
     private Integer offset;
@@ -21,10 +23,16 @@ public class QueryActiveUsersParametrizedInput implements GraphQLParametrizedInp
     public QueryActiveUsersParametrizedInput() {
     }
 
-    public QueryActiveUsersParametrizedInput(String timeRange, Integer offset, Integer limit) {
+    public QueryActiveUsersParametrizedInput(String projectId, String timeRange, Integer offset, Integer limit) {
+        this.projectId = projectId;
         this.timeRange = timeRange;
         this.offset = offset;
         this.limit = limit;
+    }
+
+    public QueryActiveUsersParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryActiveUsersParametrizedInput timeRange(String timeRange) {
@@ -46,6 +54,9 @@ public class QueryActiveUsersParametrizedInput implements GraphQLParametrizedInp
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (timeRange != null) {
             joiner.add("timeRange: " + GraphQLRequestSerializer.getEntry(timeRange));
         }

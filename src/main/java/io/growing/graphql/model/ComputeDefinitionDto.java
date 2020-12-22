@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class ComputeDefinitionDto implements java.io.Serializable {
 
@@ -15,15 +15,17 @@ public class ComputeDefinitionDto implements java.io.Serializable {
     @javax.validation.constraints.NotNull
     private java.util.List<ComputeDirectiveDto> directives;
     private java.lang.Object drillDownAttrs;
+    private String sql;
 
     public ComputeDefinitionDto() {
     }
 
-    public ComputeDefinitionDto(String name, String expression, java.util.List<ComputeDirectiveDto> directives, java.lang.Object drillDownAttrs) {
+    public ComputeDefinitionDto(String name, String expression, java.util.List<ComputeDirectiveDto> directives, java.lang.Object drillDownAttrs, String sql) {
         this.name = name;
         this.expression = expression;
         this.directives = directives;
         this.drillDownAttrs = drillDownAttrs;
+        this.sql = sql;
     }
 
     public String getName() {
@@ -54,6 +56,13 @@ public class ComputeDefinitionDto implements java.io.Serializable {
         this.drillDownAttrs = drillDownAttrs;
     }
 
+    public String getSql() {
+        return sql;
+    }
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
 
     @Override
     public String toString() {
@@ -70,6 +79,9 @@ public class ComputeDefinitionDto implements java.io.Serializable {
         if (drillDownAttrs != null) {
             joiner.add("drillDownAttrs: " + GraphQLRequestSerializer.getEntry(drillDownAttrs));
         }
+        if (sql != null) {
+            joiner.add("sql: " + GraphQLRequestSerializer.getEntry(sql));
+        }
         return joiner.toString();
     }
 
@@ -83,6 +95,7 @@ public class ComputeDefinitionDto implements java.io.Serializable {
         private String expression;
         private java.util.List<ComputeDirectiveDto> directives;
         private java.lang.Object drillDownAttrs;
+        private String sql;
 
         public Builder() {
         }
@@ -107,9 +120,14 @@ public class ComputeDefinitionDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setSql(String sql) {
+            this.sql = sql;
+            return this;
+        }
+
 
         public ComputeDefinitionDto build() {
-            return new ComputeDefinitionDto(name, expression, directives, drillDownAttrs);
+            return new ComputeDefinitionDto(name, expression, directives, drillDownAttrs, sql);
         }
 
     }

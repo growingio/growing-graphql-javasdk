@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
 
@@ -37,11 +37,12 @@ public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
     private java.time.ZonedDateTime updatedAt;
     private String creator;
     private String updater;
+    private String ownerId;
 
     public EventAnalysisDto() {
     }
 
-    public EventAnalysisDto(String id, String name, String description, java.util.List<MeasurementDto> measurements, java.util.List<String> dimensions, java.util.List<GranularityDto> granularities, String timeRange, FilterDto filter, TargetUserDto targetUser, Integer limit, String attrs, java.util.List<OrderDto> orders, SplitterDto splitter, String chartType, Boolean isSystem, String businessType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater) {
+    public EventAnalysisDto(String id, String name, String description, java.util.List<MeasurementDto> measurements, java.util.List<String> dimensions, java.util.List<GranularityDto> granularities, String timeRange, FilterDto filter, TargetUserDto targetUser, Integer limit, String attrs, java.util.List<OrderDto> orders, SplitterDto splitter, String chartType, Boolean isSystem, String businessType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String ownerId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -64,6 +65,7 @@ public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
         this.updatedAt = updatedAt;
         this.creator = creator;
         this.updater = updater;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -220,6 +222,13 @@ public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
         this.updater = updater;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -290,6 +299,9 @@ public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
         if (updater != null) {
             joiner.add("updater: " + GraphQLRequestSerializer.getEntry(updater));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -321,6 +333,7 @@ public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
         private java.time.ZonedDateTime updatedAt;
         private String creator;
         private String updater;
+        private String ownerId;
 
         public Builder() {
         }
@@ -435,9 +448,14 @@ public class EventAnalysisDto implements java.io.Serializable, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public EventAnalysisDto build() {
-            return new EventAnalysisDto(id, name, description, measurements, dimensions, granularities, timeRange, filter, targetUser, limit, attrs, orders, splitter, chartType, isSystem, businessType, creatorId, createdAt, updaterId, updatedAt, creator, updater);
+            return new EventAnalysisDto(id, name, description, measurements, dimensions, granularities, timeRange, filter, targetUser, limit, attrs, orders, splitter, chartType, isSystem, businessType, creatorId, createdAt, updaterId, updatedAt, creator, updater, ownerId);
         }
 
     }

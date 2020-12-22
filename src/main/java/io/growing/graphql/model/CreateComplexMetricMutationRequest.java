@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class CreateComplexMetricMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CreateComplexMetricMutationRequest implements GraphQLOperationReque
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CreateComplexMetricMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setComplexMetric(ComplexMetricInputDto complexMetric) {
@@ -46,9 +50,15 @@ public class CreateComplexMetricMutationRequest implements GraphQLOperationReque
 
     public static class Builder {
 
+        private String projectId;
         private ComplexMetricInputDto complexMetric;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setComplexMetric(ComplexMetricInputDto complexMetric) {
@@ -59,6 +69,7 @@ public class CreateComplexMetricMutationRequest implements GraphQLOperationReque
 
         public CreateComplexMetricMutationRequest build() {
             CreateComplexMetricMutationRequest obj = new CreateComplexMetricMutationRequest();
+            obj.setProjectId(projectId);
             obj.setComplexMetric(complexMetric);
             return obj;
         }

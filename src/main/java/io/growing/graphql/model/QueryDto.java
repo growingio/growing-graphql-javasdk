@@ -4,24 +4,21 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
 /**
- * Created automatically at 2020-10-23T13:11:39.847. Don't modify it
+ * Created automatically at 2020-12-22T15:09:56.734. Don't modify it
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryDto implements java.io.Serializable {
 
-    private java.util.List<MeasurementDto> personaMeasurements;
     private java.util.List<UtmArgumentDto> utmArguments;
     @javax.validation.constraints.NotNull
-    private ProjectInfoDto projectInfo;
+    private DataCenterInfoDto dataCenterInfo;
     @javax.validation.constraints.NotNull
     private java.util.List<OriginDataSettingDto> originDataSettings;
-    private java.util.List<TagDto> tags;
-    private Integer countTags;
-    private java.util.List<SegmentDto> segments;
-    private Integer countSegments;
+    private java.util.List<TagDto> dataCenterTags;
+    private Integer dataCenterCountTags;
     private java.util.List<TunnelDto> tunnels;
     private Integer countTunnels;
     @javax.validation.constraints.NotNull
@@ -30,92 +27,67 @@ public class QueryDto implements java.io.Serializable {
     private java.util.List<FeatureDto> features;
     @javax.validation.constraints.NotNull
     private String version;
-    private java.util.List<ModuleDto> permissionModules;
-    private java.util.List<RoleDto> roles;
+    private java.util.List<CategoryDto> categories;
+    private CategoryDto dataCenterDefaultCategory;
+    private java.util.List<CategoryDto> dataCenterTreeLikeCategories;
+    private java.util.List<ModuleDto> dataCenterPermissionModules;
+    private java.util.List<DataCenterRoleDto> dataCenterRoles;
     @javax.validation.constraints.NotNull
     private java.util.List<DepartmentDto> allDepartments;
-    private java.util.List<CustomEventDto> customEvents;
-    private Integer countCustomEvents;
-    private java.util.List<ElementDto> elements;
-    private java.util.List<ComplexMetricDto> complexMetrics;
+    @javax.validation.constraints.NotNull
+    private java.util.List<ProjectDto> projects;
+    @javax.validation.constraints.NotNull
+    private java.util.List<ModuleDto> projectPermissionModules;
+    @javax.validation.constraints.NotNull
+    private MemberDto currentUser;
+    private java.util.List<CustomEventDto> dataCenterCustomEvents;
     private java.util.List<PreparedMetricDto> preparedMetrics;
-    private Integer countComplexMetrics;
-    private java.util.List<EventVariableDto> eventVariables;
-    private Integer countEventVariables;
-    private java.util.List<ItemModelDto> itemModels;
-    private java.util.List<ItemVariableDto> itemVariables;
-    private Integer countItemVariables;
-    private java.util.List<UserVariableDto> userVariables;
-    private Integer countUserVariables;
     private java.util.List<UserPropertyDto> userProperties;
-    private java.util.List<PreparedDimensionDto> preparedDimensions;
-    private java.util.List<KpiAnalysisDto> kpiAnalyses;
-    private Integer countKpiAnalyses;
-    private java.util.List<FunnelAnalysisDto> funnelAnalyses;
-    private Integer countFunnelAnalyses;
-    private java.util.List<FrequencyAnalysisDto> frequencyAnalyses;
-    private Integer countFrequencyAnalyses;
-    private java.util.List<EventAnalysisDto> eventAnalyses;
-    private Integer countEventAnalyses;
-    private java.util.List<RetentionAnalysisDto> retentionAnalyses;
-    private Integer countRetentionAnalyses;
-    private java.util.List<DashboardDto> dashboards;
-    private Integer countDashboards;
+    private java.util.List<EventVariableDto> dataCenterEventVariables;
+    private Integer dataCenterCountEventVariables;
+    private java.util.List<ItemModelDto> dataCenterItemModels;
+    private java.util.List<ItemVariableDto> dataCenterItemVariables;
+    private Integer dataCenterCountItemVariables;
+    private java.util.List<UserVariableDto> dataCenterUserVariables;
+    private Integer dataCenterCountUserVariables;
+    private java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions;
+    private java.util.List<MeasurableDto> dataCenterMeasurements;
 
     public QueryDto() {
     }
 
-    public QueryDto(java.util.List<MeasurementDto> personaMeasurements, java.util.List<UtmArgumentDto> utmArguments, ProjectInfoDto projectInfo, java.util.List<OriginDataSettingDto> originDataSettings, java.util.List<TagDto> tags, Integer countTags, java.util.List<SegmentDto> segments, Integer countSegments, java.util.List<TunnelDto> tunnels, Integer countTunnels, java.util.List<EventImportJobDto> eventImportJobs, java.util.List<FeatureDto> features, String version, java.util.List<ModuleDto> permissionModules, java.util.List<RoleDto> roles, java.util.List<DepartmentDto> allDepartments, java.util.List<CustomEventDto> customEvents, Integer countCustomEvents, java.util.List<ElementDto> elements, java.util.List<ComplexMetricDto> complexMetrics, java.util.List<PreparedMetricDto> preparedMetrics, Integer countComplexMetrics, java.util.List<EventVariableDto> eventVariables, Integer countEventVariables, java.util.List<ItemModelDto> itemModels, java.util.List<ItemVariableDto> itemVariables, Integer countItemVariables, java.util.List<UserVariableDto> userVariables, Integer countUserVariables, java.util.List<UserPropertyDto> userProperties, java.util.List<PreparedDimensionDto> preparedDimensions, java.util.List<KpiAnalysisDto> kpiAnalyses, Integer countKpiAnalyses, java.util.List<FunnelAnalysisDto> funnelAnalyses, Integer countFunnelAnalyses, java.util.List<FrequencyAnalysisDto> frequencyAnalyses, Integer countFrequencyAnalyses, java.util.List<EventAnalysisDto> eventAnalyses, Integer countEventAnalyses, java.util.List<RetentionAnalysisDto> retentionAnalyses, Integer countRetentionAnalyses, java.util.List<DashboardDto> dashboards, Integer countDashboards) {
-        this.personaMeasurements = personaMeasurements;
+    public QueryDto(java.util.List<UtmArgumentDto> utmArguments, DataCenterInfoDto dataCenterInfo, java.util.List<OriginDataSettingDto> originDataSettings, java.util.List<TagDto> dataCenterTags, Integer dataCenterCountTags, java.util.List<TunnelDto> tunnels, Integer countTunnels, java.util.List<EventImportJobDto> eventImportJobs, java.util.List<FeatureDto> features, String version, java.util.List<CategoryDto> categories, CategoryDto dataCenterDefaultCategory, java.util.List<CategoryDto> dataCenterTreeLikeCategories, java.util.List<ModuleDto> dataCenterPermissionModules, java.util.List<DataCenterRoleDto> dataCenterRoles, java.util.List<DepartmentDto> allDepartments, java.util.List<ProjectDto> projects, java.util.List<ModuleDto> projectPermissionModules, MemberDto currentUser, java.util.List<CustomEventDto> dataCenterCustomEvents, java.util.List<PreparedMetricDto> preparedMetrics, java.util.List<UserPropertyDto> userProperties, java.util.List<EventVariableDto> dataCenterEventVariables, Integer dataCenterCountEventVariables, java.util.List<ItemModelDto> dataCenterItemModels, java.util.List<ItemVariableDto> dataCenterItemVariables, Integer dataCenterCountItemVariables, java.util.List<UserVariableDto> dataCenterUserVariables, Integer dataCenterCountUserVariables, java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions, java.util.List<MeasurableDto> dataCenterMeasurements) {
         this.utmArguments = utmArguments;
-        this.projectInfo = projectInfo;
+        this.dataCenterInfo = dataCenterInfo;
         this.originDataSettings = originDataSettings;
-        this.tags = tags;
-        this.countTags = countTags;
-        this.segments = segments;
-        this.countSegments = countSegments;
+        this.dataCenterTags = dataCenterTags;
+        this.dataCenterCountTags = dataCenterCountTags;
         this.tunnels = tunnels;
         this.countTunnels = countTunnels;
         this.eventImportJobs = eventImportJobs;
         this.features = features;
         this.version = version;
-        this.permissionModules = permissionModules;
-        this.roles = roles;
+        this.categories = categories;
+        this.dataCenterDefaultCategory = dataCenterDefaultCategory;
+        this.dataCenterTreeLikeCategories = dataCenterTreeLikeCategories;
+        this.dataCenterPermissionModules = dataCenterPermissionModules;
+        this.dataCenterRoles = dataCenterRoles;
         this.allDepartments = allDepartments;
-        this.customEvents = customEvents;
-        this.countCustomEvents = countCustomEvents;
-        this.elements = elements;
-        this.complexMetrics = complexMetrics;
+        this.projects = projects;
+        this.projectPermissionModules = projectPermissionModules;
+        this.currentUser = currentUser;
+        this.dataCenterCustomEvents = dataCenterCustomEvents;
         this.preparedMetrics = preparedMetrics;
-        this.countComplexMetrics = countComplexMetrics;
-        this.eventVariables = eventVariables;
-        this.countEventVariables = countEventVariables;
-        this.itemModels = itemModels;
-        this.itemVariables = itemVariables;
-        this.countItemVariables = countItemVariables;
-        this.userVariables = userVariables;
-        this.countUserVariables = countUserVariables;
         this.userProperties = userProperties;
-        this.preparedDimensions = preparedDimensions;
-        this.kpiAnalyses = kpiAnalyses;
-        this.countKpiAnalyses = countKpiAnalyses;
-        this.funnelAnalyses = funnelAnalyses;
-        this.countFunnelAnalyses = countFunnelAnalyses;
-        this.frequencyAnalyses = frequencyAnalyses;
-        this.countFrequencyAnalyses = countFrequencyAnalyses;
-        this.eventAnalyses = eventAnalyses;
-        this.countEventAnalyses = countEventAnalyses;
-        this.retentionAnalyses = retentionAnalyses;
-        this.countRetentionAnalyses = countRetentionAnalyses;
-        this.dashboards = dashboards;
-        this.countDashboards = countDashboards;
-    }
-
-    public java.util.List<MeasurementDto> getPersonaMeasurements() {
-        return personaMeasurements;
-    }
-    public void setPersonaMeasurements(java.util.List<MeasurementDto> personaMeasurements) {
-        this.personaMeasurements = personaMeasurements;
+        this.dataCenterEventVariables = dataCenterEventVariables;
+        this.dataCenterCountEventVariables = dataCenterCountEventVariables;
+        this.dataCenterItemModels = dataCenterItemModels;
+        this.dataCenterItemVariables = dataCenterItemVariables;
+        this.dataCenterCountItemVariables = dataCenterCountItemVariables;
+        this.dataCenterUserVariables = dataCenterUserVariables;
+        this.dataCenterCountUserVariables = dataCenterCountUserVariables;
+        this.dataCenterPreparedDimensions = dataCenterPreparedDimensions;
+        this.dataCenterMeasurements = dataCenterMeasurements;
     }
 
     public java.util.List<UtmArgumentDto> getUtmArguments() {
@@ -125,11 +97,11 @@ public class QueryDto implements java.io.Serializable {
         this.utmArguments = utmArguments;
     }
 
-    public ProjectInfoDto getProjectInfo() {
-        return projectInfo;
+    public DataCenterInfoDto getDataCenterInfo() {
+        return dataCenterInfo;
     }
-    public void setProjectInfo(ProjectInfoDto projectInfo) {
-        this.projectInfo = projectInfo;
+    public void setDataCenterInfo(DataCenterInfoDto dataCenterInfo) {
+        this.dataCenterInfo = dataCenterInfo;
     }
 
     public java.util.List<OriginDataSettingDto> getOriginDataSettings() {
@@ -139,32 +111,24 @@ public class QueryDto implements java.io.Serializable {
         this.originDataSettings = originDataSettings;
     }
 
-    public java.util.List<TagDto> getTags() {
-        return tags;
+    /**
+     * 数据中心标签列表
+     */
+    public java.util.List<TagDto> getDataCenterTags() {
+        return dataCenterTags;
     }
-    public void setTags(java.util.List<TagDto> tags) {
-        this.tags = tags;
-    }
-
-    public Integer getCountTags() {
-        return countTags;
-    }
-    public void setCountTags(Integer countTags) {
-        this.countTags = countTags;
-    }
-
-    public java.util.List<SegmentDto> getSegments() {
-        return segments;
-    }
-    public void setSegments(java.util.List<SegmentDto> segments) {
-        this.segments = segments;
+    /**
+     * 数据中心标签列表
+     */
+    public void setDataCenterTags(java.util.List<TagDto> dataCenterTags) {
+        this.dataCenterTags = dataCenterTags;
     }
 
-    public Integer getCountSegments() {
-        return countSegments;
+    public Integer getDataCenterCountTags() {
+        return dataCenterCountTags;
     }
-    public void setCountSegments(Integer countSegments) {
-        this.countSegments = countSegments;
+    public void setDataCenterCountTags(Integer dataCenterCountTags) {
+        this.dataCenterCountTags = dataCenterCountTags;
     }
 
     public java.util.List<TunnelDto> getTunnels() {
@@ -202,18 +166,39 @@ public class QueryDto implements java.io.Serializable {
         this.version = version;
     }
 
-    public java.util.List<ModuleDto> getPermissionModules() {
-        return permissionModules;
+    public java.util.List<CategoryDto> getCategories() {
+        return categories;
     }
-    public void setPermissionModules(java.util.List<ModuleDto> permissionModules) {
-        this.permissionModules = permissionModules;
+    public void setCategories(java.util.List<CategoryDto> categories) {
+        this.categories = categories;
     }
 
-    public java.util.List<RoleDto> getRoles() {
-        return roles;
+    public CategoryDto getDataCenterDefaultCategory() {
+        return dataCenterDefaultCategory;
     }
-    public void setRoles(java.util.List<RoleDto> roles) {
-        this.roles = roles;
+    public void setDataCenterDefaultCategory(CategoryDto dataCenterDefaultCategory) {
+        this.dataCenterDefaultCategory = dataCenterDefaultCategory;
+    }
+
+    public java.util.List<CategoryDto> getDataCenterTreeLikeCategories() {
+        return dataCenterTreeLikeCategories;
+    }
+    public void setDataCenterTreeLikeCategories(java.util.List<CategoryDto> dataCenterTreeLikeCategories) {
+        this.dataCenterTreeLikeCategories = dataCenterTreeLikeCategories;
+    }
+
+    public java.util.List<ModuleDto> getDataCenterPermissionModules() {
+        return dataCenterPermissionModules;
+    }
+    public void setDataCenterPermissionModules(java.util.List<ModuleDto> dataCenterPermissionModules) {
+        this.dataCenterPermissionModules = dataCenterPermissionModules;
+    }
+
+    public java.util.List<DataCenterRoleDto> getDataCenterRoles() {
+        return dataCenterRoles;
+    }
+    public void setDataCenterRoles(java.util.List<DataCenterRoleDto> dataCenterRoles) {
+        this.dataCenterRoles = dataCenterRoles;
     }
 
     public java.util.List<DepartmentDto> getAllDepartments() {
@@ -223,32 +208,32 @@ public class QueryDto implements java.io.Serializable {
         this.allDepartments = allDepartments;
     }
 
-    public java.util.List<CustomEventDto> getCustomEvents() {
-        return customEvents;
+    public java.util.List<ProjectDto> getProjects() {
+        return projects;
     }
-    public void setCustomEvents(java.util.List<CustomEventDto> customEvents) {
-        this.customEvents = customEvents;
-    }
-
-    public Integer getCountCustomEvents() {
-        return countCustomEvents;
-    }
-    public void setCountCustomEvents(Integer countCustomEvents) {
-        this.countCustomEvents = countCustomEvents;
+    public void setProjects(java.util.List<ProjectDto> projects) {
+        this.projects = projects;
     }
 
-    public java.util.List<ElementDto> getElements() {
-        return elements;
+    public java.util.List<ModuleDto> getProjectPermissionModules() {
+        return projectPermissionModules;
     }
-    public void setElements(java.util.List<ElementDto> elements) {
-        this.elements = elements;
+    public void setProjectPermissionModules(java.util.List<ModuleDto> projectPermissionModules) {
+        this.projectPermissionModules = projectPermissionModules;
     }
 
-    public java.util.List<ComplexMetricDto> getComplexMetrics() {
-        return complexMetrics;
+    public MemberDto getCurrentUser() {
+        return currentUser;
     }
-    public void setComplexMetrics(java.util.List<ComplexMetricDto> complexMetrics) {
-        this.complexMetrics = complexMetrics;
+    public void setCurrentUser(MemberDto currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public java.util.List<CustomEventDto> getDataCenterCustomEvents() {
+        return dataCenterCustomEvents;
+    }
+    public void setDataCenterCustomEvents(java.util.List<CustomEventDto> dataCenterCustomEvents) {
+        this.dataCenterCustomEvents = dataCenterCustomEvents;
     }
 
     public java.util.List<PreparedMetricDto> getPreparedMetrics() {
@@ -258,62 +243,6 @@ public class QueryDto implements java.io.Serializable {
         this.preparedMetrics = preparedMetrics;
     }
 
-    public Integer getCountComplexMetrics() {
-        return countComplexMetrics;
-    }
-    public void setCountComplexMetrics(Integer countComplexMetrics) {
-        this.countComplexMetrics = countComplexMetrics;
-    }
-
-    public java.util.List<EventVariableDto> getEventVariables() {
-        return eventVariables;
-    }
-    public void setEventVariables(java.util.List<EventVariableDto> eventVariables) {
-        this.eventVariables = eventVariables;
-    }
-
-    public Integer getCountEventVariables() {
-        return countEventVariables;
-    }
-    public void setCountEventVariables(Integer countEventVariables) {
-        this.countEventVariables = countEventVariables;
-    }
-
-    public java.util.List<ItemModelDto> getItemModels() {
-        return itemModels;
-    }
-    public void setItemModels(java.util.List<ItemModelDto> itemModels) {
-        this.itemModels = itemModels;
-    }
-
-    public java.util.List<ItemVariableDto> getItemVariables() {
-        return itemVariables;
-    }
-    public void setItemVariables(java.util.List<ItemVariableDto> itemVariables) {
-        this.itemVariables = itemVariables;
-    }
-
-    public Integer getCountItemVariables() {
-        return countItemVariables;
-    }
-    public void setCountItemVariables(Integer countItemVariables) {
-        this.countItemVariables = countItemVariables;
-    }
-
-    public java.util.List<UserVariableDto> getUserVariables() {
-        return userVariables;
-    }
-    public void setUserVariables(java.util.List<UserVariableDto> userVariables) {
-        this.userVariables = userVariables;
-    }
-
-    public Integer getCountUserVariables() {
-        return countUserVariables;
-    }
-    public void setCountUserVariables(Integer countUserVariables) {
-        this.countUserVariables = countUserVariables;
-    }
-
     public java.util.List<UserPropertyDto> getUserProperties() {
         return userProperties;
     }
@@ -321,124 +250,141 @@ public class QueryDto implements java.io.Serializable {
         this.userProperties = userProperties;
     }
 
-    public java.util.List<PreparedDimensionDto> getPreparedDimensions() {
-        return preparedDimensions;
+    /**
+     * 数据中心的事件变量列表
+     */
+    public java.util.List<EventVariableDto> getDataCenterEventVariables() {
+        return dataCenterEventVariables;
     }
-    public void setPreparedDimensions(java.util.List<PreparedDimensionDto> preparedDimensions) {
-        this.preparedDimensions = preparedDimensions;
-    }
-
-    public java.util.List<KpiAnalysisDto> getKpiAnalyses() {
-        return kpiAnalyses;
-    }
-    public void setKpiAnalyses(java.util.List<KpiAnalysisDto> kpiAnalyses) {
-        this.kpiAnalyses = kpiAnalyses;
-    }
-
-    public Integer getCountKpiAnalyses() {
-        return countKpiAnalyses;
-    }
-    public void setCountKpiAnalyses(Integer countKpiAnalyses) {
-        this.countKpiAnalyses = countKpiAnalyses;
+    /**
+     * 数据中心的事件变量列表
+     */
+    public void setDataCenterEventVariables(java.util.List<EventVariableDto> dataCenterEventVariables) {
+        this.dataCenterEventVariables = dataCenterEventVariables;
     }
 
-    public java.util.List<FunnelAnalysisDto> getFunnelAnalyses() {
-        return funnelAnalyses;
+    /**
+     * 数据中心的事件变量数量
+     */
+    public Integer getDataCenterCountEventVariables() {
+        return dataCenterCountEventVariables;
     }
-    public void setFunnelAnalyses(java.util.List<FunnelAnalysisDto> funnelAnalyses) {
-        this.funnelAnalyses = funnelAnalyses;
-    }
-
-    public Integer getCountFunnelAnalyses() {
-        return countFunnelAnalyses;
-    }
-    public void setCountFunnelAnalyses(Integer countFunnelAnalyses) {
-        this.countFunnelAnalyses = countFunnelAnalyses;
-    }
-
-    public java.util.List<FrequencyAnalysisDto> getFrequencyAnalyses() {
-        return frequencyAnalyses;
-    }
-    public void setFrequencyAnalyses(java.util.List<FrequencyAnalysisDto> frequencyAnalyses) {
-        this.frequencyAnalyses = frequencyAnalyses;
+    /**
+     * 数据中心的事件变量数量
+     */
+    public void setDataCenterCountEventVariables(Integer dataCenterCountEventVariables) {
+        this.dataCenterCountEventVariables = dataCenterCountEventVariables;
     }
 
-    public Integer getCountFrequencyAnalyses() {
-        return countFrequencyAnalyses;
+    /**
+     * 数据中心物品模型列表
+     */
+    public java.util.List<ItemModelDto> getDataCenterItemModels() {
+        return dataCenterItemModels;
     }
-    public void setCountFrequencyAnalyses(Integer countFrequencyAnalyses) {
-        this.countFrequencyAnalyses = countFrequencyAnalyses;
-    }
-
-    public java.util.List<EventAnalysisDto> getEventAnalyses() {
-        return eventAnalyses;
-    }
-    public void setEventAnalyses(java.util.List<EventAnalysisDto> eventAnalyses) {
-        this.eventAnalyses = eventAnalyses;
-    }
-
-    public Integer getCountEventAnalyses() {
-        return countEventAnalyses;
-    }
-    public void setCountEventAnalyses(Integer countEventAnalyses) {
-        this.countEventAnalyses = countEventAnalyses;
+    /**
+     * 数据中心物品模型列表
+     */
+    public void setDataCenterItemModels(java.util.List<ItemModelDto> dataCenterItemModels) {
+        this.dataCenterItemModels = dataCenterItemModels;
     }
 
-    public java.util.List<RetentionAnalysisDto> getRetentionAnalyses() {
-        return retentionAnalyses;
+    /**
+     * 数据中心的物品模型变量
+     */
+    public java.util.List<ItemVariableDto> getDataCenterItemVariables() {
+        return dataCenterItemVariables;
     }
-    public void setRetentionAnalyses(java.util.List<RetentionAnalysisDto> retentionAnalyses) {
-        this.retentionAnalyses = retentionAnalyses;
-    }
-
-    public Integer getCountRetentionAnalyses() {
-        return countRetentionAnalyses;
-    }
-    public void setCountRetentionAnalyses(Integer countRetentionAnalyses) {
-        this.countRetentionAnalyses = countRetentionAnalyses;
-    }
-
-    public java.util.List<DashboardDto> getDashboards() {
-        return dashboards;
-    }
-    public void setDashboards(java.util.List<DashboardDto> dashboards) {
-        this.dashboards = dashboards;
+    /**
+     * 数据中心的物品模型变量
+     */
+    public void setDataCenterItemVariables(java.util.List<ItemVariableDto> dataCenterItemVariables) {
+        this.dataCenterItemVariables = dataCenterItemVariables;
     }
 
-    public Integer getCountDashboards() {
-        return countDashboards;
+    /**
+     * 数据中心的物品模型变量数量
+     */
+    public Integer getDataCenterCountItemVariables() {
+        return dataCenterCountItemVariables;
     }
-    public void setCountDashboards(Integer countDashboards) {
-        this.countDashboards = countDashboards;
+    /**
+     * 数据中心的物品模型变量数量
+     */
+    public void setDataCenterCountItemVariables(Integer dataCenterCountItemVariables) {
+        this.dataCenterCountItemVariables = dataCenterCountItemVariables;
+    }
+
+    /**
+     * 数据中心的用户变量列表
+     */
+    public java.util.List<UserVariableDto> getDataCenterUserVariables() {
+        return dataCenterUserVariables;
+    }
+    /**
+     * 数据中心的用户变量列表
+     */
+    public void setDataCenterUserVariables(java.util.List<UserVariableDto> dataCenterUserVariables) {
+        this.dataCenterUserVariables = dataCenterUserVariables;
+    }
+
+    /**
+     * 数据中心的用户变量数量
+     */
+    public Integer getDataCenterCountUserVariables() {
+        return dataCenterCountUserVariables;
+    }
+    /**
+     * 数据中心的用户变量数量
+     */
+    public void setDataCenterCountUserVariables(Integer dataCenterCountUserVariables) {
+        this.dataCenterCountUserVariables = dataCenterCountUserVariables;
+    }
+
+    /**
+     * 数据中心的预定定维度
+     */
+    public java.util.List<PreparedDimensionDto> getDataCenterPreparedDimensions() {
+        return dataCenterPreparedDimensions;
+    }
+    /**
+     * 数据中心的预定定维度
+     */
+    public void setDataCenterPreparedDimensions(java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions) {
+        this.dataCenterPreparedDimensions = dataCenterPreparedDimensions;
+    }
+
+    /**
+     * 数据中心的指标列表
+     */
+    public java.util.List<MeasurableDto> getDataCenterMeasurements() {
+        return dataCenterMeasurements;
+    }
+    /**
+     * 数据中心的指标列表
+     */
+    public void setDataCenterMeasurements(java.util.List<MeasurableDto> dataCenterMeasurements) {
+        this.dataCenterMeasurements = dataCenterMeasurements;
     }
 
 
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "{ ", " }");
-        if (personaMeasurements != null) {
-            joiner.add("personaMeasurements: " + GraphQLRequestSerializer.getEntry(personaMeasurements));
-        }
         if (utmArguments != null) {
             joiner.add("utmArguments: " + GraphQLRequestSerializer.getEntry(utmArguments));
         }
-        if (projectInfo != null) {
-            joiner.add("projectInfo: " + GraphQLRequestSerializer.getEntry(projectInfo));
+        if (dataCenterInfo != null) {
+            joiner.add("dataCenterInfo: " + GraphQLRequestSerializer.getEntry(dataCenterInfo));
         }
         if (originDataSettings != null) {
             joiner.add("originDataSettings: " + GraphQLRequestSerializer.getEntry(originDataSettings));
         }
-        if (tags != null) {
-            joiner.add("tags: " + GraphQLRequestSerializer.getEntry(tags));
+        if (dataCenterTags != null) {
+            joiner.add("dataCenterTags: " + GraphQLRequestSerializer.getEntry(dataCenterTags));
         }
-        if (countTags != null) {
-            joiner.add("countTags: " + GraphQLRequestSerializer.getEntry(countTags));
-        }
-        if (segments != null) {
-            joiner.add("segments: " + GraphQLRequestSerializer.getEntry(segments));
-        }
-        if (countSegments != null) {
-            joiner.add("countSegments: " + GraphQLRequestSerializer.getEntry(countSegments));
+        if (dataCenterCountTags != null) {
+            joiner.add("dataCenterCountTags: " + GraphQLRequestSerializer.getEntry(dataCenterCountTags));
         }
         if (tunnels != null) {
             joiner.add("tunnels: " + GraphQLRequestSerializer.getEntry(tunnels));
@@ -455,95 +401,68 @@ public class QueryDto implements java.io.Serializable {
         if (version != null) {
             joiner.add("version: " + GraphQLRequestSerializer.getEntry(version));
         }
-        if (permissionModules != null) {
-            joiner.add("permissionModules: " + GraphQLRequestSerializer.getEntry(permissionModules));
+        if (categories != null) {
+            joiner.add("categories: " + GraphQLRequestSerializer.getEntry(categories));
         }
-        if (roles != null) {
-            joiner.add("roles: " + GraphQLRequestSerializer.getEntry(roles));
+        if (dataCenterDefaultCategory != null) {
+            joiner.add("dataCenterDefaultCategory: " + GraphQLRequestSerializer.getEntry(dataCenterDefaultCategory));
+        }
+        if (dataCenterTreeLikeCategories != null) {
+            joiner.add("dataCenterTreeLikeCategories: " + GraphQLRequestSerializer.getEntry(dataCenterTreeLikeCategories));
+        }
+        if (dataCenterPermissionModules != null) {
+            joiner.add("dataCenterPermissionModules: " + GraphQLRequestSerializer.getEntry(dataCenterPermissionModules));
+        }
+        if (dataCenterRoles != null) {
+            joiner.add("dataCenterRoles: " + GraphQLRequestSerializer.getEntry(dataCenterRoles));
         }
         if (allDepartments != null) {
             joiner.add("allDepartments: " + GraphQLRequestSerializer.getEntry(allDepartments));
         }
-        if (customEvents != null) {
-            joiner.add("customEvents: " + GraphQLRequestSerializer.getEntry(customEvents));
+        if (projects != null) {
+            joiner.add("projects: " + GraphQLRequestSerializer.getEntry(projects));
         }
-        if (countCustomEvents != null) {
-            joiner.add("countCustomEvents: " + GraphQLRequestSerializer.getEntry(countCustomEvents));
+        if (projectPermissionModules != null) {
+            joiner.add("projectPermissionModules: " + GraphQLRequestSerializer.getEntry(projectPermissionModules));
         }
-        if (elements != null) {
-            joiner.add("elements: " + GraphQLRequestSerializer.getEntry(elements));
+        if (currentUser != null) {
+            joiner.add("currentUser: " + GraphQLRequestSerializer.getEntry(currentUser));
         }
-        if (complexMetrics != null) {
-            joiner.add("complexMetrics: " + GraphQLRequestSerializer.getEntry(complexMetrics));
+        if (dataCenterCustomEvents != null) {
+            joiner.add("dataCenterCustomEvents: " + GraphQLRequestSerializer.getEntry(dataCenterCustomEvents));
         }
         if (preparedMetrics != null) {
             joiner.add("preparedMetrics: " + GraphQLRequestSerializer.getEntry(preparedMetrics));
         }
-        if (countComplexMetrics != null) {
-            joiner.add("countComplexMetrics: " + GraphQLRequestSerializer.getEntry(countComplexMetrics));
-        }
-        if (eventVariables != null) {
-            joiner.add("eventVariables: " + GraphQLRequestSerializer.getEntry(eventVariables));
-        }
-        if (countEventVariables != null) {
-            joiner.add("countEventVariables: " + GraphQLRequestSerializer.getEntry(countEventVariables));
-        }
-        if (itemModels != null) {
-            joiner.add("itemModels: " + GraphQLRequestSerializer.getEntry(itemModels));
-        }
-        if (itemVariables != null) {
-            joiner.add("itemVariables: " + GraphQLRequestSerializer.getEntry(itemVariables));
-        }
-        if (countItemVariables != null) {
-            joiner.add("countItemVariables: " + GraphQLRequestSerializer.getEntry(countItemVariables));
-        }
-        if (userVariables != null) {
-            joiner.add("userVariables: " + GraphQLRequestSerializer.getEntry(userVariables));
-        }
-        if (countUserVariables != null) {
-            joiner.add("countUserVariables: " + GraphQLRequestSerializer.getEntry(countUserVariables));
-        }
         if (userProperties != null) {
             joiner.add("userProperties: " + GraphQLRequestSerializer.getEntry(userProperties));
         }
-        if (preparedDimensions != null) {
-            joiner.add("preparedDimensions: " + GraphQLRequestSerializer.getEntry(preparedDimensions));
+        if (dataCenterEventVariables != null) {
+            joiner.add("dataCenterEventVariables: " + GraphQLRequestSerializer.getEntry(dataCenterEventVariables));
         }
-        if (kpiAnalyses != null) {
-            joiner.add("kpiAnalyses: " + GraphQLRequestSerializer.getEntry(kpiAnalyses));
+        if (dataCenterCountEventVariables != null) {
+            joiner.add("dataCenterCountEventVariables: " + GraphQLRequestSerializer.getEntry(dataCenterCountEventVariables));
         }
-        if (countKpiAnalyses != null) {
-            joiner.add("countKpiAnalyses: " + GraphQLRequestSerializer.getEntry(countKpiAnalyses));
+        if (dataCenterItemModels != null) {
+            joiner.add("dataCenterItemModels: " + GraphQLRequestSerializer.getEntry(dataCenterItemModels));
         }
-        if (funnelAnalyses != null) {
-            joiner.add("funnelAnalyses: " + GraphQLRequestSerializer.getEntry(funnelAnalyses));
+        if (dataCenterItemVariables != null) {
+            joiner.add("dataCenterItemVariables: " + GraphQLRequestSerializer.getEntry(dataCenterItemVariables));
         }
-        if (countFunnelAnalyses != null) {
-            joiner.add("countFunnelAnalyses: " + GraphQLRequestSerializer.getEntry(countFunnelAnalyses));
+        if (dataCenterCountItemVariables != null) {
+            joiner.add("dataCenterCountItemVariables: " + GraphQLRequestSerializer.getEntry(dataCenterCountItemVariables));
         }
-        if (frequencyAnalyses != null) {
-            joiner.add("frequencyAnalyses: " + GraphQLRequestSerializer.getEntry(frequencyAnalyses));
+        if (dataCenterUserVariables != null) {
+            joiner.add("dataCenterUserVariables: " + GraphQLRequestSerializer.getEntry(dataCenterUserVariables));
         }
-        if (countFrequencyAnalyses != null) {
-            joiner.add("countFrequencyAnalyses: " + GraphQLRequestSerializer.getEntry(countFrequencyAnalyses));
+        if (dataCenterCountUserVariables != null) {
+            joiner.add("dataCenterCountUserVariables: " + GraphQLRequestSerializer.getEntry(dataCenterCountUserVariables));
         }
-        if (eventAnalyses != null) {
-            joiner.add("eventAnalyses: " + GraphQLRequestSerializer.getEntry(eventAnalyses));
+        if (dataCenterPreparedDimensions != null) {
+            joiner.add("dataCenterPreparedDimensions: " + GraphQLRequestSerializer.getEntry(dataCenterPreparedDimensions));
         }
-        if (countEventAnalyses != null) {
-            joiner.add("countEventAnalyses: " + GraphQLRequestSerializer.getEntry(countEventAnalyses));
-        }
-        if (retentionAnalyses != null) {
-            joiner.add("retentionAnalyses: " + GraphQLRequestSerializer.getEntry(retentionAnalyses));
-        }
-        if (countRetentionAnalyses != null) {
-            joiner.add("countRetentionAnalyses: " + GraphQLRequestSerializer.getEntry(countRetentionAnalyses));
-        }
-        if (dashboards != null) {
-            joiner.add("dashboards: " + GraphQLRequestSerializer.getEntry(dashboards));
-        }
-        if (countDashboards != null) {
-            joiner.add("countDashboards: " + GraphQLRequestSerializer.getEntry(countDashboards));
+        if (dataCenterMeasurements != null) {
+            joiner.add("dataCenterMeasurements: " + GraphQLRequestSerializer.getEntry(dataCenterMeasurements));
         }
         return joiner.toString();
     }
@@ -554,56 +473,39 @@ public class QueryDto implements java.io.Serializable {
 
     public static class Builder {
 
-        private java.util.List<MeasurementDto> personaMeasurements;
         private java.util.List<UtmArgumentDto> utmArguments;
-        private ProjectInfoDto projectInfo;
+        private DataCenterInfoDto dataCenterInfo;
         private java.util.List<OriginDataSettingDto> originDataSettings;
-        private java.util.List<TagDto> tags;
-        private Integer countTags;
-        private java.util.List<SegmentDto> segments;
-        private Integer countSegments;
+        private java.util.List<TagDto> dataCenterTags;
+        private Integer dataCenterCountTags;
         private java.util.List<TunnelDto> tunnels;
         private Integer countTunnels;
         private java.util.List<EventImportJobDto> eventImportJobs;
         private java.util.List<FeatureDto> features;
         private String version;
-        private java.util.List<ModuleDto> permissionModules;
-        private java.util.List<RoleDto> roles;
+        private java.util.List<CategoryDto> categories;
+        private CategoryDto dataCenterDefaultCategory;
+        private java.util.List<CategoryDto> dataCenterTreeLikeCategories;
+        private java.util.List<ModuleDto> dataCenterPermissionModules;
+        private java.util.List<DataCenterRoleDto> dataCenterRoles;
         private java.util.List<DepartmentDto> allDepartments;
-        private java.util.List<CustomEventDto> customEvents;
-        private Integer countCustomEvents;
-        private java.util.List<ElementDto> elements;
-        private java.util.List<ComplexMetricDto> complexMetrics;
+        private java.util.List<ProjectDto> projects;
+        private java.util.List<ModuleDto> projectPermissionModules;
+        private MemberDto currentUser;
+        private java.util.List<CustomEventDto> dataCenterCustomEvents;
         private java.util.List<PreparedMetricDto> preparedMetrics;
-        private Integer countComplexMetrics;
-        private java.util.List<EventVariableDto> eventVariables;
-        private Integer countEventVariables;
-        private java.util.List<ItemModelDto> itemModels;
-        private java.util.List<ItemVariableDto> itemVariables;
-        private Integer countItemVariables;
-        private java.util.List<UserVariableDto> userVariables;
-        private Integer countUserVariables;
         private java.util.List<UserPropertyDto> userProperties;
-        private java.util.List<PreparedDimensionDto> preparedDimensions;
-        private java.util.List<KpiAnalysisDto> kpiAnalyses;
-        private Integer countKpiAnalyses;
-        private java.util.List<FunnelAnalysisDto> funnelAnalyses;
-        private Integer countFunnelAnalyses;
-        private java.util.List<FrequencyAnalysisDto> frequencyAnalyses;
-        private Integer countFrequencyAnalyses;
-        private java.util.List<EventAnalysisDto> eventAnalyses;
-        private Integer countEventAnalyses;
-        private java.util.List<RetentionAnalysisDto> retentionAnalyses;
-        private Integer countRetentionAnalyses;
-        private java.util.List<DashboardDto> dashboards;
-        private Integer countDashboards;
+        private java.util.List<EventVariableDto> dataCenterEventVariables;
+        private Integer dataCenterCountEventVariables;
+        private java.util.List<ItemModelDto> dataCenterItemModels;
+        private java.util.List<ItemVariableDto> dataCenterItemVariables;
+        private Integer dataCenterCountItemVariables;
+        private java.util.List<UserVariableDto> dataCenterUserVariables;
+        private Integer dataCenterCountUserVariables;
+        private java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions;
+        private java.util.List<MeasurableDto> dataCenterMeasurements;
 
         public Builder() {
-        }
-
-        public Builder setPersonaMeasurements(java.util.List<MeasurementDto> personaMeasurements) {
-            this.personaMeasurements = personaMeasurements;
-            return this;
         }
 
         public Builder setUtmArguments(java.util.List<UtmArgumentDto> utmArguments) {
@@ -611,8 +513,8 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setProjectInfo(ProjectInfoDto projectInfo) {
-            this.projectInfo = projectInfo;
+        public Builder setDataCenterInfo(DataCenterInfoDto dataCenterInfo) {
+            this.dataCenterInfo = dataCenterInfo;
             return this;
         }
 
@@ -621,23 +523,16 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setTags(java.util.List<TagDto> tags) {
-            this.tags = tags;
+        /**
+         * 数据中心标签列表
+         */
+        public Builder setDataCenterTags(java.util.List<TagDto> dataCenterTags) {
+            this.dataCenterTags = dataCenterTags;
             return this;
         }
 
-        public Builder setCountTags(Integer countTags) {
-            this.countTags = countTags;
-            return this;
-        }
-
-        public Builder setSegments(java.util.List<SegmentDto> segments) {
-            this.segments = segments;
-            return this;
-        }
-
-        public Builder setCountSegments(Integer countSegments) {
-            this.countSegments = countSegments;
+        public Builder setDataCenterCountTags(Integer dataCenterCountTags) {
+            this.dataCenterCountTags = dataCenterCountTags;
             return this;
         }
 
@@ -666,13 +561,28 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setPermissionModules(java.util.List<ModuleDto> permissionModules) {
-            this.permissionModules = permissionModules;
+        public Builder setCategories(java.util.List<CategoryDto> categories) {
+            this.categories = categories;
             return this;
         }
 
-        public Builder setRoles(java.util.List<RoleDto> roles) {
-            this.roles = roles;
+        public Builder setDataCenterDefaultCategory(CategoryDto dataCenterDefaultCategory) {
+            this.dataCenterDefaultCategory = dataCenterDefaultCategory;
+            return this;
+        }
+
+        public Builder setDataCenterTreeLikeCategories(java.util.List<CategoryDto> dataCenterTreeLikeCategories) {
+            this.dataCenterTreeLikeCategories = dataCenterTreeLikeCategories;
+            return this;
+        }
+
+        public Builder setDataCenterPermissionModules(java.util.List<ModuleDto> dataCenterPermissionModules) {
+            this.dataCenterPermissionModules = dataCenterPermissionModules;
+            return this;
+        }
+
+        public Builder setDataCenterRoles(java.util.List<DataCenterRoleDto> dataCenterRoles) {
+            this.dataCenterRoles = dataCenterRoles;
             return this;
         }
 
@@ -681,23 +591,23 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setCustomEvents(java.util.List<CustomEventDto> customEvents) {
-            this.customEvents = customEvents;
+        public Builder setProjects(java.util.List<ProjectDto> projects) {
+            this.projects = projects;
             return this;
         }
 
-        public Builder setCountCustomEvents(Integer countCustomEvents) {
-            this.countCustomEvents = countCustomEvents;
+        public Builder setProjectPermissionModules(java.util.List<ModuleDto> projectPermissionModules) {
+            this.projectPermissionModules = projectPermissionModules;
             return this;
         }
 
-        public Builder setElements(java.util.List<ElementDto> elements) {
-            this.elements = elements;
+        public Builder setCurrentUser(MemberDto currentUser) {
+            this.currentUser = currentUser;
             return this;
         }
 
-        public Builder setComplexMetrics(java.util.List<ComplexMetricDto> complexMetrics) {
-            this.complexMetrics = complexMetrics;
+        public Builder setDataCenterCustomEvents(java.util.List<CustomEventDto> dataCenterCustomEvents) {
+            this.dataCenterCustomEvents = dataCenterCustomEvents;
             return this;
         }
 
@@ -706,119 +616,86 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setCountComplexMetrics(Integer countComplexMetrics) {
-            this.countComplexMetrics = countComplexMetrics;
-            return this;
-        }
-
-        public Builder setEventVariables(java.util.List<EventVariableDto> eventVariables) {
-            this.eventVariables = eventVariables;
-            return this;
-        }
-
-        public Builder setCountEventVariables(Integer countEventVariables) {
-            this.countEventVariables = countEventVariables;
-            return this;
-        }
-
-        public Builder setItemModels(java.util.List<ItemModelDto> itemModels) {
-            this.itemModels = itemModels;
-            return this;
-        }
-
-        public Builder setItemVariables(java.util.List<ItemVariableDto> itemVariables) {
-            this.itemVariables = itemVariables;
-            return this;
-        }
-
-        public Builder setCountItemVariables(Integer countItemVariables) {
-            this.countItemVariables = countItemVariables;
-            return this;
-        }
-
-        public Builder setUserVariables(java.util.List<UserVariableDto> userVariables) {
-            this.userVariables = userVariables;
-            return this;
-        }
-
-        public Builder setCountUserVariables(Integer countUserVariables) {
-            this.countUserVariables = countUserVariables;
-            return this;
-        }
-
         public Builder setUserProperties(java.util.List<UserPropertyDto> userProperties) {
             this.userProperties = userProperties;
             return this;
         }
 
-        public Builder setPreparedDimensions(java.util.List<PreparedDimensionDto> preparedDimensions) {
-            this.preparedDimensions = preparedDimensions;
+        /**
+         * 数据中心的事件变量列表
+         */
+        public Builder setDataCenterEventVariables(java.util.List<EventVariableDto> dataCenterEventVariables) {
+            this.dataCenterEventVariables = dataCenterEventVariables;
             return this;
         }
 
-        public Builder setKpiAnalyses(java.util.List<KpiAnalysisDto> kpiAnalyses) {
-            this.kpiAnalyses = kpiAnalyses;
+        /**
+         * 数据中心的事件变量数量
+         */
+        public Builder setDataCenterCountEventVariables(Integer dataCenterCountEventVariables) {
+            this.dataCenterCountEventVariables = dataCenterCountEventVariables;
             return this;
         }
 
-        public Builder setCountKpiAnalyses(Integer countKpiAnalyses) {
-            this.countKpiAnalyses = countKpiAnalyses;
+        /**
+         * 数据中心物品模型列表
+         */
+        public Builder setDataCenterItemModels(java.util.List<ItemModelDto> dataCenterItemModels) {
+            this.dataCenterItemModels = dataCenterItemModels;
             return this;
         }
 
-        public Builder setFunnelAnalyses(java.util.List<FunnelAnalysisDto> funnelAnalyses) {
-            this.funnelAnalyses = funnelAnalyses;
+        /**
+         * 数据中心的物品模型变量
+         */
+        public Builder setDataCenterItemVariables(java.util.List<ItemVariableDto> dataCenterItemVariables) {
+            this.dataCenterItemVariables = dataCenterItemVariables;
             return this;
         }
 
-        public Builder setCountFunnelAnalyses(Integer countFunnelAnalyses) {
-            this.countFunnelAnalyses = countFunnelAnalyses;
+        /**
+         * 数据中心的物品模型变量数量
+         */
+        public Builder setDataCenterCountItemVariables(Integer dataCenterCountItemVariables) {
+            this.dataCenterCountItemVariables = dataCenterCountItemVariables;
             return this;
         }
 
-        public Builder setFrequencyAnalyses(java.util.List<FrequencyAnalysisDto> frequencyAnalyses) {
-            this.frequencyAnalyses = frequencyAnalyses;
+        /**
+         * 数据中心的用户变量列表
+         */
+        public Builder setDataCenterUserVariables(java.util.List<UserVariableDto> dataCenterUserVariables) {
+            this.dataCenterUserVariables = dataCenterUserVariables;
             return this;
         }
 
-        public Builder setCountFrequencyAnalyses(Integer countFrequencyAnalyses) {
-            this.countFrequencyAnalyses = countFrequencyAnalyses;
+        /**
+         * 数据中心的用户变量数量
+         */
+        public Builder setDataCenterCountUserVariables(Integer dataCenterCountUserVariables) {
+            this.dataCenterCountUserVariables = dataCenterCountUserVariables;
             return this;
         }
 
-        public Builder setEventAnalyses(java.util.List<EventAnalysisDto> eventAnalyses) {
-            this.eventAnalyses = eventAnalyses;
+        /**
+         * 数据中心的预定定维度
+         */
+        public Builder setDataCenterPreparedDimensions(java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions) {
+            this.dataCenterPreparedDimensions = dataCenterPreparedDimensions;
             return this;
         }
 
-        public Builder setCountEventAnalyses(Integer countEventAnalyses) {
-            this.countEventAnalyses = countEventAnalyses;
-            return this;
-        }
-
-        public Builder setRetentionAnalyses(java.util.List<RetentionAnalysisDto> retentionAnalyses) {
-            this.retentionAnalyses = retentionAnalyses;
-            return this;
-        }
-
-        public Builder setCountRetentionAnalyses(Integer countRetentionAnalyses) {
-            this.countRetentionAnalyses = countRetentionAnalyses;
-            return this;
-        }
-
-        public Builder setDashboards(java.util.List<DashboardDto> dashboards) {
-            this.dashboards = dashboards;
-            return this;
-        }
-
-        public Builder setCountDashboards(Integer countDashboards) {
-            this.countDashboards = countDashboards;
+        /**
+         * 数据中心的指标列表
+         */
+        public Builder setDataCenterMeasurements(java.util.List<MeasurableDto> dataCenterMeasurements) {
+            this.dataCenterMeasurements = dataCenterMeasurements;
             return this;
         }
 
 
         public QueryDto build() {
-            return new QueryDto(personaMeasurements, utmArguments, projectInfo, originDataSettings, tags, countTags, segments, countSegments, tunnels, countTunnels, eventImportJobs, features, version, permissionModules, roles, allDepartments, customEvents, countCustomEvents, elements, complexMetrics, preparedMetrics, countComplexMetrics, eventVariables, countEventVariables, itemModels, itemVariables, countItemVariables, userVariables, countUserVariables, userProperties, preparedDimensions, kpiAnalyses, countKpiAnalyses, funnelAnalyses, countFunnelAnalyses, frequencyAnalyses, countFrequencyAnalyses, eventAnalyses, countEventAnalyses, retentionAnalyses, countRetentionAnalyses, dashboards, countDashboards);
+            return new QueryDto(utmArguments, dataCenterInfo, originDataSettings, dataCenterTags, dataCenterCountTags, tunnels, countTunnels, eventImportJobs, features, version, categories, dataCenterDefaultCategory, dataCenterTreeLikeCategories, dataCenterPermissionModules, dataCenterRoles, allDepartments, projects, projectPermissionModules, currentUser, dataCenterCustomEvents, preparedMetrics, userProperties, dataCenterEventVariables, dataCenterCountEventVariables, dataCenterItemModels, dataCenterItemVariables, dataCenterCountItemVariables, dataCenterUserVariables, dataCenterCountUserVariables, dataCenterPreparedDimensions, dataCenterMeasurements);
         }
 
     }

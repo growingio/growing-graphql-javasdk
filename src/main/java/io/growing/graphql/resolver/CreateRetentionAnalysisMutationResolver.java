@@ -4,11 +4,11 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public interface CreateRetentionAnalysisMutationResolver {
 
     @javax.validation.constraints.NotNull
-    RetentionAnalysisDto createRetentionAnalysis(RetentionAnalysisInputDto retentionAnalysis) throws Exception;
+    RetentionAnalysisDto createRetentionAnalysis(String projectId, RetentionAnalysisInputDto retentionAnalysis) throws Exception;
 
 }

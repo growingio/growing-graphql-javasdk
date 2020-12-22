@@ -9,17 +9,24 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QuerySubscriptionsParametrizedInput implements GraphQLParametrizedInput {
 
+    private String projectId;
     private SubscriptionTypeDto type;
 
     public QuerySubscriptionsParametrizedInput() {
     }
 
-    public QuerySubscriptionsParametrizedInput(SubscriptionTypeDto type) {
+    public QuerySubscriptionsParametrizedInput(String projectId, SubscriptionTypeDto type) {
+        this.projectId = projectId;
         this.type = type;
+    }
+
+    public QuerySubscriptionsParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QuerySubscriptionsParametrizedInput type(SubscriptionTypeDto type) {
@@ -31,6 +38,9 @@ public class QuerySubscriptionsParametrizedInput implements GraphQLParametrizedI
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (type != null) {
             joiner.add("type: " + GraphQLRequestSerializer.getEntry(type));
         }

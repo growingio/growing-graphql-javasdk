@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryAnalysisDashboardReferersParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String resourceType;
     @javax.validation.constraints.NotNull
@@ -21,9 +23,15 @@ public class QueryAnalysisDashboardReferersParametrizedInput implements GraphQLP
     public QueryAnalysisDashboardReferersParametrizedInput() {
     }
 
-    public QueryAnalysisDashboardReferersParametrizedInput(String resourceType, String resourceId) {
+    public QueryAnalysisDashboardReferersParametrizedInput(String projectId, String resourceType, String resourceId) {
+        this.projectId = projectId;
         this.resourceType = resourceType;
         this.resourceId = resourceId;
+    }
+
+    public QueryAnalysisDashboardReferersParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryAnalysisDashboardReferersParametrizedInput resourceType(String resourceType) {
@@ -40,6 +48,9 @@ public class QueryAnalysisDashboardReferersParametrizedInput implements GraphQLP
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (resourceType != null) {
             joiner.add("resourceType: " + GraphQLRequestSerializer.getEntry(resourceType));
         }

@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class EntityResponseProjection extends GraphQLResponseProjection {
 
@@ -50,6 +50,15 @@ public class EntityResponseProjection extends GraphQLResponseProjection {
 
     public EntityResponseProjection onTag(String alias, TagResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on Tag").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public EntityResponseProjection onUserVariable(UserVariableResponseProjection subProjection) {
+        return onUserVariable(null, subProjection);
+    }
+
+    public EntityResponseProjection onUserVariable(String alias, UserVariableResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on UserVariable").alias(alias).projection(subProjection));
         return this;
     }
 

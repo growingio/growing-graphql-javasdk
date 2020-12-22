@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDto {
 
@@ -34,11 +34,12 @@ public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDt
     private java.time.ZonedDateTime updatedAt;
     private String creator;
     private String updater;
+    private String ownerId;
 
     public RetentionAnalysisDto() {
     }
 
-    public RetentionAnalysisDto(String id, String name, String description, java.util.List<MeasurementDto> measurements, String range, String eventType, String timeRange, TargetUserDto targetUser, Integer currentTurn, SplitterDto splitter, String chartType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater) {
+    public RetentionAnalysisDto(String id, String name, String description, java.util.List<MeasurementDto> measurements, String range, String eventType, String timeRange, TargetUserDto targetUser, Integer currentTurn, SplitterDto splitter, String chartType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String ownerId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -56,6 +57,7 @@ public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDt
         this.updatedAt = updatedAt;
         this.creator = creator;
         this.updater = updater;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -177,6 +179,13 @@ public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDt
         this.updater = updater;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -232,6 +241,9 @@ public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDt
         if (updater != null) {
             joiner.add("updater: " + GraphQLRequestSerializer.getEntry(updater));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -258,6 +270,7 @@ public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDt
         private java.time.ZonedDateTime updatedAt;
         private String creator;
         private String updater;
+        private String ownerId;
 
         public Builder() {
         }
@@ -347,9 +360,14 @@ public class RetentionAnalysisDto implements java.io.Serializable, NamedEntityDt
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public RetentionAnalysisDto build() {
-            return new RetentionAnalysisDto(id, name, description, measurements, range, eventType, timeRange, targetUser, currentTurn, splitter, chartType, creatorId, createdAt, updaterId, updatedAt, creator, updater);
+            return new RetentionAnalysisDto(id, name, description, measurements, range, eventType, timeRange, targetUser, currentTurn, splitter, chartType, creatorId, createdAt, updaterId, updatedAt, creator, updater, ownerId);
         }
 
     }

@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class PermissionDto implements java.io.Serializable {
 

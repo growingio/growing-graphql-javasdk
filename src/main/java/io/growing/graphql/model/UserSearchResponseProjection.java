@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class UserSearchResponseProjection extends GraphQLResponseProjection {
 
@@ -24,9 +24,9 @@ public class UserSearchResponseProjection extends GraphQLResponseProjection {
     public UserSearchResponseProjection all$(int maxDepth) {
         this.id();
         this.userId();
-        if (projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.property", 0) <= maxDepth) {
-            projectionDepthOnFields.put("UserSearchResponseProjection.PropertyResponseProjection.property", projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.property", 0) + 1);
-            this.property(new PropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.property", 0)));
+        if (projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.properties", 0) <= maxDepth) {
+            projectionDepthOnFields.put("UserSearchResponseProjection.PropertyResponseProjection.properties", projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.properties", 0) + 1);
+            this.properties(new PropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("UserSearchResponseProjection.PropertyResponseProjection.properties", 0)));
         }
         this.typename();
         return this;
@@ -50,12 +50,12 @@ public class UserSearchResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public UserSearchResponseProjection property(PropertyResponseProjection subProjection) {
-        return property(null, subProjection);
+    public UserSearchResponseProjection properties(PropertyResponseProjection subProjection) {
+        return properties(null, subProjection);
     }
 
-    public UserSearchResponseProjection property(String alias, PropertyResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("property").alias(alias).projection(subProjection));
+    public UserSearchResponseProjection properties(String alias, PropertyResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("properties").alias(alias).projection(subProjection));
         return this;
     }
 

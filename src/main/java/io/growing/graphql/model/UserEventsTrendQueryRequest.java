@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class UserEventsTrendQueryRequest implements GraphQLOperationRequest {
 
@@ -20,8 +20,28 @@ public class UserEventsTrendQueryRequest implements GraphQLOperationRequest {
     public UserEventsTrendQueryRequest() {
     }
 
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
+    }
+
     public void setId(String id) {
         this.input.put("id", id);
+    }
+
+    public void setType(UserEventTypeDto type) {
+        this.input.put("type", type);
+    }
+
+    public void setTimeRange(String timeRange) {
+        this.input.put("timeRange", timeRange);
+    }
+
+    public void setInterval(java.lang.Long interval) {
+        this.input.put("interval", interval);
+    }
+
+    public void setEventKeys(java.util.List<String> eventKeys) {
+        this.input.put("eventKeys", eventKeys);
     }
 
     @Override
@@ -46,9 +66,19 @@ public class UserEventsTrendQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private String id;
+        private UserEventTypeDto type;
+        private String timeRange;
+        private java.lang.Long interval;
+        private java.util.List<String> eventKeys;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setId(String id) {
@@ -56,10 +86,35 @@ public class UserEventsTrendQueryRequest implements GraphQLOperationRequest {
             return this;
         }
 
+        public Builder setType(UserEventTypeDto type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder setTimeRange(String timeRange) {
+            this.timeRange = timeRange;
+            return this;
+        }
+
+        public Builder setInterval(java.lang.Long interval) {
+            this.interval = interval;
+            return this;
+        }
+
+        public Builder setEventKeys(java.util.List<String> eventKeys) {
+            this.eventKeys = eventKeys;
+            return this;
+        }
+
 
         public UserEventsTrendQueryRequest build() {
             UserEventsTrendQueryRequest obj = new UserEventsTrendQueryRequest();
+            obj.setProjectId(projectId);
             obj.setId(id);
+            obj.setType(type);
+            obj.setTimeRange(timeRange);
+            obj.setInterval(interval);
+            obj.setEventKeys(eventKeys);
             return obj;
         }
 

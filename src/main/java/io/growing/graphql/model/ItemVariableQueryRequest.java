@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class ItemVariableQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class ItemVariableQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public ItemVariableQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setId(String id) {
@@ -46,9 +50,15 @@ public class ItemVariableQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private String id;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setId(String id) {
@@ -59,6 +69,7 @@ public class ItemVariableQueryRequest implements GraphQLOperationRequest {
 
         public ItemVariableQueryRequest build() {
             ItemVariableQueryRequest obj = new ItemVariableQueryRequest();
+            obj.setProjectId(projectId);
             obj.setId(id);
             return obj;
         }

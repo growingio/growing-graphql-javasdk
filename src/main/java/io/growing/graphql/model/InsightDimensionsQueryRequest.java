@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 数据中心的 insightDimensions
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class InsightDimensionsQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +21,10 @@ public class InsightDimensionsQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public InsightDimensionsQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setMeasurements(java.util.List<MeasurementInputDto> measurements) {
@@ -50,10 +57,16 @@ public class InsightDimensionsQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private java.util.List<MeasurementInputDto> measurements;
         private java.util.List<String> targetUsers;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setMeasurements(java.util.List<MeasurementInputDto> measurements) {
@@ -69,6 +82,7 @@ public class InsightDimensionsQueryRequest implements GraphQLOperationRequest {
 
         public InsightDimensionsQueryRequest build() {
             InsightDimensionsQueryRequest obj = new InsightDimensionsQueryRequest();
+            obj.setProjectId(projectId);
             obj.setMeasurements(measurements);
             obj.setTargetUsers(targetUsers);
             return obj;

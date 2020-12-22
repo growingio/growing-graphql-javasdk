@@ -9,19 +9,27 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryInsightDimensionsParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     private java.util.List<MeasurementInputDto> measurements;
     private java.util.List<String> targetUsers;
 
     public QueryInsightDimensionsParametrizedInput() {
     }
 
-    public QueryInsightDimensionsParametrizedInput(java.util.List<MeasurementInputDto> measurements, java.util.List<String> targetUsers) {
+    public QueryInsightDimensionsParametrizedInput(String projectId, java.util.List<MeasurementInputDto> measurements, java.util.List<String> targetUsers) {
+        this.projectId = projectId;
         this.measurements = measurements;
         this.targetUsers = targetUsers;
+    }
+
+    public QueryInsightDimensionsParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryInsightDimensionsParametrizedInput measurements(java.util.List<MeasurementInputDto> measurements) {
@@ -38,6 +46,9 @@ public class QueryInsightDimensionsParametrizedInput implements GraphQLParametri
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (measurements != null) {
             joiner.add("measurements: " + GraphQLRequestSerializer.getEntry(measurements));
         }

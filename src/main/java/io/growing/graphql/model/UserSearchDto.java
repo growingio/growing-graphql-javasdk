@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class UserSearchDto implements java.io.Serializable {
 
@@ -13,15 +13,15 @@ public class UserSearchDto implements java.io.Serializable {
     private String id;
     private String userId;
     @javax.validation.constraints.NotNull
-    private PropertyDto property;
+    private java.util.List<PropertyDto> properties;
 
     public UserSearchDto() {
     }
 
-    public UserSearchDto(String id, String userId, PropertyDto property) {
+    public UserSearchDto(String id, String userId, java.util.List<PropertyDto> properties) {
         this.id = id;
         this.userId = userId;
-        this.property = property;
+        this.properties = properties;
     }
 
     public String getId() {
@@ -38,11 +38,11 @@ public class UserSearchDto implements java.io.Serializable {
         this.userId = userId;
     }
 
-    public PropertyDto getProperty() {
-        return property;
+    public java.util.List<PropertyDto> getProperties() {
+        return properties;
     }
-    public void setProperty(PropertyDto property) {
-        this.property = property;
+    public void setProperties(java.util.List<PropertyDto> properties) {
+        this.properties = properties;
     }
 
 
@@ -55,8 +55,8 @@ public class UserSearchDto implements java.io.Serializable {
         if (userId != null) {
             joiner.add("userId: " + GraphQLRequestSerializer.getEntry(userId));
         }
-        if (property != null) {
-            joiner.add("property: " + GraphQLRequestSerializer.getEntry(property));
+        if (properties != null) {
+            joiner.add("properties: " + GraphQLRequestSerializer.getEntry(properties));
         }
         return joiner.toString();
     }
@@ -69,7 +69,7 @@ public class UserSearchDto implements java.io.Serializable {
 
         private String id;
         private String userId;
-        private PropertyDto property;
+        private java.util.List<PropertyDto> properties;
 
         public Builder() {
         }
@@ -84,14 +84,14 @@ public class UserSearchDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setProperty(PropertyDto property) {
-            this.property = property;
+        public Builder setProperties(java.util.List<PropertyDto> properties) {
+            this.properties = properties;
             return this;
         }
 
 
         public UserSearchDto build() {
-            return new UserSearchDto(id, userId, property);
+            return new UserSearchDto(id, userId, properties);
         }
 
     }

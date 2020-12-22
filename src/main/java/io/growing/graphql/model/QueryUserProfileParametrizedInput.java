@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryUserProfileParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     private String userId;
     @javax.validation.constraints.NotNull
     private java.util.List<String> tags;
@@ -22,10 +24,16 @@ public class QueryUserProfileParametrizedInput implements GraphQLParametrizedInp
     public QueryUserProfileParametrizedInput() {
     }
 
-    public QueryUserProfileParametrizedInput(String userId, java.util.List<String> tags, java.util.List<String> properties) {
+    public QueryUserProfileParametrizedInput(String projectId, String userId, java.util.List<String> tags, java.util.List<String> properties) {
+        this.projectId = projectId;
         this.userId = userId;
         this.tags = tags;
         this.properties = properties;
+    }
+
+    public QueryUserProfileParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryUserProfileParametrizedInput userId(String userId) {
@@ -47,6 +55,9 @@ public class QueryUserProfileParametrizedInput implements GraphQLParametrizedInp
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (userId != null) {
             joiner.add("userId: " + GraphQLRequestSerializer.getEntry(userId));
         }

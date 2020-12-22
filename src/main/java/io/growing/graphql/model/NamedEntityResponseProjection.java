@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class NamedEntityResponseProjection extends GraphQLResponseProjection {
 
@@ -30,6 +30,7 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
         this.updatedAt();
         this.creator();
         this.updater();
+        this.ownerId();
         this.typename();
         return this;
     }
@@ -103,6 +104,15 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
 
     public NamedEntityResponseProjection updater(String alias) {
         fields.add(new GraphQLResponseField("updater").alias(alias));
+        return this;
+    }
+
+    public NamedEntityResponseProjection ownerId() {
+        return ownerId(null);
+    }
+
+    public NamedEntityResponseProjection ownerId(String alias) {
+        fields.add(new GraphQLResponseField("ownerId").alias(alias));
         return this;
     }
 
@@ -223,21 +233,21 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public NamedEntityResponseProjection onFrequencyAnalysis(FrequencyAnalysisResponseProjection subProjection) {
-        return onFrequencyAnalysis(null, subProjection);
-    }
-
-    public NamedEntityResponseProjection onFrequencyAnalysis(String alias, FrequencyAnalysisResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("...on FrequencyAnalysis").alias(alias).projection(subProjection));
-        return this;
-    }
-
     public NamedEntityResponseProjection onKpiAnalysis(KpiAnalysisResponseProjection subProjection) {
         return onKpiAnalysis(null, subProjection);
     }
 
     public NamedEntityResponseProjection onKpiAnalysis(String alias, KpiAnalysisResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on KpiAnalysis").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public NamedEntityResponseProjection onFrequencyAnalysis(FrequencyAnalysisResponseProjection subProjection) {
+        return onFrequencyAnalysis(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onFrequencyAnalysis(String alias, FrequencyAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on FrequencyAnalysis").alias(alias).projection(subProjection));
         return this;
     }
 
@@ -250,12 +260,12 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public NamedEntityResponseProjection onComplexMetric(ComplexMetricResponseProjection subProjection) {
-        return onComplexMetric(null, subProjection);
+    public NamedEntityResponseProjection onTrackOverviewAnalysis(TrackOverviewAnalysisResponseProjection subProjection) {
+        return onTrackOverviewAnalysis(null, subProjection);
     }
 
-    public NamedEntityResponseProjection onComplexMetric(String alias, ComplexMetricResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("...on ComplexMetric").alias(alias).projection(subProjection));
+    public NamedEntityResponseProjection onTrackOverviewAnalysis(String alias, TrackOverviewAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on TrackOverviewAnalysis").alias(alias).projection(subProjection));
         return this;
     }
 
@@ -265,6 +275,15 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
 
     public NamedEntityResponseProjection onRetentionAnalysis(String alias, RetentionAnalysisResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on RetentionAnalysis").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public NamedEntityResponseProjection onComplexMetric(ComplexMetricResponseProjection subProjection) {
+        return onComplexMetric(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onComplexMetric(String alias, ComplexMetricResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on ComplexMetric").alias(alias).projection(subProjection));
         return this;
     }
 

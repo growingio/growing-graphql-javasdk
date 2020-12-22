@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class UserSummaryDto implements java.io.Serializable, EntityDto {
 
@@ -18,16 +18,19 @@ public class UserSummaryDto implements java.io.Serializable, EntityDto {
     private java.time.ZonedDateTime visitedAt;
     @javax.validation.constraints.NotNull
     private String visitedLocation;
+    @javax.validation.constraints.NotNull
+    private java.util.List<PropertyDto> properties;
 
     public UserSummaryDto() {
     }
 
-    public UserSummaryDto(String id, String userId, Integer monthlyVisits, java.time.ZonedDateTime visitedAt, String visitedLocation) {
+    public UserSummaryDto(String id, String userId, Integer monthlyVisits, java.time.ZonedDateTime visitedAt, String visitedLocation, java.util.List<PropertyDto> properties) {
         this.id = id;
         this.userId = userId;
         this.monthlyVisits = monthlyVisits;
         this.visitedAt = visitedAt;
         this.visitedLocation = visitedLocation;
+        this.properties = properties;
     }
 
     public String getId() {
@@ -65,6 +68,13 @@ public class UserSummaryDto implements java.io.Serializable, EntityDto {
         this.visitedLocation = visitedLocation;
     }
 
+    public java.util.List<PropertyDto> getProperties() {
+        return properties;
+    }
+    public void setProperties(java.util.List<PropertyDto> properties) {
+        this.properties = properties;
+    }
+
 
     @Override
     public String toString() {
@@ -84,6 +94,9 @@ public class UserSummaryDto implements java.io.Serializable, EntityDto {
         if (visitedLocation != null) {
             joiner.add("visitedLocation: " + GraphQLRequestSerializer.getEntry(visitedLocation));
         }
+        if (properties != null) {
+            joiner.add("properties: " + GraphQLRequestSerializer.getEntry(properties));
+        }
         return joiner.toString();
     }
 
@@ -98,6 +111,7 @@ public class UserSummaryDto implements java.io.Serializable, EntityDto {
         private Integer monthlyVisits;
         private java.time.ZonedDateTime visitedAt;
         private String visitedLocation;
+        private java.util.List<PropertyDto> properties;
 
         public Builder() {
         }
@@ -127,9 +141,14 @@ public class UserSummaryDto implements java.io.Serializable, EntityDto {
             return this;
         }
 
+        public Builder setProperties(java.util.List<PropertyDto> properties) {
+            this.properties = properties;
+            return this;
+        }
+
 
         public UserSummaryDto build() {
-            return new UserSummaryDto(id, userId, monthlyVisits, visitedAt, visitedLocation);
+            return new UserSummaryDto(id, userId, monthlyVisits, visitedAt, visitedLocation, properties);
         }
 
     }

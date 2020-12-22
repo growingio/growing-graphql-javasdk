@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QuerySegmentMeasurementsParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private SettingSegmentMeasurementPolicyDto policy;
     private String id;
@@ -20,9 +22,15 @@ public class QuerySegmentMeasurementsParametrizedInput implements GraphQLParamet
     public QuerySegmentMeasurementsParametrizedInput() {
     }
 
-    public QuerySegmentMeasurementsParametrizedInput(SettingSegmentMeasurementPolicyDto policy, String id) {
+    public QuerySegmentMeasurementsParametrizedInput(String projectId, SettingSegmentMeasurementPolicyDto policy, String id) {
+        this.projectId = projectId;
         this.policy = policy;
         this.id = id;
+    }
+
+    public QuerySegmentMeasurementsParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QuerySegmentMeasurementsParametrizedInput policy(SettingSegmentMeasurementPolicyDto policy) {
@@ -39,6 +47,9 @@ public class QuerySegmentMeasurementsParametrizedInput implements GraphQLParamet
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (policy != null) {
             joiner.add("policy: " + GraphQLRequestSerializer.getEntry(policy));
         }

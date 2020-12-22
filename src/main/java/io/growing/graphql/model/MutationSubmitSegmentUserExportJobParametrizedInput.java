@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationSubmitSegmentUserExportJobParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String segmentId;
     @javax.validation.constraints.NotNull
@@ -24,11 +26,17 @@ public class MutationSubmitSegmentUserExportJobParametrizedInput implements Grap
     public MutationSubmitSegmentUserExportJobParametrizedInput() {
     }
 
-    public MutationSubmitSegmentUserExportJobParametrizedInput(String segmentId, java.util.List<String> tags, java.util.List<String> properties, String charset) {
+    public MutationSubmitSegmentUserExportJobParametrizedInput(String projectId, String segmentId, java.util.List<String> tags, java.util.List<String> properties, String charset) {
+        this.projectId = projectId;
         this.segmentId = segmentId;
         this.tags = tags;
         this.properties = properties;
         this.charset = charset;
+    }
+
+    public MutationSubmitSegmentUserExportJobParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationSubmitSegmentUserExportJobParametrizedInput segmentId(String segmentId) {
@@ -55,6 +63,9 @@ public class MutationSubmitSegmentUserExportJobParametrizedInput implements Grap
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (segmentId != null) {
             joiner.add("segmentId: " + GraphQLRequestSerializer.getEntry(segmentId));
         }

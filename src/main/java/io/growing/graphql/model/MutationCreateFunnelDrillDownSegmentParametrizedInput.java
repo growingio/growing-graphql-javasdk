@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateFunnelDrillDownSegmentParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private FunnelDrillDownSegmentInputDto funnelDrillDownSegment;
 
     public MutationCreateFunnelDrillDownSegmentParametrizedInput() {
     }
 
-    public MutationCreateFunnelDrillDownSegmentParametrizedInput(FunnelDrillDownSegmentInputDto funnelDrillDownSegment) {
+    public MutationCreateFunnelDrillDownSegmentParametrizedInput(String projectId, FunnelDrillDownSegmentInputDto funnelDrillDownSegment) {
+        this.projectId = projectId;
         this.funnelDrillDownSegment = funnelDrillDownSegment;
+    }
+
+    public MutationCreateFunnelDrillDownSegmentParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateFunnelDrillDownSegmentParametrizedInput funnelDrillDownSegment(FunnelDrillDownSegmentInputDto funnelDrillDownSegment) {
@@ -32,6 +40,9 @@ public class MutationCreateFunnelDrillDownSegmentParametrizedInput implements Gr
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (funnelDrillDownSegment != null) {
             joiner.add("funnelDrillDownSegment: " + GraphQLRequestSerializer.getEntry(funnelDrillDownSegment));
         }

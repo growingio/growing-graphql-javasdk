@@ -3,9 +3,12 @@ package io.growing.graphql.model;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
+/**
+ * 表示过滤条件
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class FilterDto implements java.io.Serializable {
 
@@ -28,30 +31,54 @@ public class FilterDto implements java.io.Serializable {
         this.valueType = valueType;
     }
 
+    /**
+     * 维度的 key
+     */
     public String getKey() {
         return key;
     }
+    /**
+     * 维度的 key
+     */
     public void setKey(String key) {
         this.key = key;
     }
 
+    /**
+     * 过滤的操作，比如：in, not in, like, =, !=
+     */
     public String getOp() {
         return op;
     }
+    /**
+     * 过滤的操作，比如：in, not in, like, =, !=
+     */
     public void setOp(String op) {
         this.op = op;
     }
 
+    /**
+     * 维度名
+     */
     public String getName() {
         return name;
     }
+    /**
+     * 维度名
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 维度值
+     */
     public java.util.List<String> getValues() {
         return values;
     }
+    /**
+     * 维度值
+     */
     public void setValues(java.util.List<String> values) {
         this.values = values;
     }
@@ -63,9 +90,15 @@ public class FilterDto implements java.io.Serializable {
         this.exprs = exprs;
     }
 
+    /**
+     * 维度值类型
+     */
     public String getValueType() {
         return valueType;
     }
+    /**
+     * 维度值类型
+     */
     public void setValueType(String valueType) {
         this.valueType = valueType;
     }
@@ -111,21 +144,33 @@ public class FilterDto implements java.io.Serializable {
         public Builder() {
         }
 
+        /**
+         * 维度的 key
+         */
         public Builder setKey(String key) {
             this.key = key;
             return this;
         }
 
+        /**
+         * 过滤的操作，比如：in, not in, like, =, !=
+         */
         public Builder setOp(String op) {
             this.op = op;
             return this;
         }
 
+        /**
+         * 维度名
+         */
         public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
+        /**
+         * 维度值
+         */
         public Builder setValues(java.util.List<String> values) {
             this.values = values;
             return this;
@@ -136,6 +181,9 @@ public class FilterDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 维度值类型
+         */
         public Builder setValueType(String valueType) {
             this.valueType = valueType;
             return this;

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class ActiveUsersQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class ActiveUsersQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public ActiveUsersQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setTimeRange(String timeRange) {
@@ -54,11 +58,17 @@ public class ActiveUsersQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private String timeRange;
         private Integer offset;
         private Integer limit;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setTimeRange(String timeRange) {
@@ -79,6 +89,7 @@ public class ActiveUsersQueryRequest implements GraphQLOperationRequest {
 
         public ActiveUsersQueryRequest build() {
             ActiveUsersQueryRequest obj = new ActiveUsersQueryRequest();
+            obj.setProjectId(projectId);
             obj.setTimeRange(timeRange);
             obj.setOffset(offset);
             obj.setLimit(limit);

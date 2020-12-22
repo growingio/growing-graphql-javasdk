@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class TagResponseProjection extends GraphQLResponseProjection {
 
@@ -45,6 +45,7 @@ public class TagResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("TagResponseProjection.DetectorResponseProjection.detector", projectionDepthOnFields.getOrDefault("TagResponseProjection.DetectorResponseProjection.detector", 0) + 1);
             this.detector(new DetectorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("TagResponseProjection.DetectorResponseProjection.detector", 0)));
         }
+        this.ownerId();
         this.typename();
         return this;
     }
@@ -172,6 +173,15 @@ public class TagResponseProjection extends GraphQLResponseProjection {
 
     public TagResponseProjection detector(String alias, DetectorResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("detector").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public TagResponseProjection ownerId() {
+        return ownerId(null);
+    }
+
+    public TagResponseProjection ownerId(String alias) {
+        fields.add(new GraphQLResponseField("ownerId").alias(alias));
         return this;
     }
 

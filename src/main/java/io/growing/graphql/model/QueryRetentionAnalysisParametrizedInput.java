@@ -9,10 +9,12 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class QueryRetentionAnalysisParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String id;
     private String dashboardId;
@@ -20,9 +22,15 @@ public class QueryRetentionAnalysisParametrizedInput implements GraphQLParametri
     public QueryRetentionAnalysisParametrizedInput() {
     }
 
-    public QueryRetentionAnalysisParametrizedInput(String id, String dashboardId) {
+    public QueryRetentionAnalysisParametrizedInput(String projectId, String id, String dashboardId) {
+        this.projectId = projectId;
         this.id = id;
         this.dashboardId = dashboardId;
+    }
+
+    public QueryRetentionAnalysisParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryRetentionAnalysisParametrizedInput id(String id) {
@@ -39,6 +47,9 @@ public class QueryRetentionAnalysisParametrizedInput implements GraphQLParametri
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (id != null) {
             joiner.add("id: " + GraphQLRequestSerializer.getEntry(id));
         }

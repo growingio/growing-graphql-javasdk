@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class DashboardDto implements java.io.Serializable, NamedEntityDto {
 
@@ -28,11 +28,12 @@ public class DashboardDto implements java.io.Serializable, NamedEntityDto {
     private java.util.List<MemberDto> readers;
     @javax.validation.constraints.NotNull
     private java.util.List<MemberDto> editors;
+    private String ownerId;
 
     public DashboardDto() {
     }
 
-    public DashboardDto(String id, String name, String description, java.util.List<ComponentDto> components, FilterDto filter, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, java.util.List<MemberDto> readers, java.util.List<MemberDto> editors) {
+    public DashboardDto(String id, String name, String description, java.util.List<ComponentDto> components, FilterDto filter, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, java.util.List<MemberDto> readers, java.util.List<MemberDto> editors, String ownerId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -46,6 +47,7 @@ public class DashboardDto implements java.io.Serializable, NamedEntityDto {
         this.updater = updater;
         this.readers = readers;
         this.editors = editors;
+        this.ownerId = ownerId;
     }
 
     public String getId() {
@@ -139,6 +141,13 @@ public class DashboardDto implements java.io.Serializable, NamedEntityDto {
         this.editors = editors;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
     @Override
     public String toString() {
@@ -182,6 +191,9 @@ public class DashboardDto implements java.io.Serializable, NamedEntityDto {
         if (editors != null) {
             joiner.add("editors: " + GraphQLRequestSerializer.getEntry(editors));
         }
+        if (ownerId != null) {
+            joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
+        }
         return joiner.toString();
     }
 
@@ -204,6 +216,7 @@ public class DashboardDto implements java.io.Serializable, NamedEntityDto {
         private String updater;
         private java.util.List<MemberDto> readers;
         private java.util.List<MemberDto> editors;
+        private String ownerId;
 
         public Builder() {
         }
@@ -273,9 +286,14 @@ public class DashboardDto implements java.io.Serializable, NamedEntityDto {
             return this;
         }
 
+        public Builder setOwnerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
 
         public DashboardDto build() {
-            return new DashboardDto(id, name, description, components, filter, creatorId, createdAt, updaterId, updatedAt, creator, updater, readers, editors);
+            return new DashboardDto(id, name, description, components, filter, creatorId, createdAt, updaterId, updatedAt, creator, updater, readers, editors, ownerId);
         }
 
     }

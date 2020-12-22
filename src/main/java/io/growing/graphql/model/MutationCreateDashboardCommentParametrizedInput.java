@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateDashboardCommentParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private DashboardCommentInputDto dashboardComment;
 
     public MutationCreateDashboardCommentParametrizedInput() {
     }
 
-    public MutationCreateDashboardCommentParametrizedInput(DashboardCommentInputDto dashboardComment) {
+    public MutationCreateDashboardCommentParametrizedInput(String projectId, DashboardCommentInputDto dashboardComment) {
+        this.projectId = projectId;
         this.dashboardComment = dashboardComment;
+    }
+
+    public MutationCreateDashboardCommentParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateDashboardCommentParametrizedInput dashboardComment(DashboardCommentInputDto dashboardComment) {
@@ -32,6 +40,9 @@ public class MutationCreateDashboardCommentParametrizedInput implements GraphQLP
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (dashboardComment != null) {
             joiner.add("dashboardComment: " + GraphQLRequestSerializer.getEntry(dashboardComment));
         }

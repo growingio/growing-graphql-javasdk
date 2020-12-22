@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class UserProfileQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class UserProfileQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public UserProfileQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setUserId(String userId) {
@@ -54,11 +58,17 @@ public class UserProfileQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private String userId;
         private java.util.List<String> tags;
         private java.util.List<String> properties;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setUserId(String userId) {
@@ -79,6 +89,7 @@ public class UserProfileQueryRequest implements GraphQLOperationRequest {
 
         public UserProfileQueryRequest build() {
             UserProfileQueryRequest obj = new UserProfileQueryRequest();
+            obj.setProjectId(projectId);
             obj.setUserId(userId);
             obj.setTags(tags);
             obj.setProperties(properties);

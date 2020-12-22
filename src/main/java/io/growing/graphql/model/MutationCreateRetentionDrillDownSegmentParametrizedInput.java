@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MutationCreateRetentionDrillDownSegmentParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private RetentionDrillDownSegmentInputDto retentionDrillDownSegment;
 
     public MutationCreateRetentionDrillDownSegmentParametrizedInput() {
     }
 
-    public MutationCreateRetentionDrillDownSegmentParametrizedInput(RetentionDrillDownSegmentInputDto retentionDrillDownSegment) {
+    public MutationCreateRetentionDrillDownSegmentParametrizedInput(String projectId, RetentionDrillDownSegmentInputDto retentionDrillDownSegment) {
+        this.projectId = projectId;
         this.retentionDrillDownSegment = retentionDrillDownSegment;
+    }
+
+    public MutationCreateRetentionDrillDownSegmentParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationCreateRetentionDrillDownSegmentParametrizedInput retentionDrillDownSegment(RetentionDrillDownSegmentInputDto retentionDrillDownSegment) {
@@ -32,6 +40,9 @@ public class MutationCreateRetentionDrillDownSegmentParametrizedInput implements
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (retentionDrillDownSegment != null) {
             joiner.add("retentionDrillDownSegment: " + GraphQLRequestSerializer.getEntry(retentionDrillDownSegment));
         }

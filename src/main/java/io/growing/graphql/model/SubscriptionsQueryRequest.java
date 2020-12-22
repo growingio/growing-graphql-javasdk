@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class SubscriptionsQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class SubscriptionsQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public SubscriptionsQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setType(SubscriptionTypeDto type) {
@@ -46,9 +50,15 @@ public class SubscriptionsQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private SubscriptionTypeDto type;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setType(SubscriptionTypeDto type) {
@@ -59,6 +69,7 @@ public class SubscriptionsQueryRequest implements GraphQLOperationRequest {
 
         public SubscriptionsQueryRequest build() {
             SubscriptionsQueryRequest obj = new SubscriptionsQueryRequest();
+            obj.setProjectId(projectId);
             obj.setType(type);
             return obj;
         }

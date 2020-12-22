@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:58+0800"
+    date = "2020-12-22T15:45:58+0800"
 )
 public class SubmitSegmentSnapshotUserExportJobMutationRequest implements GraphQLOperationRequest {
 
@@ -20,8 +20,16 @@ public class SubmitSegmentSnapshotUserExportJobMutationRequest implements GraphQ
     public SubmitSegmentSnapshotUserExportJobMutationRequest() {
     }
 
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
+    }
+
     public void setId(String id) {
         this.input.put("id", id);
+    }
+
+    public void setTags(java.util.List<String> tags) {
+        this.input.put("tags", tags);
     }
 
     public void setProperties(java.util.List<String> properties) {
@@ -54,15 +62,27 @@ public class SubmitSegmentSnapshotUserExportJobMutationRequest implements GraphQ
 
     public static class Builder {
 
+        private String projectId;
         private String id;
+        private java.util.List<String> tags;
         private java.util.List<String> properties;
         private String charset;
 
         public Builder() {
         }
 
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
+        }
+
         public Builder setId(String id) {
             this.id = id;
+            return this;
+        }
+
+        public Builder setTags(java.util.List<String> tags) {
+            this.tags = tags;
             return this;
         }
 
@@ -79,7 +99,9 @@ public class SubmitSegmentSnapshotUserExportJobMutationRequest implements GraphQ
 
         public SubmitSegmentSnapshotUserExportJobMutationRequest build() {
             SubmitSegmentSnapshotUserExportJobMutationRequest obj = new SubmitSegmentSnapshotUserExportJobMutationRequest();
+            obj.setProjectId(projectId);
             obj.setId(id);
+            obj.setTags(tags);
             obj.setProperties(properties);
             obj.setCharset(charset);
             return obj;

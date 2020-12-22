@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class MemberResponseProjection extends GraphQLResponseProjection {
 
@@ -34,6 +34,16 @@ public class MemberResponseProjection extends GraphQLResponseProjection {
             this.directDepartment(new DepartmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MemberResponseProjection.DepartmentResponseProjection.directDepartment", 0)));
         }
         this.identity();
+        if (projectionDepthOnFields.getOrDefault("MemberResponseProjection.ProjectResponseProjection.enterableProjects", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MemberResponseProjection.ProjectResponseProjection.enterableProjects", projectionDepthOnFields.getOrDefault("MemberResponseProjection.ProjectResponseProjection.enterableProjects", 0) + 1);
+            this.enterableProjects(new ProjectResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MemberResponseProjection.ProjectResponseProjection.enterableProjects", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MemberResponseProjection.DataCenterRoleResponseProjection.dataCenterRole", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MemberResponseProjection.DataCenterRoleResponseProjection.dataCenterRole", projectionDepthOnFields.getOrDefault("MemberResponseProjection.DataCenterRoleResponseProjection.dataCenterRole", 0) + 1);
+            this.dataCenterRole(new DataCenterRoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MemberResponseProjection.DataCenterRoleResponseProjection.dataCenterRole", 0)));
+        }
+        this.lastVisitAt();
+        this.creator();
         this.typename();
         return this;
     }
@@ -116,6 +126,42 @@ public class MemberResponseProjection extends GraphQLResponseProjection {
 
     public MemberResponseProjection identity(String alias) {
         fields.add(new GraphQLResponseField("identity").alias(alias));
+        return this;
+    }
+
+    public MemberResponseProjection enterableProjects(ProjectResponseProjection subProjection) {
+        return enterableProjects(null, subProjection);
+    }
+
+    public MemberResponseProjection enterableProjects(String alias, ProjectResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("enterableProjects").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MemberResponseProjection dataCenterRole(DataCenterRoleResponseProjection subProjection) {
+        return dataCenterRole(null, subProjection);
+    }
+
+    public MemberResponseProjection dataCenterRole(String alias, DataCenterRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterRole").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MemberResponseProjection lastVisitAt() {
+        return lastVisitAt(null);
+    }
+
+    public MemberResponseProjection lastVisitAt(String alias) {
+        fields.add(new GraphQLResponseField("lastVisitAt").alias(alias));
+        return this;
+    }
+
+    public MemberResponseProjection creator() {
+        return creator(null);
+    }
+
+    public MemberResponseProjection creator(String alias) {
+        fields.add(new GraphQLResponseField("creator").alias(alias));
         return this;
     }
 

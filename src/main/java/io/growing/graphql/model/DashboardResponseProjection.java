@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-10-23T13:11:57+0800"
+    date = "2020-12-22T15:45:57+0800"
 )
 public class DashboardResponseProjection extends GraphQLResponseProjection {
 
@@ -47,6 +47,7 @@ public class DashboardResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("DashboardResponseProjection.MemberResponseProjection.editors", projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.editors", 0) + 1);
             this.editors(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DashboardResponseProjection.MemberResponseProjection.editors", 0)));
         }
+        this.ownerId();
         this.typename();
         return this;
     }
@@ -165,6 +166,15 @@ public class DashboardResponseProjection extends GraphQLResponseProjection {
 
     public DashboardResponseProjection editors(String alias, MemberResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("editors").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public DashboardResponseProjection ownerId() {
+        return ownerId(null);
+    }
+
+    public DashboardResponseProjection ownerId(String alias) {
+        fields.add(new GraphQLResponseField("ownerId").alias(alias));
         return this;
     }
 
