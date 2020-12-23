@@ -82,6 +82,7 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   scriptedBufferLog := false,
   scalacOptions += "-target:jvm-1.8",
   releaseIgnoreUntrackedFiles := true,
+  releaseCrossBuild := true,
   releaseProcess := Seq[ReleaseStep](
     checkSnapshotDependencies,
     inquireVersions,
@@ -89,7 +90,7 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
-    releaseStepCommandAndRemaining("^ + publishSigned"),
+    releaseStepCommandAndRemaining("^ publishSigned"),
     setNextVersion,
     commitNextVersion,
     pushChanges
