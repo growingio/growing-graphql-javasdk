@@ -1,4 +1,5 @@
 import Dependencies.Versions._
+import sbtrelease.ReleaseStateTransformations._
 
 name := "growingio-graphql-javasdk"
 scalaVersion := scalaVersion212
@@ -75,7 +76,25 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   // 记得使用GraphqlSchemaMergeApp.scala，重新合并为标准的schema文件
   unmanagedSourceDirectories in Test += Path.userHome / "project" / "growing-cdp" / "src/main/resources",
   //不发布原始文件！！！
-  Publishing.publishSettings)
+  Publishing.publishSettings).settings(
+  sbtPlugin := true,
+  scalaVersion := scalaVersion212,
+  crossScalaVersions := List(scalaVersion212, scalaVersion211, scalaVersion213),
+  scriptedBufferLog := false,
+  scalacOptions += "-target:jvm-1.8",
+  releaseIgnoreUntrackedFiles := true,
+  releaseProcess := Seq[ReleaseStep](
+    checkSnapshotDependencies,
+    inquireVersions,
+    runClean,
+    setReleaseVersion,
+    commitReleaseVersion,
+    tagRelease,
+    releaseStepCommandAndRemaining("^ publishSigned"),
+    setNextVersion,
+    commitNextVersion,
+    pushChanges
+  ))
 
 def subProject(id: String, path: Option[String] = None): Project = {
   Project(id, file(path.getOrElse(id)))
