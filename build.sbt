@@ -77,9 +77,8 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   unmanagedSourceDirectories in Test += Path.userHome / "project" / "growing-cdp" / "src/main/resources",
   //不发布原始文件！！！
   Publishing.publishSettings).settings(
-  sbtPlugin := true,
   scalaVersion := scalaVersion212,
-  crossScalaVersions := List(scalaVersion212, scalaVersion211, scalaVersion213),
+  crossScalaVersions := List(scalaVersion211, scalaVersion212, scalaVersion213),
   scriptedBufferLog := false,
   scalacOptions += "-target:jvm-1.8",
   releaseIgnoreUntrackedFiles := true,
@@ -90,7 +89,7 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
-    releaseStepCommandAndRemaining("^ publishSigned"),
+    releaseStepCommandAndRemaining("^ +publishSigned"),
     setNextVersion,
     commitNextVersion,
     pushChanges
