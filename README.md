@@ -20,19 +20,19 @@ GrowingIO GraphQL Java SDK
 <dependency>
     <groupId>io.growing</groupId>
     <artifactId>growingio-graphql-javasdk_2.12</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 
 - gradle
 ```
 //这里使用的是2.12
-compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.3-SNAPSHOT'
+compile group: 'io.growing', name: 'growingio-graphql-javasdk_2.12', version: '0.0.1'
 ```
 
 - sbt
 ```
-libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.3-SNAPSHOT"
+libraryDependencies += "io.growing" %% "growingio-graphql-javasdk" % "0.0.1"
 ```
 
 ### 使用
