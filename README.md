@@ -3,7 +3,9 @@ GrowingIO GraphQL Java SDK
 
 ![Build](https://github.com/growingio/growingio-graphql-javasdk/workflows/Build/badge.svg)
 
-目前只支持 Growing CDP 平台（开发中，暂不可用）
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.growing/growingio-graphql-javasdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.growing/growingio-graphql-javasdk)
+
+目前只支持 Growing CDP 平台
 
 ## 如何使用
 
