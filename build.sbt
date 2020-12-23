@@ -89,7 +89,7 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
-    releaseStepCommandAndRemaining("^ publishSigned"),
+    releaseStepCommandAndRemaining("+publishSigned"),
     setNextVersion,
     commitNextVersion,
     pushChanges
