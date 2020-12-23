@@ -78,7 +78,6 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   //不发布原始文件！！！
   Publishing.publishSettings).settings(
   scalaVersion := scalaVersion212,
-  crossScalaVersions := List(scalaVersion211, scalaVersion212, scalaVersion213),
   scriptedBufferLog := false,
   scalacOptions += "-target:jvm-1.8",
   releaseIgnoreUntrackedFiles := true,
