@@ -24,6 +24,11 @@ class GrowingioApi(url: String, headers: Map[String, String]) {
     resolver.submitTagUserExportJob(tagId, properties, charset, detailExport)
   }
 
+  def submitAnalysisDownloadJob(projectId: String, id: String, param: AnalysisExportJobParamDto, charset: String): AnalysisExportJobDto = {
+    val resolver = new $SubmitAnalysisExportJobMutationResolver(conf)
+    resolver.submitAnalysisExportJob(projectId,id,param,charset)
+  }
+
   def submitSegmentUserExportJob(projectId: String, segmentId: String, tags: util.List[String], properties: util.List[String], charset: String): SegmentUserExportJobDto = {
     val resolver = new $SubmitSegmentUserExportJobMutationResolver(conf)
     resolver.submitSegmentUserExportJob(projectId, segmentId, tags, properties, charset)
