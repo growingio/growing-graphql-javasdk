@@ -18,7 +18,7 @@ public class GrowingioAnalysisApiExaples {
     final static GrowingioApi growingioApi = GrowingioApi.apply("http://uat-gdp.growingio.com/graphql", "Authorization", "fab69b1f-35c1-4cb5-81e8-ebe167ee2366");
 
     public static void main(String[] args) {
-        AnalysisExportJobDto analysisChartsExportJobDto = growingioApi.submitAnalysisDownloadJob(projectId, "kqQewGry", AnalysisExportJobParamDto.builder().setAnalysisType(CHARTS).build(), "UTF-16LE");
+        AnalysisExportJobDto analysisChartsExportJobDto = growingioApi.submitAnalysisExportJob(projectId, "kqQewGry", AnalysisExportJobParamDto.builder().setAnalysisType(CHARTS).build(), "UTF-16LE");
         System.out.println(analysisChartsExportJobDto);
         try {
             Thread.sleep(1000);
