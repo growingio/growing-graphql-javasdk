@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 单个事件变量详情
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $EventVariableQueryResolver implements EventVariableQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $EventVariableQueryResolver implements EventVariableQueryReso
 
     private $EventVariableQueryResolver() {}
 
+    /**
+     * 单个事件变量详情
+     */
     @Override
     public EventVariableDto eventVariable(String projectId, String id) throws Exception {
         EventVariableQueryRequest request = new EventVariableQueryRequest();

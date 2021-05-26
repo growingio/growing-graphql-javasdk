@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class DimensionResponseProjection extends GraphQLResponseProjection {
 
@@ -28,6 +28,7 @@ public class DimensionResponseProjection extends GraphQLResponseProjection {
         this.groupId();
         this.groupName();
         this.valueType();
+        this.description();
         this.typename();
         return this;
     }
@@ -83,6 +84,15 @@ public class DimensionResponseProjection extends GraphQLResponseProjection {
 
     public DimensionResponseProjection valueType(String alias) {
         fields.add(new GraphQLResponseField("valueType").alias(alias));
+        return this;
+    }
+
+    public DimensionResponseProjection description() {
+        return description(null);
+    }
+
+    public DimensionResponseProjection description(String alias) {
+        fields.add(new GraphQLResponseField("description").alias(alias));
         return this;
     }
 

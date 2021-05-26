@@ -7,7 +7,7 @@ import io.growing.graphql.model.*;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public interface GrowingIOMutationResolver {
 
@@ -28,6 +28,37 @@ public interface GrowingIOMutationResolver {
 
     @javax.validation.constraints.NotNull
     Boolean updateOriginDataSetting(java.util.List<OriginDataSettingInputDto> originDatas) throws Exception;
+
+    /**
+     * 更新水印配置
+     */
+    @javax.validation.constraints.NotNull
+    Boolean updateWaterMarkSetting(UpdateWaterMarkSettingInputDto input) throws Exception;
+
+    /**
+     * 创建分析预警
+     */
+    @javax.validation.constraints.NotNull
+    AnalysisAlertsDto createAnalysisAlert(String projectId, AnalysisAlertsInputDto analysisAlert) throws Exception;
+
+    /**
+     * 更新分析预警
+     */
+    @javax.validation.constraints.NotNull
+    AnalysisAlertsDto updateAnalysisAlert(String projectId, String id, AnalysisAlertsInputDto analysisAlert) throws Exception;
+
+    /**
+     * 单条删除分析预警
+     */
+    @javax.validation.constraints.NotNull
+    Boolean deleteAnalysisAlert(String projectId, String id) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean deleteAnalysisAlerts(String projectId, java.util.List<String> ids) throws Exception;
+
+    Boolean forceComputeTag(String id) throws Exception;
+
+    Boolean forceComputeSegment(String projectId, String id) throws Exception;
 
     @javax.validation.constraints.NotNull
     TagDto createDataCenterTag(TagInputDto tag) throws Exception;
@@ -50,6 +81,16 @@ public interface GrowingIOMutationResolver {
     @javax.validation.constraints.NotNull
     SegmentSnapshotDto createSegmentSnapshot(String projectId, ComputeDefinitionInputDto compute) throws Exception;
 
+    @javax.validation.constraints.NotNull
+    TencentPortraitDto createTencentPortrait(String projectId, TencentPortraitInputDto tencentPortrait) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    TencentPortraitDto updateTencentPortrait(String projectId, String id, TencentPortraitInputDto tencentPortrait) throws Exception;
+
+    Boolean deleteTencentPortrait(String projectId, String id) throws Exception;
+
+    Boolean batchDeleteTencentPortrait(String projectId, java.util.List<String> ids) throws Exception;
+
     Boolean deleteTunnel(String id) throws Exception;
 
     @javax.validation.constraints.NotNull
@@ -70,8 +111,14 @@ public interface GrowingIOMutationResolver {
     @javax.validation.constraints.NotNull
     EventImportJobDto createEventImportJob(String tunnelId, String timeRange) throws Exception;
 
+    /**
+     * 提交用户标签导出任务  exportFileName: 导出的文件名称，不带后缀
+     */
     @javax.validation.constraints.NotNull
-    TagUserExportJobDto submitTagUserExportJob(String tagId, java.util.List<String> properties, String charset, Boolean detailExport) throws Exception;
+    TagUserExportJobDto submitTagUserExportJob(String tagId, String exportFileName, java.util.List<String> properties, String charset, Boolean detailExport) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    TagUserExportJobDto submitTagUserExportJobByKey(TagUserExportJobByKeyInputDto parameter) throws Exception;
 
     @javax.validation.constraints.NotNull
     SegmentUserExportJobDto submitSegmentUserExportJob(String projectId, String segmentId, java.util.List<String> tags, java.util.List<String> properties, String charset) throws Exception;
@@ -80,7 +127,19 @@ public interface GrowingIOMutationResolver {
     SegmentUserExportJobDto submitSegmentSnapshotUserExportJob(String projectId, String id, java.util.List<String> tags, java.util.List<String> properties, String charset) throws Exception;
 
     @javax.validation.constraints.NotNull
+    SegmentUserExportJobDto submitSegmentUserExportJobV2(String projectId, ExportSegmentParameterInputDto parameter) throws Exception;
+
+    @javax.validation.constraints.NotNull
     AnalysisExportJobDto submitAnalysisExportJob(String projectId, String id, AnalysisExportJobParamDto param, String charset) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    CreateTableJobDto submitCreateTableJob(String projectId, CreateTableJobParameterInputDto parameter) throws Exception;
+
+    /**
+     * 请求日志导出
+     */
+    @javax.validation.constraints.NotNull
+    AuditLogExportJobDto submitLogExportJob(AuditLogQueryInputDto q, String timeRange) throws Exception;
 
     Boolean createSubscription(String projectId, SubscriptionTypeDto type, String id) throws Exception;
 
@@ -88,16 +147,34 @@ public interface GrowingIOMutationResolver {
 
     Boolean batchUpdateSubscriptions(String projectId, SubscriptionTypeDto type, java.util.List<SubscriptionInputDto> subscriptions) throws Exception;
 
+    /**
+     * 创建分类
+     */
     CategoryDto createCategory(CategoryInputDto category) throws Exception;
 
+    /**
+     * 更新分类
+     */
     CategoryDto updateCategory(String id, CategoryInputDto category) throws Exception;
 
+    /**
+     * 删除分类
+     */
     Boolean deleteCategory(String id) throws Exception;
 
+    /**
+     * 向分类添加资源
+     */
     CategoryResourceDto addCategoryResource(CategoryResourceInputDto categoryResource) throws Exception;
 
+    /**
+     * 删除分类内资源
+     */
     Boolean removeCategoryResources(java.util.List<CategoryResourceInputDto> categoryResources) throws Exception;
 
+    /**
+     * 向指定分类移动资源
+     */
     java.util.List<CategoryResourceDto> moveCategoryResources(String categoryId, java.util.List<CategoryResourceInputDto> categoryResources) throws Exception;
 
     /**
@@ -146,7 +223,7 @@ public interface GrowingIOMutationResolver {
     Boolean addProjectMembers(AddProjectMembersInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean removeProjectMembers(RemoveProjectMembersInputDto input) throws Exception;
+    Boolean removeProjectMembers(String projectId, RemoveProjectMembersInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
     ProjectRoleDto createProjectRole(String projectId, RoleInputDto role) throws Exception;
@@ -158,10 +235,10 @@ public interface GrowingIOMutationResolver {
     Boolean updateProjectRole(String projectId, String id, RoleInputDto role) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean assignUserProjectRole(AssignUserProjectRoleInputDto input) throws Exception;
+    Boolean assignUserProjectRole(String projectId, AssignUserProjectRoleInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean transferProjectOwner(TransferProjectOwnerInputDto input) throws Exception;
+    Boolean transferProjectOwner(String projectId, TransferProjectOwnerInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
     Boolean toggleProject(ToggleProjectInputDto input) throws Exception;
@@ -173,7 +250,7 @@ public interface GrowingIOMutationResolver {
     Boolean transferProjectResources(TransferProjectResourcesInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
-    Boolean addMembersToProjectRole(AddMembersToProjectRoleInputDto input) throws Exception;
+    Boolean addMembersToProjectRole(String projectId, AddMembersToProjectRoleInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
     Boolean transferDataCenterOwner(String transfereeId) throws Exception;
@@ -184,9 +261,25 @@ public interface GrowingIOMutationResolver {
     @javax.validation.constraints.NotNull
     Boolean addMemberToProjects(java.util.List<AddMemberToProjectInputDto> input) throws Exception;
 
+    WebHookDto createWebHook(WebHookInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean updateWebHook(String id, WebHookInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean updateWebHookStatus(String id, String status) throws Exception;
+
+    NotificationTaskDto createNotificationTask(NotificationTaskInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean updateNotificationTask(String id, NotificationTaskInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean deleteNotificationTask(String id) throws Exception;
+
     CreateAccountReplyDto createAccount(String email, String roleId, java.util.List<String> permissions, String extra) throws Exception;
 
-    Boolean disableAccount(String id) throws Exception;
+    Boolean deleteAccount(String id) throws Exception;
 
     @javax.validation.constraints.NotNull
     String resetAccountPassword(String id) throws Exception;
@@ -201,79 +294,181 @@ public interface GrowingIOMutationResolver {
     Boolean updateMember(String id, MemberInputDto input) throws Exception;
 
     @javax.validation.constraints.NotNull
+    Boolean createAccountApplication(AccountApplicationInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean acceptAccountApplication(String id, AccountApplicationInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean updateAccountApplicationSetting(AccountApplicationSettingInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean updatePasswordRecoverySetting(PasswordRecoverySettingInputDto input) throws Exception;
+
+    @javax.validation.constraints.NotNull
+    Boolean rejectAccountApplication(String id) throws Exception;
+
+    /**
+     * 更新帐号信息
+     */
+    @javax.validation.constraints.NotNull
+    Boolean updateAccount(String id, UpdateAccountInputDto input) throws Exception;
+
+    /**
+     * 无埋点 创建元素
+     */
+    @javax.validation.constraints.NotNull
     ElementDto createElement(String projectId, ElementInputDto element) throws Exception;
 
+    /**
+     * 无埋点 更新元素
+     */
     @javax.validation.constraints.NotNull
     ElementDto updateElement(String projectId, String id, ElementUpdateInputDto element) throws Exception;
 
+    /**
+     * 无埋点 删除元素
+     */
     Boolean deleteElement(String projectId, String id) throws Exception;
 
+    /**
+     * 无埋点 批量删除元素
+     */
     Boolean batchDeleteElements(String projectId, java.util.List<String> ids) throws Exception;
 
+    /**
+     * 数据中心 创建打点事件
+     */
     @javax.validation.constraints.NotNull
     CustomEventDto createDataCenterCustomEvent(CustomEventInputDto customEvent) throws Exception;
 
+    /**
+     * 数据中心 更新打点事件
+     */
     @javax.validation.constraints.NotNull
     CustomEventDto updateDataCenterCustomEvent(String id, CustomEventInputDto customEvent) throws Exception;
 
+    /**
+     * 数据中心 删除打点事件
+     */
     Boolean deleteDataCenterCustomEvent(String id) throws Exception;
 
+    /**
+     * 数据中心 批量删除打点事件
+     */
     Boolean batchDeleteDataCenterCustomEvents(java.util.List<String> ids) throws Exception;
 
+    /**
+     * 创建计算指标
+     */
     @javax.validation.constraints.NotNull
     ComplexMetricDto createComplexMetric(String projectId, ComplexMetricInputDto complexMetric) throws Exception;
 
+    /**
+     * 更新计算指标
+     */
     @javax.validation.constraints.NotNull
     ComplexMetricDto updateComplexMetric(String projectId, String id, ComplexMetricInputDto complexMetric) throws Exception;
 
+    /**
+     * 删除计算指标
+     */
     Boolean deleteComplexMetric(String projectId, String id) throws Exception;
 
+    /**
+     * 批量删除计算指标
+     */
     Boolean batchDeleteComplexMetrics(String projectId, java.util.List<String> ids) throws Exception;
 
+    /**
+     * 数据中心 创建事件变量
+     */
     @javax.validation.constraints.NotNull
     EventVariableDto createDataCenterEventVariable(VariableInputDto eventVariable) throws Exception;
 
+    /**
+     * 数据中心 更新事件变量
+     */
     @javax.validation.constraints.NotNull
     EventVariableDto updateDataCenterEventVariable(String id, VariableInputDto eventVariable) throws Exception;
 
+    /**
+     * 数据中心 删除事件变量
+     */
     @javax.validation.constraints.NotNull
     Boolean deleteDataCenterEventVariable(String id) throws Exception;
 
+    /**
+     * 数据中心 批量删除事件变量
+     */
     Boolean batchDeleteDataCenterEventVariables(java.util.List<String> ids) throws Exception;
 
-    @javax.validation.constraints.NotNull
-    ItemVariableDto createDataCenterItemVariable(VariableInputDto itemVariable) throws Exception;
-
+    /**
+     * 数据中心 更新物品变量
+     */
     @javax.validation.constraints.NotNull
     ItemVariableDto updateDataCenterItemVariable(String id, VariableInputDto itemVariable) throws Exception;
 
+    /**
+     * 数据中心 删除物品变量
+     */
     @javax.validation.constraints.NotNull
     Boolean deleteDataCenterItemVariable(String id) throws Exception;
 
+    /**
+     * 数据中心 批量删除物品变量
+     */
     Boolean batchDeleteDataCenterItemVariables(java.util.List<String> ids) throws Exception;
 
+    /**
+     * 数据中心 创建物品模型
+     */
     @javax.validation.constraints.NotNull
     ItemModelDto createDataCenterItemModel(ItemModelInputDto itemModel) throws Exception;
 
+    /**
+     * 数据中心 更新物品模型
+     */
     @javax.validation.constraints.NotNull
     ItemModelDto updateDataCenterItemModel(String id, ItemModelInputDto itemModel) throws Exception;
 
+    /**
+     * 数据中心 删除物品模型
+     */
     @javax.validation.constraints.NotNull
     Boolean deleteDataCenterItemModel(String id) throws Exception;
 
+    /**
+     * 数据中心 批量删除物品模型
+     */
     Boolean batchDeleteDataCenterItemModels(java.util.List<String> ids) throws Exception;
 
+    /**
+     * 数据中心 物品模型添加属性
+     */
     ItemVariableDto dataCenterAddItemModelAttribute(String id, ItemVariableInputDto attribute) throws Exception;
 
+    /**
+     * 数据中心 创建用户属性
+     */
     @javax.validation.constraints.NotNull
     UserVariableDto createDataCenterUserVariable(VariableInputDto userVariable) throws Exception;
 
+    /**
+     * 数据中心 更新用户属性
+     */
     @javax.validation.constraints.NotNull
     UserVariableDto updateDataCenterUserVariable(String id, VariableInputDto userVariable) throws Exception;
 
+    /**
+     * 数据中心 删除用户属性
+     */
     @javax.validation.constraints.NotNull
     Boolean deleteDataCenterUserVariable(String id) throws Exception;
 
+    /**
+     * 数据中心 更批量删除用户属性
+     */
     Boolean batchDeleteDataCenterUserVariables(java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
@@ -308,6 +503,29 @@ public interface GrowingIOMutationResolver {
     Boolean deleteFrequencyAnalysis(String projectId, String id) throws Exception;
 
     Boolean batchDeleteFrequencyAnalyses(String projectId, java.util.List<String> ids) throws Exception;
+
+    /**
+     * 创建新事件分析图
+     */
+    @javax.validation.constraints.NotNull
+    EventAnalysisDto createOlapEventAnalysis(String projectId, OlapEventAnalysisInputDto olapEventAnalysis) throws Exception;
+
+    /**
+     * 更新新事件分析图
+     */
+    @javax.validation.constraints.NotNull
+    EventAnalysisDto updateOlapEventAnalysis(String projectId, String id, OlapEventAnalysisInputDto olapEventAnalysis) throws Exception;
+
+    /**
+     * 删除新事件分析图
+     */
+    @javax.validation.constraints.NotNull
+    Boolean deleteOlapEventAnalysis(String projectId, String id) throws Exception;
+
+    /**
+     * 批量删除新事件分析图
+     */
+    Boolean batchDeleteOlapEventAnalyses(String projectId, java.util.List<String> ids) throws Exception;
 
     @javax.validation.constraints.NotNull
     EventAnalysisDto createEventAnalysis(String projectId, EventAnalysisInputDto eventAnalysis) throws Exception;

@@ -2,7 +2,7 @@ package io.growing.graphql.model;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public enum UserEventTypeDto {
 
@@ -10,6 +10,9 @@ public enum UserEventTypeDto {
     VISIT("VISIT"),
     CUSTOM_EVENT("CUSTOM_EVENT"),
     PAGE("PAGE"),
+    VIEW_CLICK("VIEW_CLICK"),
+    VIEW_CHANGE("VIEW_CHANGE"),
+    FORM_SUBMIT("FORM_SUBMIT"),
     UNKNOWN("UNKNOWN");
 
     private final String graphqlName;

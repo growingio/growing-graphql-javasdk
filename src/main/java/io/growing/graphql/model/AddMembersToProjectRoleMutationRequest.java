@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 public class AddMembersToProjectRoleMutationRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class AddMembersToProjectRoleMutationRequest implements GraphQLOperationR
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public AddMembersToProjectRoleMutationRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setInput(AddMembersToProjectRoleInputDto input) {
@@ -46,9 +50,15 @@ public class AddMembersToProjectRoleMutationRequest implements GraphQLOperationR
 
     public static class Builder {
 
+        private String projectId;
         private AddMembersToProjectRoleInputDto input;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setInput(AddMembersToProjectRoleInputDto input) {
@@ -59,6 +69,7 @@ public class AddMembersToProjectRoleMutationRequest implements GraphQLOperationR
 
         public AddMembersToProjectRoleMutationRequest build() {
             AddMembersToProjectRoleMutationRequest obj = new AddMembersToProjectRoleMutationRequest();
+            obj.setProjectId(projectId);
             obj.setInput(input);
             return obj;
         }

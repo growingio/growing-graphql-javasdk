@@ -2,7 +2,7 @@ package io.growing.graphql.model;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public enum TagTypeDto {
 
@@ -11,7 +11,8 @@ public enum TagTypeDto {
     TOP_N_ATTRIBUTE("TOP_N_ATTRIBUTE"),
     DATA_SET_ATTRIBUTE("DATA_SET_ATTRIBUTE"),
     ATTRIBUTION_ATTRIBUTE("ATTRIBUTION_ATTRIBUTE"),
-    SQL("SQL");
+    SQL("SQL"),
+    PREDICTIVE("PREDICTIVE");
 
     private final String graphqlName;
 

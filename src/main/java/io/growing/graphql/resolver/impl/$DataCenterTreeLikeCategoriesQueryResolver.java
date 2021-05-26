@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 根据资源类型返回dataCenter级别下树状结构分类信息
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $DataCenterTreeLikeCategoriesQueryResolver implements DataCenterTreeLikeCategoriesQueryResolver {
 
@@ -25,9 +28,16 @@ final public class $DataCenterTreeLikeCategoriesQueryResolver implements DataCen
 
     private $DataCenterTreeLikeCategoriesQueryResolver() {}
 
+    /**
+     * 根据资源类型返回dataCenter级别下树状结构分类信息
+     */
     @Override
-    public java.util.List<CategoryDto> dataCenterTreeLikeCategories() throws Exception {
+    public java.util.List<CategoryDto> dataCenterTreeLikeCategories(String resourceType) throws Exception {
         DataCenterTreeLikeCategoriesQueryRequest request = new DataCenterTreeLikeCategoriesQueryRequest();
+        List<String> keys = Arrays.asList("resourceType");
+        List<?> values = Arrays.asList(resourceType);
+        Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
+        request.getInput().putAll(parameters);
         CategoryResponseProjection projection = new CategoryResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());
         GraphQLRequest graphQLRequest = new GraphQLRequest(request, projection);
         DataCenterTreeLikeCategoriesQueryResponse result = OkHttpUtils.executeGraphQLRemote(growingIOConfig, graphQLRequest, DataCenterTreeLikeCategoriesQueryResponse.class);

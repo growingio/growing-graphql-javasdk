@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 无埋点 创建元素
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $CreateElementMutationResolver implements CreateElementMutationResolver {
 
@@ -25,6 +28,9 @@ final public class $CreateElementMutationResolver implements CreateElementMutati
 
     private $CreateElementMutationResolver() {}
 
+    /**
+     * 无埋点 创建元素
+     */
     @javax.validation.constraints.NotNull
     @Override
     public ElementDto createElement(String projectId, ElementInputDto element) throws Exception {

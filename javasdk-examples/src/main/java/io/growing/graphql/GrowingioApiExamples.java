@@ -32,7 +32,7 @@ public class GrowingioApiExamples {
         System.out.println(segmentUserExportJobDto);
 
 
-        TagUserExportJobDto tagUserExportJobDto = growingioApi.submitTagUserExportJob("rRGoVRpm", Collections.emptyList(), "UTF-16LE", false);
+        TagUserExportJobDto tagUserExportJobDto = growingioApi.submitTagUserExportJob("rRGoVRpm", "name",Collections.emptyList(), "UTF-16LE", false);
         System.out.println(tagUserExportJobDto);
 
 

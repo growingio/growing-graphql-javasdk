@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 根据资源类型与项目id返回树状结构分类信息
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class TreeLikeCategoriesWithResourceQueryRequest implements GraphQLOperationRequest {
 
@@ -22,6 +25,10 @@ public class TreeLikeCategoriesWithResourceQueryRequest implements GraphQLOperat
 
     public void setProjectId(String projectId) {
         this.input.put("projectId", projectId);
+    }
+
+    public void setResourceType(String resourceType) {
+        this.input.put("resourceType", resourceType);
     }
 
     @Override
@@ -47,6 +54,7 @@ public class TreeLikeCategoriesWithResourceQueryRequest implements GraphQLOperat
     public static class Builder {
 
         private String projectId;
+        private String resourceType;
 
         public Builder() {
         }
@@ -56,10 +64,16 @@ public class TreeLikeCategoriesWithResourceQueryRequest implements GraphQLOperat
             return this;
         }
 
+        public Builder setResourceType(String resourceType) {
+            this.resourceType = resourceType;
+            return this;
+        }
+
 
         public TreeLikeCategoriesWithResourceQueryRequest build() {
             TreeLikeCategoriesWithResourceQueryRequest obj = new TreeLikeCategoriesWithResourceQueryRequest();
             obj.setProjectId(projectId);
+            obj.setResourceType(resourceType);
             return obj;
         }
 

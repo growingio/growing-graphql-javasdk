@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class ComputeDefinitionResponseProjection extends GraphQLResponseProjection {
 
@@ -30,6 +30,7 @@ public class ComputeDefinitionResponseProjection extends GraphQLResponseProjecti
         }
         this.drillDownAttrs();
         this.sql();
+        this.dataUri();
         this.typename();
         return this;
     }
@@ -76,6 +77,15 @@ public class ComputeDefinitionResponseProjection extends GraphQLResponseProjecti
 
     public ComputeDefinitionResponseProjection sql(String alias) {
         fields.add(new GraphQLResponseField("sql").alias(alias));
+        return this;
+    }
+
+    public ComputeDefinitionResponseProjection dataUri() {
+        return dataUri(null);
+    }
+
+    public ComputeDefinitionResponseProjection dataUri(String alias) {
+        fields.add(new GraphQLResponseField("dataUri").alias(alias));
         return this;
     }
 

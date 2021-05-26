@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class CategoryResponseProjection extends GraphQLResponseProjection {
 
@@ -29,6 +29,7 @@ public class CategoryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("CategoryResponseProjection.CategoryResponseProjection.subCategories", projectionDepthOnFields.getOrDefault("CategoryResponseProjection.CategoryResponseProjection.subCategories", 0) + 1);
             this.subCategories(new CategoryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("CategoryResponseProjection.CategoryResponseProjection.subCategories", 0)));
         }
+        this.resourceType();
         if (projectionDepthOnFields.getOrDefault("CategoryResponseProjection.CategoryResourceResponseProjection.resources", 0) <= maxDepth) {
             projectionDepthOnFields.put("CategoryResponseProjection.CategoryResourceResponseProjection.resources", projectionDepthOnFields.getOrDefault("CategoryResponseProjection.CategoryResourceResponseProjection.resources", 0) + 1);
             this.resources(new CategoryResourceResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("CategoryResponseProjection.CategoryResourceResponseProjection.resources", 0)));
@@ -71,6 +72,15 @@ public class CategoryResponseProjection extends GraphQLResponseProjection {
 
     public CategoryResponseProjection subCategories(String alias, CategoryResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("subCategories").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public CategoryResponseProjection resourceType() {
+        return resourceType(null);
+    }
+
+    public CategoryResponseProjection resourceType(String alias) {
+        fields.add(new GraphQLResponseField("resourceType").alias(alias));
         return this;
     }
 

@@ -3,24 +3,32 @@ package io.growing.graphql.model;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
+/**
+ * 计算指标 expression 对象
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class ExpressionInputDto implements java.io.Serializable {
 
-    @javax.validation.constraints.NotNull
     private String op;
     private java.util.List<ExpressionInputDto> exprs;
     private java.util.List<MeasurementInputDto> measurements;
+    private java.util.List<MetricInputDto> metrics;
+    private String expression;
+    private String format;
 
     public ExpressionInputDto() {
     }
 
-    public ExpressionInputDto(String op, java.util.List<ExpressionInputDto> exprs, java.util.List<MeasurementInputDto> measurements) {
+    public ExpressionInputDto(String op, java.util.List<ExpressionInputDto> exprs, java.util.List<MeasurementInputDto> measurements, java.util.List<MetricInputDto> metrics, String expression, String format) {
         this.op = op;
         this.exprs = exprs;
         this.measurements = measurements;
+        this.metrics = metrics;
+        this.expression = expression;
+        this.format = format;
     }
 
     public String getOp() {
@@ -44,6 +52,27 @@ public class ExpressionInputDto implements java.io.Serializable {
         this.measurements = measurements;
     }
 
+    public java.util.List<MetricInputDto> getMetrics() {
+        return metrics;
+    }
+    public void setMetrics(java.util.List<MetricInputDto> metrics) {
+        this.metrics = metrics;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
 
     @Override
     public String toString() {
@@ -57,6 +86,15 @@ public class ExpressionInputDto implements java.io.Serializable {
         if (measurements != null) {
             joiner.add("measurements: " + GraphQLRequestSerializer.getEntry(measurements));
         }
+        if (metrics != null) {
+            joiner.add("metrics: " + GraphQLRequestSerializer.getEntry(metrics));
+        }
+        if (expression != null) {
+            joiner.add("expression: " + GraphQLRequestSerializer.getEntry(expression));
+        }
+        if (format != null) {
+            joiner.add("format: " + GraphQLRequestSerializer.getEntry(format));
+        }
         return joiner.toString();
     }
 
@@ -69,6 +107,9 @@ public class ExpressionInputDto implements java.io.Serializable {
         private String op;
         private java.util.List<ExpressionInputDto> exprs;
         private java.util.List<MeasurementInputDto> measurements;
+        private java.util.List<MetricInputDto> metrics;
+        private String expression;
+        private String format;
 
         public Builder() {
         }
@@ -88,9 +129,24 @@ public class ExpressionInputDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setMetrics(java.util.List<MetricInputDto> metrics) {
+            this.metrics = metrics;
+            return this;
+        }
+
+        public Builder setExpression(String expression) {
+            this.expression = expression;
+            return this;
+        }
+
+        public Builder setFormat(String format) {
+            this.format = format;
+            return this;
+        }
+
 
         public ExpressionInputDto build() {
-            return new ExpressionInputDto(op, exprs, measurements);
+            return new ExpressionInputDto(op, exprs, measurements, metrics, expression, format);
         }
 
     }

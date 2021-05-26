@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MutationResponseProjection extends GraphQLResponseProjection {
 
@@ -28,6 +28,19 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         this.settingSegmentMeasurements();
         this.updateDataCenterInfo();
         this.updateOriginDataSetting();
+        this.updateWaterMarkSetting();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisAlertsResponseProjection.createAnalysisAlert", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.AnalysisAlertsResponseProjection.createAnalysisAlert", projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisAlertsResponseProjection.createAnalysisAlert", 0) + 1);
+            this.createAnalysisAlert(new AnalysisAlertsResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisAlertsResponseProjection.createAnalysisAlert", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisAlertsResponseProjection.updateAnalysisAlert", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.AnalysisAlertsResponseProjection.updateAnalysisAlert", projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisAlertsResponseProjection.updateAnalysisAlert", 0) + 1);
+            this.updateAnalysisAlert(new AnalysisAlertsResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisAlertsResponseProjection.updateAnalysisAlert", 0)));
+        }
+        this.deleteAnalysisAlert();
+        this.deleteAnalysisAlerts();
+        this.forceComputeTag();
+        this.forceComputeSegment();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createDataCenterTag", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.TagResponseProjection.createDataCenterTag", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createDataCenterTag", 0) + 1);
             this.createDataCenterTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagResponseProjection.createDataCenterTag", 0)));
@@ -52,6 +65,16 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", 0) + 1);
             this.createSegmentSnapshot(new SegmentSnapshotResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentSnapshotResponseProjection.createSegmentSnapshot", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TencentPortraitResponseProjection.createTencentPortrait", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TencentPortraitResponseProjection.createTencentPortrait", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TencentPortraitResponseProjection.createTencentPortrait", 0) + 1);
+            this.createTencentPortrait(new TencentPortraitResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TencentPortraitResponseProjection.createTencentPortrait", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TencentPortraitResponseProjection.updateTencentPortrait", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TencentPortraitResponseProjection.updateTencentPortrait", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TencentPortraitResponseProjection.updateTencentPortrait", 0) + 1);
+            this.updateTencentPortrait(new TencentPortraitResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TencentPortraitResponseProjection.updateTencentPortrait", 0)));
+        }
+        this.deleteTencentPortrait();
+        this.batchDeleteTencentPortrait();
         this.deleteTunnel();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.createTunnel", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.TunnelResponseProjection.createTunnel", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TunnelResponseProjection.createTunnel", 0) + 1);
@@ -82,6 +105,10 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", 0) + 1);
             this.submitTagUserExportJob(new TagUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJob", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJobByKey", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJobByKey", projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJobByKey", 0) + 1);
+            this.submitTagUserExportJobByKey(new TagUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.TagUserExportJobResponseProjection.submitTagUserExportJobByKey", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", 0) + 1);
             this.submitSegmentUserExportJob(new SegmentUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJob", 0)));
@@ -90,9 +117,21 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", 0) + 1);
             this.submitSegmentSnapshotUserExportJob(new SegmentUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentSnapshotUserExportJob", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJobV2", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJobV2", projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJobV2", 0) + 1);
+            this.submitSegmentUserExportJobV2(new SegmentUserExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.SegmentUserExportJobResponseProjection.submitSegmentUserExportJobV2", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", 0) + 1);
             this.submitAnalysisExportJob(new AnalysisExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.AnalysisExportJobResponseProjection.submitAnalysisExportJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateTableJobResponseProjection.submitCreateTableJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.CreateTableJobResponseProjection.submitCreateTableJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateTableJobResponseProjection.submitCreateTableJob", 0) + 1);
+            this.submitCreateTableJob(new CreateTableJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateTableJobResponseProjection.submitCreateTableJob", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.AuditLogExportJobResponseProjection.submitLogExportJob", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.AuditLogExportJobResponseProjection.submitLogExportJob", projectionDepthOnFields.getOrDefault("MutationResponseProjection.AuditLogExportJobResponseProjection.submitLogExportJob", 0) + 1);
+            this.submitLogExportJob(new AuditLogExportJobResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.AuditLogExportJobResponseProjection.submitLogExportJob", 0)));
         }
         this.createSubscription();
         this.deleteSubscription();
@@ -165,11 +204,23 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         this.transferDataCenterOwner();
         this.addMembersToDataCenterRole();
         this.addMemberToProjects();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.WebHookResponseProjection.createWebHook", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.WebHookResponseProjection.createWebHook", projectionDepthOnFields.getOrDefault("MutationResponseProjection.WebHookResponseProjection.createWebHook", 0) + 1);
+            this.createWebHook(new WebHookResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.WebHookResponseProjection.createWebHook", 0)));
+        }
+        this.updateWebHook();
+        this.updateWebHookStatus();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.NotificationTaskResponseProjection.createNotificationTask", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.NotificationTaskResponseProjection.createNotificationTask", projectionDepthOnFields.getOrDefault("MutationResponseProjection.NotificationTaskResponseProjection.createNotificationTask", 0) + 1);
+            this.createNotificationTask(new NotificationTaskResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.NotificationTaskResponseProjection.createNotificationTask", 0)));
+        }
+        this.updateNotificationTask();
+        this.deleteNotificationTask();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0) + 1);
             this.createAccount(new CreateAccountReplyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.CreateAccountReplyResponseProjection.createAccount", 0)));
         }
-        this.disableAccount();
+        this.deleteAccount();
         this.resetAccountPassword();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.MemberResponseProjection.createMember", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.MemberResponseProjection.createMember", projectionDepthOnFields.getOrDefault("MutationResponseProjection.MemberResponseProjection.createMember", 0) + 1);
@@ -177,6 +228,20 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.resetPassword();
         this.updateMember();
+        this.createAccountApplication();
+        this.acceptAccountApplication();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.AccountApplicationSettingResponseProjection.toggleAccountApplicationSetting", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.AccountApplicationSettingResponseProjection.toggleAccountApplicationSetting", projectionDepthOnFields.getOrDefault("MutationResponseProjection.AccountApplicationSettingResponseProjection.toggleAccountApplicationSetting", 0) + 1);
+            this.toggleAccountApplicationSetting(new AccountApplicationSettingResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.AccountApplicationSettingResponseProjection.toggleAccountApplicationSetting", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.PasswordRecoverySettingResponseProjection.togglePasswordRecoverySetting", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.PasswordRecoverySettingResponseProjection.togglePasswordRecoverySetting", projectionDepthOnFields.getOrDefault("MutationResponseProjection.PasswordRecoverySettingResponseProjection.togglePasswordRecoverySetting", 0) + 1);
+            this.togglePasswordRecoverySetting(new PasswordRecoverySettingResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.PasswordRecoverySettingResponseProjection.togglePasswordRecoverySetting", 0)));
+        }
+        this.updateAccountApplicationSetting();
+        this.updatePasswordRecoverySetting();
+        this.rejectAccountApplication();
+        this.updateAccount();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.createElement", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.ElementResponseProjection.createElement", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.createElement", 0) + 1);
             this.createElement(new ElementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ElementResponseProjection.createElement", 0)));
@@ -217,10 +282,6 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.deleteDataCenterEventVariable();
         this.batchDeleteDataCenterEventVariables();
-        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", 0) + 1);
-            this.createDataCenterItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.createDataCenterItemVariable", 0)));
-        }
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", 0) + 1);
             this.updateDataCenterItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.ItemVariableResponseProjection.updateDataCenterItemVariable", 0)));
@@ -251,6 +312,7 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.deleteDataCenterUserVariable();
         this.batchDeleteDataCenterUserVariables();
+        this.updateClickhouseView();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0) + 1);
             this.createKpiAnalysis(new KpiAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.KpiAnalysisResponseProjection.createKpiAnalysis", 0)));
@@ -281,6 +343,16 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         }
         this.deleteFrequencyAnalysis();
         this.batchDeleteFrequencyAnalyses();
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createOlapEventAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventAnalysisResponseProjection.createOlapEventAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createOlapEventAnalysis", 0) + 1);
+            this.createOlapEventAnalysis(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createOlapEventAnalysis", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.updateOlapEventAnalysis", 0) <= maxDepth) {
+            projectionDepthOnFields.put("MutationResponseProjection.EventAnalysisResponseProjection.updateOlapEventAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.updateOlapEventAnalysis", 0) + 1);
+            this.updateOlapEventAnalysis(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.updateOlapEventAnalysis", 0)));
+        }
+        this.deleteOlapEventAnalysis();
+        this.batchDeleteOlapEventAnalyses();
         if (projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", 0) <= maxDepth) {
             projectionDepthOnFields.put("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", 0) + 1);
             this.createEventAnalysis(new EventAnalysisResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("MutationResponseProjection.EventAnalysisResponseProjection.createEventAnalysis", 0)));
@@ -456,6 +528,132 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public MutationResponseProjection updateWaterMarkSetting() {
+        return updateWaterMarkSetting((String)null);
+    }
+
+    public MutationResponseProjection updateWaterMarkSetting(String alias) {
+        fields.add(new GraphQLResponseField("updateWaterMarkSetting").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateWaterMarkSetting(MutationUpdateWaterMarkSettingParametrizedInput input) {
+        return updateWaterMarkSetting(null, input);
+    }
+
+    public MutationResponseProjection updateWaterMarkSetting(String alias, MutationUpdateWaterMarkSettingParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateWaterMarkSetting").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createAnalysisAlert(AnalysisAlertsResponseProjection subProjection) {
+        return createAnalysisAlert((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createAnalysisAlert(String alias, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createAnalysisAlert").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createAnalysisAlert(MutationCreateAnalysisAlertParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        return createAnalysisAlert(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createAnalysisAlert(String alias, MutationCreateAnalysisAlertParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createAnalysisAlert").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateAnalysisAlert(AnalysisAlertsResponseProjection subProjection) {
+        return updateAnalysisAlert((String)null, subProjection);
+    }
+
+    public MutationResponseProjection updateAnalysisAlert(String alias, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateAnalysisAlert").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateAnalysisAlert(MutationUpdateAnalysisAlertParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        return updateAnalysisAlert(null, input, subProjection);
+    }
+
+    public MutationResponseProjection updateAnalysisAlert(String alias, MutationUpdateAnalysisAlertParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateAnalysisAlert").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteAnalysisAlert() {
+        return deleteAnalysisAlert((String)null);
+    }
+
+    public MutationResponseProjection deleteAnalysisAlert(String alias) {
+        fields.add(new GraphQLResponseField("deleteAnalysisAlert").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteAnalysisAlert(MutationDeleteAnalysisAlertParametrizedInput input) {
+        return deleteAnalysisAlert(null, input);
+    }
+
+    public MutationResponseProjection deleteAnalysisAlert(String alias, MutationDeleteAnalysisAlertParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteAnalysisAlert").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection deleteAnalysisAlerts() {
+        return deleteAnalysisAlerts((String)null);
+    }
+
+    public MutationResponseProjection deleteAnalysisAlerts(String alias) {
+        fields.add(new GraphQLResponseField("deleteAnalysisAlerts").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteAnalysisAlerts(MutationDeleteAnalysisAlertsParametrizedInput input) {
+        return deleteAnalysisAlerts(null, input);
+    }
+
+    public MutationResponseProjection deleteAnalysisAlerts(String alias, MutationDeleteAnalysisAlertsParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteAnalysisAlerts").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection forceComputeTag() {
+        return forceComputeTag((String)null);
+    }
+
+    public MutationResponseProjection forceComputeTag(String alias) {
+        fields.add(new GraphQLResponseField("forceComputeTag").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection forceComputeTag(MutationForceComputeTagParametrizedInput input) {
+        return forceComputeTag(null, input);
+    }
+
+    public MutationResponseProjection forceComputeTag(String alias, MutationForceComputeTagParametrizedInput input) {
+        fields.add(new GraphQLResponseField("forceComputeTag").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection forceComputeSegment() {
+        return forceComputeSegment((String)null);
+    }
+
+    public MutationResponseProjection forceComputeSegment(String alias) {
+        fields.add(new GraphQLResponseField("forceComputeSegment").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection forceComputeSegment(MutationForceComputeSegmentParametrizedInput input) {
+        return forceComputeSegment(null, input);
+    }
+
+    public MutationResponseProjection forceComputeSegment(String alias, MutationForceComputeSegmentParametrizedInput input) {
+        fields.add(new GraphQLResponseField("forceComputeSegment").alias(alias).parameters(input));
+        return this;
+    }
+
     public MutationResponseProjection createDataCenterTag(TagResponseProjection subProjection) {
         return createDataCenterTag((String)null, subProjection);
     }
@@ -615,6 +813,78 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
 
     public MutationResponseProjection createSegmentSnapshot(String alias, MutationCreateSegmentSnapshotParametrizedInput input, SegmentSnapshotResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("createSegmentSnapshot").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createTencentPortrait(TencentPortraitResponseProjection subProjection) {
+        return createTencentPortrait((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createTencentPortrait(String alias, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createTencentPortrait").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createTencentPortrait(MutationCreateTencentPortraitParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        return createTencentPortrait(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createTencentPortrait(String alias, MutationCreateTencentPortraitParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createTencentPortrait").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateTencentPortrait(TencentPortraitResponseProjection subProjection) {
+        return updateTencentPortrait((String)null, subProjection);
+    }
+
+    public MutationResponseProjection updateTencentPortrait(String alias, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateTencentPortrait").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateTencentPortrait(MutationUpdateTencentPortraitParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        return updateTencentPortrait(null, input, subProjection);
+    }
+
+    public MutationResponseProjection updateTencentPortrait(String alias, MutationUpdateTencentPortraitParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateTencentPortrait").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteTencentPortrait() {
+        return deleteTencentPortrait((String)null);
+    }
+
+    public MutationResponseProjection deleteTencentPortrait(String alias) {
+        fields.add(new GraphQLResponseField("deleteTencentPortrait").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteTencentPortrait(MutationDeleteTencentPortraitParametrizedInput input) {
+        return deleteTencentPortrait(null, input);
+    }
+
+    public MutationResponseProjection deleteTencentPortrait(String alias, MutationDeleteTencentPortraitParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteTencentPortrait").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection batchDeleteTencentPortrait() {
+        return batchDeleteTencentPortrait((String)null);
+    }
+
+    public MutationResponseProjection batchDeleteTencentPortrait(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteTencentPortrait").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection batchDeleteTencentPortrait(MutationBatchDeleteTencentPortraitParametrizedInput input) {
+        return batchDeleteTencentPortrait(null, input);
+    }
+
+    public MutationResponseProjection batchDeleteTencentPortrait(String alias, MutationBatchDeleteTencentPortraitParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteTencentPortrait").alias(alias).parameters(input));
         return this;
     }
 
@@ -780,6 +1050,24 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public MutationResponseProjection submitTagUserExportJobByKey(TagUserExportJobResponseProjection subProjection) {
+        return submitTagUserExportJobByKey((String)null, subProjection);
+    }
+
+    public MutationResponseProjection submitTagUserExportJobByKey(String alias, TagUserExportJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitTagUserExportJobByKey").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection submitTagUserExportJobByKey(MutationSubmitTagUserExportJobByKeyParametrizedInput input, TagUserExportJobResponseProjection subProjection) {
+        return submitTagUserExportJobByKey(null, input, subProjection);
+    }
+
+    public MutationResponseProjection submitTagUserExportJobByKey(String alias, MutationSubmitTagUserExportJobByKeyParametrizedInput input, TagUserExportJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitTagUserExportJobByKey").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
     public MutationResponseProjection submitSegmentUserExportJob(SegmentUserExportJobResponseProjection subProjection) {
         return submitSegmentUserExportJob((String)null, subProjection);
     }
@@ -816,6 +1104,24 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public MutationResponseProjection submitSegmentUserExportJobV2(SegmentUserExportJobResponseProjection subProjection) {
+        return submitSegmentUserExportJobV2((String)null, subProjection);
+    }
+
+    public MutationResponseProjection submitSegmentUserExportJobV2(String alias, SegmentUserExportJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitSegmentUserExportJobV2").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection submitSegmentUserExportJobV2(MutationSubmitSegmentUserExportJobV2ParametrizedInput input, SegmentUserExportJobResponseProjection subProjection) {
+        return submitSegmentUserExportJobV2(null, input, subProjection);
+    }
+
+    public MutationResponseProjection submitSegmentUserExportJobV2(String alias, MutationSubmitSegmentUserExportJobV2ParametrizedInput input, SegmentUserExportJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitSegmentUserExportJobV2").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
     public MutationResponseProjection submitAnalysisExportJob(AnalysisExportJobResponseProjection subProjection) {
         return submitAnalysisExportJob((String)null, subProjection);
     }
@@ -831,6 +1137,42 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
 
     public MutationResponseProjection submitAnalysisExportJob(String alias, MutationSubmitAnalysisExportJobParametrizedInput input, AnalysisExportJobResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("submitAnalysisExportJob").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection submitCreateTableJob(CreateTableJobResponseProjection subProjection) {
+        return submitCreateTableJob((String)null, subProjection);
+    }
+
+    public MutationResponseProjection submitCreateTableJob(String alias, CreateTableJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitCreateTableJob").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection submitCreateTableJob(MutationSubmitCreateTableJobParametrizedInput input, CreateTableJobResponseProjection subProjection) {
+        return submitCreateTableJob(null, input, subProjection);
+    }
+
+    public MutationResponseProjection submitCreateTableJob(String alias, MutationSubmitCreateTableJobParametrizedInput input, CreateTableJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitCreateTableJob").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection submitLogExportJob(AuditLogExportJobResponseProjection subProjection) {
+        return submitLogExportJob((String)null, subProjection);
+    }
+
+    public MutationResponseProjection submitLogExportJob(String alias, AuditLogExportJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitLogExportJob").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection submitLogExportJob(MutationSubmitLogExportJobParametrizedInput input, AuditLogExportJobResponseProjection subProjection) {
+        return submitLogExportJob(null, input, subProjection);
+    }
+
+    public MutationResponseProjection submitLogExportJob(String alias, MutationSubmitLogExportJobParametrizedInput input, AuditLogExportJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("submitLogExportJob").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1518,6 +1860,114 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public MutationResponseProjection createWebHook(WebHookResponseProjection subProjection) {
+        return createWebHook((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createWebHook(String alias, WebHookResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createWebHook").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createWebHook(MutationCreateWebHookParametrizedInput input, WebHookResponseProjection subProjection) {
+        return createWebHook(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createWebHook(String alias, MutationCreateWebHookParametrizedInput input, WebHookResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createWebHook").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateWebHook() {
+        return updateWebHook((String)null);
+    }
+
+    public MutationResponseProjection updateWebHook(String alias) {
+        fields.add(new GraphQLResponseField("updateWebHook").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateWebHook(MutationUpdateWebHookParametrizedInput input) {
+        return updateWebHook(null, input);
+    }
+
+    public MutationResponseProjection updateWebHook(String alias, MutationUpdateWebHookParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateWebHook").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateWebHookStatus() {
+        return updateWebHookStatus((String)null);
+    }
+
+    public MutationResponseProjection updateWebHookStatus(String alias) {
+        fields.add(new GraphQLResponseField("updateWebHookStatus").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateWebHookStatus(MutationUpdateWebHookStatusParametrizedInput input) {
+        return updateWebHookStatus(null, input);
+    }
+
+    public MutationResponseProjection updateWebHookStatus(String alias, MutationUpdateWebHookStatusParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateWebHookStatus").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createNotificationTask(NotificationTaskResponseProjection subProjection) {
+        return createNotificationTask((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createNotificationTask(String alias, NotificationTaskResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createNotificationTask").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createNotificationTask(MutationCreateNotificationTaskParametrizedInput input, NotificationTaskResponseProjection subProjection) {
+        return createNotificationTask(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createNotificationTask(String alias, MutationCreateNotificationTaskParametrizedInput input, NotificationTaskResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createNotificationTask").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateNotificationTask() {
+        return updateNotificationTask((String)null);
+    }
+
+    public MutationResponseProjection updateNotificationTask(String alias) {
+        fields.add(new GraphQLResponseField("updateNotificationTask").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateNotificationTask(MutationUpdateNotificationTaskParametrizedInput input) {
+        return updateNotificationTask(null, input);
+    }
+
+    public MutationResponseProjection updateNotificationTask(String alias, MutationUpdateNotificationTaskParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateNotificationTask").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection deleteNotificationTask() {
+        return deleteNotificationTask((String)null);
+    }
+
+    public MutationResponseProjection deleteNotificationTask(String alias) {
+        fields.add(new GraphQLResponseField("deleteNotificationTask").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteNotificationTask(MutationDeleteNotificationTaskParametrizedInput input) {
+        return deleteNotificationTask(null, input);
+    }
+
+    public MutationResponseProjection deleteNotificationTask(String alias, MutationDeleteNotificationTaskParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteNotificationTask").alias(alias).parameters(input));
+        return this;
+    }
+
     public MutationResponseProjection createAccount(CreateAccountReplyResponseProjection subProjection) {
         return createAccount((String)null, subProjection);
     }
@@ -1536,21 +1986,21 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection disableAccount() {
-        return disableAccount((String)null);
+    public MutationResponseProjection deleteAccount() {
+        return deleteAccount((String)null);
     }
 
-    public MutationResponseProjection disableAccount(String alias) {
-        fields.add(new GraphQLResponseField("disableAccount").alias(alias));
+    public MutationResponseProjection deleteAccount(String alias) {
+        fields.add(new GraphQLResponseField("deleteAccount").alias(alias));
         return this;
     }
 
-    public MutationResponseProjection disableAccount(MutationDisableAccountParametrizedInput input) {
-        return disableAccount(null, input);
+    public MutationResponseProjection deleteAccount(MutationDeleteAccountParametrizedInput input) {
+        return deleteAccount(null, input);
     }
 
-    public MutationResponseProjection disableAccount(String alias, MutationDisableAccountParametrizedInput input) {
-        fields.add(new GraphQLResponseField("disableAccount").alias(alias).parameters(input));
+    public MutationResponseProjection deleteAccount(String alias, MutationDeleteAccountParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteAccount").alias(alias).parameters(input));
         return this;
     }
 
@@ -1623,6 +2073,132 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
 
     public MutationResponseProjection updateMember(String alias, MutationUpdateMemberParametrizedInput input) {
         fields.add(new GraphQLResponseField("updateMember").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createAccountApplication() {
+        return createAccountApplication((String)null);
+    }
+
+    public MutationResponseProjection createAccountApplication(String alias) {
+        fields.add(new GraphQLResponseField("createAccountApplication").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection createAccountApplication(MutationCreateAccountApplicationParametrizedInput input) {
+        return createAccountApplication(null, input);
+    }
+
+    public MutationResponseProjection createAccountApplication(String alias, MutationCreateAccountApplicationParametrizedInput input) {
+        fields.add(new GraphQLResponseField("createAccountApplication").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection acceptAccountApplication() {
+        return acceptAccountApplication((String)null);
+    }
+
+    public MutationResponseProjection acceptAccountApplication(String alias) {
+        fields.add(new GraphQLResponseField("acceptAccountApplication").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection acceptAccountApplication(MutationAcceptAccountApplicationParametrizedInput input) {
+        return acceptAccountApplication(null, input);
+    }
+
+    public MutationResponseProjection acceptAccountApplication(String alias, MutationAcceptAccountApplicationParametrizedInput input) {
+        fields.add(new GraphQLResponseField("acceptAccountApplication").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection toggleAccountApplicationSetting(AccountApplicationSettingResponseProjection subProjection) {
+        return toggleAccountApplicationSetting(null, subProjection);
+    }
+
+    public MutationResponseProjection toggleAccountApplicationSetting(String alias, AccountApplicationSettingResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("toggleAccountApplicationSetting").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection togglePasswordRecoverySetting(PasswordRecoverySettingResponseProjection subProjection) {
+        return togglePasswordRecoverySetting(null, subProjection);
+    }
+
+    public MutationResponseProjection togglePasswordRecoverySetting(String alias, PasswordRecoverySettingResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("togglePasswordRecoverySetting").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateAccountApplicationSetting() {
+        return updateAccountApplicationSetting((String)null);
+    }
+
+    public MutationResponseProjection updateAccountApplicationSetting(String alias) {
+        fields.add(new GraphQLResponseField("updateAccountApplicationSetting").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateAccountApplicationSetting(MutationUpdateAccountApplicationSettingParametrizedInput input) {
+        return updateAccountApplicationSetting(null, input);
+    }
+
+    public MutationResponseProjection updateAccountApplicationSetting(String alias, MutationUpdateAccountApplicationSettingParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateAccountApplicationSetting").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updatePasswordRecoverySetting() {
+        return updatePasswordRecoverySetting((String)null);
+    }
+
+    public MutationResponseProjection updatePasswordRecoverySetting(String alias) {
+        fields.add(new GraphQLResponseField("updatePasswordRecoverySetting").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updatePasswordRecoverySetting(MutationUpdatePasswordRecoverySettingParametrizedInput input) {
+        return updatePasswordRecoverySetting(null, input);
+    }
+
+    public MutationResponseProjection updatePasswordRecoverySetting(String alias, MutationUpdatePasswordRecoverySettingParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updatePasswordRecoverySetting").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection rejectAccountApplication() {
+        return rejectAccountApplication((String)null);
+    }
+
+    public MutationResponseProjection rejectAccountApplication(String alias) {
+        fields.add(new GraphQLResponseField("rejectAccountApplication").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection rejectAccountApplication(MutationRejectAccountApplicationParametrizedInput input) {
+        return rejectAccountApplication(null, input);
+    }
+
+    public MutationResponseProjection rejectAccountApplication(String alias, MutationRejectAccountApplicationParametrizedInput input) {
+        fields.add(new GraphQLResponseField("rejectAccountApplication").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection updateAccount() {
+        return updateAccount((String)null);
+    }
+
+    public MutationResponseProjection updateAccount(String alias) {
+        fields.add(new GraphQLResponseField("updateAccount").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection updateAccount(MutationUpdateAccountParametrizedInput input) {
+        return updateAccount(null, input);
+    }
+
+    public MutationResponseProjection updateAccount(String alias, MutationUpdateAccountParametrizedInput input) {
+        fields.add(new GraphQLResponseField("updateAccount").alias(alias).parameters(input));
         return this;
     }
 
@@ -1914,24 +2490,6 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public MutationResponseProjection createDataCenterItemVariable(ItemVariableResponseProjection subProjection) {
-        return createDataCenterItemVariable((String)null, subProjection);
-    }
-
-    public MutationResponseProjection createDataCenterItemVariable(String alias, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createDataCenterItemVariable").alias(alias).projection(subProjection));
-        return this;
-    }
-
-    public MutationResponseProjection createDataCenterItemVariable(MutationCreateDataCenterItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        return createDataCenterItemVariable(null, input, subProjection);
-    }
-
-    public MutationResponseProjection createDataCenterItemVariable(String alias, MutationCreateDataCenterItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("createDataCenterItemVariable").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
     public MutationResponseProjection updateDataCenterItemVariable(ItemVariableResponseProjection subProjection) {
         return updateDataCenterItemVariable((String)null, subProjection);
     }
@@ -2148,6 +2706,15 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public MutationResponseProjection updateClickhouseView() {
+        return updateClickhouseView(null);
+    }
+
+    public MutationResponseProjection updateClickhouseView(String alias) {
+        fields.add(new GraphQLResponseField("updateClickhouseView").alias(alias));
+        return this;
+    }
+
     public MutationResponseProjection createKpiAnalysis(KpiAnalysisResponseProjection subProjection) {
         return createKpiAnalysis((String)null, subProjection);
     }
@@ -2361,6 +2928,78 @@ public class MutationResponseProjection extends GraphQLResponseProjection {
 
     public MutationResponseProjection batchDeleteFrequencyAnalyses(String alias, MutationBatchDeleteFrequencyAnalysesParametrizedInput input) {
         fields.add(new GraphQLResponseField("batchDeleteFrequencyAnalyses").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection createOlapEventAnalysis(EventAnalysisResponseProjection subProjection) {
+        return createOlapEventAnalysis((String)null, subProjection);
+    }
+
+    public MutationResponseProjection createOlapEventAnalysis(String alias, EventAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createOlapEventAnalysis").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection createOlapEventAnalysis(MutationCreateOlapEventAnalysisParametrizedInput input, EventAnalysisResponseProjection subProjection) {
+        return createOlapEventAnalysis(null, input, subProjection);
+    }
+
+    public MutationResponseProjection createOlapEventAnalysis(String alias, MutationCreateOlapEventAnalysisParametrizedInput input, EventAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("createOlapEventAnalysis").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateOlapEventAnalysis(EventAnalysisResponseProjection subProjection) {
+        return updateOlapEventAnalysis((String)null, subProjection);
+    }
+
+    public MutationResponseProjection updateOlapEventAnalysis(String alias, EventAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateOlapEventAnalysis").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection updateOlapEventAnalysis(MutationUpdateOlapEventAnalysisParametrizedInput input, EventAnalysisResponseProjection subProjection) {
+        return updateOlapEventAnalysis(null, input, subProjection);
+    }
+
+    public MutationResponseProjection updateOlapEventAnalysis(String alias, MutationUpdateOlapEventAnalysisParametrizedInput input, EventAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("updateOlapEventAnalysis").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public MutationResponseProjection deleteOlapEventAnalysis() {
+        return deleteOlapEventAnalysis((String)null);
+    }
+
+    public MutationResponseProjection deleteOlapEventAnalysis(String alias) {
+        fields.add(new GraphQLResponseField("deleteOlapEventAnalysis").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection deleteOlapEventAnalysis(MutationDeleteOlapEventAnalysisParametrizedInput input) {
+        return deleteOlapEventAnalysis(null, input);
+    }
+
+    public MutationResponseProjection deleteOlapEventAnalysis(String alias, MutationDeleteOlapEventAnalysisParametrizedInput input) {
+        fields.add(new GraphQLResponseField("deleteOlapEventAnalysis").alias(alias).parameters(input));
+        return this;
+    }
+
+    public MutationResponseProjection batchDeleteOlapEventAnalyses() {
+        return batchDeleteOlapEventAnalyses((String)null);
+    }
+
+    public MutationResponseProjection batchDeleteOlapEventAnalyses(String alias) {
+        fields.add(new GraphQLResponseField("batchDeleteOlapEventAnalyses").alias(alias));
+        return this;
+    }
+
+    public MutationResponseProjection batchDeleteOlapEventAnalyses(MutationBatchDeleteOlapEventAnalysesParametrizedInput input) {
+        return batchDeleteOlapEventAnalyses(null, input);
+    }
+
+    public MutationResponseProjection batchDeleteOlapEventAnalyses(String alias, MutationBatchDeleteOlapEventAnalysesParametrizedInput input) {
+        fields.add(new GraphQLResponseField("batchDeleteOlapEventAnalyses").alias(alias).parameters(input));
         return this;
     }
 

@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QueryCircleQrcodeParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     @javax.validation.constraints.NotNull
     private String productId;
 
     public QueryCircleQrcodeParametrizedInput() {
     }
 
-    public QueryCircleQrcodeParametrizedInput(String productId) {
+    public QueryCircleQrcodeParametrizedInput(String projectId, String productId) {
+        this.projectId = projectId;
         this.productId = productId;
+    }
+
+    public QueryCircleQrcodeParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public QueryCircleQrcodeParametrizedInput productId(String productId) {
@@ -32,6 +40,9 @@ public class QueryCircleQrcodeParametrizedInput implements GraphQLParametrizedIn
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (productId != null) {
             joiner.add("productId: " + GraphQLRequestSerializer.getEntry(productId));
         }

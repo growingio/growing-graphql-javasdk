@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class ProjectRoleDto implements java.io.Serializable {
 
@@ -34,58 +34,106 @@ public class ProjectRoleDto implements java.io.Serializable {
         this.isTechSupport = isTechSupport;
     }
 
+    /**
+     * 角色id
+     */
     public String getId() {
         return id;
     }
+    /**
+     * 角色id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * 角色名称
+     */
     public String getName() {
         return name;
     }
+    /**
+     * 角色名称
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 角色描述
+     */
     public String getDescription() {
         return description;
     }
+    /**
+     * 角色描述
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * 具备该角色的成员列表
+     */
     public java.util.List<MemberDto> getMembers() {
         return members;
     }
+    /**
+     * 具备该角色的成员列表
+     */
     public void setMembers(java.util.List<MemberDto> members) {
         this.members = members;
     }
 
+    /**
+     * 权限列表
+     */
     public java.util.List<PermissionDto> getPermissions() {
         return permissions;
     }
+    /**
+     * 权限列表
+     */
     public void setPermissions(java.util.List<PermissionDto> permissions) {
         this.permissions = permissions;
     }
 
+    /**
+     * 是否为系统资源
+     */
     public Boolean getIsSystem() {
         return isSystem;
     }
+    /**
+     * 是否为系统资源
+     */
     public void setIsSystem(Boolean isSystem) {
         this.isSystem = isSystem;
     }
 
+    /**
+     * 是否为root角色
+     */
     public Boolean getIsRoot() {
         return isRoot;
     }
+    /**
+     * 是否为root角色
+     */
     public void setIsRoot(Boolean isRoot) {
         this.isRoot = isRoot;
     }
 
+    /**
+     * 是否为技术支持
+     */
     public Boolean getIsTechSupport() {
         return isTechSupport;
     }
+    /**
+     * 是否为技术支持
+     */
     public void setIsTechSupport(Boolean isTechSupport) {
         this.isTechSupport = isTechSupport;
     }
@@ -139,41 +187,65 @@ public class ProjectRoleDto implements java.io.Serializable {
         public Builder() {
         }
 
+        /**
+         * 角色id
+         */
         public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * 角色名称
+         */
         public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
+        /**
+         * 角色描述
+         */
         public Builder setDescription(String description) {
             this.description = description;
             return this;
         }
 
+        /**
+         * 具备该角色的成员列表
+         */
         public Builder setMembers(java.util.List<MemberDto> members) {
             this.members = members;
             return this;
         }
 
+        /**
+         * 权限列表
+         */
         public Builder setPermissions(java.util.List<PermissionDto> permissions) {
             this.permissions = permissions;
             return this;
         }
 
+        /**
+         * 是否为系统资源
+         */
         public Builder setIsSystem(Boolean isSystem) {
             this.isSystem = isSystem;
             return this;
         }
 
+        /**
+         * 是否为root角色
+         */
         public Builder setIsRoot(Boolean isRoot) {
             this.isRoot = isRoot;
             return this;
         }
 
+        /**
+         * 是否为技术支持
+         */
         public Builder setIsTechSupport(Boolean isTechSupport) {
             this.isTechSupport = isTechSupport;
             return this;

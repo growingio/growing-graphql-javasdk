@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class FeatureResponseProjection extends GraphQLResponseProjection {
 
@@ -24,6 +24,8 @@ public class FeatureResponseProjection extends GraphQLResponseProjection {
     public FeatureResponseProjection all$(int maxDepth) {
         this.id();
         this.label();
+        this.entry();
+        this.description();
         this.typename();
         return this;
     }
@@ -43,6 +45,24 @@ public class FeatureResponseProjection extends GraphQLResponseProjection {
 
     public FeatureResponseProjection label(String alias) {
         fields.add(new GraphQLResponseField("label").alias(alias));
+        return this;
+    }
+
+    public FeatureResponseProjection entry() {
+        return entry(null);
+    }
+
+    public FeatureResponseProjection entry(String alias) {
+        fields.add(new GraphQLResponseField("entry").alias(alias));
+        return this;
+    }
+
+    public FeatureResponseProjection description() {
+        return description(null);
+    }
+
+    public FeatureResponseProjection description(String alias) {
+        fields.add(new GraphQLResponseField("description").alias(alias));
         return this;
     }
 

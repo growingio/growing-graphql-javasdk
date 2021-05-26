@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 更新分类
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $UpdateCategoryMutationResolver implements UpdateCategoryMutationResolver {
 
@@ -25,6 +28,9 @@ final public class $UpdateCategoryMutationResolver implements UpdateCategoryMuta
 
     private $UpdateCategoryMutationResolver() {}
 
+    /**
+     * 更新分类
+     */
     @Override
     public CategoryDto updateCategory(String id, CategoryInputDto category) throws Exception {
         UpdateCategoryMutationRequest request = new UpdateCategoryMutationRequest();

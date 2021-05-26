@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 返回dataCenter级别未分类资源
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $DataCenterDefaultCategoryQueryResolver implements DataCenterDefaultCategoryQueryResolver {
 
@@ -25,9 +28,16 @@ final public class $DataCenterDefaultCategoryQueryResolver implements DataCenter
 
     private $DataCenterDefaultCategoryQueryResolver() {}
 
+    /**
+     * 返回dataCenter级别未分类资源
+     */
     @Override
-    public CategoryDto dataCenterDefaultCategory() throws Exception {
+    public CategoryDto dataCenterDefaultCategory(String resourceType) throws Exception {
         DataCenterDefaultCategoryQueryRequest request = new DataCenterDefaultCategoryQueryRequest();
+        List<String> keys = Arrays.asList("resourceType");
+        List<?> values = Arrays.asList(resourceType);
+        Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
+        request.getInput().putAll(parameters);
         CategoryResponseProjection projection = new CategoryResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());
         GraphQLRequest graphQLRequest = new GraphQLRequest(request, projection);
         DataCenterDefaultCategoryQueryResponse result = OkHttpUtils.executeGraphQLRemote(growingIOConfig, graphQLRequest, DataCenterDefaultCategoryQueryResponse.class);

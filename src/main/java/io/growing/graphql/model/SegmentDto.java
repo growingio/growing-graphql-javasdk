@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityDto {
 
@@ -51,86 +51,158 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         this.ownerId = ownerId;
     }
 
+    /**
+     * 分群id
+     */
     public String getId() {
         return id;
     }
+    /**
+     * 分群id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * 分群名称
+     */
     public String getName() {
         return name;
     }
+    /**
+     * 分群名称
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 分群描述信息
+     */
     public String getDescription() {
         return description;
     }
+    /**
+     * 分群描述信息
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * 规则定义
+     */
     public ComputeDefinitionDto getCompute() {
         return compute;
     }
+    /**
+     * 规则定义
+     */
     public void setCompute(ComputeDefinitionDto compute) {
         this.compute = compute;
     }
 
+    /**
+     * 计算频率，可分为每周计算一次/每天计算一次等
+     */
     public String getScheduler() {
         return scheduler;
     }
+    /**
+     * 计算频率，可分为每周计算一次/每天计算一次等
+     */
     public void setScheduler(String scheduler) {
         this.scheduler = scheduler;
     }
 
+    /**
+     * 创建者id
+     */
     public String getCreatorId() {
         return creatorId;
     }
+    /**
+     * 创建者id
+     */
     public void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
     }
 
+    /**
+     * 创建时间
+     */
     public java.time.ZonedDateTime getCreatedAt() {
         return createdAt;
     }
+    /**
+     * 创建时间
+     */
     public void setCreatedAt(java.time.ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
+    /**
+     * 更新者id
+     */
     public String getUpdaterId() {
         return updaterId;
     }
+    /**
+     * 更新者id
+     */
     public void setUpdaterId(String updaterId) {
         this.updaterId = updaterId;
     }
 
+    /**
+     * 更新时间
+     */
     public java.time.ZonedDateTime getUpdatedAt() {
         return updatedAt;
     }
+    /**
+     * 更新时间
+     */
     public void setUpdatedAt(java.time.ZonedDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
+    /**
+     * 创建者
+     */
     public String getCreator() {
         return creator;
     }
+    /**
+     * 创建者
+     */
     public void setCreator(String creator) {
         this.creator = creator;
     }
 
+    /**
+     * 更新者
+     */
     public String getUpdater() {
         return updater;
     }
+    /**
+     * 更新者
+     */
     public void setUpdater(String updater) {
         this.updater = updater;
     }
 
+    /**
+     * 创建来源
+     */
     public String getCreatedBy() {
         return createdBy;
     }
+    /**
+     * 创建来源
+     */
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
@@ -142,9 +214,15 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         this.detector = detector;
     }
 
+    /**
+     * 拥有者id
+     */
     public String getOwnerId() {
         return ownerId;
     }
+    /**
+     * 拥有者id
+     */
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
@@ -222,61 +300,97 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
         public Builder() {
         }
 
+        /**
+         * 分群id
+         */
         public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * 分群名称
+         */
         public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
+        /**
+         * 分群描述信息
+         */
         public Builder setDescription(String description) {
             this.description = description;
             return this;
         }
 
+        /**
+         * 规则定义
+         */
         public Builder setCompute(ComputeDefinitionDto compute) {
             this.compute = compute;
             return this;
         }
 
+        /**
+         * 计算频率，可分为每周计算一次/每天计算一次等
+         */
         public Builder setScheduler(String scheduler) {
             this.scheduler = scheduler;
             return this;
         }
 
+        /**
+         * 创建者id
+         */
         public Builder setCreatorId(String creatorId) {
             this.creatorId = creatorId;
             return this;
         }
 
+        /**
+         * 创建时间
+         */
         public Builder setCreatedAt(java.time.ZonedDateTime createdAt) {
             this.createdAt = createdAt;
             return this;
         }
 
+        /**
+         * 更新者id
+         */
         public Builder setUpdaterId(String updaterId) {
             this.updaterId = updaterId;
             return this;
         }
 
+        /**
+         * 更新时间
+         */
         public Builder setUpdatedAt(java.time.ZonedDateTime updatedAt) {
             this.updatedAt = updatedAt;
             return this;
         }
 
+        /**
+         * 创建者
+         */
         public Builder setCreator(String creator) {
             this.creator = creator;
             return this;
         }
 
+        /**
+         * 更新者
+         */
         public Builder setUpdater(String updater) {
             this.updater = updater;
             return this;
         }
 
+        /**
+         * 创建来源
+         */
         public Builder setCreatedBy(String createdBy) {
             this.createdBy = createdBy;
             return this;
@@ -287,6 +401,9 @@ public class SegmentDto implements java.io.Serializable, EntityDto, NamedEntityD
             return this;
         }
 
+        /**
+         * 拥有者id
+         */
         public Builder setOwnerId(String ownerId) {
             this.ownerId = ownerId;
             return this;

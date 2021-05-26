@@ -13,7 +13,7 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $ProjectQueryResolver implements ProjectQueryResolver {
 
@@ -25,7 +25,6 @@ final public class $ProjectQueryResolver implements ProjectQueryResolver {
 
     private $ProjectQueryResolver() {}
 
-    @javax.validation.constraints.NotNull
     @Override
     public ProjectDto project(String id) throws Exception {
         ProjectQueryRequest request = new ProjectQueryRequest();

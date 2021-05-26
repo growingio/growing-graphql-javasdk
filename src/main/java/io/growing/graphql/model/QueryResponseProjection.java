@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QueryResponseProjection extends GraphQLResponseProjection {
 
@@ -46,6 +46,22 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.CrystalBallUserInfoPanelResponseProjection.crystalBallUserInfoPanels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CrystalBallUserInfoPanelResponseProjection.crystalBallUserInfoPanels", 0) + 1);
             this.crystalBallUserInfoPanels(new CrystalBallUserInfoPanelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CrystalBallUserInfoPanelResponseProjection.crystalBallUserInfoPanels", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.WaterMarkSettingResponseProjection.waterMarkSetting", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.WaterMarkSettingResponseProjection.waterMarkSetting", projectionDepthOnFields.getOrDefault("QueryResponseProjection.WaterMarkSettingResponseProjection.waterMarkSetting", 0) + 1);
+            this.waterMarkSetting(new WaterMarkSettingResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.WaterMarkSettingResponseProjection.waterMarkSetting", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlerts", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlerts", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlerts", 0) + 1);
+            this.analysisAlerts(new AnalysisAlertsResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlerts", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlert", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlert", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlert", 0) + 1);
+            this.analysisAlert(new AnalysisAlertsResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.analysisAlert", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.getAlertsByChartId", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AnalysisAlertsResponseProjection.getAlertsByChartId", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.getAlertsByChartId", 0) + 1);
+            this.getAlertsByChartId(new AnalysisAlertsResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AnalysisAlertsResponseProjection.getAlertsByChartId", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.dataCenterTags", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.TagResponseProjection.dataCenterTags", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.dataCenterTags", 0) + 1);
             this.dataCenterTags(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.dataCenterTags", 0)));
@@ -54,7 +70,7 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.TagResponseProjection.dataCenterTag", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.dataCenterTag", 0) + 1);
             this.dataCenterTag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.dataCenterTag", 0)));
         }
-        this.dataCenterCountTags();
+        this.countDataCenterTags();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tags", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.TagResponseProjection.tags", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tags", 0) + 1);
             this.tags(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tags", 0)));
@@ -63,7 +79,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.TagResponseProjection.tag", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tag", 0) + 1);
             this.tag(new TagResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagResponseProjection.tag", 0)));
         }
-        this.countTags();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segments", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.SegmentResponseProjection.segments", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segments", 0) + 1);
             this.segments(new SegmentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentResponseProjection.segments", 0)));
@@ -84,6 +99,10 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.userProfile", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.UserProfileResponseProjection.userProfile", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.userProfile", 0) + 1);
             this.userProfile(new UserProfileResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.userProfile", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.dataCenterUserProfile", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserProfileResponseProjection.dataCenterUserProfile", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.dataCenterUserProfile", 0) + 1);
+            this.dataCenterUserProfile(new UserProfileResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProfileResponseProjection.dataCenterUserProfile", 0)));
         }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TimeUserProfileResponseProjection.userProfileWithTime", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.TimeUserProfileResponseProjection.userProfileWithTime", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TimeUserProfileResponseProjection.userProfileWithTime", 0) + 1);
@@ -122,9 +141,42 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", 0) + 1);
             this.segmentDocument(new SegmentDocumentResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SegmentDocumentResponseProjection.segmentDocument", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TableInfoResponseProjection.tableDataDescription", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TableInfoResponseProjection.tableDataDescription", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TableInfoResponseProjection.tableDataDescription", 0) + 1);
+            this.tableDataDescription(new TableInfoResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TableInfoResponseProjection.tableDataDescription", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortrait", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortrait", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortrait", 0) + 1);
+            this.tencentPortrait(new TencentPortraitResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortrait", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortraits", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortraits", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortraits", 0) + 1);
+            this.tencentPortraits(new TencentPortraitResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitResponseProjection.tencentPortraits", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TGIStatisticDataResponseProjection.getTGIStatisticData", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TGIStatisticDataResponseProjection.getTGIStatisticData", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TGIStatisticDataResponseProjection.getTGIStatisticData", 0) + 1);
+            this.getTGIStatisticData(new TGIStatisticDataResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TGIStatisticDataResponseProjection.getTGIStatisticData", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagGroupInfoResponseProjection.tencentPortraitTagInfo", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TagGroupInfoResponseProjection.tencentPortraitTagInfo", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagGroupInfoResponseProjection.tencentPortraitTagInfo", 0) + 1);
+            this.tencentPortraitTagInfo(new TagGroupInfoResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagGroupInfoResponseProjection.tencentPortraitTagInfo", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagGroupInfoResponseProjection.queryGroupByIds", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TagGroupInfoResponseProjection.queryGroupByIds", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagGroupInfoResponseProjection.queryGroupByIds", 0) + 1);
+            this.queryGroupByIds(new TagGroupInfoResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TagGroupInfoResponseProjection.queryGroupByIds", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitQuotasInfoResponseProjection.tencentPortraitQuotas", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TencentPortraitQuotasInfoResponseProjection.tencentPortraitQuotas", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitQuotasInfoResponseProjection.tencentPortraitQuotas", 0) + 1);
+            this.tencentPortraitQuotas(new TencentPortraitQuotasInfoResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TencentPortraitQuotasInfoResponseProjection.tencentPortraitQuotas", 0)));
+        }
+        this.checkTagFieldExistence();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnels", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.TunnelResponseProjection.tunnels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnels", 0) + 1);
             this.tunnels(new TunnelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnels", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.projectTunnels", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.TunnelResponseProjection.projectTunnels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.projectTunnels", 0) + 1);
+            this.projectTunnels(new TunnelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.projectTunnels", 0)));
         }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnel", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.TunnelResponseProjection.tunnel", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TunnelResponseProjection.tunnel", 0) + 1);
@@ -160,12 +212,28 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", projectionDepthOnFields.getOrDefault("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", 0) + 1);
             this.jobFiles(new FileDescriptorResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.FileDescriptorResponseProjection.jobFiles", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.logs", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SlicePaginationResponseProjection.logs", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.logs", 0) + 1);
+            this.logs(new SlicePaginationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.logs", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AuditLogQueryOptionResponseProjection.logQueryOptions", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AuditLogQueryOptionResponseProjection.logQueryOptions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AuditLogQueryOptionResponseProjection.logQueryOptions", 0) + 1);
+            this.logQueryOptions(new AuditLogQueryOptionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AuditLogQueryOptionResponseProjection.logQueryOptions", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AuditLogExportJobResultResponseProjection.logExportJobResult", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AuditLogExportJobResultResponseProjection.logExportJobResult", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AuditLogExportJobResultResponseProjection.logExportJobResult", 0) + 1);
+            this.logExportJobResult(new AuditLogExportJobResultResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AuditLogExportJobResultResponseProjection.logExportJobResult", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CircleQrcodeResponseProjection.circleQrcode", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.CircleQrcodeResponseProjection.circleQrcode", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CircleQrcodeResponseProjection.circleQrcode", 0) + 1);
             this.circleQrcode(new CircleQrcodeResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CircleQrcodeResponseProjection.circleQrcode", 0)));
         }
         this.minpActiveUserIps();
         this.minpCircleQrcode();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DebuggerQrcodeResponseProjection.debuggerQrcode", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.DebuggerQrcodeResponseProjection.debuggerQrcode", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DebuggerQrcodeResponseProjection.debuggerQrcode", 0) + 1);
+            this.debuggerQrcode(new DebuggerQrcodeResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DebuggerQrcodeResponseProjection.debuggerQrcode", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", 0) + 1);
             this.subscriptions(new SubscriptionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SubscriptionResponseProjection.subscriptions", 0)));
@@ -210,6 +278,10 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CategoryResponseProjection.dataCenterTreeLikeCategoryWithResource", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.CategoryResponseProjection.dataCenterTreeLikeCategoryWithResource", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CategoryResponseProjection.dataCenterTreeLikeCategoryWithResource", 0) + 1);
             this.dataCenterTreeLikeCategoryWithResource(new CategoryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CategoryResponseProjection.dataCenterTreeLikeCategoryWithResource", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CategoryResponseProjection.dataCenterGetCategoryByResource", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.CategoryResponseProjection.dataCenterGetCategoryByResource", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CategoryResponseProjection.dataCenterGetCategoryByResource", 0) + 1);
+            this.dataCenterGetCategoryByResource(new CategoryResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CategoryResponseProjection.dataCenterGetCategoryByResource", 0)));
         }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.userDataCenterPermissionModules", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.ModuleResponseProjection.userDataCenterPermissionModules", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ModuleResponseProjection.userDataCenterPermissionModules", 0) + 1);
@@ -272,9 +344,45 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.ProjectDataCtrlResponseProjection.projectDataCtrl", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectDataCtrlResponseProjection.projectDataCtrl", 0) + 1);
             this.projectDataCtrl(new ProjectDataCtrlResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectDataCtrlResponseProjection.projectDataCtrl", 0)));
         }
-        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.TreeNodeResponseProjection.resourceTrees", 0) <= maxDepth) {
-            projectionDepthOnFields.put("QueryResponseProjection.TreeNodeResponseProjection.resourceTrees", projectionDepthOnFields.getOrDefault("QueryResponseProjection.TreeNodeResponseProjection.resourceTrees", 0) + 1);
-            this.resourceTrees(new TreeNodeResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.TreeNodeResponseProjection.resourceTrees", 0)));
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectRoleResponseProjection.currentUserProjectRole", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ProjectRoleResponseProjection.currentUserProjectRole", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectRoleResponseProjection.currentUserProjectRole", 0) + 1);
+            this.currentUserProjectRole(new ProjectRoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ProjectRoleResponseProjection.currentUserProjectRole", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProjectRoleTupleResponseProjection.currentUserProjectRoleTuples", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserProjectRoleTupleResponseProjection.currentUserProjectRoleTuples", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProjectRoleTupleResponseProjection.currentUserProjectRoleTuples", 0) + 1);
+            this.currentUserProjectRoleTuples(new UserProjectRoleTupleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserProjectRoleTupleResponseProjection.currentUserProjectRoleTuples", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseProjection.webHook", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.WebHookResponseProjection.webHook", projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseProjection.webHook", 0) + 1);
+            this.webHook(new WebHookResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseProjection.webHook", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseProjection.webHooks", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.WebHookResponseProjection.webHooks", projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseProjection.webHooks", 0) + 1);
+            this.webHooks(new WebHookResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseProjection.webHooks", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.NotificationTaskResponseProjection.notificationTask", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.NotificationTaskResponseProjection.notificationTask", projectionDepthOnFields.getOrDefault("QueryResponseProjection.NotificationTaskResponseProjection.notificationTask", 0) + 1);
+            this.notificationTask(new NotificationTaskResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.NotificationTaskResponseProjection.notificationTask", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.NotificationTaskResponseProjection.notificationTasks", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.NotificationTaskResponseProjection.notificationTasks", projectionDepthOnFields.getOrDefault("QueryResponseProjection.NotificationTaskResponseProjection.notificationTasks", 0) + 1);
+            this.notificationTasks(new NotificationTaskResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.NotificationTaskResponseProjection.notificationTasks", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testWebHook", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.WebHookResponseResponseProjection.testWebHook", projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testWebHook", 0) + 1);
+            this.testWebHook(new WebHookResponseResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testWebHook", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testNotificationTask", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.WebHookResponseResponseProjection.testNotificationTask", projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testNotificationTask", 0) + 1);
+            this.testNotificationTask(new WebHookResponseResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testNotificationTask", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testWebHookById", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.WebHookResponseResponseProjection.testWebHookById", projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testWebHookById", 0) + 1);
+            this.testWebHookById(new WebHookResponseResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.WebHookResponseResponseProjection.testWebHookById", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.HubbleInfoResponseProjection.hubble", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.HubbleInfoResponseProjection.hubble", projectionDepthOnFields.getOrDefault("QueryResponseProjection.HubbleInfoResponseProjection.hubble", 0) + 1);
+            this.hubble(new HubbleInfoResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.HubbleInfoResponseProjection.hubble", 0)));
         }
         this.verifyProjectAi();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.MemberResponseProjection.currentUser", 0) <= maxDepth) {
@@ -282,6 +390,31 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             this.currentUser(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.MemberResponseProjection.currentUser", 0)));
         }
         this.passwordValidation();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationResponseProjection.accountApplication", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AccountApplicationResponseProjection.accountApplication", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationResponseProjection.accountApplication", 0) + 1);
+            this.accountApplication(new AccountApplicationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationResponseProjection.accountApplication", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationResponseProjection.accountApplications", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AccountApplicationResponseProjection.accountApplications", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationResponseProjection.accountApplications", 0) + 1);
+            this.accountApplications(new AccountApplicationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationResponseProjection.accountApplications", 0)));
+        }
+        this.accountApplicationStatus();
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationSettingResponseProjection.accountApplicationSetting", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.AccountApplicationSettingResponseProjection.accountApplicationSetting", projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationSettingResponseProjection.accountApplicationSetting", 0) + 1);
+            this.accountApplicationSetting(new AccountApplicationSettingResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.AccountApplicationSettingResponseProjection.accountApplicationSetting", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PasswordRecoverySettingResponseProjection.passwordRecoverySetting", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.PasswordRecoverySettingResponseProjection.passwordRecoverySetting", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PasswordRecoverySettingResponseProjection.passwordRecoverySetting", 0) + 1);
+            this.passwordRecoverySetting(new PasswordRecoverySettingResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PasswordRecoverySettingResponseProjection.passwordRecoverySetting", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.members", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SlicePaginationResponseProjection.members", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.members", 0) + 1);
+            this.members(new SlicePaginationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.members", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.searchMembers", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.SlicePaginationResponseProjection.searchMembers", projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.searchMembers", 0) + 1);
+            this.searchMembers(new SlicePaginationResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.SlicePaginationResponseProjection.searchMembers", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.dataCenterCustomEvents", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.CustomEventResponseProjection.dataCenterCustomEvents", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.dataCenterCustomEvents", 0) + 1);
             this.dataCenterCustomEvents(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.dataCenterCustomEvents", 0)));
@@ -298,7 +431,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.CustomEventResponseProjection.customEvent", projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvent", 0) + 1);
             this.customEvent(new CustomEventResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.CustomEventResponseProjection.customEvent", 0)));
         }
-        this.countCustomEvents();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ElementResponseProjection.elements", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.ElementResponseProjection.elements", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ElementResponseProjection.elements", 0) + 1);
             this.elements(new ElementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ElementResponseProjection.elements", 0)));
@@ -319,6 +451,10 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", 0) + 1);
             this.complexMetric(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetric", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetricsV2", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.ComplexMetricResponseProjection.complexMetricsV2", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetricsV2", 0) + 1);
+            this.complexMetricsV2(new ComplexMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ComplexMetricResponseProjection.complexMetricsV2", 0)));
+        }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", 0) + 1);
             this.preparedMetrics(new PreparedMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedMetricResponseProjection.preparedMetrics", 0)));
@@ -332,24 +468,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.EventVariableResponseProjection.eventVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariable", 0) + 1);
             this.eventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.eventVariable", 0)));
         }
-        this.countEventVariables();
-        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModels", 0) <= maxDepth) {
-            projectionDepthOnFields.put("QueryResponseProjection.ItemModelResponseProjection.itemModels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModels", 0) + 1);
-            this.itemModels(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModels", 0)));
-        }
-        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModel", 0) <= maxDepth) {
-            projectionDepthOnFields.put("QueryResponseProjection.ItemModelResponseProjection.itemModel", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModel", 0) + 1);
-            this.itemModel(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.itemModel", 0)));
-        }
-        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", 0) <= maxDepth) {
-            projectionDepthOnFields.put("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", 0) + 1);
-            this.itemVariables(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariables", 0)));
-        }
-        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", 0) <= maxDepth) {
-            projectionDepthOnFields.put("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", 0) + 1);
-            this.itemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.itemVariable", 0)));
-        }
-        this.countItemVariables();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariables", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.userVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariables", 0) + 1);
             this.userVariables(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariables", 0)));
@@ -357,11 +475,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariable", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.userVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariable", 0) + 1);
             this.userVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.userVariable", 0)));
-        }
-        this.countUserVariables();
-        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserPropertyResponseProjection.userProperties", 0) <= maxDepth) {
-            projectionDepthOnFields.put("QueryResponseProjection.UserPropertyResponseProjection.userProperties", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserPropertyResponseProjection.userProperties", 0) + 1);
-            this.userProperties(new UserPropertyResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserPropertyResponseProjection.userProperties", 0)));
         }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.preparedDimensions", 0) + 1);
@@ -383,7 +496,7 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.EventVariableResponseProjection.dataCenterEventVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.dataCenterEventVariable", 0) + 1);
             this.dataCenterEventVariable(new EventVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.EventVariableResponseProjection.dataCenterEventVariable", 0)));
         }
-        this.dataCenterCountEventVariables();
+        this.countDataCenterEventVariables();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.dataCenterItemModels", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.ItemModelResponseProjection.dataCenterItemModels", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.dataCenterItemModels", 0) + 1);
             this.dataCenterItemModels(new ItemModelResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemModelResponseProjection.dataCenterItemModels", 0)));
@@ -400,7 +513,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.ItemVariableResponseProjection.dataCenterItemVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.dataCenterItemVariable", 0) + 1);
             this.dataCenterItemVariable(new ItemVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.ItemVariableResponseProjection.dataCenterItemVariable", 0)));
         }
-        this.dataCenterCountItemVariables();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariables", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariables", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariables", 0) + 1);
             this.dataCenterUserVariables(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariables", 0)));
@@ -409,7 +521,7 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariable", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariable", 0) + 1);
             this.dataCenterUserVariable(new UserVariableResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserVariableResponseProjection.dataCenterUserVariable", 0)));
         }
-        this.dataCenterCountUserVariables();
+        this.countDataCenterUserVariables();
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.dataCenterPreparedDimensions", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.PreparedDimensionResponseProjection.dataCenterPreparedDimensions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.dataCenterPreparedDimensions", 0) + 1);
             this.dataCenterPreparedDimensions(new PreparedDimensionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.PreparedDimensionResponseProjection.dataCenterPreparedDimensions", 0)));
@@ -421,6 +533,10 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.DimensionResponseProjection.dataCenterInsightDimensions", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.DimensionResponseProjection.dataCenterInsightDimensions", projectionDepthOnFields.getOrDefault("QueryResponseProjection.DimensionResponseProjection.dataCenterInsightDimensions", 0) + 1);
             this.dataCenterInsightDimensions(new DimensionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.DimensionResponseProjection.dataCenterInsightDimensions", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserIdentityResponseProjection.dataCenterUserIdentities", 0) <= maxDepth) {
+            projectionDepthOnFields.put("QueryResponseProjection.UserIdentityResponseProjection.dataCenterUserIdentities", projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserIdentityResponseProjection.dataCenterUserIdentities", 0) + 1);
+            this.dataCenterUserIdentities(new UserIdentityResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("QueryResponseProjection.UserIdentityResponseProjection.dataCenterUserIdentities", 0)));
         }
         if (projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", 0) <= maxDepth) {
             projectionDepthOnFields.put("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", projectionDepthOnFields.getOrDefault("QueryResponseProjection.KpiAnalysisResponseProjection.kpiAnalysis", 0) + 1);
@@ -597,6 +713,69 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public QueryResponseProjection waterMarkSetting(WaterMarkSettingResponseProjection subProjection) {
+        return waterMarkSetting(null, subProjection);
+    }
+
+    public QueryResponseProjection waterMarkSetting(String alias, WaterMarkSettingResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("waterMarkSetting").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection analysisAlerts(AnalysisAlertsResponseProjection subProjection) {
+        return analysisAlerts((String)null, subProjection);
+    }
+
+    public QueryResponseProjection analysisAlerts(String alias, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("analysisAlerts").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection analysisAlerts(QueryAnalysisAlertsParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        return analysisAlerts(null, input, subProjection);
+    }
+
+    public QueryResponseProjection analysisAlerts(String alias, QueryAnalysisAlertsParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("analysisAlerts").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection analysisAlert(AnalysisAlertsResponseProjection subProjection) {
+        return analysisAlert((String)null, subProjection);
+    }
+
+    public QueryResponseProjection analysisAlert(String alias, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("analysisAlert").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection analysisAlert(QueryAnalysisAlertParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        return analysisAlert(null, input, subProjection);
+    }
+
+    public QueryResponseProjection analysisAlert(String alias, QueryAnalysisAlertParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("analysisAlert").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection getAlertsByChartId(AnalysisAlertsResponseProjection subProjection) {
+        return getAlertsByChartId((String)null, subProjection);
+    }
+
+    public QueryResponseProjection getAlertsByChartId(String alias, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("getAlertsByChartId").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection getAlertsByChartId(QueryGetAlertsByChartIdParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        return getAlertsByChartId(null, input, subProjection);
+    }
+
+    public QueryResponseProjection getAlertsByChartId(String alias, QueryGetAlertsByChartIdParametrizedInput input, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("getAlertsByChartId").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
     public QueryResponseProjection dataCenterTags(TagResponseProjection subProjection) {
         return dataCenterTags(null, subProjection);
     }
@@ -624,12 +803,12 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public QueryResponseProjection dataCenterCountTags() {
-        return dataCenterCountTags(null);
+    public QueryResponseProjection countDataCenterTags() {
+        return countDataCenterTags(null);
     }
 
-    public QueryResponseProjection dataCenterCountTags(String alias) {
-        fields.add(new GraphQLResponseField("dataCenterCountTags").alias(alias));
+    public QueryResponseProjection countDataCenterTags(String alias) {
+        fields.add(new GraphQLResponseField("countDataCenterTags").alias(alias));
         return this;
     }
 
@@ -666,24 +845,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection tag(String alias, QueryTagParametrizedInput input, TagResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("tag").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection countTags() {
-        return countTags((String)null);
-    }
-
-    public QueryResponseProjection countTags(String alias) {
-        fields.add(new GraphQLResponseField("countTags").alias(alias));
-        return this;
-    }
-
-    public QueryResponseProjection countTags(QueryCountTagsParametrizedInput input) {
-        return countTags(null, input);
-    }
-
-    public QueryResponseProjection countTags(String alias, QueryCountTagsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("countTags").alias(alias).parameters(input));
         return this;
     }
 
@@ -792,6 +953,24 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection userProfile(String alias, QueryUserProfileParametrizedInput input, UserProfileResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("userProfile").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterUserProfile(UserProfileResponseProjection subProjection) {
+        return dataCenterUserProfile((String)null, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterUserProfile(String alias, UserProfileResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterUserProfile").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterUserProfile(QueryDataCenterUserProfileParametrizedInput input, UserProfileResponseProjection subProjection) {
+        return dataCenterUserProfile(null, input, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterUserProfile(String alias, QueryDataCenterUserProfileParametrizedInput input, UserProfileResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterUserProfile").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -975,12 +1154,156 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public QueryResponseProjection tableDataDescription(TableInfoResponseProjection subProjection) {
+        return tableDataDescription(null, subProjection);
+    }
+
+    public QueryResponseProjection tableDataDescription(String alias, TableInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tableDataDescription").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortrait(TencentPortraitResponseProjection subProjection) {
+        return tencentPortrait((String)null, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortrait(String alias, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortrait").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortrait(QueryTencentPortraitParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        return tencentPortrait(null, input, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortrait(String alias, QueryTencentPortraitParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortrait").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortraits(TencentPortraitResponseProjection subProjection) {
+        return tencentPortraits((String)null, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortraits(String alias, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortraits").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortraits(QueryTencentPortraitsParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        return tencentPortraits(null, input, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortraits(String alias, QueryTencentPortraitsParametrizedInput input, TencentPortraitResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortraits").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection getTGIStatisticData(TGIStatisticDataResponseProjection subProjection) {
+        return getTGIStatisticData((String)null, subProjection);
+    }
+
+    public QueryResponseProjection getTGIStatisticData(String alias, TGIStatisticDataResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("getTGIStatisticData").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection getTGIStatisticData(QueryGetTGIStatisticDataParametrizedInput input, TGIStatisticDataResponseProjection subProjection) {
+        return getTGIStatisticData(null, input, subProjection);
+    }
+
+    public QueryResponseProjection getTGIStatisticData(String alias, QueryGetTGIStatisticDataParametrizedInput input, TGIStatisticDataResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("getTGIStatisticData").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortraitTagInfo(TagGroupInfoResponseProjection subProjection) {
+        return tencentPortraitTagInfo((String)null, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortraitTagInfo(String alias, TagGroupInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortraitTagInfo").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortraitTagInfo(QueryTencentPortraitTagInfoParametrizedInput input, TagGroupInfoResponseProjection subProjection) {
+        return tencentPortraitTagInfo(null, input, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortraitTagInfo(String alias, QueryTencentPortraitTagInfoParametrizedInput input, TagGroupInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortraitTagInfo").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection queryGroupByIds(TagGroupInfoResponseProjection subProjection) {
+        return queryGroupByIds((String)null, subProjection);
+    }
+
+    public QueryResponseProjection queryGroupByIds(String alias, TagGroupInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("queryGroupByIds").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection queryGroupByIds(QueryQueryGroupByIdsParametrizedInput input, TagGroupInfoResponseProjection subProjection) {
+        return queryGroupByIds(null, input, subProjection);
+    }
+
+    public QueryResponseProjection queryGroupByIds(String alias, QueryQueryGroupByIdsParametrizedInput input, TagGroupInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("queryGroupByIds").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection tencentPortraitQuotas(TencentPortraitQuotasInfoResponseProjection subProjection) {
+        return tencentPortraitQuotas(null, subProjection);
+    }
+
+    public QueryResponseProjection tencentPortraitQuotas(String alias, TencentPortraitQuotasInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("tencentPortraitQuotas").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection checkTagFieldExistence() {
+        return checkTagFieldExistence((String)null);
+    }
+
+    public QueryResponseProjection checkTagFieldExistence(String alias) {
+        fields.add(new GraphQLResponseField("checkTagFieldExistence").alias(alias));
+        return this;
+    }
+
+    public QueryResponseProjection checkTagFieldExistence(QueryCheckTagFieldExistenceParametrizedInput input) {
+        return checkTagFieldExistence(null, input);
+    }
+
+    public QueryResponseProjection checkTagFieldExistence(String alias, QueryCheckTagFieldExistenceParametrizedInput input) {
+        fields.add(new GraphQLResponseField("checkTagFieldExistence").alias(alias).parameters(input));
+        return this;
+    }
+
     public QueryResponseProjection tunnels(TunnelResponseProjection subProjection) {
         return tunnels(null, subProjection);
     }
 
     public QueryResponseProjection tunnels(String alias, TunnelResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("tunnels").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection projectTunnels(TunnelResponseProjection subProjection) {
+        return projectTunnels((String)null, subProjection);
+    }
+
+    public QueryResponseProjection projectTunnels(String alias, TunnelResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("projectTunnels").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection projectTunnels(QueryProjectTunnelsParametrizedInput input, TunnelResponseProjection subProjection) {
+        return projectTunnels(null, input, subProjection);
+    }
+
+    public QueryResponseProjection projectTunnels(String alias, QueryProjectTunnelsParametrizedInput input, TunnelResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("projectTunnels").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1146,6 +1469,51 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public QueryResponseProjection logs(SlicePaginationResponseProjection subProjection) {
+        return logs((String)null, subProjection);
+    }
+
+    public QueryResponseProjection logs(String alias, SlicePaginationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("logs").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection logs(QueryLogsParametrizedInput input, SlicePaginationResponseProjection subProjection) {
+        return logs(null, input, subProjection);
+    }
+
+    public QueryResponseProjection logs(String alias, QueryLogsParametrizedInput input, SlicePaginationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("logs").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection logQueryOptions(AuditLogQueryOptionResponseProjection subProjection) {
+        return logQueryOptions(null, subProjection);
+    }
+
+    public QueryResponseProjection logQueryOptions(String alias, AuditLogQueryOptionResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("logQueryOptions").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection logExportJobResult(AuditLogExportJobResultResponseProjection subProjection) {
+        return logExportJobResult((String)null, subProjection);
+    }
+
+    public QueryResponseProjection logExportJobResult(String alias, AuditLogExportJobResultResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("logExportJobResult").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection logExportJobResult(QueryLogExportJobResultParametrizedInput input, AuditLogExportJobResultResponseProjection subProjection) {
+        return logExportJobResult(null, input, subProjection);
+    }
+
+    public QueryResponseProjection logExportJobResult(String alias, QueryLogExportJobResultParametrizedInput input, AuditLogExportJobResultResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("logExportJobResult").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
     public QueryResponseProjection circleQrcode(CircleQrcodeResponseProjection subProjection) {
         return circleQrcode((String)null, subProjection);
     }
@@ -1200,6 +1568,24 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public QueryResponseProjection debuggerQrcode(DebuggerQrcodeResponseProjection subProjection) {
+        return debuggerQrcode((String)null, subProjection);
+    }
+
+    public QueryResponseProjection debuggerQrcode(String alias, DebuggerQrcodeResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("debuggerQrcode").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection debuggerQrcode(QueryDebuggerQrcodeParametrizedInput input, DebuggerQrcodeResponseProjection subProjection) {
+        return debuggerQrcode(null, input, subProjection);
+    }
+
+    public QueryResponseProjection debuggerQrcode(String alias, QueryDebuggerQrcodeParametrizedInput input, DebuggerQrcodeResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("debuggerQrcode").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
     public QueryResponseProjection subscriptions(SubscriptionResponseProjection subProjection) {
         return subscriptions((String)null, subProjection);
     }
@@ -1237,11 +1623,20 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
     }
 
     public QueryResponseProjection categories(CategoryResponseProjection subProjection) {
-        return categories(null, subProjection);
+        return categories((String)null, subProjection);
     }
 
     public QueryResponseProjection categories(String alias, CategoryResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("categories").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection categories(QueryCategoriesParametrizedInput input, CategoryResponseProjection subProjection) {
+        return categories(null, input, subProjection);
+    }
+
+    public QueryResponseProjection categories(String alias, QueryCategoriesParametrizedInput input, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("categories").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1318,11 +1713,20 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
     }
 
     public QueryResponseProjection dataCenterDefaultCategory(CategoryResponseProjection subProjection) {
-        return dataCenterDefaultCategory(null, subProjection);
+        return dataCenterDefaultCategory((String)null, subProjection);
     }
 
     public QueryResponseProjection dataCenterDefaultCategory(String alias, CategoryResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("dataCenterDefaultCategory").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterDefaultCategory(QueryDataCenterDefaultCategoryParametrizedInput input, CategoryResponseProjection subProjection) {
+        return dataCenterDefaultCategory(null, input, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterDefaultCategory(String alias, QueryDataCenterDefaultCategoryParametrizedInput input, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterDefaultCategory").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1345,11 +1749,20 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
     }
 
     public QueryResponseProjection dataCenterTreeLikeCategories(CategoryResponseProjection subProjection) {
-        return dataCenterTreeLikeCategories(null, subProjection);
+        return dataCenterTreeLikeCategories((String)null, subProjection);
     }
 
     public QueryResponseProjection dataCenterTreeLikeCategories(String alias, CategoryResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("dataCenterTreeLikeCategories").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterTreeLikeCategories(QueryDataCenterTreeLikeCategoriesParametrizedInput input, CategoryResponseProjection subProjection) {
+        return dataCenterTreeLikeCategories(null, input, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterTreeLikeCategories(String alias, QueryDataCenterTreeLikeCategoriesParametrizedInput input, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterTreeLikeCategories").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1368,6 +1781,24 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection dataCenterTreeLikeCategoryWithResource(String alias, QueryDataCenterTreeLikeCategoryWithResourceParametrizedInput input, CategoryResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("dataCenterTreeLikeCategoryWithResource").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterGetCategoryByResource(CategoryResponseProjection subProjection) {
+        return dataCenterGetCategoryByResource((String)null, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterGetCategoryByResource(String alias, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterGetCategoryByResource").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterGetCategoryByResource(QueryDataCenterGetCategoryByResourceParametrizedInput input, CategoryResponseProjection subProjection) {
+        return dataCenterGetCategoryByResource(null, input, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterGetCategoryByResource(String alias, QueryDataCenterGetCategoryByResourceParametrizedInput input, CategoryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterGetCategoryByResource").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1614,21 +2045,147 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public QueryResponseProjection resourceTrees(TreeNodeResponseProjection subProjection) {
-        return resourceTrees((String)null, subProjection);
+    public QueryResponseProjection currentUserProjectRole(ProjectRoleResponseProjection subProjection) {
+        return currentUserProjectRole((String)null, subProjection);
     }
 
-    public QueryResponseProjection resourceTrees(String alias, TreeNodeResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("resourceTrees").alias(alias).projection(subProjection));
+    public QueryResponseProjection currentUserProjectRole(String alias, ProjectRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("currentUserProjectRole").alias(alias).projection(subProjection));
         return this;
     }
 
-    public QueryResponseProjection resourceTrees(QueryResourceTreesParametrizedInput input, TreeNodeResponseProjection subProjection) {
-        return resourceTrees(null, input, subProjection);
+    public QueryResponseProjection currentUserProjectRole(QueryCurrentUserProjectRoleParametrizedInput input, ProjectRoleResponseProjection subProjection) {
+        return currentUserProjectRole(null, input, subProjection);
     }
 
-    public QueryResponseProjection resourceTrees(String alias, QueryResourceTreesParametrizedInput input, TreeNodeResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("resourceTrees").alias(alias).parameters(input).projection(subProjection));
+    public QueryResponseProjection currentUserProjectRole(String alias, QueryCurrentUserProjectRoleParametrizedInput input, ProjectRoleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("currentUserProjectRole").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection currentUserProjectRoleTuples(UserProjectRoleTupleResponseProjection subProjection) {
+        return currentUserProjectRoleTuples(null, subProjection);
+    }
+
+    public QueryResponseProjection currentUserProjectRoleTuples(String alias, UserProjectRoleTupleResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("currentUserProjectRoleTuples").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection webHook(WebHookResponseProjection subProjection) {
+        return webHook((String)null, subProjection);
+    }
+
+    public QueryResponseProjection webHook(String alias, WebHookResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("webHook").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection webHook(QueryWebHookParametrizedInput input, WebHookResponseProjection subProjection) {
+        return webHook(null, input, subProjection);
+    }
+
+    public QueryResponseProjection webHook(String alias, QueryWebHookParametrizedInput input, WebHookResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("webHook").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection webHooks(WebHookResponseProjection subProjection) {
+        return webHooks(null, subProjection);
+    }
+
+    public QueryResponseProjection webHooks(String alias, WebHookResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("webHooks").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection notificationTask(NotificationTaskResponseProjection subProjection) {
+        return notificationTask((String)null, subProjection);
+    }
+
+    public QueryResponseProjection notificationTask(String alias, NotificationTaskResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("notificationTask").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection notificationTask(QueryNotificationTaskParametrizedInput input, NotificationTaskResponseProjection subProjection) {
+        return notificationTask(null, input, subProjection);
+    }
+
+    public QueryResponseProjection notificationTask(String alias, QueryNotificationTaskParametrizedInput input, NotificationTaskResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("notificationTask").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection notificationTasks(NotificationTaskResponseProjection subProjection) {
+        return notificationTasks(null, subProjection);
+    }
+
+    public QueryResponseProjection notificationTasks(String alias, NotificationTaskResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("notificationTasks").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection testWebHook(WebHookResponseResponseProjection subProjection) {
+        return testWebHook((String)null, subProjection);
+    }
+
+    public QueryResponseProjection testWebHook(String alias, WebHookResponseResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("testWebHook").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection testWebHook(QueryTestWebHookParametrizedInput input, WebHookResponseResponseProjection subProjection) {
+        return testWebHook(null, input, subProjection);
+    }
+
+    public QueryResponseProjection testWebHook(String alias, QueryTestWebHookParametrizedInput input, WebHookResponseResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("testWebHook").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection testNotificationTask(WebHookResponseResponseProjection subProjection) {
+        return testNotificationTask((String)null, subProjection);
+    }
+
+    public QueryResponseProjection testNotificationTask(String alias, WebHookResponseResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("testNotificationTask").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection testNotificationTask(QueryTestNotificationTaskParametrizedInput input, WebHookResponseResponseProjection subProjection) {
+        return testNotificationTask(null, input, subProjection);
+    }
+
+    public QueryResponseProjection testNotificationTask(String alias, QueryTestNotificationTaskParametrizedInput input, WebHookResponseResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("testNotificationTask").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection testWebHookById(WebHookResponseResponseProjection subProjection) {
+        return testWebHookById((String)null, subProjection);
+    }
+
+    public QueryResponseProjection testWebHookById(String alias, WebHookResponseResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("testWebHookById").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection testWebHookById(QueryTestWebHookByIdParametrizedInput input, WebHookResponseResponseProjection subProjection) {
+        return testWebHookById(null, input, subProjection);
+    }
+
+    public QueryResponseProjection testWebHookById(String alias, QueryTestWebHookByIdParametrizedInput input, WebHookResponseResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("testWebHookById").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection hubble(HubbleInfoResponseProjection subProjection) {
+        return hubble(null, subProjection);
+    }
+
+    public QueryResponseProjection hubble(String alias, HubbleInfoResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("hubble").alias(alias).projection(subProjection));
         return this;
     }
 
@@ -1674,6 +2231,105 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection passwordValidation(String alias, QueryPasswordValidationParametrizedInput input) {
         fields.add(new GraphQLResponseField("passwordValidation").alias(alias).parameters(input));
+        return this;
+    }
+
+    public QueryResponseProjection accountApplication(AccountApplicationResponseProjection subProjection) {
+        return accountApplication((String)null, subProjection);
+    }
+
+    public QueryResponseProjection accountApplication(String alias, AccountApplicationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("accountApplication").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection accountApplication(QueryAccountApplicationParametrizedInput input, AccountApplicationResponseProjection subProjection) {
+        return accountApplication(null, input, subProjection);
+    }
+
+    public QueryResponseProjection accountApplication(String alias, QueryAccountApplicationParametrizedInput input, AccountApplicationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("accountApplication").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection accountApplications(AccountApplicationResponseProjection subProjection) {
+        return accountApplications(null, subProjection);
+    }
+
+    public QueryResponseProjection accountApplications(String alias, AccountApplicationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("accountApplications").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection accountApplicationStatus() {
+        return accountApplicationStatus((String)null);
+    }
+
+    public QueryResponseProjection accountApplicationStatus(String alias) {
+        fields.add(new GraphQLResponseField("accountApplicationStatus").alias(alias));
+        return this;
+    }
+
+    public QueryResponseProjection accountApplicationStatus(QueryAccountApplicationStatusParametrizedInput input) {
+        return accountApplicationStatus(null, input);
+    }
+
+    public QueryResponseProjection accountApplicationStatus(String alias, QueryAccountApplicationStatusParametrizedInput input) {
+        fields.add(new GraphQLResponseField("accountApplicationStatus").alias(alias).parameters(input));
+        return this;
+    }
+
+    public QueryResponseProjection accountApplicationSetting(AccountApplicationSettingResponseProjection subProjection) {
+        return accountApplicationSetting(null, subProjection);
+    }
+
+    public QueryResponseProjection accountApplicationSetting(String alias, AccountApplicationSettingResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("accountApplicationSetting").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection passwordRecoverySetting(PasswordRecoverySettingResponseProjection subProjection) {
+        return passwordRecoverySetting(null, subProjection);
+    }
+
+    public QueryResponseProjection passwordRecoverySetting(String alias, PasswordRecoverySettingResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("passwordRecoverySetting").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection members(SlicePaginationResponseProjection subProjection) {
+        return members((String)null, subProjection);
+    }
+
+    public QueryResponseProjection members(String alias, SlicePaginationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("members").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection members(QueryMembersParametrizedInput input, SlicePaginationResponseProjection subProjection) {
+        return members(null, input, subProjection);
+    }
+
+    public QueryResponseProjection members(String alias, QueryMembersParametrizedInput input, SlicePaginationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("members").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection searchMembers(SlicePaginationResponseProjection subProjection) {
+        return searchMembers((String)null, subProjection);
+    }
+
+    public QueryResponseProjection searchMembers(String alias, SlicePaginationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("searchMembers").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection searchMembers(QuerySearchMembersParametrizedInput input, SlicePaginationResponseProjection subProjection) {
+        return searchMembers(null, input, subProjection);
+    }
+
+    public QueryResponseProjection searchMembers(String alias, QuerySearchMembersParametrizedInput input, SlicePaginationResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("searchMembers").alias(alias).parameters(input).projection(subProjection));
         return this;
     }
 
@@ -1737,24 +2393,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection customEvent(String alias, QueryCustomEventParametrizedInput input, CustomEventResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("customEvent").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection countCustomEvents() {
-        return countCustomEvents((String)null);
-    }
-
-    public QueryResponseProjection countCustomEvents(String alias) {
-        fields.add(new GraphQLResponseField("countCustomEvents").alias(alias));
-        return this;
-    }
-
-    public QueryResponseProjection countCustomEvents(QueryCountCustomEventsParametrizedInput input) {
-        return countCustomEvents(null, input);
-    }
-
-    public QueryResponseProjection countCustomEvents(String alias, QueryCountCustomEventsParametrizedInput input) {
-        fields.add(new GraphQLResponseField("countCustomEvents").alias(alias).parameters(input));
         return this;
     }
 
@@ -1848,6 +2486,24 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public QueryResponseProjection complexMetricsV2(ComplexMetricResponseProjection subProjection) {
+        return complexMetricsV2((String)null, subProjection);
+    }
+
+    public QueryResponseProjection complexMetricsV2(String alias, ComplexMetricResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("complexMetricsV2").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection complexMetricsV2(QueryComplexMetricsV2ParametrizedInput input, ComplexMetricResponseProjection subProjection) {
+        return complexMetricsV2(null, input, subProjection);
+    }
+
+    public QueryResponseProjection complexMetricsV2(String alias, QueryComplexMetricsV2ParametrizedInput input, ComplexMetricResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("complexMetricsV2").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
     public QueryResponseProjection preparedMetrics(PreparedMetricResponseProjection subProjection) {
         return preparedMetrics(null, subProjection);
     }
@@ -1911,114 +2567,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public QueryResponseProjection countEventVariables() {
-        return countEventVariables((String)null);
-    }
-
-    public QueryResponseProjection countEventVariables(String alias) {
-        fields.add(new GraphQLResponseField("countEventVariables").alias(alias));
-        return this;
-    }
-
-    public QueryResponseProjection countEventVariables(QueryCountEventVariablesParametrizedInput input) {
-        return countEventVariables(null, input);
-    }
-
-    public QueryResponseProjection countEventVariables(String alias, QueryCountEventVariablesParametrizedInput input) {
-        fields.add(new GraphQLResponseField("countEventVariables").alias(alias).parameters(input));
-        return this;
-    }
-
-    public QueryResponseProjection itemModels(ItemModelResponseProjection subProjection) {
-        return itemModels((String)null, subProjection);
-    }
-
-    public QueryResponseProjection itemModels(String alias, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemModels").alias(alias).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemModels(QueryItemModelsParametrizedInput input, ItemModelResponseProjection subProjection) {
-        return itemModels(null, input, subProjection);
-    }
-
-    public QueryResponseProjection itemModels(String alias, QueryItemModelsParametrizedInput input, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemModels").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemModel(ItemModelResponseProjection subProjection) {
-        return itemModel((String)null, subProjection);
-    }
-
-    public QueryResponseProjection itemModel(String alias, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemModel").alias(alias).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemModel(QueryItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
-        return itemModel(null, input, subProjection);
-    }
-
-    public QueryResponseProjection itemModel(String alias, QueryItemModelParametrizedInput input, ItemModelResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemModel").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemVariables(ItemVariableResponseProjection subProjection) {
-        return itemVariables((String)null, subProjection);
-    }
-
-    public QueryResponseProjection itemVariables(String alias, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemVariables").alias(alias).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemVariables(QueryItemVariablesParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        return itemVariables(null, input, subProjection);
-    }
-
-    public QueryResponseProjection itemVariables(String alias, QueryItemVariablesParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemVariables").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemVariable(ItemVariableResponseProjection subProjection) {
-        return itemVariable((String)null, subProjection);
-    }
-
-    public QueryResponseProjection itemVariable(String alias, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemVariable").alias(alias).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection itemVariable(QueryItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        return itemVariable(null, input, subProjection);
-    }
-
-    public QueryResponseProjection itemVariable(String alias, QueryItemVariableParametrizedInput input, ItemVariableResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("itemVariable").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection countItemVariables() {
-        return countItemVariables((String)null);
-    }
-
-    public QueryResponseProjection countItemVariables(String alias) {
-        fields.add(new GraphQLResponseField("countItemVariables").alias(alias));
-        return this;
-    }
-
-    public QueryResponseProjection countItemVariables(QueryCountItemVariablesParametrizedInput input) {
-        return countItemVariables(null, input);
-    }
-
-    public QueryResponseProjection countItemVariables(String alias, QueryCountItemVariablesParametrizedInput input) {
-        fields.add(new GraphQLResponseField("countItemVariables").alias(alias).parameters(input));
-        return this;
-    }
-
     public QueryResponseProjection userVariables(UserVariableResponseProjection subProjection) {
         return userVariables((String)null, subProjection);
     }
@@ -2052,33 +2600,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection userVariable(String alias, QueryUserVariableParametrizedInput input, UserVariableResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("userVariable").alias(alias).parameters(input).projection(subProjection));
-        return this;
-    }
-
-    public QueryResponseProjection countUserVariables() {
-        return countUserVariables((String)null);
-    }
-
-    public QueryResponseProjection countUserVariables(String alias) {
-        fields.add(new GraphQLResponseField("countUserVariables").alias(alias));
-        return this;
-    }
-
-    public QueryResponseProjection countUserVariables(QueryCountUserVariablesParametrizedInput input) {
-        return countUserVariables(null, input);
-    }
-
-    public QueryResponseProjection countUserVariables(String alias, QueryCountUserVariablesParametrizedInput input) {
-        fields.add(new GraphQLResponseField("countUserVariables").alias(alias).parameters(input));
-        return this;
-    }
-
-    public QueryResponseProjection userProperties(UserPropertyResponseProjection subProjection) {
-        return userProperties(null, subProjection);
-    }
-
-    public QueryResponseProjection userProperties(String alias, UserPropertyResponseProjection subProjection) {
-        fields.add(new GraphQLResponseField("userProperties").alias(alias).projection(subProjection));
         return this;
     }
 
@@ -2163,12 +2684,12 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public QueryResponseProjection dataCenterCountEventVariables() {
-        return dataCenterCountEventVariables(null);
+    public QueryResponseProjection countDataCenterEventVariables() {
+        return countDataCenterEventVariables(null);
     }
 
-    public QueryResponseProjection dataCenterCountEventVariables(String alias) {
-        fields.add(new GraphQLResponseField("dataCenterCountEventVariables").alias(alias));
+    public QueryResponseProjection countDataCenterEventVariables(String alias) {
+        fields.add(new GraphQLResponseField("countDataCenterEventVariables").alias(alias));
         return this;
     }
 
@@ -2226,15 +2747,6 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public QueryResponseProjection dataCenterCountItemVariables() {
-        return dataCenterCountItemVariables(null);
-    }
-
-    public QueryResponseProjection dataCenterCountItemVariables(String alias) {
-        fields.add(new GraphQLResponseField("dataCenterCountItemVariables").alias(alias));
-        return this;
-    }
-
     public QueryResponseProjection dataCenterUserVariables(UserVariableResponseProjection subProjection) {
         return dataCenterUserVariables(null, subProjection);
     }
@@ -2262,12 +2774,12 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
-    public QueryResponseProjection dataCenterCountUserVariables() {
-        return dataCenterCountUserVariables(null);
+    public QueryResponseProjection countDataCenterUserVariables() {
+        return countDataCenterUserVariables(null);
     }
 
-    public QueryResponseProjection dataCenterCountUserVariables(String alias) {
-        fields.add(new GraphQLResponseField("dataCenterCountUserVariables").alias(alias));
+    public QueryResponseProjection countDataCenterUserVariables(String alias) {
+        fields.add(new GraphQLResponseField("countDataCenterUserVariables").alias(alias));
         return this;
     }
 
@@ -2304,6 +2816,15 @@ public class QueryResponseProjection extends GraphQLResponseProjection {
 
     public QueryResponseProjection dataCenterInsightDimensions(String alias, QueryDataCenterInsightDimensionsParametrizedInput input, DimensionResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("dataCenterInsightDimensions").alias(alias).parameters(input).projection(subProjection));
+        return this;
+    }
+
+    public QueryResponseProjection dataCenterUserIdentities(UserIdentityResponseProjection subProjection) {
+        return dataCenterUserIdentities(null, subProjection);
+    }
+
+    public QueryResponseProjection dataCenterUserIdentities(String alias, UserIdentityResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("dataCenterUserIdentities").alias(alias).projection(subProjection));
         return this;
     }
 

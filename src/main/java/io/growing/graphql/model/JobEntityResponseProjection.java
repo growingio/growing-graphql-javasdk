@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class JobEntityResponseProjection extends GraphQLResponseProjection {
 
@@ -83,6 +83,24 @@ public class JobEntityResponseProjection extends GraphQLResponseProjection {
 
     public JobEntityResponseProjection onSegmentUserExportJob(String alias, SegmentUserExportJobResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on SegmentUserExportJob").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public JobEntityResponseProjection onTencentPortraitJob(TencentPortraitJobResponseProjection subProjection) {
+        return onTencentPortraitJob(null, subProjection);
+    }
+
+    public JobEntityResponseProjection onTencentPortraitJob(String alias, TencentPortraitJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on TencentPortraitJob").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public JobEntityResponseProjection onCreateTableJob(CreateTableJobResponseProjection subProjection) {
+        return onCreateTableJob(null, subProjection);
+    }
+
+    public JobEntityResponseProjection onCreateTableJob(String alias, CreateTableJobResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on CreateTableJob").alias(alias).projection(subProjection));
         return this;
     }
 

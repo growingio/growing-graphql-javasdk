@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class EventAnalysisResponseProjection extends GraphQLResponseProjection {
 
@@ -28,6 +28,10 @@ public class EventAnalysisResponseProjection extends GraphQLResponseProjection {
         if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) <= maxDepth) {
             projectionDepthOnFields.put("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
             this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.MeasurementResponseProjection.measurements", 0)));
+        }
+        if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.OlapMetricResponseProjection.metrics", 0) <= maxDepth) {
+            projectionDepthOnFields.put("EventAnalysisResponseProjection.OlapMetricResponseProjection.metrics", projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.OlapMetricResponseProjection.metrics", 0) + 1);
+            this.metrics(new OlapMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.OlapMetricResponseProjection.metrics", 0)));
         }
         this.dimensions();
         if (projectionDepthOnFields.getOrDefault("EventAnalysisResponseProjection.GranularityResponseProjection.granularities", 0) <= maxDepth) {
@@ -100,6 +104,15 @@ public class EventAnalysisResponseProjection extends GraphQLResponseProjection {
 
     public EventAnalysisResponseProjection measurements(String alias, MeasurementResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("measurements").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public EventAnalysisResponseProjection metrics(OlapMetricResponseProjection subProjection) {
+        return metrics(null, subProjection);
+    }
+
+    public EventAnalysisResponseProjection metrics(String alias, OlapMetricResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("metrics").alias(alias).projection(subProjection));
         return this;
     }
 

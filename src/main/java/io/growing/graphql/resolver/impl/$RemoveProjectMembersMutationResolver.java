@@ -13,7 +13,7 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $RemoveProjectMembersMutationResolver implements RemoveProjectMembersMutationResolver {
 
@@ -27,10 +27,10 @@ final public class $RemoveProjectMembersMutationResolver implements RemoveProjec
 
     @javax.validation.constraints.NotNull
     @Override
-    public Boolean removeProjectMembers(RemoveProjectMembersInputDto input) throws Exception {
+    public Boolean removeProjectMembers(String projectId, RemoveProjectMembersInputDto input) throws Exception {
         RemoveProjectMembersMutationRequest request = new RemoveProjectMembersMutationRequest();
-        List<String> keys = Arrays.asList("input");
-        List<?> values = Arrays.asList(input);
+        List<String> keys = Arrays.asList("projectId", "input");
+        List<?> values = Arrays.asList(projectId, input);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         GraphQLRequest graphQLRequest = new GraphQLRequest(request, null);

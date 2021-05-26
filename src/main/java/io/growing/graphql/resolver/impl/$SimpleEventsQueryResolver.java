@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 无埋点事件 即圈选事件
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $SimpleEventsQueryResolver implements SimpleEventsQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $SimpleEventsQueryResolver implements SimpleEventsQueryResolv
 
     private $SimpleEventsQueryResolver() {}
 
+    /**
+     * 无埋点事件 即圈选事件
+     */
     @Override
     public java.util.List<SimpleEventDto> simpleEvents(String projectId, String elementId) throws Exception {
         SimpleEventsQueryRequest request = new SimpleEventsQueryRequest();

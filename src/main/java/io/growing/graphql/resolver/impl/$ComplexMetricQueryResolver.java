@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 单个计算指标详情
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $ComplexMetricQueryResolver implements ComplexMetricQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $ComplexMetricQueryResolver implements ComplexMetricQueryReso
 
     private $ComplexMetricQueryResolver() {}
 
+    /**
+     * 单个计算指标详情
+     */
     @Override
     public ComplexMetricDto complexMetric(String projectId, String id) throws Exception {
         ComplexMetricQueryRequest request = new ComplexMetricQueryRequest();

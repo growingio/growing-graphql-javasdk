@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class DataCenterInfoResponseProjection extends GraphQLResponseProjection {
 
@@ -33,6 +33,15 @@ public class DataCenterInfoResponseProjection extends GraphQLResponseProjection 
         this.tunnelCount();
         this.projectCount();
         this.deployVersion();
+        this.accountGrantType();
+        this.enableWatermark();
+        this.memberCount();
+        if (projectionDepthOnFields.getOrDefault("DataCenterInfoResponseProjection.MemberResponseProjection.owner", 0) <= maxDepth) {
+            projectionDepthOnFields.put("DataCenterInfoResponseProjection.MemberResponseProjection.owner", projectionDepthOnFields.getOrDefault("DataCenterInfoResponseProjection.MemberResponseProjection.owner", 0) + 1);
+            this.owner(new MemberResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("DataCenterInfoResponseProjection.MemberResponseProjection.owner", 0)));
+        }
+        this.departmentCount();
+        this.pendingApplicationCount();
         this.typename();
         return this;
     }
@@ -106,6 +115,60 @@ public class DataCenterInfoResponseProjection extends GraphQLResponseProjection 
 
     public DataCenterInfoResponseProjection deployVersion(String alias) {
         fields.add(new GraphQLResponseField("deployVersion").alias(alias));
+        return this;
+    }
+
+    public DataCenterInfoResponseProjection accountGrantType() {
+        return accountGrantType(null);
+    }
+
+    public DataCenterInfoResponseProjection accountGrantType(String alias) {
+        fields.add(new GraphQLResponseField("accountGrantType").alias(alias));
+        return this;
+    }
+
+    public DataCenterInfoResponseProjection enableWatermark() {
+        return enableWatermark(null);
+    }
+
+    public DataCenterInfoResponseProjection enableWatermark(String alias) {
+        fields.add(new GraphQLResponseField("enableWatermark").alias(alias));
+        return this;
+    }
+
+    public DataCenterInfoResponseProjection memberCount() {
+        return memberCount(null);
+    }
+
+    public DataCenterInfoResponseProjection memberCount(String alias) {
+        fields.add(new GraphQLResponseField("memberCount").alias(alias));
+        return this;
+    }
+
+    public DataCenterInfoResponseProjection owner(MemberResponseProjection subProjection) {
+        return owner(null, subProjection);
+    }
+
+    public DataCenterInfoResponseProjection owner(String alias, MemberResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("owner").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public DataCenterInfoResponseProjection departmentCount() {
+        return departmentCount(null);
+    }
+
+    public DataCenterInfoResponseProjection departmentCount(String alias) {
+        fields.add(new GraphQLResponseField("departmentCount").alias(alias));
+        return this;
+    }
+
+    public DataCenterInfoResponseProjection pendingApplicationCount() {
+        return pendingApplicationCount(null);
+    }
+
+    public DataCenterInfoResponseProjection pendingApplicationCount(String alias) {
+        fields.add(new GraphQLResponseField("pendingApplicationCount").alias(alias));
         return this;
     }
 

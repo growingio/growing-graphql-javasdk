@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 根据资源类型与项目id返回树状结构分类信息
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $TreeLikeCategoriesWithResourceQueryResolver implements TreeLikeCategoriesWithResourceQueryResolver {
 
@@ -25,11 +28,14 @@ final public class $TreeLikeCategoriesWithResourceQueryResolver implements TreeL
 
     private $TreeLikeCategoriesWithResourceQueryResolver() {}
 
+    /**
+     * 根据资源类型与项目id返回树状结构分类信息
+     */
     @Override
-    public java.util.List<CategoryDto> treeLikeCategoriesWithResource(String projectId) throws Exception {
+    public java.util.List<CategoryDto> treeLikeCategoriesWithResource(String projectId, String resourceType) throws Exception {
         TreeLikeCategoriesWithResourceQueryRequest request = new TreeLikeCategoriesWithResourceQueryRequest();
-        List<String> keys = Arrays.asList("projectId");
-        List<?> values = Arrays.asList(projectId);
+        List<String> keys = Arrays.asList("projectId", "resourceType");
+        List<?> values = Arrays.asList(projectId, resourceType);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         CategoryResponseProjection projection = new CategoryResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());

@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MeasurableAttributeDto implements java.io.Serializable {
 
@@ -15,14 +15,18 @@ public class MeasurableAttributeDto implements java.io.Serializable {
     private String name;
     @javax.validation.constraints.NotNull
     private String valueType;
+    private Boolean isSystem;
+    private java.util.List<String> supportedTimeGranularities;
 
     public MeasurableAttributeDto() {
     }
 
-    public MeasurableAttributeDto(String id, String name, String valueType) {
+    public MeasurableAttributeDto(String id, String name, String valueType, Boolean isSystem, java.util.List<String> supportedTimeGranularities) {
         this.id = id;
         this.name = name;
         this.valueType = valueType;
+        this.isSystem = isSystem;
+        this.supportedTimeGranularities = supportedTimeGranularities;
     }
 
     public String getId() {
@@ -46,6 +50,20 @@ public class MeasurableAttributeDto implements java.io.Serializable {
         this.valueType = valueType;
     }
 
+    public Boolean getIsSystem() {
+        return isSystem;
+    }
+    public void setIsSystem(Boolean isSystem) {
+        this.isSystem = isSystem;
+    }
+
+    public java.util.List<String> getSupportedTimeGranularities() {
+        return supportedTimeGranularities;
+    }
+    public void setSupportedTimeGranularities(java.util.List<String> supportedTimeGranularities) {
+        this.supportedTimeGranularities = supportedTimeGranularities;
+    }
+
 
     @Override
     public String toString() {
@@ -59,6 +77,12 @@ public class MeasurableAttributeDto implements java.io.Serializable {
         if (valueType != null) {
             joiner.add("valueType: " + GraphQLRequestSerializer.getEntry(valueType));
         }
+        if (isSystem != null) {
+            joiner.add("isSystem: " + GraphQLRequestSerializer.getEntry(isSystem));
+        }
+        if (supportedTimeGranularities != null) {
+            joiner.add("supportedTimeGranularities: " + GraphQLRequestSerializer.getEntry(supportedTimeGranularities));
+        }
         return joiner.toString();
     }
 
@@ -71,6 +95,8 @@ public class MeasurableAttributeDto implements java.io.Serializable {
         private String id;
         private String name;
         private String valueType;
+        private Boolean isSystem;
+        private java.util.List<String> supportedTimeGranularities;
 
         public Builder() {
         }
@@ -90,9 +116,19 @@ public class MeasurableAttributeDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setIsSystem(Boolean isSystem) {
+            this.isSystem = isSystem;
+            return this;
+        }
+
+        public Builder setSupportedTimeGranularities(java.util.List<String> supportedTimeGranularities) {
+            this.supportedTimeGranularities = supportedTimeGranularities;
+            return this;
+        }
+
 
         public MeasurableAttributeDto build() {
-            return new MeasurableAttributeDto(id, name, valueType);
+            return new MeasurableAttributeDto(id, name, valueType, isSystem, supportedTimeGranularities);
         }
 
     }

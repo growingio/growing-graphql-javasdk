@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 根据资源id返回dataCenter级别下树状结构分类信息
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $DataCenterTreeLikeCategoryWithResourceQueryResolver implements DataCenterTreeLikeCategoryWithResourceQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $DataCenterTreeLikeCategoryWithResourceQueryResolver implemen
 
     private $DataCenterTreeLikeCategoryWithResourceQueryResolver() {}
 
+    /**
+     * 根据资源id返回dataCenter级别下树状结构分类信息
+     */
     @Override
     public CategoryDto dataCenterTreeLikeCategoryWithResource(String id) throws Exception {
         DataCenterTreeLikeCategoryWithResourceQueryRequest request = new DataCenterTreeLikeCategoryWithResourceQueryRequest();

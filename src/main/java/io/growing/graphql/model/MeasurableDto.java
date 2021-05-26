@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MeasurableDto implements java.io.Serializable {
 
@@ -23,11 +23,13 @@ public class MeasurableDto implements java.io.Serializable {
     private java.util.List<String> labels;
     private Boolean favorites;
     private Boolean isComplexDistinct;
+    private Boolean isSystem;
+    private java.util.List<String> supportedTimeGranularities;
 
     public MeasurableDto() {
     }
 
-    public MeasurableDto(String id, String name, String type, String action, String elementId, String valueType, java.util.List<String> platforms, java.util.List<MeasurableAttributeDto> attributes, java.util.List<String> labels, Boolean favorites, Boolean isComplexDistinct) {
+    public MeasurableDto(String id, String name, String type, String action, String elementId, String valueType, java.util.List<String> platforms, java.util.List<MeasurableAttributeDto> attributes, java.util.List<String> labels, Boolean favorites, Boolean isComplexDistinct, Boolean isSystem, java.util.List<String> supportedTimeGranularities) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -39,6 +41,8 @@ public class MeasurableDto implements java.io.Serializable {
         this.labels = labels;
         this.favorites = favorites;
         this.isComplexDistinct = isComplexDistinct;
+        this.isSystem = isSystem;
+        this.supportedTimeGranularities = supportedTimeGranularities;
     }
 
     public String getId() {
@@ -128,6 +132,20 @@ public class MeasurableDto implements java.io.Serializable {
         this.isComplexDistinct = isComplexDistinct;
     }
 
+    public Boolean getIsSystem() {
+        return isSystem;
+    }
+    public void setIsSystem(Boolean isSystem) {
+        this.isSystem = isSystem;
+    }
+
+    public java.util.List<String> getSupportedTimeGranularities() {
+        return supportedTimeGranularities;
+    }
+    public void setSupportedTimeGranularities(java.util.List<String> supportedTimeGranularities) {
+        this.supportedTimeGranularities = supportedTimeGranularities;
+    }
+
 
     @Override
     public String toString() {
@@ -165,6 +183,12 @@ public class MeasurableDto implements java.io.Serializable {
         if (isComplexDistinct != null) {
             joiner.add("isComplexDistinct: " + GraphQLRequestSerializer.getEntry(isComplexDistinct));
         }
+        if (isSystem != null) {
+            joiner.add("isSystem: " + GraphQLRequestSerializer.getEntry(isSystem));
+        }
+        if (supportedTimeGranularities != null) {
+            joiner.add("supportedTimeGranularities: " + GraphQLRequestSerializer.getEntry(supportedTimeGranularities));
+        }
         return joiner.toString();
     }
 
@@ -185,6 +209,8 @@ public class MeasurableDto implements java.io.Serializable {
         private java.util.List<String> labels;
         private Boolean favorites;
         private Boolean isComplexDistinct;
+        private Boolean isSystem;
+        private java.util.List<String> supportedTimeGranularities;
 
         public Builder() {
         }
@@ -249,9 +275,19 @@ public class MeasurableDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setIsSystem(Boolean isSystem) {
+            this.isSystem = isSystem;
+            return this;
+        }
+
+        public Builder setSupportedTimeGranularities(java.util.List<String> supportedTimeGranularities) {
+            this.supportedTimeGranularities = supportedTimeGranularities;
+            return this;
+        }
+
 
         public MeasurableDto build() {
-            return new MeasurableDto(id, name, type, action, elementId, valueType, platforms, attributes, labels, favorites, isComplexDistinct);
+            return new MeasurableDto(id, name, type, action, elementId, valueType, platforms, attributes, labels, favorites, isComplexDistinct, isSystem, supportedTimeGranularities);
         }
 
     }

@@ -9,22 +9,29 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QueryDataCenterSearchCategoriesParametrizedInput implements GraphQLParametrizedInput {
 
     @javax.validation.constraints.NotNull
     private String q;
+    private String resourceType;
 
     public QueryDataCenterSearchCategoriesParametrizedInput() {
     }
 
-    public QueryDataCenterSearchCategoriesParametrizedInput(String q) {
+    public QueryDataCenterSearchCategoriesParametrizedInput(String q, String resourceType) {
         this.q = q;
+        this.resourceType = resourceType;
     }
 
     public QueryDataCenterSearchCategoriesParametrizedInput q(String q) {
         this.q = q;
+        return this;
+    }
+
+    public QueryDataCenterSearchCategoriesParametrizedInput resourceType(String resourceType) {
+        this.resourceType = resourceType;
         return this;
     }
 
@@ -34,6 +41,9 @@ public class QueryDataCenterSearchCategoriesParametrizedInput implements GraphQL
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
         if (q != null) {
             joiner.add("q: " + GraphQLRequestSerializer.getEntry(q));
+        }
+        if (resourceType != null) {
+            joiner.add("resourceType: " + GraphQLRequestSerializer.getEntry(resourceType));
         }
         return joiner.toString();
     }

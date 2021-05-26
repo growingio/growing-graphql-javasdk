@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class UserVariableResponseProjection extends GraphQLResponseProjection {
 
@@ -36,6 +36,9 @@ public class UserVariableResponseProjection extends GraphQLResponseProjection {
         this.updater();
         this.valueType();
         this.ownerId();
+        this.example();
+        this.disabled();
+        this.isHighCardinality();
         this.typename();
         return this;
     }
@@ -163,6 +166,33 @@ public class UserVariableResponseProjection extends GraphQLResponseProjection {
 
     public UserVariableResponseProjection ownerId(String alias) {
         fields.add(new GraphQLResponseField("ownerId").alias(alias));
+        return this;
+    }
+
+    public UserVariableResponseProjection example() {
+        return example(null);
+    }
+
+    public UserVariableResponseProjection example(String alias) {
+        fields.add(new GraphQLResponseField("example").alias(alias));
+        return this;
+    }
+
+    public UserVariableResponseProjection disabled() {
+        return disabled(null);
+    }
+
+    public UserVariableResponseProjection disabled(String alias) {
+        fields.add(new GraphQLResponseField("disabled").alias(alias));
+        return this;
+    }
+
+    public UserVariableResponseProjection isHighCardinality() {
+        return isHighCardinality(null);
+    }
+
+    public UserVariableResponseProjection isHighCardinality(String alias) {
+        fields.add(new GraphQLResponseField("isHighCardinality").alias(alias));
         return this;
     }
 

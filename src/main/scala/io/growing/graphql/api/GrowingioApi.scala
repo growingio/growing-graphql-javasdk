@@ -19,9 +19,9 @@ class GrowingioApi(url: String, headers: Map[String, String]) {
 
   private lazy val conf: GrowingIOConfig = new GrowingIOConfig(url, headers.asJava)
 
-  def submitTagUserExportJob(tagId: String, properties: util.List[String], charset: String, detailExport: Boolean): TagUserExportJobDto = {
+  def submitTagUserExportJob(tagId: String, exportFileName:String, properties: util.List[String], charset: String, detailExport: Boolean): TagUserExportJobDto = {
     val resolver = new $SubmitTagUserExportJobMutationResolver(conf)
-    resolver.submitTagUserExportJob(tagId, properties, charset, detailExport)
+    resolver.submitTagUserExportJob(tagId, exportFileName, properties, charset, detailExport)
   }
 
   def submitAnalysisExportJob(projectId: String, id: String, param: AnalysisExportJobParamDto, charset: String): AnalysisExportJobDto = {

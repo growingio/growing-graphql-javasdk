@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 根据资源类型查询未分类的资源列表
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $DefaultCategoryQueryResolver implements DefaultCategoryQueryResolver {
 
@@ -25,11 +28,14 @@ final public class $DefaultCategoryQueryResolver implements DefaultCategoryQuery
 
     private $DefaultCategoryQueryResolver() {}
 
+    /**
+     * 根据资源类型查询未分类的资源列表
+     */
     @Override
-    public CategoryDto defaultCategory(String projectId) throws Exception {
+    public CategoryDto defaultCategory(String resourceType, String projectId) throws Exception {
         DefaultCategoryQueryRequest request = new DefaultCategoryQueryRequest();
-        List<String> keys = Arrays.asList("projectId");
-        List<?> values = Arrays.asList(projectId);
+        List<String> keys = Arrays.asList("resourceType", "projectId");
+        List<?> values = Arrays.asList(resourceType, projectId);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         CategoryResponseProjection projection = new CategoryResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());

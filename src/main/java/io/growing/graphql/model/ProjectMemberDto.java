@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class ProjectMemberDto implements java.io.Serializable {
 
@@ -24,30 +24,54 @@ public class ProjectMemberDto implements java.io.Serializable {
         this.lastVisitAt = lastVisitAt;
     }
 
+    /**
+     * 成员信息
+     */
     public MemberDto getMember() {
         return member;
     }
+    /**
+     * 成员信息
+     */
     public void setMember(MemberDto member) {
         this.member = member;
     }
 
+    /**
+     * 该成员担任的角色
+     */
     public ProjectRoleDto getRole() {
         return role;
     }
+    /**
+     * 该成员担任的角色
+     */
     public void setRole(ProjectRoleDto role) {
         this.role = role;
     }
 
+    /**
+     * 加入项目的时间
+     */
     public java.time.ZonedDateTime getJoinedAt() {
         return joinedAt;
     }
+    /**
+     * 加入项目的时间
+     */
     public void setJoinedAt(java.time.ZonedDateTime joinedAt) {
         this.joinedAt = joinedAt;
     }
 
+    /**
+     * 上次访问的时间
+     */
     public java.time.ZonedDateTime getLastVisitAt() {
         return lastVisitAt;
     }
+    /**
+     * 上次访问的时间
+     */
     public void setLastVisitAt(java.time.ZonedDateTime lastVisitAt) {
         this.lastVisitAt = lastVisitAt;
     }
@@ -85,21 +109,33 @@ public class ProjectMemberDto implements java.io.Serializable {
         public Builder() {
         }
 
+        /**
+         * 成员信息
+         */
         public Builder setMember(MemberDto member) {
             this.member = member;
             return this;
         }
 
+        /**
+         * 该成员担任的角色
+         */
         public Builder setRole(ProjectRoleDto role) {
             this.role = role;
             return this;
         }
 
+        /**
+         * 加入项目的时间
+         */
         public Builder setJoinedAt(java.time.ZonedDateTime joinedAt) {
             this.joinedAt = joinedAt;
             return this;
         }
 
+        /**
+         * 上次访问的时间
+         */
         public Builder setLastVisitAt(java.time.ZonedDateTime lastVisitAt) {
             this.lastVisitAt = lastVisitAt;
             return this;

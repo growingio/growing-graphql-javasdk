@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 用户变量列表
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class UserVariablesQueryRequest implements GraphQLOperationRequest {
 

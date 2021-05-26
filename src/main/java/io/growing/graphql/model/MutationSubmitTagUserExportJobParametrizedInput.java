@@ -9,12 +9,13 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLParametrizedInput {
 
     @javax.validation.constraints.NotNull
     private String tagId;
+    private String exportFileName;
     @javax.validation.constraints.NotNull
     private java.util.List<String> properties;
     private String charset;
@@ -23,8 +24,9 @@ public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLP
     public MutationSubmitTagUserExportJobParametrizedInput() {
     }
 
-    public MutationSubmitTagUserExportJobParametrizedInput(String tagId, java.util.List<String> properties, String charset, Boolean detailExport) {
+    public MutationSubmitTagUserExportJobParametrizedInput(String tagId, String exportFileName, java.util.List<String> properties, String charset, Boolean detailExport) {
         this.tagId = tagId;
+        this.exportFileName = exportFileName;
         this.properties = properties;
         this.charset = charset;
         this.detailExport = detailExport;
@@ -32,6 +34,11 @@ public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLP
 
     public MutationSubmitTagUserExportJobParametrizedInput tagId(String tagId) {
         this.tagId = tagId;
+        return this;
+    }
+
+    public MutationSubmitTagUserExportJobParametrizedInput exportFileName(String exportFileName) {
+        this.exportFileName = exportFileName;
         return this;
     }
 
@@ -56,6 +63,9 @@ public class MutationSubmitTagUserExportJobParametrizedInput implements GraphQLP
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
         if (tagId != null) {
             joiner.add("tagId: " + GraphQLRequestSerializer.getEntry(tagId));
+        }
+        if (exportFileName != null) {
+            joiner.add("exportFileName: " + GraphQLRequestSerializer.getEntry(exportFileName));
         }
         if (properties != null) {
             joiner.add("properties: " + GraphQLRequestSerializer.getEntry(properties));

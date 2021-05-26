@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 根据关键字查询分类, resourceType: tag | userVariable
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class SearchCategoriesQueryRequest implements GraphQLOperationRequest {
 
@@ -26,6 +29,10 @@ public class SearchCategoriesQueryRequest implements GraphQLOperationRequest {
 
     public void setQ(String q) {
         this.input.put("q", q);
+    }
+
+    public void setResourceType(String resourceType) {
+        this.input.put("resourceType", resourceType);
     }
 
     @Override
@@ -52,6 +59,7 @@ public class SearchCategoriesQueryRequest implements GraphQLOperationRequest {
 
         private String projectId;
         private String q;
+        private String resourceType;
 
         public Builder() {
         }
@@ -66,11 +74,17 @@ public class SearchCategoriesQueryRequest implements GraphQLOperationRequest {
             return this;
         }
 
+        public Builder setResourceType(String resourceType) {
+            this.resourceType = resourceType;
+            return this;
+        }
+
 
         public SearchCategoriesQueryRequest build() {
             SearchCategoriesQueryRequest obj = new SearchCategoriesQueryRequest();
             obj.setProjectId(projectId);
             obj.setQ(q);
+            obj.setResourceType(resourceType);
             return obj;
         }
 

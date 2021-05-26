@@ -13,7 +13,7 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $CircleQrcodeQueryResolver implements CircleQrcodeQueryResolver {
 
@@ -27,10 +27,10 @@ final public class $CircleQrcodeQueryResolver implements CircleQrcodeQueryResolv
 
     @javax.validation.constraints.NotNull
     @Override
-    public CircleQrcodeDto circleQrcode(String productId) throws Exception {
+    public CircleQrcodeDto circleQrcode(String projectId, String productId) throws Exception {
         CircleQrcodeQueryRequest request = new CircleQrcodeQueryRequest();
-        List<String> keys = Arrays.asList("productId");
-        List<?> values = Arrays.asList(productId);
+        List<String> keys = Arrays.asList("projectId", "productId");
+        List<?> values = Arrays.asList(projectId, productId);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         CircleQrcodeResponseProjection projection = new CircleQrcodeResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());

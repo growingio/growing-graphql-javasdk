@@ -13,7 +13,7 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $TransferProjectOwnerMutationResolver implements TransferProjectOwnerMutationResolver {
 
@@ -27,10 +27,10 @@ final public class $TransferProjectOwnerMutationResolver implements TransferProj
 
     @javax.validation.constraints.NotNull
     @Override
-    public Boolean transferProjectOwner(TransferProjectOwnerInputDto input) throws Exception {
+    public Boolean transferProjectOwner(String projectId, TransferProjectOwnerInputDto input) throws Exception {
         TransferProjectOwnerMutationRequest request = new TransferProjectOwnerMutationRequest();
-        List<String> keys = Arrays.asList("input");
-        List<?> values = Arrays.asList(input);
+        List<String> keys = Arrays.asList("projectId", "input");
+        List<?> values = Arrays.asList(projectId, input);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         GraphQLRequest graphQLRequest = new GraphQLRequest(request, null);

@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 单个用户变量详情
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $UserVariableQueryResolver implements UserVariableQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $UserVariableQueryResolver implements UserVariableQueryResolv
 
     private $UserVariableQueryResolver() {}
 
+    /**
+     * 单个用户变量详情
+     */
     @Override
     public UserVariableDto userVariable(String projectId, String id) throws Exception {
         UserVariableQueryRequest request = new UserVariableQueryRequest();

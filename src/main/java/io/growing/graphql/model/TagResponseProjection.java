@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class TagResponseProjection extends GraphQLResponseProjection {
 
@@ -31,6 +31,7 @@ public class TagResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("TagResponseProjection.ComputeDefinitionResponseProjection.computes", projectionDepthOnFields.getOrDefault("TagResponseProjection.ComputeDefinitionResponseProjection.computes", 0) + 1);
             this.computes(new ComputeDefinitionResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("TagResponseProjection.ComputeDefinitionResponseProjection.computes", 0)));
         }
+        this.businessType();
         this.creatorId();
         this.createdAt();
         this.updaterId();
@@ -101,6 +102,15 @@ public class TagResponseProjection extends GraphQLResponseProjection {
 
     public TagResponseProjection computes(String alias, ComputeDefinitionResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("computes").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public TagResponseProjection businessType() {
+        return businessType(null);
+    }
+
+    public TagResponseProjection businessType(String alias) {
+        fields.add(new GraphQLResponseField("businessType").alias(alias));
         return this;
     }
 

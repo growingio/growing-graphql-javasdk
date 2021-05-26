@@ -3,9 +3,12 @@ package io.growing.graphql.model;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
+/**
+ * 维度
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class DimensionDto implements java.io.Serializable {
 
@@ -19,17 +22,19 @@ public class DimensionDto implements java.io.Serializable {
     private String groupId;
     private String groupName;
     private String valueType;
+    private String description;
 
     public DimensionDto() {
     }
 
-    public DimensionDto(String id, String name, String type, String groupId, String groupName, String valueType) {
+    public DimensionDto(String id, String name, String type, String groupId, String groupName, String valueType, String description) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.groupId = groupId;
         this.groupName = groupName;
         this.valueType = valueType;
+        this.description = description;
     }
 
     public String getId() {
@@ -74,6 +79,13 @@ public class DimensionDto implements java.io.Serializable {
         this.valueType = valueType;
     }
 
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     @Override
     public String toString() {
@@ -96,6 +108,9 @@ public class DimensionDto implements java.io.Serializable {
         if (valueType != null) {
             joiner.add("valueType: " + GraphQLRequestSerializer.getEntry(valueType));
         }
+        if (description != null) {
+            joiner.add("description: " + GraphQLRequestSerializer.getEntry(description));
+        }
         return joiner.toString();
     }
 
@@ -111,6 +126,7 @@ public class DimensionDto implements java.io.Serializable {
         private String groupId;
         private String groupName;
         private String valueType;
+        private String description;
 
         public Builder() {
         }
@@ -145,9 +161,14 @@ public class DimensionDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
 
         public DimensionDto build() {
-            return new DimensionDto(id, name, type, groupId, groupName, valueType);
+            return new DimensionDto(id, name, type, groupId, groupName, valueType, description);
         }
 
     }

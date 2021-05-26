@@ -9,18 +9,26 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QueryDefaultCategoryParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String resourceType;
     @javax.validation.constraints.NotNull
     private String projectId;
 
     public QueryDefaultCategoryParametrizedInput() {
     }
 
-    public QueryDefaultCategoryParametrizedInput(String projectId) {
+    public QueryDefaultCategoryParametrizedInput(String resourceType, String projectId) {
+        this.resourceType = resourceType;
         this.projectId = projectId;
+    }
+
+    public QueryDefaultCategoryParametrizedInput resourceType(String resourceType) {
+        this.resourceType = resourceType;
+        return this;
     }
 
     public QueryDefaultCategoryParametrizedInput projectId(String projectId) {
@@ -32,6 +40,9 @@ public class QueryDefaultCategoryParametrizedInput implements GraphQLParametrize
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (resourceType != null) {
+            joiner.add("resourceType: " + GraphQLRequestSerializer.getEntry(resourceType));
+        }
         if (projectId != null) {
             joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
         }

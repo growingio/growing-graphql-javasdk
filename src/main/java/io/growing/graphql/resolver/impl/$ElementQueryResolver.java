@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 无埋点 单个元素详情
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $ElementQueryResolver implements ElementQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $ElementQueryResolver implements ElementQueryResolver {
 
     private $ElementQueryResolver() {}
 
+    /**
+     * 无埋点 单个元素详情
+     */
     @Override
     public ElementDto element(String projectId, String id) throws Exception {
         ElementQueryRequest request = new ElementQueryRequest();

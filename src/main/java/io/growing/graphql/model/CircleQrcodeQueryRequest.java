@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class CircleQrcodeQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +18,10 @@ public class CircleQrcodeQueryRequest implements GraphQLOperationRequest {
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public CircleQrcodeQueryRequest() {
+    }
+
+    public void setProjectId(String projectId) {
+        this.input.put("projectId", projectId);
     }
 
     public void setProductId(String productId) {
@@ -46,9 +50,15 @@ public class CircleQrcodeQueryRequest implements GraphQLOperationRequest {
 
     public static class Builder {
 
+        private String projectId;
         private String productId;
 
         public Builder() {
+        }
+
+        public Builder setProjectId(String projectId) {
+            this.projectId = projectId;
+            return this;
         }
 
         public Builder setProductId(String productId) {
@@ -59,6 +69,7 @@ public class CircleQrcodeQueryRequest implements GraphQLOperationRequest {
 
         public CircleQrcodeQueryRequest build() {
             CircleQrcodeQueryRequest obj = new CircleQrcodeQueryRequest();
+            obj.setProjectId(projectId);
             obj.setProductId(productId);
             return obj;
         }

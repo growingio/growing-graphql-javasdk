@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 预定义指标列表
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $PreparedMetricsQueryResolver implements PreparedMetricsQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $PreparedMetricsQueryResolver implements PreparedMetricsQuery
 
     private $PreparedMetricsQueryResolver() {}
 
+    /**
+     * 预定义指标列表
+     */
     @Override
     public java.util.List<PreparedMetricDto> preparedMetrics() throws Exception {
         PreparedMetricsQueryRequest request = new PreparedMetricsQueryRequest();

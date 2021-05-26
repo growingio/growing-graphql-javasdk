@@ -2,7 +2,7 @@ package io.growing.graphql.model;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public enum JobStageDto {
 
@@ -19,7 +19,8 @@ public enum JobStageDto {
     RUNNING("RUNNING"),
     DATA_READY("DATA_READY"),
     FINISH("FINISH"),
-    ERROR("ERROR");
+    ERROR("ERROR"),
+    TENCENT_PORTRAIT_RUNNING("TENCENT_PORTRAIT_RUNNING");
 
     private final String graphqlName;
 

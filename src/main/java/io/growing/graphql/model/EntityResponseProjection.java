@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class EntityResponseProjection extends GraphQLResponseProjection {
 
@@ -32,6 +32,15 @@ public class EntityResponseProjection extends GraphQLResponseProjection {
 
     public EntityResponseProjection onTunnel(String alias, TunnelResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on Tunnel").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public EntityResponseProjection onAuditLogEntry(AuditLogEntryResponseProjection subProjection) {
+        return onAuditLogEntry(null, subProjection);
+    }
+
+    public EntityResponseProjection onAuditLogEntry(String alias, AuditLogEntryResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on AuditLogEntry").alias(alias).projection(subProjection));
         return this;
     }
 
@@ -59,6 +68,15 @@ public class EntityResponseProjection extends GraphQLResponseProjection {
 
     public EntityResponseProjection onUserVariable(String alias, UserVariableResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on UserVariable").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public EntityResponseProjection onMember(MemberResponseProjection subProjection) {
+        return onMember(null, subProjection);
+    }
+
+    public EntityResponseProjection onMember(String alias, MemberResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on Member").alias(alias).projection(subProjection));
         return this;
     }
 

@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class ProjectResponseProjection extends GraphQLResponseProjection {
 
@@ -38,6 +38,7 @@ public class ProjectResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("ProjectResponseProjection.ProjectRoleResponseProjection.projectRoles", projectionDepthOnFields.getOrDefault("ProjectResponseProjection.ProjectRoleResponseProjection.projectRoles", 0) + 1);
             this.projectRoles(new ProjectRoleResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ProjectResponseProjection.ProjectRoleResponseProjection.projectRoles", 0)));
         }
+        this.projectMemberCount();
         this.typename();
         return this;
     }
@@ -129,6 +130,15 @@ public class ProjectResponseProjection extends GraphQLResponseProjection {
 
     public ProjectResponseProjection projectRoles(String alias, ProjectRoleResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("projectRoles").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public ProjectResponseProjection projectMemberCount() {
+        return projectMemberCount(null);
+    }
+
+    public ProjectResponseProjection projectMemberCount(String alias) {
+        fields.add(new GraphQLResponseField("projectMemberCount").alias(alias));
         return this;
     }
 

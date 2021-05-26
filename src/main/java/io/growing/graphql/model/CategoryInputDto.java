@@ -5,20 +5,23 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class CategoryInputDto implements java.io.Serializable {
 
     @javax.validation.constraints.NotNull
     private String name;
     private String parentId;
+    @javax.validation.constraints.NotNull
+    private String resourceType;
 
     public CategoryInputDto() {
     }
 
-    public CategoryInputDto(String name, String parentId) {
+    public CategoryInputDto(String name, String parentId, String resourceType) {
         this.name = name;
         this.parentId = parentId;
+        this.resourceType = resourceType;
     }
 
     public String getName() {
@@ -35,6 +38,13 @@ public class CategoryInputDto implements java.io.Serializable {
         this.parentId = parentId;
     }
 
+    public String getResourceType() {
+        return resourceType;
+    }
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
+    }
+
 
     @Override
     public String toString() {
@@ -44,6 +54,9 @@ public class CategoryInputDto implements java.io.Serializable {
         }
         if (parentId != null) {
             joiner.add("parentId: " + GraphQLRequestSerializer.getEntry(parentId));
+        }
+        if (resourceType != null) {
+            joiner.add("resourceType: " + GraphQLRequestSerializer.getEntry(resourceType));
         }
         return joiner.toString();
     }
@@ -56,6 +69,7 @@ public class CategoryInputDto implements java.io.Serializable {
 
         private String name;
         private String parentId;
+        private String resourceType;
 
         public Builder() {
         }
@@ -70,9 +84,14 @@ public class CategoryInputDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setResourceType(String resourceType) {
+            this.resourceType = resourceType;
+            return this;
+        }
+
 
         public CategoryInputDto build() {
-            return new CategoryInputDto(name, parentId);
+            return new CategoryInputDto(name, parentId, resourceType);
         }
 
     }

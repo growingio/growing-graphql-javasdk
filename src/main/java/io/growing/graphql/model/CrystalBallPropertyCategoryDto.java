@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class CrystalBallPropertyCategoryDto implements java.io.Serializable {
 
@@ -13,16 +13,13 @@ public class CrystalBallPropertyCategoryDto implements java.io.Serializable {
     private String title;
     @javax.validation.constraints.NotNull
     private java.util.List<String> properties;
-    @javax.validation.constraints.NotNull
-    private java.util.List<String> tags;
 
     public CrystalBallPropertyCategoryDto() {
     }
 
-    public CrystalBallPropertyCategoryDto(String title, java.util.List<String> properties, java.util.List<String> tags) {
+    public CrystalBallPropertyCategoryDto(String title, java.util.List<String> properties) {
         this.title = title;
         this.properties = properties;
-        this.tags = tags;
     }
 
     public String getTitle() {
@@ -39,13 +36,6 @@ public class CrystalBallPropertyCategoryDto implements java.io.Serializable {
         this.properties = properties;
     }
 
-    public java.util.List<String> getTags() {
-        return tags;
-    }
-    public void setTags(java.util.List<String> tags) {
-        this.tags = tags;
-    }
-
 
     @Override
     public String toString() {
@@ -55,9 +45,6 @@ public class CrystalBallPropertyCategoryDto implements java.io.Serializable {
         }
         if (properties != null) {
             joiner.add("properties: " + GraphQLRequestSerializer.getEntry(properties));
-        }
-        if (tags != null) {
-            joiner.add("tags: " + GraphQLRequestSerializer.getEntry(tags));
         }
         return joiner.toString();
     }
@@ -70,7 +57,6 @@ public class CrystalBallPropertyCategoryDto implements java.io.Serializable {
 
         private String title;
         private java.util.List<String> properties;
-        private java.util.List<String> tags;
 
         public Builder() {
         }
@@ -85,14 +71,9 @@ public class CrystalBallPropertyCategoryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setTags(java.util.List<String> tags) {
-            this.tags = tags;
-            return this;
-        }
-
 
         public CrystalBallPropertyCategoryDto build() {
-            return new CrystalBallPropertyCategoryDto(title, properties, tags);
+            return new CrystalBallPropertyCategoryDto(title, properties);
         }
 
     }

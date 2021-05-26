@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
 
@@ -16,6 +16,8 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
     @javax.validation.constraints.NotNull
     private String key;
     private String description;
+    @javax.validation.constraints.NotNull
+    private Boolean isSystem;
     @javax.validation.constraints.NotNull
     private String valueType;
     @javax.validation.constraints.NotNull
@@ -31,11 +33,12 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
     public EventVariableDto() {
     }
 
-    public EventVariableDto(String id, String name, String key, String description, String valueType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String ownerId) {
+    public EventVariableDto(String id, String name, String key, String description, Boolean isSystem, String valueType, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String ownerId) {
         this.id = id;
         this.name = name;
         this.key = key;
         this.description = description;
+        this.isSystem = isSystem;
         this.valueType = valueType;
         this.creatorId = creatorId;
         this.createdAt = createdAt;
@@ -72,6 +75,13 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getIsSystem() {
+        return isSystem;
+    }
+    public void setIsSystem(Boolean isSystem) {
+        this.isSystem = isSystem;
     }
 
     public String getValueType() {
@@ -146,6 +156,9 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
         if (description != null) {
             joiner.add("description: " + GraphQLRequestSerializer.getEntry(description));
         }
+        if (isSystem != null) {
+            joiner.add("isSystem: " + GraphQLRequestSerializer.getEntry(isSystem));
+        }
         if (valueType != null) {
             joiner.add("valueType: " + GraphQLRequestSerializer.getEntry(valueType));
         }
@@ -183,6 +196,7 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
         private String name;
         private String key;
         private String description;
+        private Boolean isSystem;
         private String valueType;
         private String creatorId;
         private java.time.ZonedDateTime createdAt;
@@ -212,6 +226,11 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
 
         public Builder setDescription(String description) {
             this.description = description;
+            return this;
+        }
+
+        public Builder setIsSystem(Boolean isSystem) {
+            this.isSystem = isSystem;
             return this;
         }
 
@@ -257,7 +276,7 @@ public class EventVariableDto implements java.io.Serializable, NamedEntityDto {
 
 
         public EventVariableDto build() {
-            return new EventVariableDto(id, name, key, description, valueType, creatorId, createdAt, updaterId, updatedAt, creator, updater, ownerId);
+            return new EventVariableDto(id, name, key, description, isSystem, valueType, creatorId, createdAt, updaterId, updatedAt, creator, updater, ownerId);
         }
 
     }

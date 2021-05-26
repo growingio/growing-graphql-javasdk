@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class CategoryResourceDto implements java.io.Serializable {
 
@@ -34,30 +34,54 @@ public class CategoryResourceDto implements java.io.Serializable {
         this.resourceEntity = resourceEntity;
     }
 
+    /**
+     * 所属分类ID
+     */
     public String getCategoryId() {
         return categoryId;
     }
+    /**
+     * 所属分类ID
+     */
     public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 
+    /**
+     * 分类资源类型
+     */
     public String getResourceType() {
         return resourceType;
     }
+    /**
+     * 分类资源类型
+     */
     public void setResourceType(String resourceType) {
         this.resourceType = resourceType;
     }
 
+    /**
+     * 分类资源ID
+     */
     public String getResourceId() {
         return resourceId;
     }
+    /**
+     * 分类资源ID
+     */
     public void setResourceId(String resourceId) {
         this.resourceId = resourceId;
     }
 
+    /**
+     * 资源内容实体：UserSummary | Tag | Segment | Tunnel | UserEvent | UserVariable
+     */
     public EntityDto getResourceEntity() {
         return resourceEntity;
     }
+    /**
+     * 资源内容实体：UserSummary | Tag | Segment | Tunnel | UserEvent | UserVariable
+     */
     public void setResourceEntity(EntityDto resourceEntity) {
         this.resourceEntity = resourceEntity;
     }
@@ -95,21 +119,33 @@ public class CategoryResourceDto implements java.io.Serializable {
         public Builder() {
         }
 
+        /**
+         * 所属分类ID
+         */
         public Builder setCategoryId(String categoryId) {
             this.categoryId = categoryId;
             return this;
         }
 
+        /**
+         * 分类资源类型
+         */
         public Builder setResourceType(String resourceType) {
             this.resourceType = resourceType;
             return this;
         }
 
+        /**
+         * 分类资源ID
+         */
         public Builder setResourceId(String resourceId) {
             this.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * 资源内容实体：UserSummary | Tag | Segment | Tunnel | UserEvent | UserVariable
+         */
         public Builder setResourceEntity(EntityDto resourceEntity) {
             this.resourceEntity = resourceEntity;
             return this;

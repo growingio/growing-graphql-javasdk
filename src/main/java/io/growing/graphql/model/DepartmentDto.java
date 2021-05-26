@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class DepartmentDto implements java.io.Serializable {
 
@@ -34,44 +34,80 @@ public class DepartmentDto implements java.io.Serializable {
         this.memberCount = memberCount;
     }
 
+    /**
+     * 部门id
+     */
     public String getId() {
         return id;
     }
+    /**
+     * 部门id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * 部门名称
+     */
     public String getName() {
         return name;
     }
+    /**
+     * 部门名称
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 父部门id
+     */
     public String getParentId() {
         return parentId;
     }
+    /**
+     * 父部门id
+     */
     public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
+    /**
+     * 子部门列表
+     */
     public java.util.List<DepartmentDto> getDepartments() {
         return departments;
     }
+    /**
+     * 子部门列表
+     */
     public void setDepartments(java.util.List<DepartmentDto> departments) {
         this.departments = departments;
     }
 
+    /**
+     * 部门成员列表
+     */
     public java.util.List<MemberDto> getMembers() {
         return members;
     }
+    /**
+     * 部门成员列表
+     */
     public void setMembers(java.util.List<MemberDto> members) {
         this.members = members;
     }
 
+    /**
+     * 部门成员数量
+     */
     public Integer getMemberCount() {
         return memberCount;
     }
+    /**
+     * 部门成员数量
+     */
     public void setMemberCount(Integer memberCount) {
         this.memberCount = memberCount;
     }
@@ -117,31 +153,49 @@ public class DepartmentDto implements java.io.Serializable {
         public Builder() {
         }
 
+        /**
+         * 部门id
+         */
         public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * 部门名称
+         */
         public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
+        /**
+         * 父部门id
+         */
         public Builder setParentId(String parentId) {
             this.parentId = parentId;
             return this;
         }
 
+        /**
+         * 子部门列表
+         */
         public Builder setDepartments(java.util.List<DepartmentDto> departments) {
             this.departments = departments;
             return this;
         }
 
+        /**
+         * 部门成员列表
+         */
         public Builder setMembers(java.util.List<MemberDto> members) {
             this.members = members;
             return this;
         }
 
+        /**
+         * 部门成员数量
+         */
         public Builder setMemberCount(Integer memberCount) {
             this.memberCount = memberCount;
             return this;

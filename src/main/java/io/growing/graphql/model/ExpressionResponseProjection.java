@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class ExpressionResponseProjection extends GraphQLResponseProjection {
 
@@ -31,6 +31,12 @@ public class ExpressionResponseProjection extends GraphQLResponseProjection {
             projectionDepthOnFields.put("ExpressionResponseProjection.MeasurementResponseProjection.measurements", projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.MeasurementResponseProjection.measurements", 0) + 1);
             this.measurements(new MeasurementResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.MeasurementResponseProjection.measurements", 0)));
         }
+        if (projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.OlapMetricResponseProjection.metrics", 0) <= maxDepth) {
+            projectionDepthOnFields.put("ExpressionResponseProjection.OlapMetricResponseProjection.metrics", projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.OlapMetricResponseProjection.metrics", 0) + 1);
+            this.metrics(new OlapMetricResponseProjection().all$(maxDepth - projectionDepthOnFields.getOrDefault("ExpressionResponseProjection.OlapMetricResponseProjection.metrics", 0)));
+        }
+        this.expression();
+        this.format();
         this.typename();
         return this;
     }
@@ -59,6 +65,33 @@ public class ExpressionResponseProjection extends GraphQLResponseProjection {
 
     public ExpressionResponseProjection measurements(String alias, MeasurementResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("measurements").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public ExpressionResponseProjection metrics(OlapMetricResponseProjection subProjection) {
+        return metrics(null, subProjection);
+    }
+
+    public ExpressionResponseProjection metrics(String alias, OlapMetricResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("metrics").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public ExpressionResponseProjection expression() {
+        return expression(null);
+    }
+
+    public ExpressionResponseProjection expression(String alias) {
+        fields.add(new GraphQLResponseField("expression").alias(alias));
+        return this;
+    }
+
+    public ExpressionResponseProjection format() {
+        return format(null);
+    }
+
+    public ExpressionResponseProjection format(String alias) {
+        fields.add(new GraphQLResponseField("format").alias(alias));
         return this;
     }
 

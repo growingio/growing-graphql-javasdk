@@ -9,7 +9,7 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QuerySearchCategoriesParametrizedInput implements GraphQLParametrizedInput {
 
@@ -17,13 +17,15 @@ public class QuerySearchCategoriesParametrizedInput implements GraphQLParametriz
     private String projectId;
     @javax.validation.constraints.NotNull
     private String q;
+    private String resourceType;
 
     public QuerySearchCategoriesParametrizedInput() {
     }
 
-    public QuerySearchCategoriesParametrizedInput(String projectId, String q) {
+    public QuerySearchCategoriesParametrizedInput(String projectId, String q, String resourceType) {
         this.projectId = projectId;
         this.q = q;
+        this.resourceType = resourceType;
     }
 
     public QuerySearchCategoriesParametrizedInput projectId(String projectId) {
@@ -36,6 +38,11 @@ public class QuerySearchCategoriesParametrizedInput implements GraphQLParametriz
         return this;
     }
 
+    public QuerySearchCategoriesParametrizedInput resourceType(String resourceType) {
+        this.resourceType = resourceType;
+        return this;
+    }
+
 
     @Override
     public String toString() {
@@ -45,6 +52,9 @@ public class QuerySearchCategoriesParametrizedInput implements GraphQLParametriz
         }
         if (q != null) {
             joiner.add("q: " + GraphQLRequestSerializer.getEntry(q));
+        }
+        if (resourceType != null) {
+            joiner.add("resourceType: " + GraphQLRequestSerializer.getEntry(resourceType));
         }
         return joiner.toString();
     }

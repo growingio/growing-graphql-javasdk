@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 返回dataCenter级别未分类资源
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class DataCenterDefaultCategoryQueryRequest implements GraphQLOperationRequest {
 
@@ -18,6 +21,10 @@ public class DataCenterDefaultCategoryQueryRequest implements GraphQLOperationRe
     private Map<String, Object> input = new LinkedHashMap<>();
 
     public DataCenterDefaultCategoryQueryRequest() {
+    }
+
+    public void setResourceType(String resourceType) {
+        this.input.put("resourceType", resourceType);
     }
 
     @Override
@@ -42,13 +49,20 @@ public class DataCenterDefaultCategoryQueryRequest implements GraphQLOperationRe
 
     public static class Builder {
 
+        private String resourceType;
 
         public Builder() {
+        }
+
+        public Builder setResourceType(String resourceType) {
+            this.resourceType = resourceType;
+            return this;
         }
 
 
         public DataCenterDefaultCategoryQueryRequest build() {
             DataCenterDefaultCategoryQueryRequest obj = new DataCenterDefaultCategoryQueryRequest();
+            obj.setResourceType(resourceType);
             return obj;
         }
 

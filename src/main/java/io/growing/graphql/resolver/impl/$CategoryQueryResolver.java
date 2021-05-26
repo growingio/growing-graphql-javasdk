@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 根据分类ID获取分类信息
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $CategoryQueryResolver implements CategoryQueryResolver {
 
@@ -25,6 +28,9 @@ final public class $CategoryQueryResolver implements CategoryQueryResolver {
 
     private $CategoryQueryResolver() {}
 
+    /**
+     * 根据分类ID获取分类信息
+     */
     @Override
     public CategoryDto category(String id) throws Exception {
         CategoryQueryRequest request = new CategoryQueryRequest();

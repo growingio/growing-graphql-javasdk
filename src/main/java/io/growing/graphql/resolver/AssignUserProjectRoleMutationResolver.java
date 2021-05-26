@@ -4,11 +4,11 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 public interface AssignUserProjectRoleMutationResolver {
 
     @javax.validation.constraints.NotNull
-    Boolean assignUserProjectRole(AssignUserProjectRoleInputDto input) throws Exception;
+    Boolean assignUserProjectRole(String projectId, AssignUserProjectRoleInputDto input) throws Exception;
 
 }

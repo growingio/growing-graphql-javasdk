@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class FeatureDto implements java.io.Serializable {
 
@@ -13,13 +13,17 @@ public class FeatureDto implements java.io.Serializable {
     private String id;
     @javax.validation.constraints.NotNull
     private String label;
+    private String entry;
+    private String description;
 
     public FeatureDto() {
     }
 
-    public FeatureDto(String id, String label) {
+    public FeatureDto(String id, String label, String entry, String description) {
         this.id = id;
         this.label = label;
+        this.entry = entry;
+        this.description = description;
     }
 
     /**
@@ -42,6 +46,20 @@ public class FeatureDto implements java.io.Serializable {
         this.label = label;
     }
 
+    public String getEntry() {
+        return entry;
+    }
+    public void setEntry(String entry) {
+        this.entry = entry;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     @Override
     public String toString() {
@@ -51,6 +69,12 @@ public class FeatureDto implements java.io.Serializable {
         }
         if (label != null) {
             joiner.add("label: " + GraphQLRequestSerializer.getEntry(label));
+        }
+        if (entry != null) {
+            joiner.add("entry: " + GraphQLRequestSerializer.getEntry(entry));
+        }
+        if (description != null) {
+            joiner.add("description: " + GraphQLRequestSerializer.getEntry(description));
         }
         return joiner.toString();
     }
@@ -63,6 +87,8 @@ public class FeatureDto implements java.io.Serializable {
 
         private String id;
         private String label;
+        private String entry;
+        private String description;
 
         public Builder() {
         }
@@ -80,9 +106,19 @@ public class FeatureDto implements java.io.Serializable {
             return this;
         }
 
+        public Builder setEntry(String entry) {
+            this.entry = entry;
+            return this;
+        }
+
+        public Builder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
 
         public FeatureDto build() {
-            return new FeatureDto(id, label);
+            return new FeatureDto(id, label, entry, description);
         }
 
     }

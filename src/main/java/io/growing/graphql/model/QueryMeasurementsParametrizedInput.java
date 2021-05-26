@@ -9,7 +9,7 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QueryMeasurementsParametrizedInput implements GraphQLParametrizedInput {
 
@@ -18,15 +18,17 @@ public class QueryMeasurementsParametrizedInput implements GraphQLParametrizedIn
     private java.util.List<String> t;
     private String q;
     private String c;
+    private String f;
 
     public QueryMeasurementsParametrizedInput() {
     }
 
-    public QueryMeasurementsParametrizedInput(String projectId, java.util.List<String> t, String q, String c) {
+    public QueryMeasurementsParametrizedInput(String projectId, java.util.List<String> t, String q, String c, String f) {
         this.projectId = projectId;
         this.t = t;
         this.q = q;
         this.c = c;
+        this.f = f;
     }
 
     public QueryMeasurementsParametrizedInput projectId(String projectId) {
@@ -49,6 +51,11 @@ public class QueryMeasurementsParametrizedInput implements GraphQLParametrizedIn
         return this;
     }
 
+    public QueryMeasurementsParametrizedInput f(String f) {
+        this.f = f;
+        return this;
+    }
+
 
     @Override
     public String toString() {
@@ -64,6 +71,9 @@ public class QueryMeasurementsParametrizedInput implements GraphQLParametrizedIn
         }
         if (c != null) {
             joiner.add("c: " + GraphQLRequestSerializer.getEntry(c));
+        }
+        if (f != null) {
+            joiner.add("f: " + GraphQLRequestSerializer.getEntry(f));
         }
         return joiner.toString();
     }

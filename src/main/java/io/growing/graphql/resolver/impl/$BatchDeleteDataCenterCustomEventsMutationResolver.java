@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 数据中心 批量删除打点事件
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $BatchDeleteDataCenterCustomEventsMutationResolver implements BatchDeleteDataCenterCustomEventsMutationResolver {
 
@@ -25,6 +28,9 @@ final public class $BatchDeleteDataCenterCustomEventsMutationResolver implements
 
     private $BatchDeleteDataCenterCustomEventsMutationResolver() {}
 
+    /**
+     * 数据中心 批量删除打点事件
+     */
     @Override
     public Boolean batchDeleteDataCenterCustomEvents(java.util.List<String> ids) throws Exception {
         BatchDeleteDataCenterCustomEventsMutationRequest request = new BatchDeleteDataCenterCustomEventsMutationRequest();

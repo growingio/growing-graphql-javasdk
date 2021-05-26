@@ -3,9 +3,12 @@ package io.growing.graphql.model;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
+/**
+ * 用户属性，以及新增的用户信息非ID部分
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class UserVariableDto implements java.io.Serializable, EntityDto, ProjectDataCtrlItemDto, NamedEntityDto {
 
@@ -31,11 +34,15 @@ public class UserVariableDto implements java.io.Serializable, EntityDto, Project
     @javax.validation.constraints.NotNull
     private String valueType;
     private String ownerId;
+    private String example;
+    private Boolean disabled;
+    @javax.validation.constraints.NotNull
+    private Boolean isHighCardinality;
 
     public UserVariableDto() {
     }
 
-    public UserVariableDto(String id, String name, String key, String type, String description, Boolean isSystem, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String valueType, String ownerId) {
+    public UserVariableDto(String id, String name, String key, String type, String description, Boolean isSystem, String creatorId, java.time.ZonedDateTime createdAt, String updaterId, java.time.ZonedDateTime updatedAt, String creator, String updater, String valueType, String ownerId, String example, Boolean disabled, Boolean isHighCardinality) {
         this.id = id;
         this.name = name;
         this.key = key;
@@ -50,6 +57,9 @@ public class UserVariableDto implements java.io.Serializable, EntityDto, Project
         this.updater = updater;
         this.valueType = valueType;
         this.ownerId = ownerId;
+        this.example = example;
+        this.disabled = disabled;
+        this.isHighCardinality = isHighCardinality;
     }
 
     public String getId() {
@@ -150,6 +160,39 @@ public class UserVariableDto implements java.io.Serializable, EntityDto, Project
         this.ownerId = ownerId;
     }
 
+    /**
+     * 示例
+     */
+    public String getExample() {
+        return example;
+    }
+    /**
+     * 示例
+     */
+    public void setExample(String example) {
+        this.example = example;
+    }
+
+    /**
+     * 是否关闭，暂不用
+     */
+    public Boolean getDisabled() {
+        return disabled;
+    }
+    /**
+     * 是否关闭，暂不用
+     */
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    public Boolean getIsHighCardinality() {
+        return isHighCardinality;
+    }
+    public void setIsHighCardinality(Boolean isHighCardinality) {
+        this.isHighCardinality = isHighCardinality;
+    }
+
 
     @Override
     public String toString() {
@@ -196,6 +239,15 @@ public class UserVariableDto implements java.io.Serializable, EntityDto, Project
         if (ownerId != null) {
             joiner.add("ownerId: " + GraphQLRequestSerializer.getEntry(ownerId));
         }
+        if (example != null) {
+            joiner.add("example: " + GraphQLRequestSerializer.getEntry(example));
+        }
+        if (disabled != null) {
+            joiner.add("disabled: " + GraphQLRequestSerializer.getEntry(disabled));
+        }
+        if (isHighCardinality != null) {
+            joiner.add("isHighCardinality: " + GraphQLRequestSerializer.getEntry(isHighCardinality));
+        }
         return joiner.toString();
     }
 
@@ -219,6 +271,9 @@ public class UserVariableDto implements java.io.Serializable, EntityDto, Project
         private String updater;
         private String valueType;
         private String ownerId;
+        private String example;
+        private Boolean disabled;
+        private Boolean isHighCardinality;
 
         public Builder() {
         }
@@ -293,9 +348,30 @@ public class UserVariableDto implements java.io.Serializable, EntityDto, Project
             return this;
         }
 
+        /**
+         * 示例
+         */
+        public Builder setExample(String example) {
+            this.example = example;
+            return this;
+        }
+
+        /**
+         * 是否关闭，暂不用
+         */
+        public Builder setDisabled(Boolean disabled) {
+            this.disabled = disabled;
+            return this;
+        }
+
+        public Builder setIsHighCardinality(Boolean isHighCardinality) {
+            this.isHighCardinality = isHighCardinality;
+            return this;
+        }
+
 
         public UserVariableDto build() {
-            return new UserVariableDto(id, name, key, type, description, isSystem, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, ownerId);
+            return new UserVariableDto(id, name, key, type, description, isSystem, creatorId, createdAt, updaterId, updatedAt, creator, updater, valueType, ownerId, example, disabled, isHighCardinality);
         }
 
     }

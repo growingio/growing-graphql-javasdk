@@ -9,17 +9,25 @@ import java.util.StringJoiner;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MutationTransferProjectOwnerParametrizedInput implements GraphQLParametrizedInput {
 
+    @javax.validation.constraints.NotNull
+    private String projectId;
     private TransferProjectOwnerInputDto input;
 
     public MutationTransferProjectOwnerParametrizedInput() {
     }
 
-    public MutationTransferProjectOwnerParametrizedInput(TransferProjectOwnerInputDto input) {
+    public MutationTransferProjectOwnerParametrizedInput(String projectId, TransferProjectOwnerInputDto input) {
+        this.projectId = projectId;
         this.input = input;
+    }
+
+    public MutationTransferProjectOwnerParametrizedInput projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
     }
 
     public MutationTransferProjectOwnerParametrizedInput input(TransferProjectOwnerInputDto input) {
@@ -31,6 +39,9 @@ public class MutationTransferProjectOwnerParametrizedInput implements GraphQLPar
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", "(", ")");
+        if (projectId != null) {
+            joiner.add("projectId: " + GraphQLRequestSerializer.getEntry(projectId));
+        }
         if (input != null) {
             joiner.add("input: " + GraphQLRequestSerializer.getEntry(input));
         }

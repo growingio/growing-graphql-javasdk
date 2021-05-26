@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 聚合的指标列表
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $MeasurementsQueryResolver implements MeasurementsQueryResolver {
 
@@ -25,11 +28,14 @@ final public class $MeasurementsQueryResolver implements MeasurementsQueryResolv
 
     private $MeasurementsQueryResolver() {}
 
+    /**
+     * 聚合的指标列表
+     */
     @Override
-    public java.util.List<MeasurableDto> measurements(String projectId, java.util.List<String> t, String q, String c) throws Exception {
+    public java.util.List<MeasurableDto> measurements(String projectId, java.util.List<String> t, String q, String c, String f) throws Exception {
         MeasurementsQueryRequest request = new MeasurementsQueryRequest();
-        List<String> keys = Arrays.asList("projectId", "t", "q", "c");
-        List<?> values = Arrays.asList(projectId, t, q, c);
+        List<String> keys = Arrays.asList("projectId", "t", "q", "c", "f");
+        List<?> values = Arrays.asList(projectId, t, q, c, f);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         MeasurableResponseProjection projection = new MeasurableResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());

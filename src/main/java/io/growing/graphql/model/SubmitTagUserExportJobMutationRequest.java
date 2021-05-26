@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 提交用户标签导出任务  exportFileName: 导出的文件名称，不带后缀
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRequest {
 
@@ -22,6 +25,10 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
 
     public void setTagId(String tagId) {
         this.input.put("tagId", tagId);
+    }
+
+    public void setExportFileName(String exportFileName) {
+        this.input.put("exportFileName", exportFileName);
     }
 
     public void setProperties(java.util.List<String> properties) {
@@ -59,6 +66,7 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
     public static class Builder {
 
         private String tagId;
+        private String exportFileName;
         private java.util.List<String> properties;
         private String charset;
         private Boolean detailExport;
@@ -68,6 +76,11 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
 
         public Builder setTagId(String tagId) {
             this.tagId = tagId;
+            return this;
+        }
+
+        public Builder setExportFileName(String exportFileName) {
+            this.exportFileName = exportFileName;
             return this;
         }
 
@@ -90,6 +103,7 @@ public class SubmitTagUserExportJobMutationRequest implements GraphQLOperationRe
         public SubmitTagUserExportJobMutationRequest build() {
             SubmitTagUserExportJobMutationRequest obj = new SubmitTagUserExportJobMutationRequest();
             obj.setTagId(tagId);
+            obj.setExportFileName(exportFileName);
             obj.setProperties(properties);
             obj.setCharset(charset);
             obj.setDetailExport(detailExport);

@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class TagUserExportJobDto implements java.io.Serializable, JobEntityDto {
 
@@ -43,79 +43,145 @@ public class TagUserExportJobDto implements java.io.Serializable, JobEntityDto {
         this.error = error;
     }
 
+    /**
+     * 导出操作任务的id
+     */
     public String getId() {
         return id;
     }
+    /**
+     * 导出操作任务的id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * 任务名
+     */
     public String getName() {
         return name;
     }
+    /**
+     * 任务名
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 任务描述
+     */
     public String getDescription() {
         return description;
     }
+    /**
+     * 任务描述
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * 任务状态
+     */
     public JobStageDto getStage() {
         return stage;
     }
+    /**
+     * 任务状态
+     */
     public void setStage(JobStageDto stage) {
         this.stage = stage;
     }
 
+    /**
+     * 创建者id
+     */
     public String getCreatorId() {
         return creatorId;
     }
+    /**
+     * 创建者id
+     */
     public void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
     }
 
+    /**
+     * 创建时间
+     */
     public java.time.ZonedDateTime getCreatedAt() {
         return createdAt;
     }
+    /**
+     * 创建时间
+     */
     public void setCreatedAt(java.time.ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
+    /**
+     * 更新者id
+     */
     public String getUpdaterId() {
         return updaterId;
     }
+    /**
+     * 更新者id
+     */
     public void setUpdaterId(String updaterId) {
         this.updaterId = updaterId;
     }
 
+    /**
+     * 更新时间
+     */
     public java.time.ZonedDateTime getUpdatedAt() {
         return updatedAt;
     }
+    /**
+     * 更新时间
+     */
     public void setUpdatedAt(java.time.ZonedDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
+    /**
+     * 创建者
+     */
     public String getCreator() {
         return creator;
     }
+    /**
+     * 创建者
+     */
     public void setCreator(String creator) {
         this.creator = creator;
     }
 
+    /**
+     * 更新者
+     */
     public String getUpdater() {
         return updater;
     }
+    /**
+     * 更新者
+     */
     public void setUpdater(String updater) {
         this.updater = updater;
     }
 
+    /**
+     * 错误类型
+     */
     public ErrorDto getError() {
         return error;
     }
+    /**
+     * 错误类型
+     */
     public void setError(ErrorDto error) {
         this.error = error;
     }
@@ -181,56 +247,89 @@ public class TagUserExportJobDto implements java.io.Serializable, JobEntityDto {
         public Builder() {
         }
 
+        /**
+         * 导出操作任务的id
+         */
         public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * 任务名
+         */
         public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
+        /**
+         * 任务描述
+         */
         public Builder setDescription(String description) {
             this.description = description;
             return this;
         }
 
+        /**
+         * 任务状态
+         */
         public Builder setStage(JobStageDto stage) {
             this.stage = stage;
             return this;
         }
 
+        /**
+         * 创建者id
+         */
         public Builder setCreatorId(String creatorId) {
             this.creatorId = creatorId;
             return this;
         }
 
+        /**
+         * 创建时间
+         */
         public Builder setCreatedAt(java.time.ZonedDateTime createdAt) {
             this.createdAt = createdAt;
             return this;
         }
 
+        /**
+         * 更新者id
+         */
         public Builder setUpdaterId(String updaterId) {
             this.updaterId = updaterId;
             return this;
         }
 
+        /**
+         * 更新时间
+         */
         public Builder setUpdatedAt(java.time.ZonedDateTime updatedAt) {
             this.updatedAt = updatedAt;
             return this;
         }
 
+        /**
+         * 创建者
+         */
         public Builder setCreator(String creator) {
             this.creator = creator;
             return this;
         }
 
+        /**
+         * 更新者
+         */
         public Builder setUpdater(String updater) {
             this.updater = updater;
             return this;
         }
 
+        /**
+         * 错误类型
+         */
         public Builder setError(ErrorDto error) {
             this.error = error;
             return this;

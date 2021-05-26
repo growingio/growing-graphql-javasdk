@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class UserProfileDto implements java.io.Serializable {
 
@@ -24,23 +24,41 @@ public class UserProfileDto implements java.io.Serializable {
         this.properties = properties;
     }
 
+    /**
+     * 用户详细信息id
+     */
     public String getId() {
         return id;
     }
+    /**
+     * 用户详细信息id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * 用户gid
+     */
     public String getUserId() {
         return userId;
     }
+    /**
+     * 用户gid
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
+    /**
+     * 属性列表
+     */
     public java.util.List<InsensitivePropertyDto> getProperties() {
         return properties;
     }
+    /**
+     * 属性列表
+     */
     public void setProperties(java.util.List<InsensitivePropertyDto> properties) {
         this.properties = properties;
     }
@@ -74,16 +92,25 @@ public class UserProfileDto implements java.io.Serializable {
         public Builder() {
         }
 
+        /**
+         * 用户详细信息id
+         */
         public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * 用户gid
+         */
         public Builder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
 
+        /**
+         * 属性列表
+         */
         public Builder setProperties(java.util.List<InsensitivePropertyDto> properties) {
             this.properties = properties;
             return this;

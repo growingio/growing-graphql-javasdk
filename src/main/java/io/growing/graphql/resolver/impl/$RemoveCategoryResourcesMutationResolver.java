@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 删除分类内资源
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $RemoveCategoryResourcesMutationResolver implements RemoveCategoryResourcesMutationResolver {
 
@@ -25,6 +28,9 @@ final public class $RemoveCategoryResourcesMutationResolver implements RemoveCat
 
     private $RemoveCategoryResourcesMutationResolver() {}
 
+    /**
+     * 删除分类内资源
+     */
     @Override
     public Boolean removeCategoryResources(java.util.List<CategoryResourceInputDto> categoryResources) throws Exception {
         RemoveCategoryResourcesMutationRequest request = new RemoveCategoryResourcesMutationRequest();

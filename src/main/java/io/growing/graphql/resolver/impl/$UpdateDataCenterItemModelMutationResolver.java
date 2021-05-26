@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 数据中心 更新物品模型
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $UpdateDataCenterItemModelMutationResolver implements UpdateDataCenterItemModelMutationResolver {
 
@@ -25,6 +28,9 @@ final public class $UpdateDataCenterItemModelMutationResolver implements UpdateD
 
     private $UpdateDataCenterItemModelMutationResolver() {}
 
+    /**
+     * 数据中心 更新物品模型
+     */
     @javax.validation.constraints.NotNull
     @Override
     public ItemModelDto updateDataCenterItemModel(String id, ItemModelInputDto itemModel) throws Exception {

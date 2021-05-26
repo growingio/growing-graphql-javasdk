@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class EventVariableResponseProjection extends GraphQLResponseProjection {
 
@@ -26,6 +26,7 @@ public class EventVariableResponseProjection extends GraphQLResponseProjection {
         this.name();
         this.key();
         this.description();
+        this.isSystem();
         this.valueType();
         this.creatorId();
         this.createdAt();
@@ -71,6 +72,15 @@ public class EventVariableResponseProjection extends GraphQLResponseProjection {
 
     public EventVariableResponseProjection description(String alias) {
         fields.add(new GraphQLResponseField("description").alias(alias));
+        return this;
+    }
+
+    public EventVariableResponseProjection isSystem() {
+        return isSystem(null);
+    }
+
+    public EventVariableResponseProjection isSystem(String alias) {
+        fields.add(new GraphQLResponseField("isSystem").alias(alias));
         return this;
     }
 

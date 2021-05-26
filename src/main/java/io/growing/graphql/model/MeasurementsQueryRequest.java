@@ -6,9 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 聚合的指标列表
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MeasurementsQueryRequest implements GraphQLOperationRequest {
 
@@ -34,6 +37,10 @@ public class MeasurementsQueryRequest implements GraphQLOperationRequest {
 
     public void setC(String c) {
         this.input.put("c", c);
+    }
+
+    public void setF(String f) {
+        this.input.put("f", f);
     }
 
     @Override
@@ -62,6 +69,7 @@ public class MeasurementsQueryRequest implements GraphQLOperationRequest {
         private java.util.List<String> t;
         private String q;
         private String c;
+        private String f;
 
         public Builder() {
         }
@@ -86,6 +94,11 @@ public class MeasurementsQueryRequest implements GraphQLOperationRequest {
             return this;
         }
 
+        public Builder setF(String f) {
+            this.f = f;
+            return this;
+        }
+
 
         public MeasurementsQueryRequest build() {
             MeasurementsQueryRequest obj = new MeasurementsQueryRequest();
@@ -93,6 +106,7 @@ public class MeasurementsQueryRequest implements GraphQLOperationRequest {
             obj.setT(t);
             obj.setQ(q);
             obj.setC(c);
+            obj.setF(f);
             return obj;
         }
 

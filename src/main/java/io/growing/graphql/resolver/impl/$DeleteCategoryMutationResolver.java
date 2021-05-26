@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 删除分类
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $DeleteCategoryMutationResolver implements DeleteCategoryMutationResolver {
 
@@ -25,6 +28,9 @@ final public class $DeleteCategoryMutationResolver implements DeleteCategoryMuta
 
     private $DeleteCategoryMutationResolver() {}
 
+    /**
+     * 删除分类
+     */
     @Override
     public Boolean deleteCategory(String id) throws Exception {
         DeleteCategoryMutationRequest request = new DeleteCategoryMutationRequest();

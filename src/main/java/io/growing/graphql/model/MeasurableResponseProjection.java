@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class MeasurableResponseProjection extends GraphQLResponseProjection {
 
@@ -36,6 +36,8 @@ public class MeasurableResponseProjection extends GraphQLResponseProjection {
         this.labels();
         this.favorites();
         this.isComplexDistinct();
+        this.isSystem();
+        this.supportedTimeGranularities();
         this.typename();
         return this;
     }
@@ -136,6 +138,24 @@ public class MeasurableResponseProjection extends GraphQLResponseProjection {
 
     public MeasurableResponseProjection isComplexDistinct(String alias) {
         fields.add(new GraphQLResponseField("isComplexDistinct").alias(alias));
+        return this;
+    }
+
+    public MeasurableResponseProjection isSystem() {
+        return isSystem(null);
+    }
+
+    public MeasurableResponseProjection isSystem(String alias) {
+        fields.add(new GraphQLResponseField("isSystem").alias(alias));
+        return this;
+    }
+
+    public MeasurableResponseProjection supportedTimeGranularities() {
+        return supportedTimeGranularities(null);
+    }
+
+    public MeasurableResponseProjection supportedTimeGranularities(String alias) {
+        fields.add(new GraphQLResponseField("supportedTimeGranularities").alias(alias));
         return this;
     }
 

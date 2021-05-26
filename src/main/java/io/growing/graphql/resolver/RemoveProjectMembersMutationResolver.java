@@ -4,11 +4,11 @@ import io.growing.graphql.model.*;
 
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 public interface RemoveProjectMembersMutationResolver {
 
     @javax.validation.constraints.NotNull
-    Boolean removeProjectMembers(RemoveProjectMembersInputDto input) throws Exception;
+    Boolean removeProjectMembers(String projectId, RemoveProjectMembersInputDto input) throws Exception;
 
 }

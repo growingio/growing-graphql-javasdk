@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 根据关键字查询在dataCenter级别下分类信息, resourceType: tag | userVariable
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $DataCenterSearchCategoriesQueryResolver implements DataCenterSearchCategoriesQueryResolver {
 
@@ -25,11 +28,14 @@ final public class $DataCenterSearchCategoriesQueryResolver implements DataCente
 
     private $DataCenterSearchCategoriesQueryResolver() {}
 
+    /**
+     * 根据关键字查询在dataCenter级别下分类信息, resourceType: tag | userVariable
+     */
     @Override
-    public java.util.List<CategoryDto> dataCenterSearchCategories(String q) throws Exception {
+    public java.util.List<CategoryDto> dataCenterSearchCategories(String q, String resourceType) throws Exception {
         DataCenterSearchCategoriesQueryRequest request = new DataCenterSearchCategoriesQueryRequest();
-        List<String> keys = Arrays.asList("q");
-        List<?> values = Arrays.asList(q);
+        List<String> keys = Arrays.asList("q", "resourceType");
+        List<?> values = Arrays.asList(q, resourceType);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         CategoryResponseProjection projection = new CategoryResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());

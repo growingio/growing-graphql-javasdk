@@ -4,11 +4,11 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
 /**
- * Created automatically at 2020-12-22T15:09:56.734. Don't modify it
+ * Created automatically at 2021-05-26T15:00:48.749974. Don't modify it
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class QueryDto implements java.io.Serializable {
 
@@ -17,19 +17,23 @@ public class QueryDto implements java.io.Serializable {
     private DataCenterInfoDto dataCenterInfo;
     @javax.validation.constraints.NotNull
     private java.util.List<OriginDataSettingDto> originDataSettings;
+    private WaterMarkSettingDto waterMarkSetting;
     private java.util.List<TagDto> dataCenterTags;
-    private Integer dataCenterCountTags;
+    private Integer countDataCenterTags;
+    @javax.validation.constraints.NotNull
+    private java.util.List<TableInfoDto> tableDataDescription;
+    @javax.validation.constraints.NotNull
+    private TencentPortraitQuotasInfoDto tencentPortraitQuotas;
     private java.util.List<TunnelDto> tunnels;
     private Integer countTunnels;
     @javax.validation.constraints.NotNull
     private java.util.List<EventImportJobDto> eventImportJobs;
     @javax.validation.constraints.NotNull
+    private AuditLogQueryOptionDto logQueryOptions;
+    @javax.validation.constraints.NotNull
     private java.util.List<FeatureDto> features;
     @javax.validation.constraints.NotNull
     private String version;
-    private java.util.List<CategoryDto> categories;
-    private CategoryDto dataCenterDefaultCategory;
-    private java.util.List<CategoryDto> dataCenterTreeLikeCategories;
     private java.util.List<ModuleDto> dataCenterPermissionModules;
     private java.util.List<DataCenterRoleDto> dataCenterRoles;
     @javax.validation.constraints.NotNull
@@ -39,55 +43,75 @@ public class QueryDto implements java.io.Serializable {
     @javax.validation.constraints.NotNull
     private java.util.List<ModuleDto> projectPermissionModules;
     @javax.validation.constraints.NotNull
+    private java.util.List<UserProjectRoleTupleDto> currentUserProjectRoleTuples;
+    @javax.validation.constraints.NotNull
+    private java.util.List<WebHookDto> webHooks;
+    @javax.validation.constraints.NotNull
+    private java.util.List<NotificationTaskDto> notificationTasks;
+    private HubbleInfoDto hubble;
+    @javax.validation.constraints.NotNull
     private MemberDto currentUser;
+    @javax.validation.constraints.NotNull
+    private java.util.List<AccountApplicationDto> accountApplications;
+    @javax.validation.constraints.NotNull
+    private AccountApplicationSettingDto accountApplicationSetting;
+    @javax.validation.constraints.NotNull
+    private PasswordRecoverySettingDto passwordRecoverySetting;
     private java.util.List<CustomEventDto> dataCenterCustomEvents;
     private java.util.List<PreparedMetricDto> preparedMetrics;
-    private java.util.List<UserPropertyDto> userProperties;
     private java.util.List<EventVariableDto> dataCenterEventVariables;
-    private Integer dataCenterCountEventVariables;
+    private Integer countDataCenterEventVariables;
     private java.util.List<ItemModelDto> dataCenterItemModels;
     private java.util.List<ItemVariableDto> dataCenterItemVariables;
-    private Integer dataCenterCountItemVariables;
     private java.util.List<UserVariableDto> dataCenterUserVariables;
-    private Integer dataCenterCountUserVariables;
+    private Integer countDataCenterUserVariables;
     private java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions;
     private java.util.List<MeasurableDto> dataCenterMeasurements;
+    @javax.validation.constraints.NotNull
+    private java.util.List<UserIdentityDto> dataCenterUserIdentities;
 
     public QueryDto() {
     }
 
-    public QueryDto(java.util.List<UtmArgumentDto> utmArguments, DataCenterInfoDto dataCenterInfo, java.util.List<OriginDataSettingDto> originDataSettings, java.util.List<TagDto> dataCenterTags, Integer dataCenterCountTags, java.util.List<TunnelDto> tunnels, Integer countTunnels, java.util.List<EventImportJobDto> eventImportJobs, java.util.List<FeatureDto> features, String version, java.util.List<CategoryDto> categories, CategoryDto dataCenterDefaultCategory, java.util.List<CategoryDto> dataCenterTreeLikeCategories, java.util.List<ModuleDto> dataCenterPermissionModules, java.util.List<DataCenterRoleDto> dataCenterRoles, java.util.List<DepartmentDto> allDepartments, java.util.List<ProjectDto> projects, java.util.List<ModuleDto> projectPermissionModules, MemberDto currentUser, java.util.List<CustomEventDto> dataCenterCustomEvents, java.util.List<PreparedMetricDto> preparedMetrics, java.util.List<UserPropertyDto> userProperties, java.util.List<EventVariableDto> dataCenterEventVariables, Integer dataCenterCountEventVariables, java.util.List<ItemModelDto> dataCenterItemModels, java.util.List<ItemVariableDto> dataCenterItemVariables, Integer dataCenterCountItemVariables, java.util.List<UserVariableDto> dataCenterUserVariables, Integer dataCenterCountUserVariables, java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions, java.util.List<MeasurableDto> dataCenterMeasurements) {
+    public QueryDto(java.util.List<UtmArgumentDto> utmArguments, DataCenterInfoDto dataCenterInfo, java.util.List<OriginDataSettingDto> originDataSettings, WaterMarkSettingDto waterMarkSetting, java.util.List<TagDto> dataCenterTags, Integer countDataCenterTags, java.util.List<TableInfoDto> tableDataDescription, TencentPortraitQuotasInfoDto tencentPortraitQuotas, java.util.List<TunnelDto> tunnels, Integer countTunnels, java.util.List<EventImportJobDto> eventImportJobs, AuditLogQueryOptionDto logQueryOptions, java.util.List<FeatureDto> features, String version, java.util.List<ModuleDto> dataCenterPermissionModules, java.util.List<DataCenterRoleDto> dataCenterRoles, java.util.List<DepartmentDto> allDepartments, java.util.List<ProjectDto> projects, java.util.List<ModuleDto> projectPermissionModules, java.util.List<UserProjectRoleTupleDto> currentUserProjectRoleTuples, java.util.List<WebHookDto> webHooks, java.util.List<NotificationTaskDto> notificationTasks, HubbleInfoDto hubble, MemberDto currentUser, java.util.List<AccountApplicationDto> accountApplications, AccountApplicationSettingDto accountApplicationSetting, PasswordRecoverySettingDto passwordRecoverySetting, java.util.List<CustomEventDto> dataCenterCustomEvents, java.util.List<PreparedMetricDto> preparedMetrics, java.util.List<EventVariableDto> dataCenterEventVariables, Integer countDataCenterEventVariables, java.util.List<ItemModelDto> dataCenterItemModels, java.util.List<ItemVariableDto> dataCenterItemVariables, java.util.List<UserVariableDto> dataCenterUserVariables, Integer countDataCenterUserVariables, java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions, java.util.List<MeasurableDto> dataCenterMeasurements, java.util.List<UserIdentityDto> dataCenterUserIdentities) {
         this.utmArguments = utmArguments;
         this.dataCenterInfo = dataCenterInfo;
         this.originDataSettings = originDataSettings;
+        this.waterMarkSetting = waterMarkSetting;
         this.dataCenterTags = dataCenterTags;
-        this.dataCenterCountTags = dataCenterCountTags;
+        this.countDataCenterTags = countDataCenterTags;
+        this.tableDataDescription = tableDataDescription;
+        this.tencentPortraitQuotas = tencentPortraitQuotas;
         this.tunnels = tunnels;
         this.countTunnels = countTunnels;
         this.eventImportJobs = eventImportJobs;
+        this.logQueryOptions = logQueryOptions;
         this.features = features;
         this.version = version;
-        this.categories = categories;
-        this.dataCenterDefaultCategory = dataCenterDefaultCategory;
-        this.dataCenterTreeLikeCategories = dataCenterTreeLikeCategories;
         this.dataCenterPermissionModules = dataCenterPermissionModules;
         this.dataCenterRoles = dataCenterRoles;
         this.allDepartments = allDepartments;
         this.projects = projects;
         this.projectPermissionModules = projectPermissionModules;
+        this.currentUserProjectRoleTuples = currentUserProjectRoleTuples;
+        this.webHooks = webHooks;
+        this.notificationTasks = notificationTasks;
+        this.hubble = hubble;
         this.currentUser = currentUser;
+        this.accountApplications = accountApplications;
+        this.accountApplicationSetting = accountApplicationSetting;
+        this.passwordRecoverySetting = passwordRecoverySetting;
         this.dataCenterCustomEvents = dataCenterCustomEvents;
         this.preparedMetrics = preparedMetrics;
-        this.userProperties = userProperties;
         this.dataCenterEventVariables = dataCenterEventVariables;
-        this.dataCenterCountEventVariables = dataCenterCountEventVariables;
+        this.countDataCenterEventVariables = countDataCenterEventVariables;
         this.dataCenterItemModels = dataCenterItemModels;
         this.dataCenterItemVariables = dataCenterItemVariables;
-        this.dataCenterCountItemVariables = dataCenterCountItemVariables;
         this.dataCenterUserVariables = dataCenterUserVariables;
-        this.dataCenterCountUserVariables = dataCenterCountUserVariables;
+        this.countDataCenterUserVariables = countDataCenterUserVariables;
         this.dataCenterPreparedDimensions = dataCenterPreparedDimensions;
         this.dataCenterMeasurements = dataCenterMeasurements;
+        this.dataCenterUserIdentities = dataCenterUserIdentities;
     }
 
     public java.util.List<UtmArgumentDto> getUtmArguments() {
@@ -112,6 +136,19 @@ public class QueryDto implements java.io.Serializable {
     }
 
     /**
+     * 获取水印配置
+     */
+    public WaterMarkSettingDto getWaterMarkSetting() {
+        return waterMarkSetting;
+    }
+    /**
+     * 获取水印配置
+     */
+    public void setWaterMarkSetting(WaterMarkSettingDto waterMarkSetting) {
+        this.waterMarkSetting = waterMarkSetting;
+    }
+
+    /**
      * 数据中心标签列表
      */
     public java.util.List<TagDto> getDataCenterTags() {
@@ -124,11 +161,37 @@ public class QueryDto implements java.io.Serializable {
         this.dataCenterTags = dataCenterTags;
     }
 
-    public Integer getDataCenterCountTags() {
-        return dataCenterCountTags;
+    public Integer getCountDataCenterTags() {
+        return countDataCenterTags;
     }
-    public void setDataCenterCountTags(Integer dataCenterCountTags) {
-        this.dataCenterCountTags = dataCenterCountTags;
+    public void setCountDataCenterTags(Integer countDataCenterTags) {
+        this.countDataCenterTags = countDataCenterTags;
+    }
+
+    /**
+     * 获取所有表字段信息
+     */
+    public java.util.List<TableInfoDto> getTableDataDescription() {
+        return tableDataDescription;
+    }
+    /**
+     * 获取所有表字段信息
+     */
+    public void setTableDataDescription(java.util.List<TableInfoDto> tableDataDescription) {
+        this.tableDataDescription = tableDataDescription;
+    }
+
+    /**
+     * 查询资源情况
+     */
+    public TencentPortraitQuotasInfoDto getTencentPortraitQuotas() {
+        return tencentPortraitQuotas;
+    }
+    /**
+     * 查询资源情况
+     */
+    public void setTencentPortraitQuotas(TencentPortraitQuotasInfoDto tencentPortraitQuotas) {
+        this.tencentPortraitQuotas = tencentPortraitQuotas;
     }
 
     public java.util.List<TunnelDto> getTunnels() {
@@ -152,6 +215,19 @@ public class QueryDto implements java.io.Serializable {
         this.eventImportJobs = eventImportJobs;
     }
 
+    /**
+     * 日志搜索项
+     */
+    public AuditLogQueryOptionDto getLogQueryOptions() {
+        return logQueryOptions;
+    }
+    /**
+     * 日志搜索项
+     */
+    public void setLogQueryOptions(AuditLogQueryOptionDto logQueryOptions) {
+        this.logQueryOptions = logQueryOptions;
+    }
+
     public java.util.List<FeatureDto> getFeatures() {
         return features;
     }
@@ -164,27 +240,6 @@ public class QueryDto implements java.io.Serializable {
     }
     public void setVersion(String version) {
         this.version = version;
-    }
-
-    public java.util.List<CategoryDto> getCategories() {
-        return categories;
-    }
-    public void setCategories(java.util.List<CategoryDto> categories) {
-        this.categories = categories;
-    }
-
-    public CategoryDto getDataCenterDefaultCategory() {
-        return dataCenterDefaultCategory;
-    }
-    public void setDataCenterDefaultCategory(CategoryDto dataCenterDefaultCategory) {
-        this.dataCenterDefaultCategory = dataCenterDefaultCategory;
-    }
-
-    public java.util.List<CategoryDto> getDataCenterTreeLikeCategories() {
-        return dataCenterTreeLikeCategories;
-    }
-    public void setDataCenterTreeLikeCategories(java.util.List<CategoryDto> dataCenterTreeLikeCategories) {
-        this.dataCenterTreeLikeCategories = dataCenterTreeLikeCategories;
     }
 
     public java.util.List<ModuleDto> getDataCenterPermissionModules() {
@@ -222,6 +277,40 @@ public class QueryDto implements java.io.Serializable {
         this.projectPermissionModules = projectPermissionModules;
     }
 
+    /**
+     * 获取当前用户所在项目及项目角色
+     */
+    public java.util.List<UserProjectRoleTupleDto> getCurrentUserProjectRoleTuples() {
+        return currentUserProjectRoleTuples;
+    }
+    /**
+     * 获取当前用户所在项目及项目角色
+     */
+    public void setCurrentUserProjectRoleTuples(java.util.List<UserProjectRoleTupleDto> currentUserProjectRoleTuples) {
+        this.currentUserProjectRoleTuples = currentUserProjectRoleTuples;
+    }
+
+    public java.util.List<WebHookDto> getWebHooks() {
+        return webHooks;
+    }
+    public void setWebHooks(java.util.List<WebHookDto> webHooks) {
+        this.webHooks = webHooks;
+    }
+
+    public java.util.List<NotificationTaskDto> getNotificationTasks() {
+        return notificationTasks;
+    }
+    public void setNotificationTasks(java.util.List<NotificationTaskDto> notificationTasks) {
+        this.notificationTasks = notificationTasks;
+    }
+
+    public HubbleInfoDto getHubble() {
+        return hubble;
+    }
+    public void setHubble(HubbleInfoDto hubble) {
+        this.hubble = hubble;
+    }
+
     public MemberDto getCurrentUser() {
         return currentUser;
     }
@@ -229,25 +318,51 @@ public class QueryDto implements java.io.Serializable {
         this.currentUser = currentUser;
     }
 
+    public java.util.List<AccountApplicationDto> getAccountApplications() {
+        return accountApplications;
+    }
+    public void setAccountApplications(java.util.List<AccountApplicationDto> accountApplications) {
+        this.accountApplications = accountApplications;
+    }
+
+    public AccountApplicationSettingDto getAccountApplicationSetting() {
+        return accountApplicationSetting;
+    }
+    public void setAccountApplicationSetting(AccountApplicationSettingDto accountApplicationSetting) {
+        this.accountApplicationSetting = accountApplicationSetting;
+    }
+
+    public PasswordRecoverySettingDto getPasswordRecoverySetting() {
+        return passwordRecoverySetting;
+    }
+    public void setPasswordRecoverySetting(PasswordRecoverySettingDto passwordRecoverySetting) {
+        this.passwordRecoverySetting = passwordRecoverySetting;
+    }
+
+    /**
+     * 数据中心 打点事件列表
+     */
     public java.util.List<CustomEventDto> getDataCenterCustomEvents() {
         return dataCenterCustomEvents;
     }
+    /**
+     * 数据中心 打点事件列表
+     */
     public void setDataCenterCustomEvents(java.util.List<CustomEventDto> dataCenterCustomEvents) {
         this.dataCenterCustomEvents = dataCenterCustomEvents;
     }
 
+    /**
+     * 预定义指标列表
+     */
     public java.util.List<PreparedMetricDto> getPreparedMetrics() {
         return preparedMetrics;
     }
+    /**
+     * 预定义指标列表
+     */
     public void setPreparedMetrics(java.util.List<PreparedMetricDto> preparedMetrics) {
         this.preparedMetrics = preparedMetrics;
-    }
-
-    public java.util.List<UserPropertyDto> getUserProperties() {
-        return userProperties;
-    }
-    public void setUserProperties(java.util.List<UserPropertyDto> userProperties) {
-        this.userProperties = userProperties;
     }
 
     /**
@@ -266,14 +381,14 @@ public class QueryDto implements java.io.Serializable {
     /**
      * 数据中心的事件变量数量
      */
-    public Integer getDataCenterCountEventVariables() {
-        return dataCenterCountEventVariables;
+    public Integer getCountDataCenterEventVariables() {
+        return countDataCenterEventVariables;
     }
     /**
      * 数据中心的事件变量数量
      */
-    public void setDataCenterCountEventVariables(Integer dataCenterCountEventVariables) {
-        this.dataCenterCountEventVariables = dataCenterCountEventVariables;
+    public void setCountDataCenterEventVariables(Integer countDataCenterEventVariables) {
+        this.countDataCenterEventVariables = countDataCenterEventVariables;
     }
 
     /**
@@ -303,19 +418,6 @@ public class QueryDto implements java.io.Serializable {
     }
 
     /**
-     * 数据中心的物品模型变量数量
-     */
-    public Integer getDataCenterCountItemVariables() {
-        return dataCenterCountItemVariables;
-    }
-    /**
-     * 数据中心的物品模型变量数量
-     */
-    public void setDataCenterCountItemVariables(Integer dataCenterCountItemVariables) {
-        this.dataCenterCountItemVariables = dataCenterCountItemVariables;
-    }
-
-    /**
      * 数据中心的用户变量列表
      */
     public java.util.List<UserVariableDto> getDataCenterUserVariables() {
@@ -331,14 +433,14 @@ public class QueryDto implements java.io.Serializable {
     /**
      * 数据中心的用户变量数量
      */
-    public Integer getDataCenterCountUserVariables() {
-        return dataCenterCountUserVariables;
+    public Integer getCountDataCenterUserVariables() {
+        return countDataCenterUserVariables;
     }
     /**
      * 数据中心的用户变量数量
      */
-    public void setDataCenterCountUserVariables(Integer dataCenterCountUserVariables) {
-        this.dataCenterCountUserVariables = dataCenterCountUserVariables;
+    public void setCountDataCenterUserVariables(Integer countDataCenterUserVariables) {
+        this.countDataCenterUserVariables = countDataCenterUserVariables;
     }
 
     /**
@@ -367,6 +469,19 @@ public class QueryDto implements java.io.Serializable {
         this.dataCenterMeasurements = dataCenterMeasurements;
     }
 
+    /**
+     * 数据中心的 用户ID - 所有属性均为预置的用户标识符
+     */
+    public java.util.List<UserIdentityDto> getDataCenterUserIdentities() {
+        return dataCenterUserIdentities;
+    }
+    /**
+     * 数据中心的 用户ID - 所有属性均为预置的用户标识符
+     */
+    public void setDataCenterUserIdentities(java.util.List<UserIdentityDto> dataCenterUserIdentities) {
+        this.dataCenterUserIdentities = dataCenterUserIdentities;
+    }
+
 
     @Override
     public String toString() {
@@ -380,11 +495,20 @@ public class QueryDto implements java.io.Serializable {
         if (originDataSettings != null) {
             joiner.add("originDataSettings: " + GraphQLRequestSerializer.getEntry(originDataSettings));
         }
+        if (waterMarkSetting != null) {
+            joiner.add("waterMarkSetting: " + GraphQLRequestSerializer.getEntry(waterMarkSetting));
+        }
         if (dataCenterTags != null) {
             joiner.add("dataCenterTags: " + GraphQLRequestSerializer.getEntry(dataCenterTags));
         }
-        if (dataCenterCountTags != null) {
-            joiner.add("dataCenterCountTags: " + GraphQLRequestSerializer.getEntry(dataCenterCountTags));
+        if (countDataCenterTags != null) {
+            joiner.add("countDataCenterTags: " + GraphQLRequestSerializer.getEntry(countDataCenterTags));
+        }
+        if (tableDataDescription != null) {
+            joiner.add("tableDataDescription: " + GraphQLRequestSerializer.getEntry(tableDataDescription));
+        }
+        if (tencentPortraitQuotas != null) {
+            joiner.add("tencentPortraitQuotas: " + GraphQLRequestSerializer.getEntry(tencentPortraitQuotas));
         }
         if (tunnels != null) {
             joiner.add("tunnels: " + GraphQLRequestSerializer.getEntry(tunnels));
@@ -395,20 +519,14 @@ public class QueryDto implements java.io.Serializable {
         if (eventImportJobs != null) {
             joiner.add("eventImportJobs: " + GraphQLRequestSerializer.getEntry(eventImportJobs));
         }
+        if (logQueryOptions != null) {
+            joiner.add("logQueryOptions: " + GraphQLRequestSerializer.getEntry(logQueryOptions));
+        }
         if (features != null) {
             joiner.add("features: " + GraphQLRequestSerializer.getEntry(features));
         }
         if (version != null) {
             joiner.add("version: " + GraphQLRequestSerializer.getEntry(version));
-        }
-        if (categories != null) {
-            joiner.add("categories: " + GraphQLRequestSerializer.getEntry(categories));
-        }
-        if (dataCenterDefaultCategory != null) {
-            joiner.add("dataCenterDefaultCategory: " + GraphQLRequestSerializer.getEntry(dataCenterDefaultCategory));
-        }
-        if (dataCenterTreeLikeCategories != null) {
-            joiner.add("dataCenterTreeLikeCategories: " + GraphQLRequestSerializer.getEntry(dataCenterTreeLikeCategories));
         }
         if (dataCenterPermissionModules != null) {
             joiner.add("dataCenterPermissionModules: " + GraphQLRequestSerializer.getEntry(dataCenterPermissionModules));
@@ -425,8 +543,29 @@ public class QueryDto implements java.io.Serializable {
         if (projectPermissionModules != null) {
             joiner.add("projectPermissionModules: " + GraphQLRequestSerializer.getEntry(projectPermissionModules));
         }
+        if (currentUserProjectRoleTuples != null) {
+            joiner.add("currentUserProjectRoleTuples: " + GraphQLRequestSerializer.getEntry(currentUserProjectRoleTuples));
+        }
+        if (webHooks != null) {
+            joiner.add("webHooks: " + GraphQLRequestSerializer.getEntry(webHooks));
+        }
+        if (notificationTasks != null) {
+            joiner.add("notificationTasks: " + GraphQLRequestSerializer.getEntry(notificationTasks));
+        }
+        if (hubble != null) {
+            joiner.add("hubble: " + GraphQLRequestSerializer.getEntry(hubble));
+        }
         if (currentUser != null) {
             joiner.add("currentUser: " + GraphQLRequestSerializer.getEntry(currentUser));
+        }
+        if (accountApplications != null) {
+            joiner.add("accountApplications: " + GraphQLRequestSerializer.getEntry(accountApplications));
+        }
+        if (accountApplicationSetting != null) {
+            joiner.add("accountApplicationSetting: " + GraphQLRequestSerializer.getEntry(accountApplicationSetting));
+        }
+        if (passwordRecoverySetting != null) {
+            joiner.add("passwordRecoverySetting: " + GraphQLRequestSerializer.getEntry(passwordRecoverySetting));
         }
         if (dataCenterCustomEvents != null) {
             joiner.add("dataCenterCustomEvents: " + GraphQLRequestSerializer.getEntry(dataCenterCustomEvents));
@@ -434,14 +573,11 @@ public class QueryDto implements java.io.Serializable {
         if (preparedMetrics != null) {
             joiner.add("preparedMetrics: " + GraphQLRequestSerializer.getEntry(preparedMetrics));
         }
-        if (userProperties != null) {
-            joiner.add("userProperties: " + GraphQLRequestSerializer.getEntry(userProperties));
-        }
         if (dataCenterEventVariables != null) {
             joiner.add("dataCenterEventVariables: " + GraphQLRequestSerializer.getEntry(dataCenterEventVariables));
         }
-        if (dataCenterCountEventVariables != null) {
-            joiner.add("dataCenterCountEventVariables: " + GraphQLRequestSerializer.getEntry(dataCenterCountEventVariables));
+        if (countDataCenterEventVariables != null) {
+            joiner.add("countDataCenterEventVariables: " + GraphQLRequestSerializer.getEntry(countDataCenterEventVariables));
         }
         if (dataCenterItemModels != null) {
             joiner.add("dataCenterItemModels: " + GraphQLRequestSerializer.getEntry(dataCenterItemModels));
@@ -449,20 +585,20 @@ public class QueryDto implements java.io.Serializable {
         if (dataCenterItemVariables != null) {
             joiner.add("dataCenterItemVariables: " + GraphQLRequestSerializer.getEntry(dataCenterItemVariables));
         }
-        if (dataCenterCountItemVariables != null) {
-            joiner.add("dataCenterCountItemVariables: " + GraphQLRequestSerializer.getEntry(dataCenterCountItemVariables));
-        }
         if (dataCenterUserVariables != null) {
             joiner.add("dataCenterUserVariables: " + GraphQLRequestSerializer.getEntry(dataCenterUserVariables));
         }
-        if (dataCenterCountUserVariables != null) {
-            joiner.add("dataCenterCountUserVariables: " + GraphQLRequestSerializer.getEntry(dataCenterCountUserVariables));
+        if (countDataCenterUserVariables != null) {
+            joiner.add("countDataCenterUserVariables: " + GraphQLRequestSerializer.getEntry(countDataCenterUserVariables));
         }
         if (dataCenterPreparedDimensions != null) {
             joiner.add("dataCenterPreparedDimensions: " + GraphQLRequestSerializer.getEntry(dataCenterPreparedDimensions));
         }
         if (dataCenterMeasurements != null) {
             joiner.add("dataCenterMeasurements: " + GraphQLRequestSerializer.getEntry(dataCenterMeasurements));
+        }
+        if (dataCenterUserIdentities != null) {
+            joiner.add("dataCenterUserIdentities: " + GraphQLRequestSerializer.getEntry(dataCenterUserIdentities));
         }
         return joiner.toString();
     }
@@ -476,34 +612,41 @@ public class QueryDto implements java.io.Serializable {
         private java.util.List<UtmArgumentDto> utmArguments;
         private DataCenterInfoDto dataCenterInfo;
         private java.util.List<OriginDataSettingDto> originDataSettings;
+        private WaterMarkSettingDto waterMarkSetting;
         private java.util.List<TagDto> dataCenterTags;
-        private Integer dataCenterCountTags;
+        private Integer countDataCenterTags;
+        private java.util.List<TableInfoDto> tableDataDescription;
+        private TencentPortraitQuotasInfoDto tencentPortraitQuotas;
         private java.util.List<TunnelDto> tunnels;
         private Integer countTunnels;
         private java.util.List<EventImportJobDto> eventImportJobs;
+        private AuditLogQueryOptionDto logQueryOptions;
         private java.util.List<FeatureDto> features;
         private String version;
-        private java.util.List<CategoryDto> categories;
-        private CategoryDto dataCenterDefaultCategory;
-        private java.util.List<CategoryDto> dataCenterTreeLikeCategories;
         private java.util.List<ModuleDto> dataCenterPermissionModules;
         private java.util.List<DataCenterRoleDto> dataCenterRoles;
         private java.util.List<DepartmentDto> allDepartments;
         private java.util.List<ProjectDto> projects;
         private java.util.List<ModuleDto> projectPermissionModules;
+        private java.util.List<UserProjectRoleTupleDto> currentUserProjectRoleTuples;
+        private java.util.List<WebHookDto> webHooks;
+        private java.util.List<NotificationTaskDto> notificationTasks;
+        private HubbleInfoDto hubble;
         private MemberDto currentUser;
+        private java.util.List<AccountApplicationDto> accountApplications;
+        private AccountApplicationSettingDto accountApplicationSetting;
+        private PasswordRecoverySettingDto passwordRecoverySetting;
         private java.util.List<CustomEventDto> dataCenterCustomEvents;
         private java.util.List<PreparedMetricDto> preparedMetrics;
-        private java.util.List<UserPropertyDto> userProperties;
         private java.util.List<EventVariableDto> dataCenterEventVariables;
-        private Integer dataCenterCountEventVariables;
+        private Integer countDataCenterEventVariables;
         private java.util.List<ItemModelDto> dataCenterItemModels;
         private java.util.List<ItemVariableDto> dataCenterItemVariables;
-        private Integer dataCenterCountItemVariables;
         private java.util.List<UserVariableDto> dataCenterUserVariables;
-        private Integer dataCenterCountUserVariables;
+        private Integer countDataCenterUserVariables;
         private java.util.List<PreparedDimensionDto> dataCenterPreparedDimensions;
         private java.util.List<MeasurableDto> dataCenterMeasurements;
+        private java.util.List<UserIdentityDto> dataCenterUserIdentities;
 
         public Builder() {
         }
@@ -524,6 +667,14 @@ public class QueryDto implements java.io.Serializable {
         }
 
         /**
+         * 获取水印配置
+         */
+        public Builder setWaterMarkSetting(WaterMarkSettingDto waterMarkSetting) {
+            this.waterMarkSetting = waterMarkSetting;
+            return this;
+        }
+
+        /**
          * 数据中心标签列表
          */
         public Builder setDataCenterTags(java.util.List<TagDto> dataCenterTags) {
@@ -531,8 +682,24 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
-        public Builder setDataCenterCountTags(Integer dataCenterCountTags) {
-            this.dataCenterCountTags = dataCenterCountTags;
+        public Builder setCountDataCenterTags(Integer countDataCenterTags) {
+            this.countDataCenterTags = countDataCenterTags;
+            return this;
+        }
+
+        /**
+         * 获取所有表字段信息
+         */
+        public Builder setTableDataDescription(java.util.List<TableInfoDto> tableDataDescription) {
+            this.tableDataDescription = tableDataDescription;
+            return this;
+        }
+
+        /**
+         * 查询资源情况
+         */
+        public Builder setTencentPortraitQuotas(TencentPortraitQuotasInfoDto tencentPortraitQuotas) {
+            this.tencentPortraitQuotas = tencentPortraitQuotas;
             return this;
         }
 
@@ -551,6 +718,14 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 日志搜索项
+         */
+        public Builder setLogQueryOptions(AuditLogQueryOptionDto logQueryOptions) {
+            this.logQueryOptions = logQueryOptions;
+            return this;
+        }
+
         public Builder setFeatures(java.util.List<FeatureDto> features) {
             this.features = features;
             return this;
@@ -558,21 +733,6 @@ public class QueryDto implements java.io.Serializable {
 
         public Builder setVersion(String version) {
             this.version = version;
-            return this;
-        }
-
-        public Builder setCategories(java.util.List<CategoryDto> categories) {
-            this.categories = categories;
-            return this;
-        }
-
-        public Builder setDataCenterDefaultCategory(CategoryDto dataCenterDefaultCategory) {
-            this.dataCenterDefaultCategory = dataCenterDefaultCategory;
-            return this;
-        }
-
-        public Builder setDataCenterTreeLikeCategories(java.util.List<CategoryDto> dataCenterTreeLikeCategories) {
-            this.dataCenterTreeLikeCategories = dataCenterTreeLikeCategories;
             return this;
         }
 
@@ -601,23 +761,62 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 获取当前用户所在项目及项目角色
+         */
+        public Builder setCurrentUserProjectRoleTuples(java.util.List<UserProjectRoleTupleDto> currentUserProjectRoleTuples) {
+            this.currentUserProjectRoleTuples = currentUserProjectRoleTuples;
+            return this;
+        }
+
+        public Builder setWebHooks(java.util.List<WebHookDto> webHooks) {
+            this.webHooks = webHooks;
+            return this;
+        }
+
+        public Builder setNotificationTasks(java.util.List<NotificationTaskDto> notificationTasks) {
+            this.notificationTasks = notificationTasks;
+            return this;
+        }
+
+        public Builder setHubble(HubbleInfoDto hubble) {
+            this.hubble = hubble;
+            return this;
+        }
+
         public Builder setCurrentUser(MemberDto currentUser) {
             this.currentUser = currentUser;
             return this;
         }
 
+        public Builder setAccountApplications(java.util.List<AccountApplicationDto> accountApplications) {
+            this.accountApplications = accountApplications;
+            return this;
+        }
+
+        public Builder setAccountApplicationSetting(AccountApplicationSettingDto accountApplicationSetting) {
+            this.accountApplicationSetting = accountApplicationSetting;
+            return this;
+        }
+
+        public Builder setPasswordRecoverySetting(PasswordRecoverySettingDto passwordRecoverySetting) {
+            this.passwordRecoverySetting = passwordRecoverySetting;
+            return this;
+        }
+
+        /**
+         * 数据中心 打点事件列表
+         */
         public Builder setDataCenterCustomEvents(java.util.List<CustomEventDto> dataCenterCustomEvents) {
             this.dataCenterCustomEvents = dataCenterCustomEvents;
             return this;
         }
 
+        /**
+         * 预定义指标列表
+         */
         public Builder setPreparedMetrics(java.util.List<PreparedMetricDto> preparedMetrics) {
             this.preparedMetrics = preparedMetrics;
-            return this;
-        }
-
-        public Builder setUserProperties(java.util.List<UserPropertyDto> userProperties) {
-            this.userProperties = userProperties;
             return this;
         }
 
@@ -632,8 +831,8 @@ public class QueryDto implements java.io.Serializable {
         /**
          * 数据中心的事件变量数量
          */
-        public Builder setDataCenterCountEventVariables(Integer dataCenterCountEventVariables) {
-            this.dataCenterCountEventVariables = dataCenterCountEventVariables;
+        public Builder setCountDataCenterEventVariables(Integer countDataCenterEventVariables) {
+            this.countDataCenterEventVariables = countDataCenterEventVariables;
             return this;
         }
 
@@ -654,14 +853,6 @@ public class QueryDto implements java.io.Serializable {
         }
 
         /**
-         * 数据中心的物品模型变量数量
-         */
-        public Builder setDataCenterCountItemVariables(Integer dataCenterCountItemVariables) {
-            this.dataCenterCountItemVariables = dataCenterCountItemVariables;
-            return this;
-        }
-
-        /**
          * 数据中心的用户变量列表
          */
         public Builder setDataCenterUserVariables(java.util.List<UserVariableDto> dataCenterUserVariables) {
@@ -672,8 +863,8 @@ public class QueryDto implements java.io.Serializable {
         /**
          * 数据中心的用户变量数量
          */
-        public Builder setDataCenterCountUserVariables(Integer dataCenterCountUserVariables) {
-            this.dataCenterCountUserVariables = dataCenterCountUserVariables;
+        public Builder setCountDataCenterUserVariables(Integer countDataCenterUserVariables) {
+            this.countDataCenterUserVariables = countDataCenterUserVariables;
             return this;
         }
 
@@ -693,9 +884,17 @@ public class QueryDto implements java.io.Serializable {
             return this;
         }
 
+        /**
+         * 数据中心的 用户ID - 所有属性均为预置的用户标识符
+         */
+        public Builder setDataCenterUserIdentities(java.util.List<UserIdentityDto> dataCenterUserIdentities) {
+            this.dataCenterUserIdentities = dataCenterUserIdentities;
+            return this;
+        }
+
 
         public QueryDto build() {
-            return new QueryDto(utmArguments, dataCenterInfo, originDataSettings, dataCenterTags, dataCenterCountTags, tunnels, countTunnels, eventImportJobs, features, version, categories, dataCenterDefaultCategory, dataCenterTreeLikeCategories, dataCenterPermissionModules, dataCenterRoles, allDepartments, projects, projectPermissionModules, currentUser, dataCenterCustomEvents, preparedMetrics, userProperties, dataCenterEventVariables, dataCenterCountEventVariables, dataCenterItemModels, dataCenterItemVariables, dataCenterCountItemVariables, dataCenterUserVariables, dataCenterCountUserVariables, dataCenterPreparedDimensions, dataCenterMeasurements);
+            return new QueryDto(utmArguments, dataCenterInfo, originDataSettings, waterMarkSetting, dataCenterTags, countDataCenterTags, tableDataDescription, tencentPortraitQuotas, tunnels, countTunnels, eventImportJobs, logQueryOptions, features, version, dataCenterPermissionModules, dataCenterRoles, allDepartments, projects, projectPermissionModules, currentUserProjectRoleTuples, webHooks, notificationTasks, hubble, currentUser, accountApplications, accountApplicationSetting, passwordRecoverySetting, dataCenterCustomEvents, preparedMetrics, dataCenterEventVariables, countDataCenterEventVariables, dataCenterItemModels, dataCenterItemVariables, dataCenterUserVariables, countDataCenterUserVariables, dataCenterPreparedDimensions, dataCenterMeasurements, dataCenterUserIdentities);
         }
 
     }

@@ -11,9 +11,12 @@ import java.util.Map;
 import io.growing.graphql.resolver.*;
 import io.growing.graphql.model.*;
 
+/**
+ * 提交用户标签导出任务  exportFileName: 导出的文件名称，不带后缀
+ */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:58+0800"
+    date = "2021-05-26T15:01:24+0800"
 )
 final public class $SubmitTagUserExportJobMutationResolver implements SubmitTagUserExportJobMutationResolver {
 
@@ -25,12 +28,15 @@ final public class $SubmitTagUserExportJobMutationResolver implements SubmitTagU
 
     private $SubmitTagUserExportJobMutationResolver() {}
 
+    /**
+     * 提交用户标签导出任务  exportFileName: 导出的文件名称，不带后缀
+     */
     @javax.validation.constraints.NotNull
     @Override
-    public TagUserExportJobDto submitTagUserExportJob(String tagId, java.util.List<String> properties, String charset, Boolean detailExport) throws Exception {
+    public TagUserExportJobDto submitTagUserExportJob(String tagId, String exportFileName, java.util.List<String> properties, String charset, Boolean detailExport) throws Exception {
         SubmitTagUserExportJobMutationRequest request = new SubmitTagUserExportJobMutationRequest();
-        List<String> keys = Arrays.asList("tagId", "properties", "charset", "detailExport");
-        List<?> values = Arrays.asList(tagId, properties, charset, detailExport);
+        List<String> keys = Arrays.asList("tagId", "exportFileName", "properties", "charset", "detailExport");
+        List<?> values = Arrays.asList(tagId, exportFileName, properties, charset, detailExport);
         Map<String, ?> parameters = JavaCollectionUtils.listToMap(keys, values);
         request.getInput().putAll(parameters);
         TagUserExportJobResponseProjection projection = new TagUserExportJobResponseProjection().all$(growingIOConfig.getResponseProjectionMaxDepth());

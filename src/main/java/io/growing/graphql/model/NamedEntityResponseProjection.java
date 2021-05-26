@@ -8,7 +8,7 @@ import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
  */
 @javax.annotation.Generated(
     value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-22T15:45:57+0800"
+    date = "2021-05-26T15:01:23+0800"
 )
 public class NamedEntityResponseProjection extends GraphQLResponseProjection {
 
@@ -134,12 +134,39 @@ public class NamedEntityResponseProjection extends GraphQLResponseProjection {
         return this;
     }
 
+    public NamedEntityResponseProjection onAnalysisAlerts(AnalysisAlertsResponseProjection subProjection) {
+        return onAnalysisAlerts(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onAnalysisAlerts(String alias, AnalysisAlertsResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on AnalysisAlerts").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public NamedEntityResponseProjection onOlapEventAnalysis(OlapEventAnalysisResponseProjection subProjection) {
+        return onOlapEventAnalysis(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onOlapEventAnalysis(String alias, OlapEventAnalysisResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on OlapEventAnalysis").alias(alias).projection(subProjection));
+        return this;
+    }
+
     public NamedEntityResponseProjection onItemModel(ItemModelResponseProjection subProjection) {
         return onItemModel(null, subProjection);
     }
 
     public NamedEntityResponseProjection onItemModel(String alias, ItemModelResponseProjection subProjection) {
         fields.add(new GraphQLResponseField("...on ItemModel").alias(alias).projection(subProjection));
+        return this;
+    }
+
+    public NamedEntityResponseProjection onUserIdentity(UserIdentityResponseProjection subProjection) {
+        return onUserIdentity(null, subProjection);
+    }
+
+    public NamedEntityResponseProjection onUserIdentity(String alias, UserIdentityResponseProjection subProjection) {
+        fields.add(new GraphQLResponseField("...on UserIdentity").alias(alias).projection(subProjection));
         return this;
     }
 
