@@ -11,7 +11,7 @@ import static io.growing.graphql.model.AnalysisResourceTypeDto.RETENTIONS;
 import static io.growing.graphql.model.AnalysisResourceTypeDto.FREQUENCIES;
 import static io.growing.graphql.model.JobStageDto.ERROR;
 
-public class GrowingioAnalysisApiExaples {
+public class GrowingioAnalysisApiExamples {
 
     static String projectId = "WlGk4Daj"; //如果资源不在项目中，那么就没有projectId参数
     final static GrowingioApi growingioApi = GrowingioApi.apply("http://uat-gdp.growingio.com/graphql", "Authorization", "8d1ec32c-116c-4f6e-a89e-dc6bd78d0266");
@@ -34,9 +34,10 @@ public class GrowingioAnalysisApiExaples {
             jobResultDto = growingioApi.jobResult(analysisChartsExportJobDto.getId());
             if (jobResultDto.getUris().size()!=0) {
                 isDone = true;
-            }else if (analysisChartsExportJobDto.getStage().equals(ERROR)) {
+            }else if (jobResultDto.getStage().equals(ERROR)) {
                 isDone = true;
                 System.out.println(jobResultDto + "下载失败");
+                return;
             }
         }
         System.out.println(jobResultDto);
