@@ -19,7 +19,7 @@ object GrowingioApiSpec extends App {
   println(suejdjrd)
 
   println("========================submitTagUserExportJob============================")
-  val tuejd = growingioApi.submitTagUserExportJob("rRGoVRpm", Collections.emptyList(), charset = "UTF-16LE", false)
+  val tuejd = growingioApi.submitTagUserExportJob("rRGoVRpm", "name",Collections.emptyList(), charset = "UTF-16LE", false)
   println(tuejd)
   println("========================submitTagUserExportJob jobResult============================")
   val tuejdjrd = growingioApi.jobResult(tuejd.getId)

@@ -115,6 +115,15 @@ final GrowingioApi newGrowingioApi = GrowingioApi.apply("http://gdp-dev.growingi
 List<TagDto> newTags = newGrowingioApi.tags();
 System.out.println(newTags);
 ```
+cdp获取token命令如下
+```
+curl --location --request POST 'http://uat-gdp.growingio.com/oauth/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=api' \
+--data-urlencode 'client_secret=API密钥' \
+--data-urlencode 'scope=system' 
+```
 
 > 本SDK没有像示例一样封装每个API，但为了方便，使用者可以参考`GrowingioApi`自己封装一下。
 
