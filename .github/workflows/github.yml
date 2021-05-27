@@ -33,7 +33,7 @@ jobs:
             ${{ runner.os }}-ivy-
 
       - name: Build growing-graphql-javasdk
-        run: sbt compile publishM2 --debug
+        run: sbt graphqlCodegen compile publishM2 --debug
 
       - name: Build gradle javasdk-examples --warning-mode all
         run: ./javasdk-examples/gradlew -p javasdk-examples build --warning-mode all
