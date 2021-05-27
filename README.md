@@ -117,7 +117,7 @@ System.out.println(newTags);
 ```
 cdp获取token命令如下
 ```
-curl --location --request POST 'http://uat-gdp.growingio.com/oauth/token' \
+curl --location --request POST 'http://uat-gdp.growingio.com/accounts/oauth/access_token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=api' \
