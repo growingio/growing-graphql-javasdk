@@ -10,9 +10,12 @@ object Dependencies {
     val commonsLang = "3.10"
     val guava = "29.0-jre"
     val scalaTest = "3.2.0"
+    val javaxAnnotation = "1.3.2"
   }
 
   object Compiles {
+
+    val javaxAnnotation = "javax.annotation" % "javax.annotation-api" % Versions.javaxAnnotation
 
     //schema处理和测试不进行打包，减少依赖
     val scalaTest = "org.scalatest" %% "scalatest" % Versions.scalaTest % "test"
@@ -24,6 +27,6 @@ object Dependencies {
 
   lazy val l = libraryDependencies
 
-  lazy val javaClient = l ++= Seq(commonLang, guava, scalaTest)
+  lazy val javaClient = l ++= Seq(commonLang, guava, javaxAnnotation, scalaTest)
 
 }
