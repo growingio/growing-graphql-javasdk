@@ -85,7 +85,6 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   releaseProcess := Seq[ReleaseStep](
     checkSnapshotDependencies,
     inquireVersions,
-    runClean,
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
