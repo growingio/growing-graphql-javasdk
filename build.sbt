@@ -7,6 +7,9 @@ organization := "io.growing"
 
 Dependencies.javaClient
 
+lazy val utf8: String = "UTF-8"
+lazy val javaVersion: String = "1.8"
+
 //插件配置
 val generatePluginSettings = Seq(
   graphqlSchemaPaths := Seq("src/main/resources/all.graphqls"),
@@ -95,5 +98,8 @@ lazy val `growingio-graphql-javasdk` = subProject("growingio-graphql-javasdk", S
   ))
 
 def subProject(id: String, path: Option[String] = None): Project = {
-  Project(id, file(path.getOrElse(id)))
+  Project(id, file(path.getOrElse(id))).settings(
+    Compile / compile / javacOptions ++= Seq("-source", javaVersion, "-target", javaVersion, "-encoding", utf8, "-deprecation"),
+    Compile / doc / javacOptions ++= Seq("-linksource", "-source", javaVersion, "-docencoding", utf8, "-charset", utf8, "-encoding", utf8, "-nodeprecated")
+  )
 }
